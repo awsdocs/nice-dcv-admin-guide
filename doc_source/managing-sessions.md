@@ -34,7 +34,7 @@ Virtual sessions are supported on Linux NICE DCV servers only\.
 
 A NICE DCV server can host multiple virtual sessions simultaneously\. Virtual sessions are created and managed by NICE DCV users\. NICE DCV users can only manage sessions that they have created\. The root user can manage all virtual sessions that are currently running on the NICE DCV server\.
 
-To use virtual sessions, ensure that you have properly installed and configured an X server\. A new virtual X server instance is created for each session\. Each session uses the display provided by its virtual server\. This enables you to host multiple virtual sessions on a single NICE DCV server\. To share hardware\-based OpenGL across multiple virtual sessions, you must connect the virtual x server instance to the GPU by configuring the `dcv-gl.conf` file\.
+To use virtual sessions, ensure that you have properly installed and configured an X server\. A new virtual X server instance is created for each session\. Each session uses the display provided by its virtual server\. This enables you to host multiple virtual sessions on a single NICE DCV server\. To share hardware\-based OpenGL across multiple virtual sessions, you must connect the virtual X server instance to the GPU by configuring the `dcv-gl.conf` file\.
 
 **Note**  
 You can't run console and virtual sessions on the same NICE DCV server at the same time\.

@@ -11,13 +11,13 @@ Smart card caching is disabled by default\. Clients can manually enable smart ca
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
 
-1. Locate the `enable-cache` parameter in the `[smartcard]` section\. To permanently enable smart card caching, enter `always-on` \. To permanently disable smart card caching, enter `always-off`\.
+1. Locate the `enable-cache` parameter in the `[smartcard]` section\. To permanently enable smart card caching, enter `'always-on'` \. To permanently disable smart card caching, enter `'always-off'`\.
 
    If there is no `enable-cache` parameter in the `[smartcard]` section, add it manually using the following format:
 
    ```
    [smartcard]
-   enable-cache=always-on|always-off
+   enable-cache='always-on'|'always-off'
    ```
 
 1. Save and close the file\.

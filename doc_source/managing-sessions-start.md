@@ -80,6 +80,8 @@ $ dcv create-session my-session
 
 Enabling an automatic console session ensures that a console session is automatically created each time that the NICE DCV server starts\. The automatic console session is owned by the NICE DCV user specified by the `owner` configuration parameter, and its session ID is always `console`\.
 
+Other parameters affecting automatic console sessions are `max-concurrent-clients`, `permissions-file`, and `storage-root`\. For more information about these parameters, see [`session-management/automatic-console-session` Parameters](config-param-ref.md#session_management_automatic_console_session)\.
+
 **Note**  
 NICE DCV does not support automatic virtual sessions\.
 
@@ -87,11 +89,11 @@ NICE DCV does not support automatic virtual sessions\.
 
 1. Open the Windows Registry Editor\.
 
-1. Navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/session\-management/** key\.
+1. Navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/session\-management/automatic\-console\-session** key\.
 
 1. Create a `create-session` parameter:
 
-   1. Open the context \(right\-click\) menu for the **session\-management** key in the left\-hand panel and choose **New**, **DWORD \(32\-bit\) Value**\.
+   1. Open the context \(right\-click\) menu for the **automatic\-console\-session** key in the left\-hand panel and choose **New**, **DWORD \(32\-bit\) Value**\.
 
    1. For **Name**, type `create-session` and press **Enter**\.
 
@@ -99,7 +101,7 @@ NICE DCV does not support automatic virtual sessions\.
 
 1. Create an `owner` parameter:
 
-   1. Open the context \(right\-click\) menu for the **session\-management** key in the left\-hand panel and choose **New**, **String Value**\.
+   1. Open the context \(right\-click\) menu for the **automatic\-console\-session** key in the left\-hand panel and choose **New**, **String Value**\.
 
    1. For **Name**, type `owner` and press **Enter**\.
 
@@ -113,10 +115,10 @@ NICE DCV does not support automatic virtual sessions\.
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
 
-1. Add the `create-session` and `owner` parameters to the `[session-management]` section using the following format:
+1. Add the `create-session` and `owner` parameters to the `[session-management/automatic-console-session]` section using the following format:
 
    ```
-   [session-management]
+   [session-management/automatic-console-session]
    create-session=true
    owner="session_owner"
    ```

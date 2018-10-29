@@ -28,7 +28,7 @@ The following code block shows the format of the `license.lic` file:
 
 ```
 HOST RLM_server_hostname RLM_server_identifier RLM_server_port
-ISV nice
+ISV nice ISV_port
 LICENSE product_1 major_version expiration_date concurrent_sessions share=hi _ck=checksum sig="signature"
 LICENSE product_2 major_version expiration_date concurrent_sessions share=hi _ck=checksum sig="signature"
 ```
@@ -43,14 +43,18 @@ LICENSE nice dcv-gl 2017 permanent 10 share=hi _ck=123454323x sig="1234567890abc
 ```
 
 **To modify the `license.lic` file received from NICE**  
-Open the file with your preferred text editor and add your RLM server's hostname, `rlmhostid` identifier, and TCP port number to the first line in the file, which starts with `HOST`\.
+Open the file with your preferred text editor and add your RLM server's hostname and the TCP port number to the first line in the file, which starts with `HOST`\.
+
+Specifying the the *ISV\_port* is optional\. This specifies the port on which the license server listens\. If you do not specify a port, a random port is used\. This could cause conflicts with your firewall configuration\.
 
 **Note**  
-Modifying any other part of the license corrupts the file's signature\.
+Modifying any other part of the license corrupts the file's signature and invalidates the license\. The *RLM\_server\_identifier* corresponds to the `rlmhostid` identifier that was used to generate the license and cannot be modified\.
 
 ## Step 2: Prepare the RLM Server<a name="setting-up-floating-prep"></a>
 
 The license file must be installed on an RLM server\. Any NICE DCV server that can access the RLM server can use the license\.
+
+If you put the RLM server behind a firewall, be aware that the RLM license server listens on two separate TCP ports\. One is the main port, is specified in the license file `HOST` line and by default is `5053`\. The other is related to the ISV license, is specifed in the license file `ISV` line and if not specified is randomly assigned: if you want the server to use a fixed port \(e\.g\. for easier firewall configuration\) you need to define the ISV port in the license file\. See [Step 1: Modify the License File](#setting-up-floating-modify) for more details\. 
 
 For more information about RLM, see the [Reprise Software](http://www.reprisesoftware.com/products/license-manager.php) website\.
 
@@ -220,8 +224,8 @@ The contents of the `rlm.log` might vary slightly depending on the RLM server ve
       	echo -n "Starting rlm: "
       	touch ${RLM_LOG_FILE}
       	chown "${RLM_USER}" ${RLM_LOG_FILE}
-      	su -p -s /bin/sh "${RLM_USER}" -c "${RLM_ROOT}/rlm -c ${RLM_LICENSE_DIR} -
-      		nows -dlog +${RLM_LOG_FILE} &"
+      	su -p -s /bin/sh "${RLM_USER}" -c "${RLM_ROOT}/rlm -c ${RLM_LICENSE_DIR} \
+      	    -nows -dlog +${RLM_LOG_FILE} &"
       	if [ $? -ne 0 ]; then
       		echo "FAILED"
       		return 1
@@ -231,7 +235,7 @@ The contents of the `rlm.log` might vary slightly depending on the RLM server ve
       
       stop() {
       	echo -n "Stopping rlm: "
-      	pid= _getpid ${RLM_ROOT}/rlm
+      	pid=`_getpid ${RLM_ROOT}/rlm`
       	if [ -n "$pid" ]; then
       		kill $pid >/dev/null 2>&1
       		sleep 3
@@ -244,7 +248,7 @@ The contents of the `rlm.log` might vary slightly depending on the RLM server ve
       }
       
       status() {
-      	pid = _getpid ${RLM_ROOT}/rlm
+      	pid=`_getpid ${RLM_ROOT}/rlm`
       	if [ -z "$pid" ]; then
       		echo "rlm is stopped"
       		return 3
