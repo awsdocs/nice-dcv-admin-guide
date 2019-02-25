@@ -89,15 +89,17 @@ NICE DCV does not support automatic virtual sessions\.
 
 1. Open the Windows Registry Editor\.
 
-1. Navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/session\-management/automatic\-console\-session** key\.
+1. Navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/session\-management** key\.
 
 1. Create a `create-session` parameter:
 
-   1. Open the context \(right\-click\) menu for the **automatic\-console\-session** key in the left\-hand panel and choose **New**, **DWORD \(32\-bit\) Value**\.
+   1. Open the context \(right\-click\) menu for the **session\-management** key in the left\-hand panel and choose **New**, **DWORD \(32\-bit\) Value**\.
 
    1. For **Name**, type `create-session` and press **Enter**\.
 
    1. Open the **create\-session** parameter\. For **Value data**, type `1`, and choose **OK**\.
+
+1. Navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/session\-management/automatic\-console\-session** key\.
 
 1. Create an `owner` parameter:
 
@@ -118,8 +120,10 @@ NICE DCV does not support automatic virtual sessions\.
 1. Add the `create-session` and `owner` parameters to the `[session-management/automatic-console-session]` section using the following format:
 
    ```
+   [session-management]
+   create-session = true
+   
    [session-management/automatic-console-session]
-   create-session=true
    owner="session_owner"
    ```
 

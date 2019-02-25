@@ -1,7 +1,7 @@
 # NICE Desktop Cloud Visualization Administrator Guide
 
 -----
-*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -19,6 +19,9 @@ Amazon's trademarks and trade dress may not be used in
    + [Installing the NICE DCV Server](setting-up-installing.md)
       + [Installing the NICE DCV Server on Windows](setting-up-installing-windows.md)
       + [Installing the NICE DCV Server on Linux](setting-up-installing-linux.md)
+         + [Prerequisites for Linux Servers](setting-up-installing-linux-prereq.md)
+         + [Install the NICE DCV Server](setting-up-installing-linux-server.md)
+         + [Post-Installation Checks](setting-up-installing-linux-checks.md)
    + [Licensing NICE DCV](setting-up-license.md)
       + [Installing an Extended Demo License](setting-up-demo.md)
       + [Installing a Floating License](setting-up-floating.md)
@@ -41,5 +44,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Viewing NICE DCV Sessions](managing-sessions-lifecycle-view.md)
 + [Troubleshooting NICE DCV](troubleshooting.md)
    + [Using the Log Files](troubleshooting-logs.md)
+   + [Common Issues](troubleshooting-issues.md)
 + [NICE DCV Server Parameter Reference](config-param-ref.md)
+   + [Modifying Configuration Parameters](config-param-ref-modify.md)
 + [Document History for NICE DCV](doc-history.md)

@@ -17,6 +17,7 @@ When you purchase a floating license from NICE, you receive a `license.lic` file
 
 The `license.lic` file that you receive from NICE specifies the following information:
 + The RLM server's hostname, `rlmhostid` identifier, and TCP port number
++ The ISV port number\. This is the port on which the RLM server listens for DCV licenses\. 
 + The NICE DCV products covered by the license, along with the following details for each product:
   + The major version covered by the license\. For example, `2017` for the 2017 NICE DCV products\.
   + The expiration date\. `Permanent` indicates that the license does not expire\.
@@ -28,12 +29,15 @@ The following code block shows the format of the `license.lic` file:
 
 ```
 HOST RLM_server_hostname RLM_server_identifier RLM_server_port
-ISV nice ISV_port
+ISV nice port=port_number
 LICENSE product_1 major_version expiration_date concurrent_sessions share=hi _ck=checksum sig="signature"
 LICENSE product_2 major_version expiration_date concurrent_sessions share=hi _ck=checksum sig="signature"
 ```
 
-The following code block shows an example of a `license.lic` file:
+**Note**  
+The ISV port is optional\.
+
+The following code block shows an example of a `license.lic` file with the ISV port omitted\. The license file includes licenses for two NICE products \- DCV and dcv\-gl\.
 
 ```
 HOST My-RLM-server abcdef123456 5053
@@ -42,13 +46,22 @@ LICENSE nice dcv 2017 permanent 10 share=hi _ck=456789098a sig="abcdefghijklmnop
 LICENSE nice dcv-gl 2017 permanent 10 share=hi _ck=123454323x sig="1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz12"
 ```
 
-**To modify the `license.lic` file received from NICE**  
-Open the file with your preferred text editor and add your RLM server's hostname and the TCP port number to the first line in the file, which starts with `HOST`\.
+**To modify the `license.lic` file received from NICE**
 
-Specifying the the *ISV\_port* is optional\. This specifies the port on which the license server listens\. If you do not specify a port, a random port is used\. This could cause conflicts with your firewall configuration\.
+1. Open the file with your preferred text editor\.
 
-**Note**  
-Modifying any other part of the license corrupts the file's signature and invalidates the license\. The *RLM\_server\_identifier* corresponds to the `rlmhostid` identifier that was used to generate the license and cannot be modified\.
+1. Add your RLM server's hostname and the TCP port number to the first line in the file, which starts with `HOST`\.
+**Warning**  
+The *RLM\_server\_identifier* corresponds to the `rlmhostid` identifier that was used to generate the license\. The *RLM\_server\_identifier* cannot be modified\.
+
+1. \(Optional\) Complete the ISV port number in second line in the file, which starts with `ISV`, by adding `port=port_number`\.
+
+   If you do not want to specify an ISV port, omit `port=port_number`\. If you do not specify a port, a random port is used\. Using a random port could cause conflicts with your firewall configuration\.
+
+1. Save and close the file\.
+
+**Warning**  
+Modifying any other part of the license corrupts the file's signature and invalidates the license\.
 
 ## Step 2: Prepare the RLM Server<a name="setting-up-floating-prep"></a>
 
@@ -60,7 +73,7 @@ For more information about RLM, see the [Reprise Software](http://www.reprisesof
 
 **To prepare the RLM server on Windows**
 
-1. On your RLM server, download the RLM License Administration Bundle from the [Reprise Software website](http://www.reprisesoftware.com/products/license-manager.php)\.
+1. On your RLM server, download the RLM License Administration Bundle from the [Reprise Software website](http://www.reprisesoftware.com/admin/software-licensing.php)\.
 
 1. Extract the contents of the RLM License Administration Bundle to `C:\RLM`\.
 

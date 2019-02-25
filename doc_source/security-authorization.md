@@ -12,6 +12,9 @@ The following features can be referenced in the permissions file:
 + `file-upload` — Upload files to the session storage\.
 + `mouse` — Input from the client pointer to the NICE DCV server\.
 + `keyboard` — Input from the client keyboard to the NICE DCV server\.
++ `keyboard-sas` — Use secure attention sequence \(Control \+ Alt \+ Del\)\. Requires the `keyboard` feature\. Supported on DCV 2017\.3 and later\.
++ `touch` — Use native touch events\. Supported on DCV 2017\.3 and later\. Not supported with Linux NICE DCV Servers\.
++ `pointer` — View NICE DCV server mouse position events and pointer shapes\. Supported on DCV 2017\.3 and later\.
 + `audio-out` — Play back NICE DCV server audio on the client\.
 + `audio-in` — Insert audio from the client to the NICE DCV server\.
 + `printer` — Print PDFs or XPS files from the NICE DCV server to the client\.

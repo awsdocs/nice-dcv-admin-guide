@@ -1,10 +1,6 @@
 # NICE DCV Server Parameter Reference<a name="config-param-ref"></a>
 
-The following table lists the parameters that can be configured to customize the NICE DCV server\.
-
-For Windows NICE DCV servers, the configuration parameters must be configured using the Windows Registry Editor\. The parameters can be found by navigating to the `HKEY_USERS/S-1-5-18/Software/GSettings/com/nicesoftware/dcv/` registry path and selecting the key specified in the section heading\. If the parameter is not located in the specified key, add it using the type specified in the **Type** column, and the parameter as the name\.
-
-For Linux NICE DCV servers, the configuration parameters must be configured in the `/etc/dcv/dcv.conf` file using your preferred text editor\. The parameters can be found by locating the relevant section in the file\. If the parameter is not listed below the section heading, add it using the `parameter_name="value"` format\.
+The following tables list the parameters that can be configured to customize the NICE DCV server\.
 
 **Topics**
 + [`connectivity` Parameters](#connectivity)
@@ -20,6 +16,7 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 + [`windows` Parameters](#windows)
 + [`clipboard` Parameters](#clipboard)
 + [`smartcard` Parameters](#smartcard)
++ [Modifying Configuration Parameters](config-param-ref-modify.md)
 
 ## `connectivity` Parameters<a name="connectivity"></a>
 
@@ -45,6 +42,7 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 | max\-concurrent\-clients | DWORD \(32\-bit\) | \-1 | Maximum number of concurrent clients per session — Specifies the maximum number of concurrent clients per session\. If set to \-1, no limit is enforced\. To set the limit only for the automatic session, use 'max\-concurrent\-clients' of section 'session\-management/automatic\-console\-session'\. | 
 | enable\-gl\-in\-virtual\-sessions | String | 'default\-on' | Whether to employ dcv\-gl feature — Specifies whether to use the dcv\-gl feature \(a license is required\)\. Allowed values: 'always\-on', 'always\-off', 'default\-on', 'default\-off'\. | 
 | virtual\-session\-font\-path | String | '' | Whether to add special font paths — Specifies the path of special fonts\. Some applications require a special font to be passed to the X server\. | 
+| virtual\-session\-default\-layout | String | \[\] | Default layout for virtual sessions — If this is set, the Xdcv server is configured to create the specified monitor layout at startup\. For each display, you can configure the resolution \(w,h\) and position \(x,y\)\. All of the specified monitors are enabled\. For example, \[\{'w':<800>, 'h':<600>, 'x':<0>, 'y': <0>\}, \{'w':<1024>, 'h':<768>, 'x':<800>, 'y':<0>\}\] The maximum number of monitors specified for virtual\-session\-monitors has a higher priority than the number of monitor layouts specified for virtual\-session\-default\-layout\. For example, if virtual\-session\-default\-layout specifies five monitor layouts, but virtual\-session\-monitors specifies a maximum of four monitors, only the first four monitors layouts are created\. If this key is set, the number of enable monitors setting \(from virtual\-session\-monitors key\) is ignored\.  | 
 | virtual\-session\-xdcv\-args | String | '' | Additional arguments to pass to Xdcv — Specifies any additional arguments to be passed to Xdcv\. | 
 
 ## `session-management/defaults` Parameters<a name="session_management_defaults"></a>
@@ -54,7 +52,7 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 
 | Parameter | Type \(Windows only\) | Default value | Description | 
 | --- | --- | --- | --- | 
-| permissions\-file | String | '' | Default permissions included in all session — Specifies the path to the permissions file to be automatically merged with the permissions selected by the user for each session\. If empty, use the 'default\.perm' file, which is located in /etc/dcv/ for Linux, or in the DCV installation folder \(for example, 'C:\\Program Files\\NICE\\DCV\\Server\\conf'\) for Windows\. | 
+| permissions\-file | String | '' | Default permissions included in all sessions — Specifies the path to the permissions file to be automatically merged with the permissions selected by the user for each session\. If empty, use the 'default\.perm' file, which is located in /etc/dcv/ for Linux, or in the DCV installation folder \(for example, 'C:\\Program Files\\NICE\\DCV\\Server\\conf'\) for Windows\. | 
 
 ## `session-management/automatic-console-session` Parameters<a name="session_management_automatic_console_session"></a>
 
@@ -79,6 +77,9 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 | authentication\-threshold | DWORD \(32\-bit\) | 3 | Authentication threshold — Specifies how many times each client can fail authentication before the connection is closed by the server\. To allow unlimited authentication attempts, use 0\. | 
 | passwd\-file | String | '' | Password file — Specifies the password file to be used to check user credentials \(only with dcv authentication mode\)\. If empty, use the default file in $\{XDG\_CONFIG\_HOME\}/NICE/dcv/passwd for Linux, or %CSIDL\_LOCAL\_APPDATA%\\NICE\\dcv\\passwd for Windows\. | 
 | pam\-service\-name | String | 'dcv' | PAM service name — Specifies the name of the PAM configuration file used by DCV\. The default PAM service name is 'dcv' and corresponds with the /etc/pam\.d/dcv configuration file\. This parameter is only used if the 'system' authentication method is used\.  | 
+| enable\-gssapi | DWORD \(32\-bit\) | false | Enable GSSAPI SASL mechanism — Enables or disables the GSSAPI SASL mechanism, which allows DCV authentication with kerberos\. | 
+| server\-fqdn | String | '' | Server FQDN — Specifies the server's fully qualified domain name \(FQDN\)\. Empty means gethostname\(\)\. | 
+| user\-realm | String | '' | Server user realm — Specifies a user realm for the server\. | 
 | ca\-file | String | '' | CA file — Specifies the file containing the certificate authorities \(CAs\) trusted by the DCV server\. If empty, use the default trust store provided by the system\. | 
 | auth\-token\-verifier | String | '' | The endpoint of the authentication token verifier — Specifies the endpoint \(URL\) of the authentication token verifier used by the DCV server\. If empty, the internal authentication token verifier is used\. | 
 | no\-tls\-strict | DWORD \(32\-bit\) | false | Disable strict certificate validation — Enables or disables strict certificate validation when connecting to an external authentication token verifier\. Strict certificate validation must be disabled if the authentication token verifier uses a self\-signed certificate\. | 
@@ -89,7 +90,7 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 | connection\-setup\-timeout | DWORD \(32\-bit\) | 5 | Channel connection setup timeout — Specifies the amount of time \(in seconds\) allowed for the channel connection setup procedure to be completed before timing out\. If the procedure takes more, then the channel is closed\. If set to 0, the channel connection setup does not time out\. | 
 | auth\-connection\-setup\-timeout | DWORD \(32\-bit\) | 120 | Authentication channel connection setup timeout — Specifies the amount of time \(in seconds\) allowed for the authentication channel connection setup procedure to be completed before timing out\. If the procedure takes more, then the channel is closed\. If set to 0, the authentication channel connection setup timeout is disabled\. | 
 | ciphers | String | 'ECDHE\-RSA\-AES128\-GCM\-SHA256:ECDHE\-ECDSA\-AES128\-GCM\-SHA256:ECDHE\-RSA\-AES256\-GCM\-SHA384:ECDHE\-ECDSA\-AES256\-GCM\-SHA384:ECDHE\-RSA\-AES128\-SHA256:ECDHE\-RSA\-AES256\-SHA384' | Cipher list used on the TLS connections — Specifies the cipher list used on TLS connections\. The cipher list must be separated using the character ":" and must be supported by openssl and the clients\. | 
-| os\-auto\-lock | DWORD \(32\-bit\) | true | Whether to lock the OS session when last client connection ends — If enabled, the OS session is locked when the last client connection is closed\.  | 
+| os\-auto\-lock | DWORD \(32\-bit\) | true | Specifies whether the OS session should be locked when the last client connection ends\. — This parameter is read each time a session is closed, and the new value is used for the next session\. | 
 
 ## `license` Parameters<a name="license"></a>
 
@@ -102,12 +103,14 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 
 ## `input` Parameters<a name="input"></a>
 
- The following table describes the configuration parameters in the `[input]` section of the `/etc/dcv/dcv.conf` file for Linux NICE DCV servers, and the `input` registry key for Windows NICE DCV servers\.
+ The following table describes the configuration parameters in the `[input]` section of the `/etc/dcv/dcv.conf` file for Linux NICE DCV servers, and the `input` registry key for Windows NICE DCV servers\. 
 
 
 | Parameter | Type \(Windows only\) | Default value | Description | 
 | --- | --- | --- | --- | 
-| enable\-autorepeat | DWORD \(32\-bit\) | true | Whether to allow autorepeat on Linux — Specifies whether to allow autorepeat for a single key\. Excludes key combinations and key modifiers\. | 
+| enable\-relative\-mouse | DWORD \(32\-bit\) | true | Relative mouse movements — Specifies whether to allow relative mouse movements\. | 
+| enable\-autorepeat | DWORD \(32\-bit\) | true | Linux autorepeat — Specifies whether to allow autorepeat for a single key on Linux servers\. Excludes key combinations and key modifiers\. | 
+| enable\-touch | DWORD \(32\-bit\) | true | Touch input — Specifies whether touch is enabled\. | 
 
 ## `display` Parameters<a name="display"></a>
 
@@ -117,22 +120,24 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 | Parameter | Type \(Windows only\) | Default value | Description | 
 | --- | --- | --- | --- | 
 | max\-compressor\-threads | DWORD \(32\-bit\) | 4 | Max compressor threads — Specifies the maximum number of compressor threads\. | 
-| target\-fps | DWORD \(32\-bit\) | 25 | Target frames per second — Specifies the maximum allowed frames per second\. A value of 0 means no limit\. | 
+| grabber\-target\-fps | DWORD \(32\-bit\) | 0 | Target frames per second of frame grabber — The upper limit to grab frames per second\. A value of 0 defaults to target\-fps\. | 
 | enable\-qu | DWORD \(32\-bit\) | true | Whether to send quality updates — Specifies whether to send quality updates\. | 
 | enable\-client\-resize | DWORD \(32\-bit\) | true | Whether to allow clients to set the display layout — Specifies whether clients are allowed to set the display layout\. | 
-| max\-num\-heads | DWORD \(32\-bit\) | 4 | Max number of heads — Specifies the maximum number of heads\. | 
+| max\-head\-resolution | String | \(4096, 2160\) | Max head resolution — Specifies the maximum resolution of a display head\. A display head is equivalent to a host monitor\. | 
+| min\-head\-resolution | String | \(640, 480\) | Min head resolution — Specifies the minimum resolution of a display head\. A display head is equivalent to a host monitor\. | 
+| max\-num\-heads | DWORD \(32\-bit\) | 4 | Max number of heads — Specifies the maximum number of heads\. A display head is equivalent to a host monitor\. | 
 | console\-session\-default\-layout | String | \[\] | Default screen resolution and position for console sessions — Specifies the default screen resolution and position for console sessions\. If this is set, DCV sets the requested layout at startup\. Each monitor can be configured with resolution \(w,h\) and position \(x,y\)\. All specified monitors are enabled\. Default layout example value: \[\{'w':<800>, 'h':<600>, 'x':<0>, 'y': <0>\}, \{'w':<1024>, 'h':<768>, 'x':<800>,'y':<0>\}\]  | 
-| use\-grabber\-dirty\-region | DWORD \(32\-bit\) | true | Whether to use dirty regions — Specifies whether to use dirty screen regions\. If enabled, the grabber tries to compute new frames out of the dirty regions from the screen\. | 
-| cuda\-devices | String | \[\] | CUDA devices used for stream encoding — Specifies the list of local CUDA devices which DCV uses to distribute encoding and CUDA workloads\. Each device is identified by a number that can be retrieved from the nvidia\-smi command\. For example, cuda\-devices=\['0', '2'\] indicates that DCV uses two GPUs, with IDs 0 and 2\. This setting is similar to the CUDA\_VISIBLE\_DEVICES environment variable, but it only applies to DCV\.  | 
+| use\-grabber\-dirty\-region | DWORD \(32\-bit\) | true | Whether to use dirty regions — Specifies whether to use dirty screen regions\. If enabled, the grabbenable\-cacheer tries to compute new frames out of the dirty regions from the screen\. | 
+| cuda\-devices | String | \[\] | CUDA devices used for stream encoding — Specifies the list of local CUDA devices that DCV uses to distribute encoding and CUDA workloads\. Each device is identified by a number that can be retrieved from the nvidia\-smi command\. For example, cuda\-devices=\['0', '2'\] indicates that DCV uses two GPUs, with IDs 0 and 2\. This setting is similar to the CUDA\_VISIBLE\_DEVICES environment variable, but it only applies to DCV\.  | 
 
 ## `display/linux` Parameters<a name="display_linux"></a>
 
- The following table describes the configuration parameters in the `[display/linux]` section of the `/etc/dcv/dcv.conf` file for Linux NICE DCV servers, and the `display/linux` registry key for Windows NICE DCV servers: \.
+ The following table describes the configuration parameters in the `[display/linux]` section of the `/etc/dcv/dcv.conf` file for Linux NICE DCV servers, and the `display/linux` registry key for Windows NICE DCV servers\. 
 
 
 | Parameter | Type \(Windows only\) | Default value | Description | 
 | --- | --- | --- | --- | 
-| gl\-displays | String | \[':0\.0'\] | 3D accelerated X displays — Specifies the list of local 3D accelerated X displays and screens used by DCV for OpenGL rendering in virtual sessions\. If this value is missing, you can't run OpenGL applications in virtual sessions\. This setting is ignored for console and display sessions\. | 
+| gl\-displays | String | \[':0\.0'\] | 3D accelerated X displays — Specifies the list of local 3D accelerated X displays and screens used by DCV for OpenGL rendering in virtual sessions\. If this value is missing, you can't run OpenGL applications in virtual sessions\. This setting is ignored for console sessions\.  | 
 | h264\-encoder\-displays | String | \[\] | H\.264 encoder X displays — Specifies the list of local X displays and screens that support accelerated H\.264 encoding\. If empty, DCV uses the same display selected for OpenGL rendering\. This setting is useful only in cases when some of the GPUs installed on the system do not provide acceleration for H\.264 encoding using one of the supported technologies\. | 
 
 ## `log` Parameters<a name="log"></a>
@@ -142,8 +147,8 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 
 | Parameter | Type \(Windows only\) | Default value | Description | 
 | --- | --- | --- | --- | 
-| directory | String | '' | Log output directory — Specifies the destination to which logs are saved\. | 
-| level | String | 'info' | Log level — Specifies the log file verbosity level\. The verbosity levels \(in order of the amount of detail they provide\) are: error, warning, info, and debug\. | 
+| directory | String | '' | Log output directory — Specifies the destination to which logs are saved\. If not specified it defaults to "C:\\ProgramData\\NICE\\DCV\\log\\" on Windows and to "/var/log/dcv/" on Linux\.  | 
+| level | String | 'info' | Log level — Specifies the log file verbosity level\. The verbosity levels \(in order of the amount of detail they provide\) are: 'error', 'warning', 'info', and 'debug'\. This value is automatically reload when it is changed on the configuration, so that it can be changed without restarting the server\. | 
 | rotate | DWORD \(32\-bit\) | 10 | Number of log file rotations — Specifies the number of times that log files are rotated before being removed\. If the value is 0, old versions are removed rather than rotated\. | 
 | transfer\-audit | String | 'none' | Transfer direction to audit — Specifies which transfer direction to audit\. If this parameter is enabled, a new CSV file logs transfers between the server and clients\. The allowed values are: 'none', 'server\-to\-client', 'client\-to\-server', and 'all'\. If this value is missing or equal to 'none', transfer audits are disabled and no file is created\. | 
 
@@ -164,7 +169,7 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 
 | Parameter | Type \(Windows only\) | Default value | Description | 
 | --- | --- | --- | --- | 
-| max\-payload\-size | DWORD \(32\-bit\) | 2097152 | Maximum size of clipboard's data — Specifies the maximum size \(in bytes\) of clipboard data that can be transferred from server to clients\. If this value is missing, the default limit of 2 MB is enforced\. | 
+| max\-payload\-size | DWORD \(32\-bit\) | 20971520 | Maximum size of clipboard's data — Specifies the maximum size \(in bytes\) of clipboard data that can be transferred from server to clients\. If this value is missing, the default limit of 20 MB is enforced\. | 
 | max\-text\-len | DWORD \(32\-bit\) | \-1 | Maximum number of characters of clipboard's text — Specifies the maximum number of characters of clipboard text that can be transferred from server to clients\. If this value is missing or set to \-1, no limit is enforced\. | 
 | max\-image\-area | DWORD \(32\-bit\) | \-1 | Maximum area of clipboard's image — Specifies the maximum area \(number of pixels\) of clipboard images that can be transferred from server to clients\. If this value is missing or set to \-1, no limit is enforced\. | 
 
@@ -175,4 +180,4 @@ For Linux NICE DCV servers, the configuration parameters must be configured in t
 
 | Parameter | Type \(Windows only\) | Default value | Description | 
 | --- | --- | --- | --- | 
-| enable\-cache | String | 'default\-off' | Configures smart card caching — Enables or disables smart card caching\. When enabled, the NICE DCV server caches the last value received from the client's smart card\. Future calls are retrieved directly from the server's cache, instead of from client\. This helps to reduce the amount of traffic that is transferred between the client and the server, and improves performance\. Allowed values include 'always\-on', 'always\-off', 'default\-on', and 'default\-off'\.  | 
+| enable\-cache | String | 'default\-off' | Smart card caching messages — Enables or disables smart card caching\. When enabled, the NICE DCV server caches the last value received from the client's smart card\. Future calls are retrieved directly from the server's cache, instead of from client\. This helps to reduce the amount of traffic that is transferred between the client and the server, and improves performance\. Allowed values include 'always\-on', 'always\-off', 'default\-on', and 'default\-off'\. This value is read from the configuration every time a client smartcard application is started\.  | 

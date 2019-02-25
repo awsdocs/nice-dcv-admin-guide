@@ -28,6 +28,38 @@ To change the NICE DCV server's authentication method, you must configure the `a
 
 1. Choose **OK** and close the Windows Registry Editor\.
 
+### Windows Credentials Provider<a name="manage-wcp"></a>
+
+Windows Credentials Provider enables users to bypass the Windows login if they successfully authenticate against the DCV server\.
+
+Windows Credentials Provider is only supported if the DCV `authentication` parameter is set to `system`\. If the DCV `authentication` parameter is set to `none`, users are required to manually log into Windows after they have been automatically authenticated against the DCV server\.
+
+Windows Credentials Provider is enabled by default when you install the NICE DCV server\.
+
+**To disable Windows Credentials Provider**
+
+1. Open the Windows Registry Editor\.
+
+1. Navigate to the **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\Credential Providers\\\{8A2C93D0\-D55F\-4045\-99D7\-B27F5E263407\}** key\.
+
+1. Choose **Edit**, **New**, **DWORD Value**\.
+
+1. For the name, type **Disabled**\.
+
+1. Open the value, for **Value data**, type `1` and choose **OK**\.
+
+1. Close the Windows Registry Editor\.
+
+**To re\-enable Windows Credentials Provider**
+
+1. Open the Windows Registry Editor\.
+
+1. Navigate to the **HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\Credential Providers\\\{8A2C93D0\-D55F\-4045\-99D7\-B27F5E263407\}** key\.
+
+1. Open the **Disabled** value, for **Value data**, type `o` and choose **OK**\.
+
+1. Close the Windows Registry Editor\.
+
 ## Configuring Authentication on Linux<a name="set-authentication-linux"></a>
 
 To change the NICE DCV server's authentication method, you must configure the `authentication` parameter in the `dcv.conf` file\.

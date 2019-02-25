@@ -44,7 +44,7 @@ Use the following commands:
   ```
   $ sudo service dcvserver start
   ```
-+ RHEL 7\.x, CentOS 7\.x, and SUSE Linux Enterprise 12 
++ RHEL 7\.x, CentOS 7\.x, SUSE Linux Enterprise 12, and Ubuntu 18\.x
 
   ```
   $ sudo systemctl start dcvserver
@@ -59,7 +59,7 @@ Use the following commands:
   ```
   $ sudo chkconfig —add dcvserver
   ```
-+ RHEL 7\.x, CentOS 7\.x, and SUSE Linux Enterprise 12 
++ RHEL 7\.x, CentOS 7\.x, SUSE Linux Enterprise 12, and Ubuntu 18\.x
 
   ```
   $ sudo systemctl enable dcvserver

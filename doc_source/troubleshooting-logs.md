@@ -4,7 +4,7 @@ The NICE DCV log files can be used to identify and troubleshoot problems with yo
 + Windows server
 
   ```
-  C:\ProgramData\NICE\dcv\logs\
+  C:\ProgramData\NICE\dcv\log\
   ```
 + Linux server
 
