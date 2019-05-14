@@ -27,7 +27,7 @@ You must specify the GPUs in the `gl-displays` parameter in the `dcv.conf` file 
 
 **To enable GPU sharing on a Linux NICE DCV server**
 
-1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
+1. Navigate to `/etc/dcv/` and open the `dcv.conf` file with your preferred text editor\.
 
 1. Add the `[display/linux]` section and the `gl-displays` parameter, then specify the available GPUs in the following format:
 

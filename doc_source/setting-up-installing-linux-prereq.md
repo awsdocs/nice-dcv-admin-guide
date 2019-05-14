@@ -246,6 +246,13 @@ nvidia-xconfig --preserve-busid
 
 If your Linux server is configured with more than one NVIDIA GPU, include the `--enable-all-gpus` parameter\.
 
+**Note**  
+Make sure that your server does not have the legacy `/etc/X11/XF86Config` file\. If it does, `nvidia-xconfig` updates that configuration file instead of generating the required `/etc/X11/xorg.conf` file\. Run the following command to remove the legacy `XF86Config` file:  
+
+```
+rm -rf /etc/X11/XF86Config*
+```
+
 You must also ensure that OpenGL hardware rendering is available on the Linux server\.
 
 **To verify that OpenGL hardware rendering is available**  

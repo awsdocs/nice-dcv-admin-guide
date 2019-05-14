@@ -50,26 +50,26 @@ This option is supported with virtual sessions on Linux NICE DCV servers only\. 
 ### Examples<a name="managing-sessions-start-manual"></a>
 
 **Example 1 \- Console session**  
-The following command creates a `console` session owned by `dcv-user` with a unique session ID `my-session`:
+The following command creates a `console` session owned by `dcv-user` with a unique session ID `my-session`, and specifies a permissions file named `perm-file.txt`:
 + Windows NICE DCV server
 
   ```
-  C:\> dcv create-session --owner dcv-user my-session
+  C:\> dcv create-session --owner dcv-user --permissions-file perm-file.txt my-session
   ```
 + Linux NICE DCV server
 
   ```
-  $ sudo dcv create-session --type=console --owner dcv-user my-session
+  $ sudo dcv create-session --type=console --owner dcv-user --permissions-file perm-file.txt my-session
   ```
 
-**Example 2 \- Virtual Session**  
+**Example 2 \- Virtual Session \(Linux NICE DCV Servers only\)**  
 The following command creates a `virtual` session using the `root` user to impersonate the intended session owner, `dcv-user`\. The session is owned by `dcv-user` even though it is created by the root user\.
 
 ```
 $ sudo dcv create-session --owner dcv-user --user dcv-user my-session
 ```
 
-**Example 3 \- Virtual Session**  
+**Example 3 \- Virtual Session \(Linux NICE DCV Servers only\)**  
 The following command creates a `virtual` session owned by the user who creates it:
 
 ```

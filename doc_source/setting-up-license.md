@@ -8,7 +8,7 @@ You do not need a license server to install and use the NICE DCV server on an EC
 
 Make sure that your instance:
 + Can reach the Amazon S3 endpoint\. If it has access to the internet, it connects using the Amazon S3 public endpoint\. If your instance does not have access to the internet, configure a gateway endpoint for your VPC with an outbound security group rule or Access Control List \(ACL\) policy that allows you to reach Amazon S3 via HTTPS\. For more information, see [Gateway VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html) in the *Amazon VPC User Guide*\. If you experience any issues connecting to the Amazon S3 bucket, see [Why can’t I connect to an S3 bucket using a gateway VPC endpoint?](https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/) in the *AWS Knowledge Center*\.
-+ Has permission to access the required Amazon S3 object\. Add the following Amazon S3 access policy to the instance's IAM role and replace the *region* placeholder with your region\. For more information, see [Create IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\.
++ Has permission to access the required Amazon S3 object\. Add the following Amazon S3 access policy to the instance's IAM role and replace the *region* placeholder with your region, for example `us-east-1`\. For more information, see [Create IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html)\.
 
   ```
   {

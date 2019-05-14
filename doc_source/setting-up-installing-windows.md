@@ -21,7 +21,7 @@ Use the NICE DCV server installation wizard for a guided installation\.
 **Note**  
 The NICE DCV server is only available in a 64\-bit version and supported on 64\-bit Windows operating systems\.
 
-1. Run `nice-dcv-server-x64-Release-2017.version_number.msi`\. 
+1. Run `nice-dcv-server-x64-Release-2017.4-version_number.msi`\. 
 
 1. On the Welcome screen, choose **Next**\.
 
@@ -71,5 +71,5 @@ The NICE DCV server is only available in a 64\-bit version and supported on 64\-
 1. Execute the unattended installer:
 
    ```
-   C:\> msiexec.exe /i nice-dcv-server-x64-Release-2017.version_number.msi /quiet /norestart /l*v dcv_install_msi.log
+   C:\> msiexec.exe /i nice-dcv-server-x64-Release-2017.4-version_number.msi /quiet /norestart /l*v dcv_install_msi.log
    ```

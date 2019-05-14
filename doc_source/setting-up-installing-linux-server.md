@@ -31,110 +31,110 @@ You must be logged in as the root user to install the NICE DCV server\.
    + RHEL 6\.x and CentOS 6\.x
 
      ```
-     $ tar -xvzf nice-dcv-2017.3-version-el6.tgz
+     $ tar -xvzf nice-dcv-2017.4-version-el6.tgz
      ```
    + RHEL 7\.x and CentOS 7\.x
 
      ```
-     $ tar -xvzf nice-dcv-2017.3-version-el7.tgz
+     $ tar -xvzf nice-dcv-2017.4-version-el7.tgz
      ```
    + SUSE Linux Enterprise 12\.x
 
      ```
-     $ tar -xvzf nice-dcv-2017.3-version-sles12.tgz
+     $ tar -xvzf nice-dcv-2017.4-version-sles12.tgz
      ```
    + Ubuntu 18\.04
 
      ```
-     $ tar -xvzf nice-dcv-2017.3-version-ubuntu1804.tgz
+     $ tar -xvzf nice-dcv-2017.4-version-ubuntu1804.tgz
      ```
 
 1. Navigate into the extracted folder\.
    + RHEL 6\.x and CentOS 6\.x
 
      ```
-     $ cd nice-dcv-2017.3-version-el6
+     $ cd nice-dcv-2017.4-version-el6
      ```
    + RHEL 7\.x and CentOS 7\.x
 
      ```
-     $ cd nice-dcv-2017.3-version-el7
+     $ cd nice-dcv-2017.4-version-el7
      ```
    + SUSE Linux Enterprise 12\.x
 
      ```
-     $ cd nice-dcv-2017.3-version-sles12
+     $ cd nice-dcv-2017.4-version-sles12
      ```
    + Ubuntu 18\.04
 
      ```
-     $ cd nice-dcv-2017.3-version-ubuntu1804
+     $ cd nice-dcv-2017.4-version-ubuntu1804
      ```
 
 1. Install the NICE DCV server\.
    + RHEL 6\.x and CentOS 6\.x
 
      ```
-     $ sudo yum install nice-dcv-server-2017.3.version.el6.x86_64.rpm
+     $ sudo yum install nice-dcv-server-2017.4.version.el6.x86_64.rpm
      ```
    + RHEL 7\.x and CentOS 7\.x
 
      ```
-     $ sudo yum install nice-dcv-server-2017.3.version.el7.x86_64.rpm
+     $ sudo yum install nice-dcv-server-2017.4.version.el7.x86_64.rpm
      ```
    + SUSE Linux Enterprise 12\.x
 
      ```
-     $ sudo zypper install nice-dcv-server-2017.3.version.sles12.x86_64.rpm
+     $ sudo zypper install nice-dcv-server-2017.4.version.sles12.x86_64.rpm
      ```
    + Ubuntu 18\.04
 
      ```
-     $ sudo apt install ./nice-dcv-server-2017.3.version-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-server-2017.4.version-1_amd64.ubuntu1804.deb
      ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
    + RHEL 6\.x and CentOS 6\.x
 
      ```
-     $ sudo yum install nice-xdcv-2017.3.version.el6.x86_64.rpm
+     $ sudo yum install nice-xdcv-2017.4.version.el6.x86_64.rpm
      ```
    + RHEL 7\.x and CentOS 7\.x
 
      ```
-     $ sudo yum install nice-xdcv-2017.3.version.el7.x86_64.rpm
+     $ sudo yum install nice-xdcv-2017.4.version.el7.x86_64.rpm
      ```
    + SUSE Linux Enterprise 12\.x
 
      ```
-     $ sudo zypper install nice-xdcv-2017.3.version.sles12.x86_64.rpm
+     $ sudo zypper install nice-xdcv-2017.4.version.sles12.x86_64.rpm
      ```
    + Ubuntu 18\.04
 
      ```
-     $ sudo apt install ./nice-xdcv-2017.3.version-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-xdcv-2017.4.version-1_amd64.ubuntu1804.deb
      ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
    + RHEL 6\.x and CentOS 6\.x
 
      ```
-     $ sudo yum install nice-dcv-gl-2017.3.version.el6.x86_64.rpm
+     $ sudo yum install nice-dcv-gl-2017.4.version.el6.x86_64.rpm
      ```
    + RHEL 7\.x and CentOS 7\.x
 
      ```
-     $ sudo yum install nice-dcv-gl-2017.3.version.el7.x86_64.rpm
+     $ sudo yum install nice-dcv-gl-2017.4.version.el7.x86_64.rpm
      ```
    + SUSE Linux Enterprise 12\.x
 
      ```
-     $ sudo zypper install nice-dcv-gl-2017.3.version.sles12.x86_64.rpm
+     $ sudo zypper install nice-dcv-gl-2017.4.version.sles12.x86_64.rpm
      ```
    + Ubuntu 18\.04
 
      ```
-     $ sudo apt install ./nice-dcv-gl-2017.3.version-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-gl-2017.4.version-1_amd64.ubuntu1804.deb
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
@@ -143,22 +143,22 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    + RHEL 6\.x and CentOS 6\.x
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2017.3.version.el6.x86_64.rpm
+     $ sudo yum install nice-dcv-simple-external-authenticator-2017.4.version.el6.x86_64.rpm
      ```
    + RHEL 7\.x and CentOS 7\.x
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2017.3.version.el7.x86_64.rpm
+     $ sudo yum install nice-dcv-simple-external-authenticator-2017.4.version.el7.x86_64.rpm
      ```
    + SUSE Linux Enterprise 12\.x
 
      ```
-     $ sudo zypper install nice-dcv-simple-external-authenticator-2017.3.version.sles12.x86_64.rpm
+     $ sudo zypper install nice-dcv-simple-external-authenticator-2017.4.version.sles12.x86_64.rpm
      ```
    + Ubuntu 18\.04
 
      ```
-     $ sudo apt install ./nice-dcv-simple-external-authenticator-2017.3.version-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-simple-external-authenticator-2017.4.version-1_amd64.ubuntu1804.deb
      ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 

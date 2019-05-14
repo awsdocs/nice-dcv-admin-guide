@@ -10,14 +10,7 @@ dcv list-sessions
 ```
 
 The command returns a list of active sessions in the following format:
-+ Windows NICE DCV server
 
-  ```
-  Processing command 'list-sessions'
-  { "sessions": [ { "id": "session_id", "owner": "session_owner" } ] }
-  ```
-+ Linux NICE DCV server
-
-  ```
-  Session: session_id (owner: session_owner)
-  ```
+```
+Session: session_id (owner: session_owner)
+```
