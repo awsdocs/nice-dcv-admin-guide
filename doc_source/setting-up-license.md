@@ -1,4 +1,4 @@
-# Licensing NICE DCV<a name="setting-up-license"></a>
+# Licensing the NICE DCV Server<a name="setting-up-license"></a>
 
 The NICE DCV licensing requirements differ depending on where you are installing and using the NICE DCV server\.
 
@@ -22,6 +22,9 @@ Make sure that your instance:
       ]
   }
   ```
++ If you are using a Windows instance, ensure that the instance can access the *instance metadata service*\. Access to this service is required to ensure that the NICE DCV server can be properly licensed\. For more information about the instance metadata service, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+
+  If you are using a custom Windows AMI, you must install either **EC2Config Service** \(Windows Server 2012 R2 and earlier\) or **EC2Launch** \(Windows Server 2016 and later\)\. This ensures that your instance can access the instance metadata service\. For more information, see [Configuring a Windows Instance Using the EC2Config Service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2config-service.html) or [Configuring a Windows Instance Using EC2Launch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 If you are installing and using the NICE DCV server on an Amazon EC2 instance, you can skip the rest of this chapter\. The rest of this chapter only applies to using the NICE DCV server on an on\-premises or alternative cloud\-based server\.
 

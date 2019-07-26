@@ -16,6 +16,7 @@ In a typical NICE DCV scenario, a graphic\-intensive application, such as a 3D m
 
 NICE DCV offers the following features:
 + **Enables collaboration** — It provides sessions that support multiple collaborative clients\. Sessions are dynamic and clients can connect and disconnect at any time during the session\. 
++ **Supports GPU sharing** \(Linux NICE DCV servers only\) — Enables you to share one or more physical GPUs between multiple virtual sessions running on a Linux NICE DCV server\.
 + **Supports H\.264\-based encoding** — It uses H\.264\-based video compression and encoding to reduce bandwidth consumption\. 
 + **Supports NVIDIA GRID** — It uses the latest NVIDIA Grid SDK technologies, such as NVIDIA H\.264 hardware encoding, to improve performance and reduce system load\. Requires an NVIDIA GRID compatible GPU\.
 + **Shares the entire desktop** — It uses the high\-performance NICE DCV protocol to share full control of the entire desktop\.
@@ -58,4 +59,4 @@ The following table lists the minimum system requirements for the NICE DCV clien
 
 There is no additional charge for using the NICE DCV server on an Amazon EC2 instance\. You pay the standard rates for the instance and other Amazon EC2 features that you use\.
 
-A license is required to install the NICE DCV server on an on\-premises or alternative cloud\-based server\. For more information, see [Licensing NICE DCV](setting-up-license.md)\.
+A license is required to install the NICE DCV server on an on\-premises or alternative cloud\-based server\. For more information, see [Licensing the NICE DCV Server](setting-up-license.md)\.

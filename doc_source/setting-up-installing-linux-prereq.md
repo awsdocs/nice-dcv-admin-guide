@@ -21,100 +21,185 @@ To help improve your experience with NICE DCV on a Linux server, you can install
 
 A desktop environment is a graphical user interface \(GUI\) that helps you to interact with the Linux operating system\. There are several desktop environments, and NICE DCV works with many of them\. A desktop manager is a program that manages the user login screen, and starts and stops the desktop environment sessions and the X server\.
 
-**To install and configure the desktop environment and desktop manager**
+The following tabbed content shows the steps for installing the default desktop environment and desktop manager on the supported operating systems\.
+
+------
+#### [ RHEL 7\.x ]
+
+The default desktop environment for RHEL 7\.x is Gnome3 and the default desktop manager is GDM\.
+
+**To install and configure the desktop environment and desktop manager on RHEL 7\.x**
 
 1. Install the desktop environment and the desktop manager packages\.
-   + RHEL 7\.x
-**Note**  
-The default desktop environment is Gnome3 and the default desktop manager is GDM\.
 
-     ```
-     $ sudo yum groupinstall 'Server with GUI'
-     ```
-   + CentOS 7\.x
-**Note**  
-The default desktop environment is Gnome3 and the default desktop manager is GDM\.
-
-     ```
-     $ yum groupinstall "GNOME Desktop"
-     ```
-   + RHEL 6\.x and CentOS 6\.x
-**Note**  
-The default desktop environment is Gnome and the default desktop manager is GDM\.
-
-     ```
-     $ sudo yum groupinstall\"X Window System" "Desktop" "General Purpose Desktop"
-     ```
-   + Amazon Linux 2
-**Note**  
-The default desktop environment is Gnome3 and the default desktop manager is GDM\.
-
-     ```
-     $ sudo yum install gdm gnome-session gnome-classic-session gnome-session-xsession
-     ```
-
-     ```
-     $ sudo yum install xorg-x11-server-Xorg xorg-x11-fonts-Type1 xorg-x11-drivers 
-     ```
-
-     ```
-     $ sudo yum install gnome-terminal gnu-free-fonts-common gnu-free-mono-fonts gnu-free-sans-fonts gnu-free-serif-fonts
-     ```
-   + Ubuntu 18\.x
-**Note**  
-The default desktop environment is Gnome3 and the default desktop manager is GDM3\. GDM3 is currently not supported with NICE DCV console sessions\. We recommend that you use the LightDM desktop manager if you plan to work with NICE DCV console sessions\.
-
-     ```
-     $ sudo apt update
-     ```
-
-     ```
-     $ sudo apt install ubuntu-desktop
-     ```
-
-     Install LightDM\.
-
-     ```
-     $ sudo apt install lightdm
-     ```
-   + SUSE Linux Enterprise 12\.x
-**Note**  
-The default desktop environment is SLE Classic and the default desktop manager is GDM\.
-
-     ```
-     $ sudo zypper install -t pattern gnome-basic
-     ```
-
-     ```
-     $ sudo sed -i "s/DISPLAYMANAGER=\"\"/DISPLAYMANAGER=\"gdm\"/" /etc/sysconfig/displaymanager
-     ```
-
-     ```
-     $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"sle-classic\"/" /etc/sysconfig/windowmanager
-     ```
+   ```
+   $ sudo yum groupinstall 'Server with GUI'
+   ```
 
 1. Update the software packages to ensure that the Linux server is up to date\.
-   + RHEL 6\.x/7\.x, CentOS 6\.x/7\.x, and Amazon Linux 2
 
-     ```
-     $ sudo yum upgrade
-     ```
-   + Ubuntu 18\.x
-
-     ```
-     $ sudo apt upgrade
-     ```
-   + SUSE Linux Enterprise 12\.x
-
-     ```
-     $ sudo zypper update
-     ```
+   ```
+   $ sudo yum upgrade
+   ```
 
 1. Reboot the Linux server\.
 
    ```
    $ sudo reboot
    ```
+
+------
+#### [ CentOS 7\.x ]
+
+The default desktop environment for CentOS 7\.x is Gnome3 and the default desktop manager is GDM\.
+
+**To install and configure the desktop environment and desktop manager on CentOS 7\.x**
+
+1. Install the desktop environment and the desktop manager packages\.
+
+   ```
+   $ yum groupinstall "GNOME Desktop"
+   ```
+
+1. Update the software packages to ensure that the Linux server is up to date\.
+
+   ```
+   $ sudo yum upgrade
+   ```
+
+1. Reboot the Linux server\.
+
+   ```
+   $ sudo reboot
+   ```
+
+------
+#### [ RHEL 6\.x and CentOS 6\.x ]
+
+The default desktop environment for RHEL 6\.x and CentOS 6\.x is Gnome and the default desktop manager is GDM\.
+
+**To install and configure the desktop environment and desktop manager on RHEL 6\.x and CentOS 6\.x**
+
+1. Install the desktop environment and the desktop manager packages\.
+
+   ```
+   $ sudo yum groupinstall\"X Window System" "Desktop" "General Purpose Desktop"
+   ```
+
+1. Update the software packages to ensure that the Linux server is up to date\.
+
+   ```
+   $ sudo yum upgrade
+   ```
+
+1. Reboot the Linux server\.
+
+   ```
+   $ sudo reboot
+   ```
+
+------
+#### [ Amazon Linux 2 ]
+
+The default desktop environment for Amazon Linux 2 is Gnome3 and the default desktop manager is GDM\.
+
+**To install and configure the desktop environment and desktop manager on Amazon Linux 2**
+
+1. Install the desktop environment and the desktop manager packages\.
+
+   ```
+   $ sudo yum install gdm gnome-session gnome-classic-session gnome-session-xsession
+   ```
+
+   ```
+   $ sudo yum install xorg-x11-server-Xorg xorg-x11-fonts-Type1 xorg-x11-drivers 
+   ```
+
+   ```
+   $ sudo yum install gnome-terminal gnu-free-fonts-common gnu-free-mono-fonts gnu-free-sans-fonts gnu-free-serif-fonts
+   ```
+
+1. Update the software packages to ensure that the Linux server is up to date\.
+
+   ```
+   $ sudo yum upgrade
+   ```
+
+1. Reboot the Linux server\.
+
+   ```
+   $ sudo reboot
+   ```
+
+------
+#### [ Ubuntu 18\.x ]
+
+The default desktop environment for Ubuntu 18\.x is Gnome3 and the default desktop manager is GDM3\. GDM3 is currently not supported with NICE DCV console sessions\. We recommend that you use the LightDM desktop manager if you plan to work with NICE DCV console sessions\.
+
+**To install and configure the desktop environment and desktop manager on Ubuntu 18\.x**
+
+1. Install the desktop environment and the desktop manager packages\.
+
+   ```
+   $ sudo apt update
+   ```
+
+   ```
+   $ sudo apt install ubuntu-desktop
+   ```
+
+   Install LightDM\.
+
+   ```
+   $ sudo apt install lightdm
+   ```
+
+1. Update the software packages to ensure that the Linux server is up to date\.
+
+   ```
+   $ sudo apt upgrade
+   ```
+
+1. Reboot the Linux server\.
+
+   ```
+   $ sudo reboot
+   ```
+
+------
+#### [ SUSE Linux Enterprise 12\.x ]
+
+The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic and the default desktop manager is GDM\.
+
+**To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 12\.x**
+
+1. Install the desktop environment and the desktop manager packages\.
+
+   ```
+   $ sudo zypper install -t pattern gnome-basic
+   ```
+
+   ```
+   $ sudo sed -i "s/DISPLAYMANAGER=\"\"/DISPLAYMANAGER=\"gdm\"/" /etc/sysconfig/displaymanager
+   ```
+
+   ```
+   $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"sle-classic\"/" /etc/sysconfig/windowmanager
+   ```
+
+1. Update the software packages to ensure that the Linux server is up to date\.
+
+   ```
+   $ sudo zypper update
+   ```
+
+1. Reboot the Linux server\.
+
+   ```
+   $ sudo reboot
+   ```
+
+------
 
 ## Configure the X Server<a name="linux-prereq-xserver"></a>
 
@@ -125,47 +210,32 @@ If you intend to use virtual sessions without GPU sharing, you do not need an X 
 
 The X server packages are typically installed as dependencies of the desktop environment and the desktop manager\. We recommend that you configure the X server to start automatically when your Linux server boots\.
 
-**To configure and start the X server**
+The following tabbed content shows how to configure and start the X server on the supported operating systems\.
+
+------
+#### [ RHEL 6\.x and CentOS 6\.x ]
+
+**To configure and start the X server on RHEL 6\.x and CentOS 6\.x**
 
 1. Configure the X server to start automatically when the Linux server boots\.
-   + RHEL 6\.x and CentOS 6\.x
 
-     ```
-     $ cat /etc/inittab  | grep "id.*initdefault"
-     ```
+   ```
+   $ cat /etc/inittab  | grep "id.*initdefault"
+   ```
 
-     If the command returns `id:5:initdefault`, the X server is already configured to start automatically\. Continue to the next step\.
+   If the command returns `id:5:initdefault`, the X server is already configured to start automatically\. Continue to the next step\.
 
-     If the command returns `id:3:initdefault`, the X server is not configured to start automatically\. Run the following command\.
+   If the command returns `id:3:initdefault`, the X server is not configured to start automatically\. Run the following command\.
 
-     ```
-     $ sudo sed -i "s/id:3:initdefault:/id:5:initdefault:/" /etc/inittab
-     ```
-   + RHEL 7\.x, CentOS 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
-
-     ```
-     $ sudo systemctl get-default
-     ```
-
-     If the command returns `graphical.target`, the X server is already configured to start automatically\. Continue to the next step\.
-
-     If the command returns `multi-user.target`, the X server is not configured to start automatically\. Run the following command:
-
-     ```
-     $ sudo systemctl set-default graphical.target
-     ```
+   ```
+   $ sudo sed -i "s/id:3:initdefault:/id:5:initdefault:/" /etc/inittab
+   ```
 
 1. Start the X server\.
-   + RHEL 6\.x and CentOS 6\.x
 
-     ```
-     $ sudo init 5
-     ```
-   + RHEL 7\.x, CentOS 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
-
-     ```
-     $ sudo systemctl isolate graphical.target
-     ```
+   ```
+   $ sudo init 5
+   ```
 
 1. Verify that the X server is running\.
 
@@ -178,6 +248,45 @@ The X server packages are typically installed as dependencies of the desktop env
    ```
    root      1891  0.0  0.7 277528 30448 tty7     Ssl+ 10:59   0:00 /usr/bin/Xorg :0 -background none -verbose -auth /run/gdm/auth-for-gdm-wltseN/database -seat seat0 vt7
    ```
+
+------
+#### [ RHEL 7\.x, CentOS 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x ]
+
+**To configure and start the X server on RHEL 7\.x, CentOS 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x**
+
+1. Configure the X server to start automatically when the Linux server boots\.
+
+   ```
+   $ sudo systemctl get-default
+   ```
+
+   If the command returns `graphical.target`, the X server is already configured to start automatically\. Continue to the next step\.
+
+   If the command returns `multi-user.target`, the X server is not configured to start automatically\. Run the following command:
+
+   ```
+   $ sudo systemctl set-default graphical.target
+   ```
+
+1. Start the X server\.
+
+   ```
+   $ sudo systemctl isolate graphical.target
+   ```
+
+1. Verify that the X server is running\.
+
+   ```
+   $ ps aux | grep X | grep -v grep
+   ```
+
+   The following shows example output if the X server is running\.
+
+   ```
+   root      1891  0.0  0.7 277528 30448 tty7     Ssl+ 10:59   0:00 /usr/bin/Xorg :0 -background none -verbose -auth /run/gdm/auth-for-gdm-wltseN/database -seat seat0 vt7
+   ```
+
+------
 
 ## Install the glxinfo Utility<a name="linux-prereq-tools"></a>
 
