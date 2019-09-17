@@ -1,6 +1,21 @@
-# Creating a Permissions File<a name="security-authorization-file-create"></a>
+# Working with Permissions Files<a name="security-authorization-file-create"></a>
 
-You can create a custom permissions file using your preferred text editor\. You might need to do the following when creating a custom permissions file\.
+You can create a custom permissions file or update an existing permissions file using your preferred text editor\. A permissions file typically takes the following format:
+
+```
+#import file_to_import
+
+[groups]
+group_definitions
+				
+[aliases]
+alias_definitions
+				
+[permissions]
+user_permissions
+```
+
+The following sections explain how to populate the sections when updating or creating a permissions file\.
 
 **Contents**
 + [Import an Existing Permissions File](#security-authorization-file-create-import)
@@ -133,6 +148,25 @@ The following **rules** can be used in permissions statements:
 + `deny` — Denies access to the feature and cannot be overridden by subsequent permissions\.
 
 The **features** can include individual NICE DCV features, aliases, or a combination of both\. The list of features must be separated by a space\. NICE DCV includes a built\-in `builtin` alias that includes all of the NICE DCV features\.
+
+The following features can be referenced in the permissions file:
++ `display` — Receive visual data from the NICE DCV server\.
++ `clipboard-copy` — Copy data from the NICE DCV server to the client clipboard\.
++ `clipboard-paste` — Paste data from the client clipboard to the NICE DCV server\.
++ `file-download` — Download files from the session storage\.
++ `file-upload` — Upload files to the session storage\.
++ `mouse` — Input from the client pointer to the NICE DCV server\.
++ `keyboard` — Input from the client keyboard to the NICE DCV server\.
++ `keyboard-sas` — Use the secure attention sequence \(**CTRL\+Alt\+Del**\)\. Requires the `keyboard` feature\. Supported on version DCV 2017\.3 and later\.
++ `touch` — Use native touch events\. Supported on version DCV 2017\.3 and later\. Not supported with Linux NICE DCV Servers\.
++ `stylus` — Input from specialized USB devices, such as 3D pointing devices or graphic tablets\.
++ `usb` — Read the smart card from the client\.
++ `pointer` — View NICE DCV server mouse position events and pointer shapes\. Supported on version DCV 2017\.3 and later\.
++ `audio-out` — Play back NICE DCV server audio on the client\.
++ `audio-in` — Insert audio from the client to the NICE DCV server\.
++ `printer` — Print PDFs or XPS files from the NICE DCV server to the client\.
++ `smartcard` — Read the smart card from the client\.
++ `builtin` — All features\.
 
 **Example**  
 The following example adds the permissions section heading and adds four permissions\. The first permission grants a user named `john` access to the `display`, `file-upload`, and `file-download` features\. The second permission denies the `observers` group access to the `audio-in` and `audio-out` features, and an alias named `clipboard-management`\. The third permission grants the `guests` operating system group access to the `clipboard-management` and `file-management` aliases\. The fourth permission grants the session owner access to all features\.

@@ -4,5 +4,5 @@ This section explains how into install the NICE DCV server on Linux\.
 
 **Topics**
 + [Prerequisites](setting-up-installing-linux-prereq.md)
-+ [Install the NICE DCV Server](setting-up-installing-linux-server.md)
++ [Installing the Server](setting-up-installing-linux-server.md)
 + [Post\-Installation Checks](setting-up-installing-linux-checks.md)

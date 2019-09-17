@@ -1,4 +1,4 @@
-# Install the NICE DCV Server<a name="setting-up-installing-linux-server"></a>
+# Install the NICE DCV Server on Linux<a name="setting-up-installing-linux-server"></a>
 
 The NICE DCV server is installed using a series of RPM or \.deb packages, depending on your host server's operating system\. The packages install all required packages and their dependencies, and perform the necessary server configuration\.
 
@@ -17,39 +17,39 @@ You must be logged in as the root user to install the NICE DCV server\.
 1. The NICE DCV server packages are digitally signed with a secure GPG signature\. To allow the package manager to verify the package signature, you must import the NICE GPG key\. To do so, open a terminal window and import the NICE GPG key\.
 
    ```
-   $ sudo rpm --import https://s3-eu-west-1.amazonaws.com/nice-dcv-publish/NICE-GPG-KEY
+   $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [NICE website](https://www.nice-software.com/download/nice-dcv-2017)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
 
 1. Extract the contents of the `.tgz` archive\.
 
    ```
-   $ tar -xvzf nice-dcv-2017.4-version-el6.tgz
+   $ tar -xvzf nice-dcv-2019.1-version-el6.tgz
    ```
 
 1. Navigate into the extracted folder\.
 
    ```
-   $ cd nice-dcv-2017.4-version-el6
+   $ cd nice-dcv-2019.1-version-el6
    ```
 
 1. Install the NICE DCV server\.
 
    ```
-   $ sudo yum install nice-dcv-server-2017.4.version.el6.x86_64.rpm
+   $ sudo yum install nice-dcv-server-2019.1.version.el6.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
 
    ```
-   $ sudo yum install nice-xdcv-2017.4.version.el6.x86_64.rpm
+   $ sudo yum install nice-xdcv-2019.1.version.el6.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
 
    ```
-   $ sudo yum install nice-dcv-gl-2017.4.version.el6.x86_64.rpm
+   $ sudo yum install nice-dcv-gl-2019.1.version.el6.x86_64.rpm
    ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
@@ -57,7 +57,7 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
 1. \(Optional\) If you plan to use NICE DCV with NICE EnginFrame, install the `nice-dcv-simple-external-authenticator` package\. 
 
    ```
-   $ sudo yum install nice-dcv-simple-external-authenticator-2017.4.version.el6.x86_64.rpm
+   $ sudo yum install nice-dcv-simple-external-authenticator-2019.1.version.el6.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
@@ -83,48 +83,48 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    ```
 
 ------
-#### [ RHEL 7\.x and CentOS 7\.x ]
+#### [ Amazon Linux 2, RHEL 7\.x, and CentOS 7\.x ]
 
-**To install the NICE DCV server on RHEL 7\.x and CentOS 7\.x**
+**To install the NICE DCV server on Amazon Linux 2, RHEL 7\.x, and CentOS 7\.x**
 
 1. Launch and connect to the server on which to install the NICE DCV server\.
 
 1. The NICE DCV server packages are digitally signed with a secure GPG signature\. To allow the package manager to verify the package signature, you must import the NICE GPG key\. To do so, open a terminal window and import the NICE GPG key\.
 
    ```
-   $ sudo rpm --import https://s3-eu-west-1.amazonaws.com/nice-dcv-publish/NICE-GPG-KEY
+   $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [NICE website](https://www.nice-software.com/download/nice-dcv-2017)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
 
 1. Extract the contents of the `.tgz` archive\.
 
    ```
-   $ tar -xvzf nice-dcv-2017.4-version-el7.tgz
+   $ tar -xvzf nice-dcv-2019.1-version-el7.tgz
    ```
 
 1. Navigate into the extracted folder\.
 
    ```
-   $ cd nice-dcv-2017.4-version-el7
+   $ cd nice-dcv-2019.1-version-el7
    ```
 
 1. Install the NICE DCV server\.
 
    ```
-   $ sudo yum install nice-dcv-server-2017.4.version.el7.x86_64.rpm
+   $ sudo yum install nice-dcv-server-2019.1.version.el7.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
 
    ```
-   $ sudo yum install nice-xdcv-2017.4.version.el7.x86_64.rpm
+   $ sudo yum install nice-xdcv-2019.1.version.el7.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
 
    ```
-   $ sudo yum install nice-dcv-gl-2017.4.version.el7.x86_64.rpm
+   $ sudo yum install nice-dcv-gl-2019.1.version.el7.x86_64.rpm
    ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
@@ -132,7 +132,7 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
 1. \(Optional\) If you plan to use NICE DCV with NICE EnginFrame, install the `nice-dcv-simple-external-authenticator` package\. 
 
    ```
-   $ sudo yum install nice-dcv-simple-external-authenticator-2017.4.version.el7.x86_64.rpm
+   $ sudo yum install nice-dcv-simple-external-authenticator-2019.1.version.el7.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
@@ -167,39 +167,39 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
 1. The NICE DCV server packages are digitally signed with a secure GPG signature\. To allow the package manager to verify the package signature, you must import the NICE GPG key\. To do so, open a terminal window and import the NICE GPG key\.
 
    ```
-   $ sudo rpm --import https://s3-eu-west-1.amazonaws.com/nice-dcv-publish/NICE-GPG-KEY
+   $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [NICE website](https://www.nice-software.com/download/nice-dcv-2017)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
 
 1. Extract the contents of the `.tgz` archive\.
 
    ```
-   $ tar -xvzf nice-dcv-2017.4-version-sles12.tgz
+   $ tar -xvzf nice-dcv-2019.1-version-sles12.tgz
    ```
 
 1. Navigate into the extracted folder\.
 
    ```
-   $ cd nice-dcv-2017.4-version-sles12
+   $ cd nice-dcv-2019.1-version-sles12
    ```
 
 1. Install the NICE DCV server\.
 
    ```
-   $ sudo zypper install nice-dcv-server-2017.4.version.sles12.x86_64.rpm
+   $ sudo zypper install nice-dcv-server-2019.1.version.sles12.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
 
    ```
-   $ sudo zypper install nice-xdcv-2017.4.version.sles12.x86_64.rpm
+   $ sudo zypper install nice-xdcv-2019.1.version.sles12.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
 
    ```
-   $ sudo zypper install nice-dcv-gl-2017.4.version.sles12.x86_64.rpm
+   $ sudo zypper install nice-dcv-gl-2019.1.version.sles12.x86_64.rpm
    ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
@@ -207,7 +207,7 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
 1. \(Optional\) If you plan to use NICE DCV with NICE EnginFrame, install the `nice-dcv-simple-external-authenticator` package\. 
 
    ```
-   $ sudo zypper install nice-dcv-simple-external-authenticator-2017.4.version.sles12.x86_64.rpm
+   $ sudo zypper install nice-dcv-simple-external-authenticator-2019.1.version.sles12.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
@@ -236,43 +236,43 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
 1. The NICE DCV server packages are digitally signed with a secure GPG signature\. To allow the package manager to verify the package signature, you must import the NICE GPG key\. To do so, open a terminal window and import the NICE GPG key\.
 
    ```
-   $ wget https://s3-eu-west-1.amazonaws.com/nice-dcv-publish/NICE-GPG-KEY
+   $ wget https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
    ```
    $ gpg --import NICE-GPG-KEY
    ```
 
-1. Download the packages from the [NICE website](https://www.nice-software.com/download/nice-dcv-2017)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
 
 1. Extract the contents of the `.tgz` archive\.
 
    ```
-   $ tar -xvzf nice-dcv-2017.4-version-ubuntu1804.tgz
+   $ tar -xvzf nice-dcv-2019.1-version-ubuntu1804.tgz
    ```
 
 1. Navigate into the extracted folder\.
 
    ```
-   $ cd nice-dcv-2017.4-version-ubuntu1804
+   $ cd nice-dcv-2019.1-version-ubuntu1804
    ```
 
 1. Install the NICE DCV server\.
 
    ```
-   $ sudo apt install ./nice-dcv-server-2017.4.version-1_amd64.ubuntu1804.deb
+   $ sudo apt install ./nice-dcv-server-2019.1.version-1_amd64.ubuntu1804.deb
    ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
 
    ```
-   $ sudo apt install ./nice-xdcv-2017.4.version-1_amd64.ubuntu1804.deb
+   $ sudo apt install ./nice-xdcv-2019.1.version-1_amd64.ubuntu1804.deb
    ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
 
    ```
-   $ sudo apt install ./nice-dcv-gl-2017.4.version-1_amd64.ubuntu1804.deb
+   $ sudo apt install ./nice-dcv-gl-2019.1.version-1_amd64.ubuntu1804.deb
    ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
@@ -280,7 +280,7 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
 1. \(Optional\) If you plan to use NICE DCV with NICE EnginFrame, install the `nice-dcv-simple-external-authenticator` package\. 
 
    ```
-   $ sudo apt install ./nice-dcv-simple-external-authenticator-2017.4.version-1_amd64.ubuntu1804.deb
+   $ sudo apt install ./nice-dcv-simple-external-authenticator-2019.1.version-1_amd64.ubuntu1804.deb
    ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 

@@ -4,6 +4,10 @@ NICE DCV can be configured to disconnect idle clients who have not sent any keyb
 
 You can use the following procedures to specify a custom idle timeout period\.
 
+**Topics**
++ [Changing the Idle Timeout Period on Windows](#manage-disconnect-windows)
++ [Changing the Idle Timeout Period on Linux](#manage-disconnect-linux)
+
 ## Changing the Idle Timeout Period on Windows<a name="manage-disconnect-windows"></a>
 
 To change the NICE DCV server's idle timeout period, you must configure the `idle-timeout` parameter using the Windows Registry Editor\.

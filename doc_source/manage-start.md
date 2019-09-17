@@ -4,7 +4,7 @@ The NICE DCV server must be running in order to host sessions\.
 
 By default, the NICE DCV server is configured to start automatically when the server it is hosted on starts up\. However, if you chose to disable automatic startup when you installed the NICE DCV server, you must start the server manually using the following procedures\.
 
-**Contents**
+**Topics**
 + [Starting the Server on Windows](#manage-start-windows)
 + [Starting the Server on Linux](#manage-start-linux)
 

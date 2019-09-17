@@ -11,6 +11,8 @@ This topic provides some post\-installation checks that you should perform after
 
 By default, the NICE DCV server is configured to communicate over port 8443\. Ensure that the server is reachable over this port\. If you have a firewall that prevents access over port 8443, you must change the port over which the NICE DCV server communicates\. For more information, see [Changing the NICE DCV Server TCP Port](manage-port.md)\.
 
+Also, if you're setting up NICE DCV on an EC2 instance, create a security group to enable access to the port over which the NICE DCV server communicates\. For more information, see [how to configure security groups on EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html)\. 
+
 ## Ensure that the X Server is Accessible<a name="checks-xserver"></a>
 
 You must ensure that NICE DCV console and virtual sessions can access the X server\.

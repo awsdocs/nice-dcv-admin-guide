@@ -1,4 +1,4 @@
-# Prerequisites for Linux Servers<a name="setting-up-installing-linux-prereq"></a>
+# Prerequisites for Linux NICE DCV Servers<a name="setting-up-installing-linux-prereq"></a>
 
 NICE DCV enables clients to access a remote graphical X session on a Linux server, which provides access to the corresponding Linux desktop\. NICE DCV supports two different types of Linux desktop streaming: console sessions and virtual sessions\.
 
@@ -58,7 +58,7 @@ The default desktop environment for CentOS 7\.x is Gnome3 and the default deskto
 1. Install the desktop environment and the desktop manager packages\.
 
    ```
-   $ yum groupinstall "GNOME Desktop"
+   $ sudo yum groupinstall "GNOME Desktop"
    ```
 
 1. Update the software packages to ensure that the Linux server is up to date\.

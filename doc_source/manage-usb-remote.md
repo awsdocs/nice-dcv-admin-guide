@@ -9,6 +9,10 @@ The NICE DCV server uses a *whitelist* to determine which USB devices clients ar
 
 However, some specialized devices might not be whitelisted by default\. These devices must be manually added to the whitelist on the NICE DCV server before they can be used by the client\. After they have been added to the whitelist, they appear in the Windows client **Settings** menu\.
 
+**Topics**
++ [Whitelisting Devices on Windows](#manage-usb-remote-windows)
++ [Whitelisting Devices on Linux](#manage-usb-remote-linux)
+
 ## Whitelisting USB devices on a Windows NICE DCV Server<a name="manage-usb-remote-windows"></a>
 
 To add a USB device to the whitelist, you must obtain the USB device's filter string from the client and add it to the `usb-devices.conf` file\.

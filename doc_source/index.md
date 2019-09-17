@@ -1,4 +1,4 @@
-# NICE Desktop Cloud Visualization Administrator Guide
+# NICE DCV Administrator Guide
 
 -----
 *****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
@@ -14,13 +14,15 @@ Amazon's trademarks and trade dress may not be used in
 
 -----
 ## Contents
-+ [What Is NICE Desktop Cloud Visualization?](what-is-dcv.md)
++ [What Is NICE DCV?](what-is-dcv.md)
 + [Setting Up the NICE DCV Server](setting-up.md)
    + [Installing the NICE DCV Server](setting-up-installing.md)
       + [Installing the NICE DCV Server on Windows](setting-up-installing-windows.md)
+         + [Prerequisites for Windows NICE DCV Servers on Amazon EC2 Instances](setting-up-installing-winprereq.md)
+         + [Installing the NICE DCV Server on Windows](setting-up-installing-wininstall.md)
       + [Installing the NICE DCV Server on Linux](setting-up-installing-linux.md)
-         + [Prerequisites for Linux Servers](setting-up-installing-linux-prereq.md)
-         + [Install the NICE DCV Server](setting-up-installing-linux-server.md)
+         + [Prerequisites for Linux NICE DCV Servers](setting-up-installing-linux-prereq.md)
+         + [Install the NICE DCV Server on Linux](setting-up-installing-linux-server.md)
          + [Post-Installation Checks](setting-up-installing-linux-checks.md)
    + [Licensing the NICE DCV Server](setting-up-license.md)
       + [Installing an Extended Demo License](setting-up-demo.md)
@@ -36,9 +38,11 @@ Amazon's trademarks and trade dress may not be used in
    + [Enabling USB Remotization](manage-usb-remote.md)
    + [Configuring Smart Card Caching](manage-smart-card.md)
    + [Enabling Session Storage](manage-storage.md)
+   + [Configuring the Clipboard on a Linux NICE DCV Server](manage-clipboard.md)
+   + [Configuring HTTP Headers](manage-headers.md)
    + [Configuring NICE DCV Authentication](security-authentication.md)
    + [Configuring NICE DCV Authorization](security-authorization.md)
-      + [Creating a Permissions File](security-authorization-file-create.md)
+      + [Working with Permissions Files](security-authorization-file-create.md)
 + [Managing NICE DCV Sessions](managing-sessions.md)
    + [Starting NICE DCV Sessions](managing-sessions-start.md)
    + [Stopping NICE DCV Sessions](managing-sessions-lifecycle-stop.md)

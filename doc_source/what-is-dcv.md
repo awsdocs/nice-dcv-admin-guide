@@ -1,6 +1,6 @@
-# What Is NICE Desktop Cloud Visualization?<a name="what-is-dcv"></a>
+# What Is NICE DCV?<a name="what-is-dcv"></a>
 
-NICE Desktop Cloud Visualization is a remote visualization technology that enables users to securely connect to graphic\-intensive 3D applications hosted on a remote high\-performance server\. With NICE DCV, you can make a server's high\-performance graphics processing capabilities available to multiple remote users by creating secure client sessions\. This enables your users to use resource\-intensive applications with relatively low\-end client computers by using the server's processor, GPU, I/O capabilities, and memory\.
+NICE DCV is a remote visualization technology that enables users to securely connect to graphic\-intensive 3D applications hosted on a remote high\-performance server\. With NICE DCV, you can make a server's high\-performance graphics processing capabilities available to multiple remote users by creating secure client sessions\. This enables your users to use resource\-intensive applications with relatively low\-end client computers by using the server's processor, GPU, I/O capabilities, and memory\.
 
 **Topics**
 + [How NICE DCV Works](#what-is-dcv-how)
@@ -50,9 +50,9 @@ NICE DCV servers must meet the minimum requirements listed in the following tabl
 The following table lists the minimum system requirements for the NICE DCV clients\.
 
 
-|  | Native Windows client | Web browser client | Linux client | 
-| --- | --- | --- | --- | 
-| **Software** |  The Native Windows client is supported on 32\-bit and 64\-bit versions of the following operating systems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html) The client also requires the following additional software: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html)  |  The web browser client is supported on the following browsers across all desktop operating systems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html) The web browser client also requires WebGL and asm\.js\. The web browser client is not supported on mobile operating systems, such as Android and iOS\.  |  The Linux client is supported on the following modern Linux operating systems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html)  | 
+|  | Native Windows client | Web browser client | Linux client | macOS client | 
+| --- | --- | --- | --- | --- | 
+| **Software** |  The Native Windows client is supported on 32\-bit and 64\-bit versions of the following operating systems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html) The client also requires the following additional software: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html)  |  The web browser client is supported on the following browsers across all desktop operating systems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html) The web browser client also requires WebGL and asm\.js\. The web browser client is not supported on mobile operating systems, such as Android and iOS\.  |  The Linux client is supported on the following modern Linux operating systems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html)  |  The macOS client requires macOS High Sierra or later\.  | 
 | **Network** | The client must be able to connect to the NICE DCV server, and it must be able to communicate over the required port \(8443 by default\)\. | 
 
 ## NICE DCV Pricing<a name="what-is-dcv-pricing"></a>

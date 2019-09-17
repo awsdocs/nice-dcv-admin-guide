@@ -37,7 +37,7 @@ The NICE DCV server defaults to the automatic demo license if no other license h
 + **Extended demo license**—An extended demo license is a demo license that is valid for a period longer than 15 days\. The period is determined by NICE on a case\-by\-case basis\. Extended demo licenses become invalid when they reach their expiration date, and you are no longer able to create and host NICE DCV sessions on the server\. Extended demo licenses must be requested from NICE\. They come as a license file that must be installed on the NICE DCV server\. 
 + **Floating license**—A floating license is a full license that you purchase from NICE\. Floating licenses do not have an expiration date and can be used for an indefinite period\. However, they do limit the number of sessions that you can host on the NICE DCV server concurrently\. These licenses come as a license file to be installed on a Reprise License Manager \(RLM\) server\.
 
-For more information about licenses, see the [NICE](https://www.nice-software.com/contacts/demo-license) website\.
+For more information about acquiring licenses, see the [NICE](https://www.nice-software.com/) website\.
 
 **Note**  
 NICE DCV clients do not require a license\.

@@ -46,6 +46,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 
 | Parameter | Type \(Windows only\) | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
+| max\-concurrent\-sessions | DWORD \(32\-bit\) | server | 0 | Maximum number of concurrent sessions — Specifies the maximum number of allowed concurrent sessions\. This limit currently applies only to virtual sessions, because console sessions are intrinsically limited to one\. Specify 0 to not enforce any limit\. | 
 | create\-session | DWORD \(32\-bit\) | server | false | Create a console session at server startup — Specifies whether to automatically create a console session \(with ID "console"\) at server startup\. | 
 | max\-concurrent\-clients | DWORD \(32\-bit\) | session | \-1 | Maximum number of concurrent clients per session — Specifies the maximum number of concurrent clients per session\. If set to \-1, no limit is enforced\. To set the limit only for the automatic session, use 'max\-concurrent\-clients' of section 'session\-management/automatic\-console\-session'\. | 
 | enable\-gl\-in\-virtual\-sessions | String | session | 'default\-on' | Whether to employ dcv\-gl feature — Specifies whether to use the dcv\-gl feature \(a license is required\)\. Allowed values: 'always\-on', 'always\-off', 'default\-on', 'default\-off'\. | 
@@ -119,6 +120,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 | enable\-relative\-mouse | DWORD \(32\-bit\) | session | true | Whether to allow relative mouse movements — Whether to allow relative mouse movements\. | 
 | enable\-autorepeat | DWORD \(32\-bit\) | session | true | Whether to allow autorepeat on Linux — Specifies whether to allow autorepeat for a single key\. Excludes key combinations and key modifiers\. | 
 | enable\-touch | DWORD \(32\-bit\) | session | true | Whether to allow touch input — Specifies whether touch is enabled\. | 
+| enable\-stylus | DWORD \(32\-bit\) | session | true | Whether to allow stylus input — Specifies whether a stylus is enabled\. | 
 
 ## `display` Parameters<a name="display"></a>
 
@@ -128,15 +130,17 @@ The **Reload context** column in each table indicates when the parameter is relo
 | Parameter | Type \(Windows only\) | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
 | max\-compressor\-threads | DWORD \(32\-bit\) | session | 4 | Max compressor threads — Specifies the maximum number of compressor threads\. | 
-| grabber\-target\-fps | DWORD \(32\-bit\) | session | 0 | Target frames per second of frame grabber — The upper limit to grab frames per second\. A value of 0 defaults to target\-fps\. | 
+| target\-fps | DWORD \(32\-bit\) | session | 25 | Target frames per second — Specifies the maximum allowed frames per second\. A value of 0 means no limit\. | 
+| grabber\-target\-fps | DWORD \(32\-bit\) | session | 0 | Target frames per second of frame grabber — The upper limit to grab frames per second\. A value of 0 defaults to target\-fps\. Note that this setting will not be recognized by all frame capture backends\.  | 
 | enable\-qu | DWORD \(32\-bit\) | session | true | Whether to send quality updates — Specifies whether to send quality updates\. | 
 | enable\-client\-resize | DWORD \(32\-bit\) | session | true | Whether to allow clients to set the display layout — Specifies whether clients are allowed to set the display layout\. | 
-| max\-head\-resolution | String | session | \(4096, 2160\) | Max head resolution — The maximum resolution of a display head\. A display head is equivalent to a host monitor\. | 
-| min\-head\-resolution | String | session | \(640, 480\) | Min head resolution — The minimum resolution of a display head\. A display head is equivalent to a host monitor\. | 
-| max\-num\-heads | DWORD \(32\-bit\) | session | 4 | Max number of heads — Specifies the maximum number of heads\. A display head is equivalent to a host monitor\. | 
+| max\-layout\-area | DWORD \(32\-bit\) | custom | 0 | Max layout area in pixels — The maximum area in pixels of a display layout requestable by the client\. Layouts that are larger than this limit will be ignored\. This maximum is meant to provide an upper bound to the amount of display data that must be sent, without providing constraints on the display layout geometry\. If set to 0, no limit is applied to layout area\. The setting is reloaded at each client layout request\. | 
+| max\-head\-resolution | String | custom | \(4096, 2160\) | Max head resolution — The maximum resolution of a display head requestable by the client\. A display head is equivalent to a host monitor\. The setting is reloaded at each client layout request\. | 
+| min\-head\-resolution | String | custom | \(640, 480\) | Min head resolution — The minimum resolution of a display head requestable by the client\. A display head is equivalent to a host monitor\. The setting is reloaded at each client layout request\. | 
+| max\-num\-heads | DWORD \(32\-bit\) | custom | 4 | Max number of heads — Specifies the maximum number of display heads requestable by the client\. A display head is equivalent to a host monitor\. The setting is reloaded at each client layout request\. | 
 | console\-session\-default\-layout | String | session | \[\] | Default screen resolution and position for console sessions — Specifies the default screen resolution and position for console sessions\. If this is set, DCV sets the requested layout at startup\. Each monitor can be configured with resolution \(w,h\) and position \(x,y\)\. All specified monitors are enabled\. Default layout example value: \[\{'w':<800>, 'h':<600>, 'x':<0>, 'y': <0>\}, \{'w':<1024>, 'h':<768>, 'x':<800>,'y':<0>\}\]  | 
 | use\-grabber\-dirty\-region | DWORD \(32\-bit\) | session | true | Whether to use dirty regions — Specifies whether to use dirty screen regions\. If enabled, the grabber tries to compute new frames out of the dirty regions from the screen\. | 
-| cuda\-devices | String | connection | \[\] | CUDA devices used for stream encoding — Specifies the list of local CUDA devices which DCV uses to distribute encoding and CUDA workloads\. Each device is identified by a number that can be retrieved from the nvidia\-smi command\. For example, cuda\-devices=\['0', '2'\] indicates that DCV uses two GPUs, with IDs 0 and 2\. This setting is similar to the CUDA\_VISIBLE\_DEVICES environment variable, but it only applies to DCV\.  | 
+| cuda\-devices | String | connection | \[\] | CUDA devices used for stream encoding — Specifies the list of local CUDA devices which DCV uses to distribute encoding and CUDA workloads\. Each device is identified by a number that can be retrieved from the nvidia\-smi command\. For example, cuda\-devices=\['0', '2'\] indicates that DCV uses two GPUs, with IDs 0 and 2\. This setting is similar to the CUDA\_VISIBLE\_DEVICES environment variable, but it only applies to DCV\. If the option is not set, DCV uses an incremental session index starting from 0 to pick the next device to use\.  | 
 
 ## `display/linux` Parameters<a name="display_linux"></a>
 
@@ -145,7 +149,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 
 | Parameter | Type \(Windows only\) | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
-| gl\-displays | String | connection | \[':0\.0'\] | 3D accelerated X displays — Specifies the list of local 3D accelerated X displays and screens used by DCV for OpenGL rendering in virtual sessions\. If this value is missing, you can't run OpenGL applications in virtual sessions\. This setting is ignored for console sessions\.  | 
+| gl\-displays | String | session | \[':0\.0'\] | 3D accelerated X displays — Specifies the list of local 3D accelerated X displays and screens used by DCV for OpenGL rendering in virtual sessions\. If this value is missing, you can't run OpenGL applications in virtual sessions\. This setting is ignored for console sessions\.  | 
 | h264\-encoder\-displays | String | connection | \[\] | H\.264 encoder X displays — Specifies the list of local X displays and screens that support accelerated H\.264 encoding\. If empty, DCV uses the same display selected for OpenGL rendering\. This setting is useful only in cases when some of the GPUs installed on the system do not provide acceleration for H\.264 encoding using one of the supported technologies\. | 
 
 ## `log` Parameters<a name="log"></a>
@@ -156,7 +160,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 | Parameter | Type \(Windows only\) | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
 | directory | String | server | '' | Log output directory — Specifies the destination to which logs are saved\. If not specified it defaults to "C:\\ProgramData\\NICE\\DCV\\log\\" on Windows and to "/var/log/dcv/" on Linux\.  | 
-| level | String | custom | 'info' | Log level — Specifies the log file verbosity level\. The verbosity levels \(in order of the amount of detail they provide\) are: 'error', 'warning', 'info', and 'debug'\. This value is automatically reload when it is changed on the configuration, so that it can be changed without restarting the server\. | 
+| level | String | custom | 'info' | Log level — Specifies the log file verbosity level\. The verbosity levels \(in order of the amount of detail they provide\) are: 'error', 'warning', 'info', and 'debug'\. For the server: the new value is effective as soon as it is changed on the configuration\. For sessions: the new value is loaded when creating a new session\. | 
 | rotate | DWORD \(32\-bit\) | server | 10 | Number of log file rotations — Specifies the number of times that log files are rotated before being removed\. If the value is 0, old versions are removed rather than rotated\. | 
 | transfer\-audit | String | server | 'none' | Transfer direction to audit — Specifies which transfer direction to audit\. If this parameter is enabled, a new CSV file logs transfers between the server and clients\. The allowed values are: 'none', 'server\-to\-client', 'client\-to\-server', and 'all'\. If this value is missing or equal to 'none', transfer audits are disabled and no file is created\. | 
 
@@ -180,6 +184,8 @@ The **Reload context** column in each table indicates when the parameter is relo
 | max\-payload\-size | DWORD \(32\-bit\) | session | 20971520 | Maximum size of clipboard's data — Specifies the maximum size \(in bytes\) of clipboard data that can be transferred from server to clients\. If this value is missing, the default limit of 20 MB is enforced\. | 
 | max\-text\-len | DWORD \(32\-bit\) | session | \-1 | Maximum number of characters of clipboard's text — Specifies the maximum number of characters of clipboard text that can be transferred from server to clients\. If this value is missing or set to \-1, no limit is enforced\. | 
 | max\-image\-area | DWORD \(32\-bit\) | session | \-1 | Maximum area of clipboard's image — Specifies the maximum area \(number of pixels\) of clipboard images that can be transferred from server to clients\. If this value is missing or set to \-1, no limit is enforced\. | 
+| primary\-selection\-paste | DWORD \(32\-bit\) | session | false | Enables the primary selection pasting on linux — Linux desktops support multiple clipboards: the clipboard and the primary selection\. The primary selection is updated or copied when content is selected\. It can then be pasted using the mouse's middle button or the Shift\+Insert key combination\. When enabled, the client's clipboard content will be also inserted in the primary selection\. | 
+| primary\-selection\-copy | DWORD \(32\-bit\) | session | false | Enables the primary selection copy from linux — Linux desktops supports multiple clipboards: the clipboard and the primary selection\. The primary selection is updated or copied when content is selected\. It can then be pasted using the mouse's middle button or with the Shift\+Insert key combination\. When enabled, the primary selection is monitored and updates are propagated to the client\. | 
 
 ## `smartcard` Parameters<a name="smartcard"></a>
 

@@ -17,6 +17,12 @@ Place the `license.lic` file in the following folder on your server:
 
 Alternatively, to place the `license.lic` in a different folder on the server, you must update the `license-file` configuration parameter so that it specifies the license file's full path\.
 
+**Topics**
++ [Changing the License Path on a Windows Server](#change-param-win)
++ [Changing the License Path on a Linux Server](#change-param-lin-demo)
+
+## Changing the License Path on a Windows Server<a name="change-param-win"></a>
+
 **To update the `license-file` configuration parameter on a Windows server**
 
 1. Open the Windows Registry Editor\.
@@ -32,6 +38,8 @@ Alternatively, to place the `license.lic` in a different folder on the server, y
 1. Open the **license\-file** parameter\. For **Value data**, type the full path to the `license.lic` file\.
 
 1. Choose **OK** and close the Windows Registry Editor\.
+
+## Changing the License Path on a Linux Server<a name="change-param-lin-demo"></a>
 
 **To update the `license-file` configuration parameter on a Linux server**
 

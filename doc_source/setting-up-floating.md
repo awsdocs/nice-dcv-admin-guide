@@ -8,7 +8,7 @@ When you purchase a floating license from NICE, you receive a `license.lic` file
 
 1. Configure the NICE DCV server\.
 
-**Contents**
+**Topics**
 + [Step 1: Modify the License File](#setting-up-floating-modify)
 + [Step 2: Prepare the RLM Server](#setting-up-floating-prep)
 + [Step 3: Configure the NICE DCV Server](#setting-up-floating-config)
@@ -71,6 +71,12 @@ If you put the RLM server behind a firewall, be aware that the RLM license serve
 
 For more information about RLM, see the [Reprise Software](http://www.reprisesoftware.com/products/license-manager.php) website\.
 
+**Topics**
++ [Prepare the RLM server on Windows](#prep-windows)
++ [Prepare the RLM server on Linux](#prep-linux)
+
+### Prepare the RLM server on Windows<a name="prep-windows"></a>
+
 **To prepare the RLM server on Windows**
 
 1. On your RLM server, download the RLM License Administration Bundle from the [Reprise Software website](http://www.reprisesoftware.com/admin/software-licensing.php)\.
@@ -79,19 +85,7 @@ For more information about RLM, see the [Reprise Software](http://www.reprisesof
 
 1. Copy the `license.lic` file that you received from NICE to `C:\RLM\license\`\.
 
-1. Copy the `nice.set` file from your NICE DCV server and place it in the `C:\RLM\` folder on your RLM server\.
-
-   The `nice.set` file can be found in the following location on your NICE DCV server:
-   + Windows NICE DCV server:
-
-     ```
-     C:\Program Files\NICE\DCV\Server\license\
-     ```
-   + Linux NICE DCV server:
-
-     ```
-     /usr/share/dcv/license/
-     ```
+1. Copy the `C:\Program Files\NICE\DCV\Server\license\nice.set` file from your NICE DCV server and place it in the `C:\RLM\` folder on your RLM server\.
 
 1. On your RLM server, open a command prompt window and do the following:
 
@@ -129,6 +123,8 @@ The contents of the `rlm.log` file might vary slightly depending on the RLM serv
       C:\RLM\rlmstat -a -c rlm_server_hostname@5053
       ```
 
+### Prepare the RLM server on Linux<a name="prep-linux"></a>
+
 **To prepare the RLM server on Linux**
 
 1. Log into your RLM server as `root` and download the RLM License Administration Bundle from the [Reprise Software](http://www.reprisesoftware.com/products/license-manager.php) website\.
@@ -154,7 +150,7 @@ This can be any valid user or service account\. We strongly recommend that this 
 1. Extract the contents of the RLM License Administration Bundle to `/opt/nice/rlm/`, and ensure that the files are owned by the `rlm` user:
 
    ```
-   $ tar xvf x64_l1.admin.tar.gz -C /opt/nice/rlm/ –stripcomponents 1
+   $ tar xvf x64_l1.admin.tar.gz -C /opt/nice/rlm/ --stripcomponents 1
    ```
 
    ```
@@ -163,35 +159,9 @@ This can be any valid user or service account\. We strongly recommend that this 
 
 1. Copy the `license.lic` file that you received from NICE to `/opt/nice/rlm/license/`\.
 
-1. Copy the `nice.set` file from your NICE DCV server and place it in `/opt/nice/rlm` on your RLM server\.
+1. Copy the `/usr/share/dcv/license/nice.set` file from your NICE DCV server and place it in `/opt/nice/rlm` on your RLM server\.
 
-   The `nice.set` file can be found in the following location on your NICE DCV server:
-   + Windows NICE DCV server:
-
-     ```
-     C:\Program Files\NICE\DCV\Server\license\
-     ```
-   + Linux NICE DCV server:
-
-     ```
-     /usr/share/dcv/license/
-     ```
-
-1. Start the RLM server:
-
-   ```
-   $ service dcv-rlm start
-   ```
-
-1. Verify that the RLM server is running and functioning as expected\. Open `var/log/rlm.log` with your preferred text editor and confirm that the following line appears:
-**Note**  
-The contents of the `rlm.log` might vary slightly depending on the RLM server version\.
-
-   ```
-   date_time (nice) Server started on license1 (hostid: host_id) for: dcv dcv-gl
-   ```
-
-1. Ensure that the RLM server starts automatically\.
+1. Create an RLM server service and make sure that it starts automatically at startup\.
 
    1. Create a file named `dcv-rlm` in the `/opt/nice/rlm/` folder:
 
@@ -312,9 +282,29 @@ The contents of the `rlm.log` might vary slightly depending on the RLM server ve
       chkconfig --add dcv-rlm
       ```
 
+1. Start the RLM server:
+
+   ```
+   $ service dcv-rlm start
+   ```
+
+1. Verify that the RLM server is running and functioning as expected\. Open `var/log/rlm.log` with your preferred text editor and confirm that the following line appears:
+**Note**  
+The contents of the `rlm.log` might vary slightly depending on the RLM server version\.
+
+   ```
+   date_time (nice) Server started on license1 (hostid: host_id) for: dcv dcv-gl
+   ```
+
 ## Step 3: Configure the NICE DCV Server<a name="setting-up-floating-config"></a>
 
 Configure your NICE DCV server to use your RLM server\. To do this, you must configure the `license-file` configuration parameter on your NICE DCV server\.
+
+**Topics**
++ [Windows NICE DCV Server Configuration](#config-win)
++ [Linux NICE DCV Server Configuration](#config-linux)
+
+### Windows NICE DCV Server Configuration<a name="config-win"></a>
 
 **To configure the `license-file` configuration parameter on a Windows server**
 
@@ -333,6 +323,8 @@ Configure your NICE DCV server to use your RLM server\. To do this, you must con
 You can use the RLM server IP address instead of its hostname\.
 
 1. Choose **OK** and close the Windows Registry Editor\.
+
+### Linux NICE DCV Server Configuration<a name="config-linux"></a>
 
 **To configure the `license-file` configuration parameter on a Linux server**
 

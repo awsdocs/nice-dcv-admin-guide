@@ -27,9 +27,9 @@ If you are upgrading to a more current major version of the NICE DCV server, for
 
    After the uninstallation is complete, restart and reconnect to the NICE DCV server as the administrator, using an RDP client\.
 
-1. Download the latest version of the NICE DCV Server from the [NICE](https://www.nice-software.com/download/nice-dcv-2017) website\.
+1. Download the latest version of the NICE DCV Server from the [NICE](http://download.nice-dcv.com) website\.
 
-1. Follow the steps described in [Using the Wizard](setting-up-installing-windows.md#setting-up-installing-windows-wizard), starting at **Step 3**\.
+1. Follow the steps described in [Using the Wizard](setting-up-installing-wininstall.md#setting-up-installing-windows-wizard), starting at **Step 3**\.
 
 1. After the installation is complete, confirm that the NICE DCV server configuration is still correct\. Open the Registry Editor, navigate to **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv** and compare the parameters to the configuration that you exported in **Step 4**\.
 

@@ -2,6 +2,10 @@
 
 Session storage is a folder on the NICE DCV server that clients can access when they are connected to a specific NICE DCV session\. When you enable session storage for a session, clients can download files from, and upload files to the specified folder\. This feature enables clients to share files while connected to a session\.
 
+**Topics**
++ [Enabling Session Storage on Windows](#manage-storage-windows)
++ [Enabling Session Storage on a Linux NICE DCV server\.](#manage-storage-linux)
+
 ## Enabling Session Storage on a Windows NICE DCV Server<a name="manage-storage-windows"></a>
 
 To enable session storage, you must create the folder to use for session storage and then configure the `storage-root` parameter using the Windows Registry Editor\.

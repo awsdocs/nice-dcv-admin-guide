@@ -6,6 +6,10 @@ To allow NICE DCV clients to access your NICE DCV server over the standard HTTPS
 
 Ensure that you communicate any port changes to your clients, as they need the port number to connect to sessions\.
 
+**Topics**
++ [Changing the Server TCP Port on Windows](#manage-stop-port-windows)
++ [Changing the Server TCP Port on Linux](#manage-stop-port-linux)
+
 ## Changing the NICE DCV Server TCP Port on Windows<a name="manage-stop-port-windows"></a>
 
 To change the port used by the NICE DCV server, you must configure the `web-port` parameter using the Windows Registry Editor\.

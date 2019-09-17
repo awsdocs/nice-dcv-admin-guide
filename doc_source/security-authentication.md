@@ -8,6 +8,10 @@ NICE DCV supports the following authentication methods:
 
 Make sure that your clients are aware of the authentication method used by the NICE DCV server, and that they have the information required to connect to the session\.
 
+**Topics**
++ [Configuring Authentication on Windows](#set-authentication-windows)
++ [Configuring Authentication on Linux](#set-authentication-linux)
+
 ## Configuring Authentication on Windows<a name="set-authentication-windows"></a>
 
 To change the NICE DCV server's authentication method, you must configure the `authentication` parameter using the Windows Registry Editor\.
