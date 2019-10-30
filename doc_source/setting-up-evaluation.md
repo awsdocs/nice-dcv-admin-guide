@@ -1,8 +1,8 @@
-# Installing an Extended Demo License<a name="setting-up-demo"></a>
+# Installing an Extended Evaluation License<a name="setting-up-evaluation"></a>
 
-When you request an extended demo license from NICE, you receive a `license.lic` file that defines the license\. 
+When you request an extended evaluation license from NICE, you receive a `license.lic` file that defines the license\. 
 
-**To install the extended demo license**  
+**To install the extended evaluation license**  
 Place the `license.lic` file in the following folder on your server:
 + Windows server
 
@@ -19,7 +19,7 @@ Alternatively, to place the `license.lic` in a different folder on the server, y
 
 **Topics**
 + [Changing the License Path on a Windows Server](#change-param-win)
-+ [Changing the License Path on a Linux Server](#change-param-lin-demo)
++ [Changing the License Path on a Linux Server](#change-param-lin)
 
 ## Changing the License Path on a Windows Server<a name="change-param-win"></a>
 
@@ -39,7 +39,7 @@ Alternatively, to place the `license.lic` in a different folder on the server, y
 
 1. Choose **OK** and close the Windows Registry Editor\.
 
-## Changing the License Path on a Linux Server<a name="change-param-lin-demo"></a>
+## Changing the License Path on a Linux Server<a name="change-param-lin"></a>
 
 **To update the `license-file` configuration parameter on a Linux server**
 

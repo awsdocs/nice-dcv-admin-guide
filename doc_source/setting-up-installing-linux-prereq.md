@@ -323,7 +323,7 @@ This applies to non\-GPU Linux servers only\.
 Run the following command:
 
 ```
-$ sudo DISPLAY=:0 glxinfo | grep -i "opengl.*version"
+$ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\) .*/\1/p') glxinfo | grep -i "opengl.*version"
 ```
 
 The following shows example output if OpenGL software rendering is available

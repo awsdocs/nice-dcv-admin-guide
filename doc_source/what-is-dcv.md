@@ -1,6 +1,6 @@
 # What Is NICE DCV?<a name="what-is-dcv"></a>
 
-NICE DCV is a remote visualization technology that enables users to securely connect to graphic\-intensive 3D applications hosted on a remote high\-performance server\. With NICE DCV, you can make a server's high\-performance graphics processing capabilities available to multiple remote users by creating secure client sessions\. This enables your users to use resource\-intensive applications with relatively low\-end client computers by using the server's processor, GPU, I/O capabilities, and memory\.
+NICE DCV is a high\-performance remote display protocol\. It lets you securely deliver remote desktops and application streaming from any cloud or data center to any device, over varying network conditions\. By using NICE DCV with Amazon EC2, you can run graphics\-intensive applications remotely on Amazon EC2 instances\. You can then stream the results to more modest client machines, which eliminates the need for expensive dedicated workstations\.
 
 **Topics**
 + [How NICE DCV Works](#what-is-dcv-how)
@@ -10,24 +10,26 @@ NICE DCV is a remote visualization technology that enables users to securely con
 
 ## How NICE DCV Works<a name="what-is-dcv-how"></a>
 
-In a typical NICE DCV scenario, a graphic\-intensive application, such as a 3D modeling or computer\-aided design application, is hosted on a high\-performance server that provides a high\-end GPU, fast I/O capabilities, and large amounts of memory\. The **NICE DCV server** software is installed and configured on the server and it is used to create a secure session\. You use a **NICE DCV client** to remotely connect to the session and use the application hosted on the server\. The server uses its hardware to perform the high\-performance processing required by the hosted application\. The **NICE DCV server** software compresses the visual output of the hosted application and streams it back to you as an encrypted pixel stream\. Your **NICE DCV client** receives the compressed pixel stream, decrypts it, and then outputs it to your local display\.
+To use NICE DCV, install the NICE DCV server software on a server\. The NICE DCV server software is used to create a secure [session](https://docs.aws.amazon.com/dcv/latest/adminguide/managing-sessions.html)\. You install and run your applications on the server\. The server uses its hardware to perform the high\-performance processing that the installed applications require\. Your users access the application by remotely connecting to the session using a NICE DCV client application\. When the connection is established, the NICE DCV server software compresses the visual output of the application and streams it back to the client application in an encrypted pixel stream\. The client application receives the compressed pixel stream, decrypts it, and then outputs it to the local display\.
 
 ## Features of NICE DCV<a name="what-is-dcv-features"></a>
 
 NICE DCV offers the following features:
-+ **Enables collaboration** — It provides sessions that support multiple collaborative clients\. Sessions are dynamic and clients can connect and disconnect at any time during the session\. 
-+ **Supports GPU sharing** \(Linux NICE DCV servers only\) — Enables you to share one or more physical GPUs between multiple virtual sessions running on a Linux NICE DCV server\.
-+ **Supports H\.264\-based encoding** — It uses H\.264\-based video compression and encoding to reduce bandwidth consumption\. 
-+ **Supports NVIDIA GRID** — It uses the latest NVIDIA Grid SDK technologies, such as NVIDIA H\.264 hardware encoding, to improve performance and reduce system load\. Requires an NVIDIA GRID compatible GPU\.
-+ **Shares the entire desktop** — It uses the high\-performance NICE DCV protocol to share full control of the entire desktop\.
-+ **Supports NVIDIA vGPU technology** — It uses the NVIDIA virtual GPU \(vGPU\) technology to simplify the deployment of Windows virtual machines and to support GPU sharing\. Requires an NVIDIA GRID compatible GPU\.
-+ **Supports lossless quality video compression** \- It supports lossless quality video compression when the network and processor conditions allow\.
-+ **Transport images only** — It transports rendered images as pixels instead of geometry and scene information\. This provides an additional layer of security as no proprietary customer information is sent over the network\.
-+ **Adapts compression levels** — It automatically adapts the video compression levels based on the network's available bandwidth and latency\.
-+ **Supports smart card remotization** — It provides seamless access to local smart cards using the Personal Computer/Smart Card \(PC/SC\) interface\. Smart cards can be used for encrypting emails, signing documents, and authenticating against remote systems\. Requires the native Windows NICE DCV client and a Linux NICE DCV server\.
-+ **Matches display layouts** — It automatically adapts the server's screen resolution and display layout to match the size of the client window\.
-+ **Provides an HTML5 client** \- It offers an HTML5 client that can be used with any modern web browser on Windows and Linux\.
-+ **Supports modern Linux desktop environments** —It supports modern Linux desktops, such as Gnome 3 on RHEL 7\.
++ **Shares the entire desktop** — Uses the high\-performance NICE DCV protocol to share full control of the entire remote desktop\.
++ **Transport images only** — Transports rendered images as pixels instead of geometry and scene information\. This provides an additional layer of security as no proprietary customer information is sent over the network\.
++ **Supports H\.264\-based encoding** — Uses H\.264\-based video compression and encoding to reduce bandwidth consumption\. 
++ **Supports lossless quality video compression** \- Supports lossless quality video compression when the network and processor conditions allow\.
++ **Matches display layouts** — Automatically adapts the server's screen resolution and display layout to match the size of the client window\.
++ **Supports multi\-screen** — Lets you expand the session desktop across up to four monitors\.
++ **Adapts compression levels** — Automatically adapts the video compression levels based on the network's available bandwidth and latency\.
++ **Enables collaboration** — Provides dynamic sessions that support multiple collaborative clients\. Clients can connect and disconnect at any time during the session\. 
++ **Supports multiple sessions per server** \(Linux NICE DCV servers only\) — Supports multiple virtual sessions per Linux NICE DCV server to maximize cost savings\.
++ **Supports GPU sharing** \(Linux NICE DCV servers only\) — Lets you share one or more physical GPUs between multiple virtual sessions running on a Linux NICE DCV server\.
++ **Supports USB, smart card, and stylus remotization** — Lets you use your peripherals in a NICE DCV session just like you would on your local computer\.
++ **Supports audio in and out, printing, and copy and paste** — Lets you perform these key actions between the session and your local computer\.
++ **Supports file transfer** — Lets you transfer files between the session and your local computer\.
++ **Provides an HTML5 client** \- Offers an HTML5 client that can be used with any modern web browser on Windows and Linux\.
++ **Supports modern Linux desktop environments** — Supports modern Linux desktops, such as Gnome 3 on RHEL 7\.
 
 ## NICE DCV Requirements<a name="what-is-dcv-requirements"></a>
 
@@ -39,7 +41,7 @@ For a good user experience with NICE DCV, ensure that the server and client comp
 
 ### NICE DCV Server Requirements<a name="what-is-dcv-requirements-server"></a>
 
-If you are installing the NICE DCV server on an Amazon EC2 instance, we recommend that you use an Amazon EC2 G3 instance type\. These instance types offer NVIDIA GPUs that support hardware\-based OpenGL and GPU sharing\. For more information, see [Amazon EC2 G3 Instances](https://aws.amazon.com/ec2/instance-types/g3/)\. You can install the NICE DCV server on any other instance type, but there might be screen resolution limitations\. A third\-party driver can be used to bypass this limitation\. If you need the third\-party driver, request it from [NICE Support\.](https://support.nice-software.com/support/login/)
+If you are installing the NICE DCV server on an Amazon EC2 instance, we recommend that you use an Amazon EC2 G3 or G4 instance type\. These instance types offer NVIDIA GPUs that support hardware\-based OpenGL and GPU sharing\. For more information, see [Amazon EC2 G3 Instances](https://aws.amazon.com/ec2/instance-types/g3/) and [Amazon EC2 G4 Instances](https://aws.amazon.com/ec2/instance-types/g4/)\. You can install the NICE DCV server on any other instance type, but there might be screen resolution limitations\. A third\-party driver can be used to bypass this limitation\. If you need the third\-party driver, request it from [NICE Support\.](https://support.nice-software.com/support/login/)
 
 NICE DCV servers must meet the minimum requirements listed in the following table\.
 

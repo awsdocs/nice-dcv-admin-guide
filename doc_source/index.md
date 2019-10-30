@@ -25,7 +25,7 @@ Amazon's trademarks and trade dress may not be used in
          + [Install the NICE DCV Server on Linux](setting-up-installing-linux-server.md)
          + [Post-Installation Checks](setting-up-installing-linux-checks.md)
    + [Licensing the NICE DCV Server](setting-up-license.md)
-      + [Installing an Extended Demo License](setting-up-demo.md)
+      + [Installing an Extended Evaluation License](setting-up-evaluation.md)
       + [Installing a Floating License](setting-up-floating.md)
    + [Upgrading the NICE DCV Server](setting-up-upgrading.md)
 + [Managing the NICE DCV Server](manage.md)
