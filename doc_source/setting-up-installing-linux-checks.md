@@ -25,7 +25,7 @@ When the NICE DCV server is installed, a `dcv` user is created\. You must ensure
 Run the following command:
 
 ```
-$ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\) .*/\1/p') xhost | grep "SI:localuser:dcv$"
+$ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\).*/\1/p') xhost | grep "SI:localuser:dcv$"
 ```
 
 If the command returns `SI:localuser:dcv`, the dcv user can access the X server\.
@@ -58,7 +58,7 @@ If you installed the DCV GL package, you must ensure that local users can access
 Run the following command:
 
 ```
-$ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\) .*/\1/p') xhost | grep "LOCAL:$"
+$ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\).*/\1/p') xhost | grep "LOCAL:$"
 ```
 
 If the command returns `LOCAL:`, local users can access the X server\.

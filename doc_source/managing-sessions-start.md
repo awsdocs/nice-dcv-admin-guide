@@ -36,7 +36,13 @@ Specifies the session owner\. Defaults to the currently logged in user if omitte
 Specifies a path to a custom permissions file\. Defaults to the server defaults if omitted\.
 
 **\-\-storage\-root**  
-Specifies the path to the folder used for session storage\.
+Specifies the path to the folder used for session storage\.  
+You can use `%home%` to specify the home directory of the user who is currently logged in\. For example, the following sets the directory for session storage as `c:\Users\username\storage\` for Windows servers, or `$HOME/storage/` for Linux servers\.  
+
+```
+--storage-root %home%/storage/
+```
+If a specified subdirectory does not exist, session storage is disabled\.
 
 **\-\-gl**  
 This option is supported with virtual sessions on Linux NICE DCV sessions only\. It overrides the default `dcv-gl` state, and can be either `on` or `off`\.

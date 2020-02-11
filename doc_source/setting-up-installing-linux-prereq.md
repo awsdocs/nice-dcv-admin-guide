@@ -1,10 +1,6 @@
 # Prerequisites for Linux NICE DCV Servers<a name="setting-up-installing-linux-prereq"></a>
 
-NICE DCV enables clients to access a remote graphical X session on a Linux server, which provides access to the corresponding Linux desktop\. NICE DCV supports two different types of Linux desktop streaming: console sessions and virtual sessions\.
-
-With console sessions, NICE DCV captures the content of the X server running on the server\. NICE DCV console sessions have direct access to the Linux server's GPU\. Only one X server session can run at a time, and therefore, only one NICE DCV session can run at at time\.
-
-With virtual sessions, NICE DCV starts a special X server, called Xdcv, and runs a desktop environment inside the X server\. If the dcv\-gl package is installed and licensed, NICE DCV virtual sessions share access to the server's GPUs\. Since there is a dedicated X server for each virtual session, several sessions can run at the same time\.
+NICE DCV enables clients to access a remote graphical X session on a Linux server, which provides access to the corresponding Linux desktop\. NICE DCV supports two different types of Linux desktop streaming: console sessions and virtual sessions\. For more information about console and virtual sessions, see [Managing NICE DCV Sessions](managing-sessions.md)\.
 
 This topic explains how to install the prerequisites required to use NICE DCV on a Linux server\.
 
@@ -323,7 +319,7 @@ This applies to non\-GPU Linux servers only\.
 Run the following command:
 
 ```
-$ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\) .*/\1/p') glxinfo | grep -i "opengl.*version"
+$ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\).*/\1/p') glxinfo | grep -i "opengl.*version"
 ```
 
 The following shows example output if OpenGL software rendering is available

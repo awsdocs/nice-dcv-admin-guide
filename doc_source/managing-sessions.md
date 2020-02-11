@@ -25,6 +25,8 @@ Console sessions are supported on Windows and Linux NICE DCV servers\.
 
 Only one console session can be hosted on the NICE DCV server at a time\. Console sessions are created and managed by the Administrator on Windows NICE DCV servers, and the root user on Linux NICE DCV servers\. 
 
+With console sessions, NICE DCV captures the content of the X server\. NICE DCV console sessions have direct access to the NICE DCV server's GPU\. Only one X server session can run at a time, and therefore, only one NICE DCV console session can run at at time\.
+
 **Note**  
 You can't run console and virtual sessions on the same NICE DCV server at the same time\.
 
@@ -34,7 +36,9 @@ Virtual sessions are supported on Linux NICE DCV servers only\.
 
 A NICE DCV server can host multiple virtual sessions simultaneously\. Virtual sessions are created and managed by NICE DCV users\. NICE DCV users can only manage sessions that they have created\. The root user can manage all virtual sessions that are currently running on the NICE DCV server\.
 
-To use virtual sessions, ensure that you have properly installed and configured an X server\. A new virtual X server instance is created for each session\. Each session uses the display provided by its virtual server\. This enables you to host multiple virtual sessions on a single NICE DCV server\. To share hardware\-based OpenGL across multiple virtual sessions, you must connect the virtual X server instance to the GPU by configuring the `dcv-gl.conf` file\.
+With virtual sessions, NICE DCV starts an X server instance and runs a desktop environment inside the X server\. NICE DCV starts a new dedicated X server instance for each virtual session\. Each virtual session uses the display provided by its X server instance\.
+
+If the `dcv-gl` package is installed and licensed, NICE DCV virtual sessions share access to the server's GPUs\. To share hardware\-based OpenGL across multiple virtual sessions, you must connect the virtual X server instance to the GPU by configuring the `dcv-gl.conf` file\.
 
 **Note**  
 You can't run console and virtual sessions on the same NICE DCV server at the same time\.

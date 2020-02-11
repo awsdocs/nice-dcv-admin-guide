@@ -1,7 +1,7 @@
 # NICE DCV Administrator Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -47,6 +47,9 @@ Amazon's trademarks and trade dress may not be used in
    + [Starting NICE DCV Sessions](managing-sessions-start.md)
    + [Stopping NICE DCV Sessions](managing-sessions-lifecycle-stop.md)
    + [Viewing NICE DCV Sessions](managing-sessions-lifecycle-view.md)
++ [How to...](how-to.md)
+   + [Find and Stop Idle Sessions](how-to-idle-sessions.md)
+   + [Enable Remote X Connections to the X Server](how-to-xforwarding.md)
 + [Troubleshooting NICE DCV](troubleshooting.md)
    + [Using the Log Files](troubleshooting-logs.md)
    + [Common Issues](troubleshooting-issues.md)
