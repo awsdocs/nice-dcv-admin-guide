@@ -4,7 +4,7 @@ You must create a NICE DCV session on your NICE DCV server that your clients can
 
 **Topics**
 + [Introduction to NICE DCV sessions](#managing-sessions-intro)
-+ [Using the Command Line Tool to Manage NICE DCV sessions](#managing-sessions-cli)
++ [Using the Command Line Tool to Manage NICE DCV sessions](managing-sessions-cli.md)
 + [Starting NICE DCV Sessions](managing-sessions-start.md)
 + [Stopping NICE DCV Sessions](managing-sessions-lifecycle-stop.md)
 + [Viewing NICE DCV Sessions](managing-sessions-lifecycle-view.md)
@@ -42,11 +42,3 @@ If the `dcv-gl` package is installed and licensed, NICE DCV virtual sessions sha
 
 **Note**  
 You can't run console and virtual sessions on the same NICE DCV server at the same time\.
-
-## Using the Command Line Tool to Manage NICE DCV sessions<a name="managing-sessions-cli"></a>
-
-The NICE DCV server ships with a command line tool that can be used to start, stop, and view NICE DCV sessions\.
-
-To use the command line tool on a Windows NICE DCV server, navigate to the folder in which the `dcv.exe` file is located, `C:\Program Files\NICE\DCV\Server\bin\` by default, and open a command prompt window\.
-
-On Linux NICE DCV servers, the command line tool is automatically configured in the `$PATH` environment variable\. This enables you to use the command line tool from any folder\. Open a terminal window and type the command to execute\.

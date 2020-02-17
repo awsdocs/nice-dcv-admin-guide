@@ -10,11 +10,11 @@ By default, the NICE DCV server is configured to start automatically when the se
 
 ## Starting the NICE DCV Server on Windows<a name="manage-start-windows"></a>
 
-Use the following procedure to manually start the NICE DCV server using the Microsoft Management Console\.
+Use the following procedure to manually start the NICE DCV server using the Services snap\-in for the Microsoft Management Console\.
 
 **To start the NICE DCV server on Windows**
 
-1. Open the Microsoft Management Console\.
+1. Open the Services snap\-in for the Microsoft Management Console\.
 
 1. In the right\-hand pane, open **DCV Server**\.
 
@@ -23,11 +23,11 @@ Use the following procedure to manually start the NICE DCV server using the Micr
 **Note**  
 If the server is already running, the **Start** button is disabled\.
 
-Use the following procedure to configure the NICE DCV server to start automatically using the Microsoft Management Console\.
+Use the following procedure to configure the NICE DCV server to start automatically using the Services snap\-in for the Microsoft Management Console\.
 
 **To configure the NICE DCV server to start automatically on Windows**
 
-1. Open the Microsoft Management Console\.
+1. Open the Services snap\-in for the Microsoft Management Console\.
 
 1. In the right\-hand pane, open **DCV Server**\.
 

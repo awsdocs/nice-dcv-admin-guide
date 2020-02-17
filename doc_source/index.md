@@ -44,6 +44,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Configuring NICE DCV Authorization](security-authorization.md)
       + [Working with Permissions Files](security-authorization-file-create.md)
 + [Managing NICE DCV Sessions](managing-sessions.md)
+   + [Using the Command Line Tool to Manage NICE DCV sessions](managing-sessions-cli.md)
    + [Starting NICE DCV Sessions](managing-sessions-start.md)
    + [Stopping NICE DCV Sessions](managing-sessions-lifecycle-stop.md)
    + [Viewing NICE DCV Sessions](managing-sessions-lifecycle-view.md)

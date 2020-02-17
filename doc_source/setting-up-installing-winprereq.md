@@ -17,13 +17,13 @@ If you're using a GPU graphics instance, such as G2, G3, or G3s, it is recommend
 + Increased maximum resolution for server monitors— up to 4096x2160
 + Increased number of server monitors
 
-For more information about installing NVIDIA GPU drivers on your GPU graphics instance, see [ Installing the NVIDIA Driver on Windows](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+For more information about installing NVIDIA GPU drivers on your GPU graphics instance, see [ Installing the NVIDIA Driver on Windows](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 ### Prerequisites for Other Accelerated Computing Instances<a name="setting-up-installing-accelerated"></a>
 
 If you're using an accelerated computing instance that is not a GPU graphics instance, such as P2, P3, or P3dn, it is recommended that you install and configure the appropriate NVIDIA GPU drivers\. The NVIDIA GPU drivers enable hardware acceleration for H\.264 video streaming encoding\.
 
-For more information about installing NVIDIA GPU drivers on your accelerated computing instance, see [ Public NVIDIA Drivers](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver-windows.html#nvidia-drivers-public) in the *Amazon EC2 User Guide for Windows Instances*\.
+For more information about installing NVIDIA GPU drivers on your accelerated computing instance, see [ Public NVIDIA Drivers](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver.html#public-nvidia-driver) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 Unlike the GPU graphics instance, installing the NVIDIA GPU drivers on an accelerated computing instance does not enhance server monitor limits or resolutions in any way\. To add the additional server monitor resolution support, you can install the NVIDIA GRID drivers\. For more information, see [NVIDIA vGPU Software](https://www.nvidia.com/object/vGPU-software-driver.html) on the NVIDIA website\.
 

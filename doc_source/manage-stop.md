@@ -8,11 +8,11 @@ You can stop the NICE DCV server at any time\. Stopping the server terminates al
 
 ## Stopping the NICE DCV Server on Windows<a name="manage-stop-windows"></a>
 
-Use the following procedure to stop the NICE DCV server using the Microsoft Management Console\.
+Use the following procedure to stop the NICE DCV server using the Services snap\-in for the Microsoft Management Console\.
 
 **To stop the NICE DCV server on Windows**
 
-1. Open the Microsoft Management Console\.
+1. Open the Services snap\-in for the Microsoft Management Console\.
 
 1. In the right\-hand pane, open **DCV Server**\.
 
@@ -21,11 +21,11 @@ Use the following procedure to stop the NICE DCV server using the Microsoft Mana
 **Note**  
 If the server is already stopped, the **Stop** button is disabled\.
 
-Use the following procedure to disable automatic NICE DCV server startup using the Microsoft Management Console\.
+Use the following procedure to disable automatic NICE DCV server startup using the Services snap\-in for the Microsoft Management Console\.
 
 **To prevent the NICE DCV server from starting automatically on Windows**
 
-1. Open the Microsoft Management Console\.
+1. Open the Services snap\-in for the Microsoft Management Console\.
 
 1. In the right\-hand pane, open **DCV Server**\.
 
