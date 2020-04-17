@@ -19,6 +19,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 + [`input` Parameters](#input)
 + [`display` Parameters](#display)
 + [`display/linux` Parameters](#display_linux)
++ [`audio` Parameters](#audio)
 + [`log` Parameters](#log)
 + [`windows` Parameters](#windows)
 + [`clipboard` Parameters](#clipboard)
@@ -35,6 +36,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 | web\-port | DWORD \(32\-bit\) | server | 8443 | TCP port for the web client — Specifies the TCP port on which the DCV server listens for client connections\. The port number must be between 1024 and 65535\. | 
 | web\-url\-path | String | server | '/' | URL path for the embedded web server — Specifies the URL path for the embedded web server, must start with '/'\. For example, setting it to /test/foo means that the web server is reachable at https://host:port/test/foo\. | 
 | web\-root | String | server | '' | Document root for the embedded web server — Specifies the document root for the embedded web server\. | 
+| web\-use\-hsts | DWORD \(32\-bit\) | server | true | Whether to use HSTS — Enables this to force browsers to prevent any communication being sent over HTTP\. All transfer to the webpage \(and all subdomains\) will be done using HTTPS instead\. | 
 | ws\-keepalive\-interval | DWORD \(32\-bit\) | server | 10 | Websocket keepalive interval — Specifies the interval \(in seconds\) after which to send a keepalive message\. If set to 0, the keepalive message is disabled\. | 
 | idle\-timeout | DWORD \(32\-bit\) | custom | 60 | Idle timeout — Specifies the number of minutes to wait before disconnecting idle clients\. Specify 0 to never disconnect idle clients\. This parameter value is read every 5 seconds\. | 
 | idle\-timeout\-warning | DWORD \(32\-bit\) | custom | 350 | Idle timeout warning — Specifies the number of seconds relative to idle\-timeout to wait before warning idle clients about idle timeout disconnection\. Specify 0 to never warn idle clients\. | 
@@ -46,7 +48,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 
 | Parameter | Type \(Windows only\) | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
-| max\-concurrent\-sessions | DWORD \(32\-bit\) | server | 0 | Maximum number of concurrent sessions — Specifies the maximum number of allowed concurrent sessions\. This limit currently applies only to virtual sessions, because console sessions are intrinsically limited to one\. Specify 0 to not enforce any limit\. | 
+| max\-concurrent\-sessions | DWORD \(32\-bit\) | server | 0 | Maximum number of concurrent sessions — Specifies the maximum number of allowed concurrent sessions\. This limit currently applies only to virtual sessions, because console sessions are intrinsically limited to one\. Specify 0 to not enforce any limit\.  | 
 | create\-session | DWORD \(32\-bit\) | server | false | Create a console session at server startup — Specifies whether to automatically create a console session \(with ID "console"\) at server startup\. | 
 | max\-concurrent\-clients | DWORD \(32\-bit\) | session | \-1 | Maximum number of concurrent clients per session — Specifies the maximum number of concurrent clients per session\. If set to \-1, no limit is enforced\. To set the limit only for the automatic session, use 'max\-concurrent\-clients' of section 'session\-management/automatic\-console\-session'\. | 
 | enable\-gl\-in\-virtual\-sessions | String | session | 'default\-on' | Whether to employ dcv\-gl feature — Specifies whether to use the dcv\-gl feature \(a license is required\)\. Allowed values: 'always\-on', 'always\-off', 'default\-on', 'default\-off'\. | 
@@ -87,6 +89,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 | passwd\-file | String | server | '' | Password file — Specifies the password file to be used to check user credentials \(only with dcv authentication mode\)\. If empty, use the default file in $\{XDG\_CONFIG\_HOME\}/NICE/dcv/passwd for Linux, or %CSIDL\_LOCAL\_APPDATA%\\NICE\\dcv\\passwd for Windows\. | 
 | pam\-service\-name | String | server | 'dcv' | PAM service name — Specifies the name of the PAM configuration file used by DCV\. The default PAM service name is 'dcv' and corresponds with the /etc/pam\.d/dcv configuration file\. This parameter is only used if the 'system' authentication method is used\.  | 
 | enable\-gssapi | DWORD \(32\-bit\) | server | false | Enable GSSAPI SASL mechanism — Enables or disables GSSAPI SASL mechanism, that allows DCV authentication with kerberos\. | 
+| service\-name | String | server | 'dcv' | Service Name — The registered name of the service \(usually the protocol name\)\. | 
 | server\-fqdn | String | server | '' | Server FQDN — Server fully qualified domain name\. Empty means gethostname\(\)\. | 
 | user\-realm | String | server | '' | Server user realm — Specifies a user realm for the server\. | 
 | ca\-file | String | server | '' | CA file — Specifies the file containing the certificate authorities \(CAs\) trusted by the DCV server\. If empty, use the default trust store provided by the system\. | 
@@ -136,8 +139,9 @@ The **Reload context** column in each table indicates when the parameter is relo
 | enable\-client\-resize | DWORD \(32\-bit\) | session | true | Whether to allow clients to set the display layout — Specifies whether clients are allowed to set the display layout\. | 
 | max\-layout\-area | DWORD \(32\-bit\) | custom | 0 | Max layout area in pixels — The maximum area in pixels of a display layout requestable by the client\. Layouts that are larger than this limit will be ignored\. This maximum is meant to provide an upper bound to the amount of display data that must be sent, without providing constraints on the display layout geometry\. If set to 0, no limit is applied to layout area\. The setting is reloaded at each client layout request\. | 
 | max\-head\-resolution | String | custom | \(4096, 2160\) | Max head resolution — The maximum resolution of a display head requestable by the client\. A display head is equivalent to a host monitor\. The setting is reloaded at each client layout request\. | 
+| web\-client\-max\-head\-resolution | String | custom | \(1920, 1080\) | Max head resolution for web client — The maximum resolution of a display head requestable by a web client\. A display head is equivalent to a host monitor\. The setting is reloaded at each client layout request\. This setting is ignored in case the web client is setting the max resolution explicitly, and it is overridden by the max\-head\-resolution setting\. In case the value is set to \(0, 0\), it is ignored\.  | 
 | min\-head\-resolution | String | custom | \(640, 480\) | Min head resolution — The minimum resolution of a display head requestable by the client\. A display head is equivalent to a host monitor\. The setting is reloaded at each client layout request\. | 
-| max\-num\-heads | DWORD \(32\-bit\) | custom | 4 | Max number of heads — Specifies the maximum number of display heads requestable by the client\. A display head is equivalent to a host monitor\. The setting is reloaded at each client layout request\. | 
+| max\-num\-heads | DWORD \(32\-bit\) | custom | 4 | Max number of heads — Specifies the maximum number of display heads requestable by the client\. A display head is equivalent to a host monitor\. The setting is reloaded at each client layout request\.  | 
 | console\-session\-default\-layout | String | session | \[\] | Default screen resolution and position for console sessions — Specifies the default screen resolution and position for console sessions\. If this is set, DCV sets the requested layout at startup\. Each monitor can be configured with resolution \(w,h\) and position \(x,y\)\. All specified monitors are enabled\. Default layout example value: \[\{'w':<800>, 'h':<600>, 'x':<0>, 'y': <0>\}, \{'w':<1024>, 'h':<768>, 'x':<800>,'y':<0>\}\]  | 
 | use\-grabber\-dirty\-region | DWORD \(32\-bit\) | session | true | Whether to use dirty regions — Specifies whether to use dirty screen regions\. If enabled, the grabber tries to compute new frames out of the dirty regions from the screen\. | 
 | cuda\-devices | String | connection | \[\] | CUDA devices used for stream encoding — Specifies the list of local CUDA devices which DCV uses to distribute encoding and CUDA workloads\. Each device is identified by a number that can be retrieved from the nvidia\-smi command\. For example, cuda\-devices=\['0', '2'\] indicates that DCV uses two GPUs, with IDs 0 and 2\. This setting is similar to the CUDA\_VISIBLE\_DEVICES environment variable, but it only applies to DCV\. If the option is not set, DCV uses an incremental session index starting from 0 to pick the next device to use\.  | 
@@ -152,6 +156,15 @@ The **Reload context** column in each table indicates when the parameter is relo
 | gl\-displays | String | session | \[':0\.0'\] | 3D accelerated X displays — Specifies the list of local 3D accelerated X displays and screens used by DCV for OpenGL rendering in virtual sessions\. If this value is missing, you can't run OpenGL applications in virtual sessions\. This setting is ignored for console sessions\.  | 
 | h264\-encoder\-displays | String | connection | \[\] | H\.264 encoder X displays — Specifies the list of local X displays and screens that support accelerated H\.264 encoding\. If empty, DCV uses the same display selected for OpenGL rendering\. This setting is useful only in cases when some of the GPUs installed on the system do not provide acceleration for H\.264 encoding using one of the supported technologies\. | 
 
+## `audio` Parameters<a name="audio"></a>
+
+ The following table describes the configuration parameters in the `[audio]` section of the `/etc/dcv/dcv.conf` file for Linux NICE DCV servers, and the `audio` registry key for Windows NICE DCV servers\. 
+
+
+| Parameter | Type \(Windows only\) | Reload context | Default value | Description | 
+| --- | --- | --- | --- | --- | 
+| source\-channels | DWORD \(32\-bit\) | session | 2 | Number of channels played on the source device\. — The number of channels that should be considered when grabbing audio from the source device\. A device provided by a driver can support many channels, for instance the DCV driver support 8 channels, but DCV needs to know how many are effectively used in order to mix correctly\. The setting must lower or equal than the number of channels supported by the device\. 0 \(use all channels\), 2 \(stereo\), 4 \(4\.0 quadriphonic\), 6 \(5\.1 surround\), 8 \(7\.1 surround\)\. Default value 2 \(stereo\) | 
+
 ## `log` Parameters<a name="log"></a>
 
  The following table describes the configuration parameters in the `[log]` section of the `/etc/dcv/dcv.conf` file for Linux NICE DCV servers, and the `log` registry key for Windows NICE DCV servers\. 
@@ -160,7 +173,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 | Parameter | Type \(Windows only\) | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
 | directory | String | server | '' | Log output directory — Specifies the destination to which logs are saved\. If not specified it defaults to "C:\\ProgramData\\NICE\\DCV\\log\\" on Windows and to "/var/log/dcv/" on Linux\.  | 
-| level | String | custom | 'info' | Log level — Specifies the log file verbosity level\. The verbosity levels \(in order of the amount of detail they provide\) are: 'error', 'warning', 'info', and 'debug'\. For the server: the new value is effective as soon as it is changed on the configuration\. For sessions: the new value is loaded when creating a new session\. | 
+| level | String | custom | 'info' | Log level — Specifies the log file verbosity level\. The verbosity levels \(in order of the amount of detail they provide\) are: 'error', 'warning', 'info', and 'debug'\. The new value is effective as soon as it is changed on the configuration and propagated to the DCV agent processes\. With versions <= 2019\.1, the log level on the DCV agent processes is only set when they start\. | 
 | rotate | DWORD \(32\-bit\) | server | 10 | Number of log file rotations — Specifies the number of times that log files are rotated before being removed\. If the value is 0, old versions are removed rather than rotated\. | 
 | transfer\-audit | String | server | 'none' | Transfer direction to audit — Specifies which transfer direction to audit\. If this parameter is enabled, a new CSV file logs transfers between the server and clients\. The allowed values are: 'none', 'server\-to\-client', 'client\-to\-server', and 'all'\. If this value is missing or equal to 'none', transfer audits are disabled and no file is created\. | 
 
@@ -181,11 +194,12 @@ The **Reload context** column in each table indicates when the parameter is relo
 
 | Parameter | Type \(Windows only\) | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
+| enabled | DWORD \(32\-bit\) | session | true | Whether the clipboard feature should be enabled\. — If clipboard feature is disabled, users will not be able to use the clipboard remotization\. Clipboard monitoring will be disabled too\. | 
 | max\-payload\-size | DWORD \(32\-bit\) | session | 20971520 | Maximum size of clipboard's data — Specifies the maximum size \(in bytes\) of clipboard data that can be transferred from server to clients\. If this value is missing, the default limit of 20 MB is enforced\. | 
 | max\-text\-len | DWORD \(32\-bit\) | session | \-1 | Maximum number of characters of clipboard's text — Specifies the maximum number of characters of clipboard text that can be transferred from server to clients\. If this value is missing or set to \-1, no limit is enforced\. | 
 | max\-image\-area | DWORD \(32\-bit\) | session | \-1 | Maximum area of clipboard's image — Specifies the maximum area \(number of pixels\) of clipboard images that can be transferred from server to clients\. If this value is missing or set to \-1, no limit is enforced\. | 
-| primary\-selection\-paste | DWORD \(32\-bit\) | session | false | Enables the primary selection pasting on linux — Linux desktops support multiple clipboards: the clipboard and the primary selection\. The primary selection is updated or copied when content is selected\. It can then be pasted using the mouse's middle button or the Shift\+Insert key combination\. When enabled, the client's clipboard content will be also inserted in the primary selection\. | 
-| primary\-selection\-copy | DWORD \(32\-bit\) | session | false | Enables the primary selection copy from linux — Linux desktops supports multiple clipboards: the clipboard and the primary selection\. The primary selection is updated or copied when content is selected\. It can then be pasted using the mouse's middle button or with the Shift\+Insert key combination\. When enabled, the primary selection is monitored and updates are propagated to the client\. | 
+| primary\-selection\-paste | DWORD \(32\-bit\) | session | false | Enables the primary selection pasting on linux — Linux desktops support multiple clipboards: the clipboard and the primary selection\. The primary selection is updated or copied when content is selected\. It can then be pasted using the mouse's middle button or the Shift\+Insert key combination\. When enabled, the client's clipboard content will be also inserted in the primary selection\.  | 
+| primary\-selection\-copy | DWORD \(32\-bit\) | session | false | Enables the primary selection copy from linux — Linux desktops supports multiple clipboards: the clipboard and the primary selection\. The primary selection is updated or copied when content is selected\. It can then be pasted using the mouse's middle button or with the Shift\+Insert key combination\. When enabled, the primary selection is monitored and updates are propagated to the client\.  | 
 
 ## `smartcard` Parameters<a name="smartcard"></a>
 

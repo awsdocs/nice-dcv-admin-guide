@@ -7,6 +7,7 @@ The following table describes the documentation for this release of NICE DCV\.
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| NICE DCV Version 2020\.0 | NICE DCV 2020\.0 includes support for surround sound 7\.1, touch and stylus, and multi\-monitor using the new Microsoft Edge browser\. For more information, see [Installing the NICE DCV Server](setting-up-installing.md)\. | April 16, 2020 | 
 | HTTP response headers | The NICE DCV server can be configured to send additional HTTP response headers\. | August 26, 2019 | 
 | macOS client | NICE DCV now offers a macOS client\. For more information, see [macOS Client](https://docs.aws.amazon.com/dcv/latest/userguide/client-mac.html) in the NICE DCV User Guide\. | April 18, 2019 | 
 | Smart card caching | The NICE DCV server can now cache smart card data received from the client to help improve performance\. For more information, see [Configuring Smart Card Caching](manage-smart-card.md)\. | October 08, 2018 | 

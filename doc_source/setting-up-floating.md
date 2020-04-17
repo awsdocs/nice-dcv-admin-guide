@@ -1,25 +1,26 @@
-# Installing a Floating License<a name="setting-up-floating"></a>
+# Installing a Production License<a name="setting-up-floating"></a>
 
-The following sections in this topic explain how to request and use a floating license\.
+The following sections in this topic explain how to purchase and use a production license \(perpetual license or subscription\)\.
 
 **Topics**
 + [Step 1: Install the RLM Server](#install-rlm)
-+ [Step 2: Purchase the Floating License](#license-purchase)
-+ [Step 3: Modify the License File](#setting-up-floating-modify)
-+ [Step 4: Configure the RLM Server](#setting-up-floating-prep)
-+ [Step 5: Configure the NICE DCV Server](#setting-up-floating-config)
++ [Step 2: Get the RLM Server's Host ID](#hostid-rlm)
++ [Step 3: Purchase the Perpetual License or Subscription](#license-purchase)
++ [Step 4: Modify the License File](#setting-up-floating-modify)
++ [Step 5: Configure the RLM Server](#setting-up-floating-prep)
++ [Step 6: Configure the NICE DCV Server](#setting-up-floating-config)
 
 ## Step 1: Install the RLM Server<a name="install-rlm"></a>
 
-When you purchase a floating license, you get a license file that defines the terms of your license\. You must install the license file on a Reprise License Manager \(RLM\) server\. Install the RLM server and then get your RLM server's host ID\. You need to provide this host ID when requesting the floating license\.
+When you purchase a perpetual license or subscription, you get a license file that defines the terms of your license\. You must install the license file on a Reprise License Manager \(RLM\) server\. 
 
 For more information about RLM, see the [Reprise Software](http://www.reprisesoftware.com/products/license-manager.php) website\.
 
 **Topics**
-+ [Install the RLM server on Windows](#install-rlm-windows)
-+ [Install the RLM server on Linux](#install-rlm-linux)
++ [Install the RLM Server on Windows](#install-rlm-windows)
++ [Install the RLM Server on Linux](#install-rlm-linux)
 
-### Install the RLM server on Windows<a name="install-rlm-windows"></a>
+### Install the RLM Server on Windows<a name="install-rlm-windows"></a>
 
 **To install the RLM server on Windows**
 
@@ -27,27 +28,13 @@ For more information about RLM, see the [Reprise Software](http://www.reprisesof
 
 1. Install the RLM License Administration Bundle to `C:\RLM`\.
 
-1. To get the server's host ID, open the command prompt, navigate to `C:\RLM\`, and then run the following command\.
-
-   ```
-   C:\> rlmutil.exe rlmhostid ether
-   ```
-
-   The command returns the RLM server's host ID as follows\.
-
-   ```
-   Hostid of this machine: 06814example
-   ```
-
-   Record the Host ID, as you'll need it for the next step\.
-
-### Install the RLM server on Linux<a name="install-rlm-linux"></a>
+### Install the RLM Server on Linux<a name="install-rlm-linux"></a>
 
 **To install the RLM server on Linux**
 
 1. Download the RLM License Administration Bundle from the [Reprise Software website](http://www.reprisesoftware.com/admin/software-licensing-download.php)\.
 
-1. Create a user group and a new `rlm` user\. This can be any valid user or service account\. We strongly recommend that you do not use the root account for this value\.
+1. Create a user group and an `rlm` user\. This can be any valid user or service account\. We strongly recommend that you do not use the root account for this value\.
 
    ```
    $ groupadd -r rlm
@@ -57,7 +44,7 @@ For more information about RLM, see the [Reprise Software](http://www.reprisesof
    $ useradd -r -g rlm -d "/opt/nice/rlm" -s /sbin/nologin -c "RLM License Server" rlm
    ```
 
-1. Create the `/opt/nice/rlm` and `/opt/nice/rlm/license` directories needed for the RLM server\.
+1. Create the `/opt/nice/rlm` and `/opt/nice/rlm/license` directories required for the RLM server\.
 
    ```
    $ mkdir -p /opt/nice/rlm/license
@@ -73,37 +60,61 @@ For more information about RLM, see the [Reprise Software](http://www.reprisesof
    $ chown -R rlm:rlm /opt/nice/rlm
    ```
 
-1. To get the server's host ID, navigate to `/opt/nice/rlm/`, and run the following command\.
+## Step 2: Get the RLM Server's Host ID<a name="hostid-rlm"></a>
 
-   ```
-   $ ./rlmutil rlmhostid ether
-   ```
+After you install the RLM server, you must get the RLM server's host ID\. You'll need to provide this host ID when purchasing a perpetual license or subscription\.
 
-   The command returns the RLM server's host ID as follows\.
+### Get the RLM Server Host ID on Windows<a name="hostid-rlm-windows"></a>
 
-   ```
-   Hostid of this machine: 06814example
-   ```
+**To get the server's host ID, open the command prompt,**  
+Navigate to `C:\RLM\`, and then run the following command\.
 
-   Record the Host ID, as you'll need it for the next step\.
+```
+C:\> rlmutil.exe rlmhostid ether
+```
 
-## Step 2: Purchase the Floating License<a name="license-purchase"></a>
+The command returns the RLM server's host ID as follows\.
 
-To purchase a NICE DCV floating license, contact [NICE Support](https://support.nice-software.com/support/home)\.
+```
+Hostid of this machine: 06814example
+```
+
+Record the host ID\. You need it for the next step\.
+
+### Get the RLM Server Host ID on Linux<a name="hostid-rlm-linux"></a>
+
+**To get the server's host ID**  
+Navigate to `/opt/nice/rlm/`, and run the following command\.
+
+```
+$ ./rlmutil rlmhostid ether
+```
+
+The command returns the RLM server's host ID as follows\.
+
+```
+Hostid of this machine: 06814example
+```
+
+Record the host ID\. You need it for the next step\.
+
+## Step 3: Purchase the Perpetual License or Subscription<a name="license-purchase"></a>
+
+For information about how to purchase a NICE DCV perpetual license or a subscription, see [How to Buy](https://www.nice-software.com/index.html#buy) on the NICE website and find a NICE distributor or reseller in your region\.
 
 You must provide your RLM server's host ID\. The host ID is embedded in the license file that NICE provides\.
 
-## Step 3: Modify the License File<a name="setting-up-floating-modify"></a>
+## Step 4: Modify the License File<a name="setting-up-floating-modify"></a>
 
-When you purchase a NICE DCV floating license, you receive a `license.lic` file that defines the license\. The `license.lic` file includes the following information:
+When you purchase a NICE DCV perpetual license or subscription, you receive a `license.lic` file that defines the license\. The `license.lic` file includes the following information:
 + The RLM server's hostname\.
 + The RLM server's host ID, which you provided when you purchased the license\.
 + The RLM server's TCP port number\. The default is `5053`\.
 + The ISV port number\. This is an optional port on which the RLM server listens for NICE DCV license requests\.
 + The NICE DCV products covered by the license, along with the following details for each product:
-  + The major version covered by the license\. For example, `2017` for the 2017 NICE DCV products\.
+  + The major version covered by the license \(for example, `2017` for the 2017 NICE DCV products\)\.
   + The expiration date\. `Permanent` indicates that the license does not expire\.
-  + The maximum number of concurrent sessions\. For example, `10` for 10 concurrent sessions on the server\.
+  + The maximum number of concurrent sessions \(for example, `10` for 10 concurrent sessions on the server\)\.
   + The license checksum\.
   + The license signature\.
 
@@ -116,7 +127,7 @@ LICENSE product_1 major_version expiration_date concurrent_sessions share=hi _ck
 LICENSE product_2 major_version expiration_date concurrent_sessions share=hi _ck=checksum sig="signature"
 ```
 
-The following code block shows an example of a `license.lic` file with the ISV port omitted\. The license file includes licenses for two NICE products \- DCV and dcv\-gl\.
+The following code block shows an example of a `license.lic` file with the ISV port omitted\. The license file includes licenses for two NICE products, DCV and dcv\-gl\.
 
 ```
 HOST My-RLM-server abcdef123456 5053
@@ -125,38 +136,38 @@ LICENSE nice dcv 2017 permanent 10 share=hi _ck=456789098a sig="abcdefghijklmnop
 LICENSE nice dcv-gl 2017 permanent 10 share=hi _ck=123454323x sig="1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz12"
 ```
 
-**To modify the `license.lic` file**
+**To edit the `license.lic` file**
 
 1. Open the file with your preferred text editor\.
 
 1. Add your RLM server's hostname and the TCP port number to the first line in the file, which starts with `HOST`\.
 **Warning**  
-The *RLM\_server\_host\_id* is the host ID that you provided when you purchased the license\. You cannot modify the *RLM\_server\_host\_id*\.
+The *RLM\_server\_host\_id* is the host ID that you provided when you purchased the license\. You cannot edit the *RLM\_server\_host\_id*\.
 
 1. \(Optional\) Add the ISV port number in the second line in the file, which starts with `ISV`, by adding `port=port_number`\.
 
-   If you do not want to specify an ISV port, omit `port=port_number`\. If you do not specify a port, a random port is used\. Using a random port could cause conflicts with your firewall configuration\.
+   If you do not want to specify an ISV port, omit `port=port_number`\. If you do not specify a port, a random port is used\. Using a random port might cause conflicts with your firewall configuration\.
 
 1. Save and close the file\.
 
 **Warning**  
-Modifying any other part of the license file corrupts the file's signature and invalidates the license\.
+Editing any other part of the license file corrupts the file's signature and invalidates the license\.
 
-## Step 4: Configure the RLM Server<a name="setting-up-floating-prep"></a>
+## Step 5: Configure the RLM Server<a name="setting-up-floating-prep"></a>
 
 After you have modified the license file, you must place it on your RLM server and then start the RLM service\.
 
 **Topics**
-+ [Configure the RLM server on Windows](#prep-windows)
-+ [Configure the RLM server on Linux](#prep-linux)
++ [Configure the RLM Server on Windows](#prep-windows)
++ [Configure the RLM Server on Linux](#prep-linux)
 
-### Configure the RLM server on Windows<a name="prep-windows"></a>
+### Configure the RLM Server on Windows<a name="prep-windows"></a>
 
 **To configure the RLM server on Windows**
 
 1. Connect to your RLM sever\.
 
-1. Copy the modified `license.lic` file to `C:\RLM\license\`\.
+1. Copy the edited `license.lic` file to `C:\RLM\license\`\.
 
 1. Copy the `C:\Program Files\NICE\DCV\Server\license\nice.set` file from your NICE DCV server and place it in the `C:\RLM\` folder on your RLM server\.
 
@@ -192,11 +203,11 @@ The contents of the `rlm.log` file might vary slightly depending on the RLM serv
 
       The command should return information about the RLM server\.
 
-### Configure the RLM server on Linux<a name="prep-linux"></a>
+### Configure the RLM Server on Linux<a name="prep-linux"></a>
 
 **To configure the RLM server on Linux**
 
-1. Copy the modified `license.lic` file to `/opt/nice/rlm/license/`\.
+1. Copy the edited `license.lic` file to `/opt/nice/rlm/license/`\.
 
 1. Copy the `/usr/share/dcv/license/nice.set` file from your NICE DCV server and place it in `/opt/nice/rlm` on your RLM server\.
 
@@ -335,7 +346,7 @@ The contents of the `rlm.log` file might vary slightly depending on the RLM serv
 **Note**  
 The contents of the `rlm.log` file might vary slightly depending on the RLM server version\.
 
-## Step 5: Configure the NICE DCV Server<a name="setting-up-floating-config"></a>
+## Step 6: Configure the NICE DCV Server<a name="setting-up-floating-config"></a>
 
 Configure your NICE DCV server to use the RLM server\. To do this, you must configure the `license-file` configuration parameter on your NICE DCV server\.
 
@@ -353,9 +364,9 @@ Configure your NICE DCV server to use the RLM server\. To do this, you must conf
 
    If there is no `license-file` parameter in the registry key, you must create it:
 
-   1. Open the context \(right\-click\) menu for the **license** key in the left\-hand panel and choose **New**, **String Value**\.
+   1. Open the context \(right\-click\) menu for the **license** key in the left pane and choose **New**, **String Value**\.
 
-   1. For **Name**, type `license-file` and press **Enter**\.
+   1. For **Name**, enter `license-file` and press **Enter**\.
 
 1. Open the **license\-file** parameter\. For **Value data**, enter the RLM server's port number and hostname in the `5053@RLM_server_hostname` format\.
 **Note**  

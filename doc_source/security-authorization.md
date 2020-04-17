@@ -13,7 +13,7 @@ NICE DCV supports two types of permissions files:
 
 The default permissions file is used for all sessions if you do not specify a custom permissions file when creating a session\. The default permissions file grants only the session owner full access to all features\.
 
-You can customize the default permissions file to include custom authorizations\. The default permissions file is located in `C:\Program Files\NICE\DCV\Server\conf\default.perm` on Windows NICE DCV servers, and `/etc/dcv/default.perm` on Linux NICE DCV servers\.
+You can customize the default permissions file to include custom authorizations\. The default permissions file is located in `C:\Program Files\NICE\DCV\Server\conf\default.perm` on Windows NICE DCV servers and `/etc/dcv/default.perm` on Linux NICE DCV servers\.
 
 For information about customizing the default permissions file, see [Working with Permissions Files](security-authorization-file-create.md)\.
 

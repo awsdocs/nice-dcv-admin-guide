@@ -18,7 +18,7 @@ You can configure the server to place the clipboard content into the primary sel
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
 
-1. Locate the `primary-selection-paste` parameter in the `[clipboard]` section, and set the value to `true`\.
+1. Locate the `primary-selection-paste` parameter in the `[clipboard]` section and set the value to `true`\.
 
    If there is no `primary-selection-paste` parameter in the `[clipboard]` section, add it manually using the following format:
 
@@ -41,7 +41,7 @@ You can configure the server to place the primary selection content into the cli
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
 
-1. Locate the `primary-selection-copy` parameter in the `[clipboard]` section, and set the value to `true`\.
+1. Locate the `primary-selection-copy` parameter in the `[clipboard]` section and set the value to `true`\.
 
    If there is no `primary-selection-copy` parameter in the `[clipboard]` section, add it manually using the following format:
 

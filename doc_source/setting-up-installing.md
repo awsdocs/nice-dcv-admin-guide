@@ -17,9 +17,13 @@ The NICE DCV server is available for Windows and Linux\. Both servers offer simi
 | [Copying and pasting](manage-clipboard.md) | x | x | 
 | [Custom HTTP headers](manage-headers.md) | x | x | 
 | Printing from sessions | x | x | 
-| Audio | x \(input and output\) | x \(output only\) | 
+| Stereo 2\.0 audio playback | x | x \(Not supported with CentOS 6\) | 
+| Surround sound up to 7\.1 audio playback | x  | \- | 
+| Stereo 2\.0 audio recording | x | \- | 
+| [Touchscreen support](enable-stylus.md) | x \(Windows 8 and Server 2012 and later\) | x | 
+| [Stylus support](enable-stylus.md) | x \(Windows 10 and Server 2019 \) | x | 
 
-The following topics explain how to install the latest version of the NICE DCV server on Windows and Linux\. Follow these steps if you are installing NICE DCV on an Amazon EC2 instance, or on an on\-premises or alternative cloud\-based server\.
+The following topics explain how to install the latest version of the NICE DCV server on Windows and Linux\. Follow these steps if you are installing NICE DCV on an Amazon EC2 instance or on an on\-premises or alternative cloud\-based server\.
 
 **Note**  
 If you are upgrading from an earlier version of the NICE DCV server to the latest version, see [Upgrading the NICE DCV Server](setting-up-upgrading.md)\.

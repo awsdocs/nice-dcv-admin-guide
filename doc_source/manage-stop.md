@@ -14,7 +14,7 @@ Use the following procedure to stop the NICE DCV server using the Services snap\
 
 1. Open the Services snap\-in for the Microsoft Management Console\.
 
-1. In the right\-hand pane, open **DCV Server**\.
+1. In the right pane, open **DCV Server**\.
 
 1. Choose **Stop**\.
 
@@ -27,7 +27,7 @@ Use the following procedure to disable automatic NICE DCV server startup using t
 
 1. Open the Services snap\-in for the Microsoft Management Console\.
 
-1. In the right\-hand pane, open **DCV Server**\.
+1. In the right pane, open **DCV Server**\.
 
 1. For **Startup service**, choose **Manual**\.
 

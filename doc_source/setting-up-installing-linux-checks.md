@@ -3,17 +3,17 @@
 This topic provides some post\-installation checks that you should perform after installing NICE DCV to ensure that your NICE DCV server is properly configured\.
 
 **Topics**
-+ [Ensure the NICE DCV Server is Reachable](#checks-port)
-+ [Ensure that the X Server is Accessible](#checks-xserver)
-+ [Verify that DCV GL is Properly Installed](#checks-gl)
++ [Ensure the NICE DCV Server Is Reachable](#checks-port)
++ [Ensure That the X Server Is Accessible](#checks-xserver)
++ [Verify That DCV GL Is Properly Installed](#checks-gl)
 
-## Ensure the NICE DCV Server is Reachable<a name="checks-port"></a>
+## Ensure the NICE DCV Server Is Reachable<a name="checks-port"></a>
 
 By default, the NICE DCV server is configured to communicate over port 8443\. Ensure that the server is reachable over this port\. If you have a firewall that prevents access over port 8443, you must change the port over which the NICE DCV server communicates\. For more information, see [Changing the NICE DCV Server TCP Port](manage-port.md)\.
 
 Also, if you're setting up NICE DCV on an EC2 instance, create a security group to enable access to the port over which the NICE DCV server communicates\. For more information, see [how to configure security groups on EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html)\. 
 
-## Ensure that the X Server is Accessible<a name="checks-xserver"></a>
+## Ensure That the X Server Is Accessible<a name="checks-xserver"></a>
 
 You must ensure that NICE DCV console and virtual sessions can access the X server\.
 
@@ -99,9 +99,9 @@ If the command does not return `LOCAL:`, local users do not have access to the X
   $ sudo init 5
   ```
 
-## Verify that DCV GL is Properly Installed<a name="checks-gl"></a>
+## Verify That DCV GL Is Properly Installed<a name="checks-gl"></a>
 
-The **dcvgldiag** utility is automatically installed when you install the DCV GL package\. You can use this utility to check that the Linux server configuration meets the DCV GL requirements\.
+The dcvgldiag utility is automatically installed when you install the DCV GL package\. You can use this utility to check that the Linux server configuration meets the DCV GL requirements\.
 
 **To run the dcvgldiag utility**  
 Use the following command:

@@ -1,6 +1,6 @@
 # Managing the NICE DCV Server<a name="manage"></a>
 
-The NICE DCV server runs as an operating system service\. You must be logged in as the administrator \(Windows\) or root \(Linux\) to start, stop, or configure the NICE DCV server\.
+The NICE DCV server runs as an operating system service\. You must be signed in as the administrator \(Windows\) or root \(Linux\) to start, stop, or configure the NICE DCV server\.
 
 **Topics**
 + [Starting the Server](manage-start.md)
@@ -13,6 +13,7 @@ The NICE DCV server runs as an operating system service\. You must be logged in 
 + [Configuring Smart Card Caching](manage-smart-card.md)
 + [Enabling Session Storage](manage-storage.md)
 + [Configuring the Clipboard on Linux](manage-clipboard.md)
++ [Enabling Touchscreen and Stylus Support](enable-stylus.md)
 + [Configuring the HTTP headers](manage-headers.md)
 + [Configuring Authentication](security-authentication.md)
 + [Configuring Authorization](security-authorization.md)

@@ -9,7 +9,7 @@ Stopping a session closes all of the applications that are running in the sessio
 Use the `dcv close-session` command and specify the unique session ID:
 
 ```
-dcv close-session session_id
+dcv close-session session-id
 ```
 
 For example, the following command stops a session with the unique ID of `my-session`:

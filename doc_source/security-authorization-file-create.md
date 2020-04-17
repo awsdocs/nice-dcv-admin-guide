@@ -18,18 +18,18 @@ user_permissions
 The following sections explain how to populate the sections when updating or creating a permissions file\.
 
 **Contents**
-+ [Import an Existing Permissions File](#security-authorization-file-create-import)
++ [Import a Permissions File](#security-authorization-file-create-import)
 + [Create Groups](#security-authorization-file-create-group)
 + [Create Aliases](#security-authorization-file-create-alias)
 + [Add Permissions](#security-authorization-file-create-permission)
 
-## Import an Existing Permissions File<a name="security-authorization-file-create-import"></a>
+## Import a Permissions File<a name="security-authorization-file-create-import"></a>
 
 The `imports` section is typically the first section of the permissions file\. This section lets you reference and include existing permissions files\. This enables you to incorporate previously defined NICE DCV permissions into your permissions file\.
 
 A permissions file can include multiple imports\. An imported permissions file might import other permissions files\.
 
-**To import an existing permissions file into your permissions file**
+**To import a permissions file into your permissions file**
 + Use the `#import` statement and specify the location of the file with an absolute or a relative path\.\.
   + Windows NICE DCV server:
 
@@ -51,7 +51,7 @@ The following statement imports a permissions file named `dcv-permissions.file` 
 
 ## Create Groups<a name="security-authorization-file-create-group"></a>
 
-The `[groups]` section of the permissions file lets you define user groups for users that have similar use cases, or permissions requirements\. Groups can be assigned specific permissions\. Permissions assigned to a group apply to all of the users that are included in the group\.
+The `[groups]` section of the permissions file lets you define user groups for users that have similar use cases or permissions requirements\. Groups can be assigned specific permissions\. Permissions assigned to a group apply to all of the users that are included in the group\.
 
 To create groups in your permissions file, you must first add the groups section heading to the file\.
 
@@ -59,7 +59,7 @@ To create groups in your permissions file, you must first add the groups section
 [groups]
 ```
 
-You can then create your groups below the section heading\. To create a new group, provide the group name, and then specify the group members in a comma\-separated list\. Group members can be individual users, other groups, and operating system user groups\.
+You can then create your groups under the section heading\. To create a group, provide the group name, and then specify the group members in a comma\-separated list\. Group members can be individual users, other groups, and operating system user groups\.
 
 ```
 group_name=member_1, member_2, member_3
@@ -69,24 +69,21 @@ group_name=member_1, member_2, member_3
 Specify the user name\.
 
 **Note**  
-You can prefix the user name with `user:`\.
-
-**Note**  
-Windows domain user names can include a domain name\.
+You can prefix the user name with `user:`\. Windows domain user names can include a domain name\.
 
 ```
 group_name=user_1, user:user_2, domain_name\user_3
 ```
 
 **To add an existing group to a group**  
-Specify the group name prefixed with `group:`:
+Specify the group name prefixed with `group:`
 
 ```
 group_name=group:group_1, group:group_2
 ```
 
 **To add an operating system user group to a group**  
-Specify the group's name prefixed with `osgroup:`:
+Specify the group's name prefixed with `osgroup:`
 
 ```
 group_name=osgroup:os_group_1, osgroup:os_group2
@@ -110,14 +107,14 @@ To create aliases in your permissions file, you must first add the aliases secti
 [aliases]
 ```
 
-You can then create your aliases below the section heading\. To create a new alias, provide the alias name, and then specify the alias members in a comma\-separated list\. Alias members can be individual NICE DCV features or other aliases\.
+You can then create your aliases under the section heading\. To create an alias, provide the alias name, and then specify the alias members in a comma\-separated list\. Alias members can be individual NICE DCV features or other aliases\.
 
 ```
 alias_name=member_1, member_2, member_3
 ```
 
 **Example**  
-The following example adds the aliases section heading and creates an alias named `file-management` that includes the `file-upload` and `file-download` features, and an existing alias named `clipboard-management`\.
+The following example adds the aliases section heading and creates an alias named `file-management` that includes the `file-upload` and `file-download` features and an existing alias named `clipboard-management`\.
 
 ```
 [aliases]
@@ -134,20 +131,20 @@ To add permissions to your permissions file, first add the permissions section h
 [permissions]
 ```
 
-You can then add your permissions below the section heading\. To add a permission, specify the actor that it governs, the rule to be applied, and the features that it applies to\.
+You can then add your permissions under the section heading\. To add a permission, specify the actor that it governs, the rule to be applied, and the features that it applies to\.
 
 ```
 actor rule features
 ```
 
-The **actor** can be a user, a group, or an operating system group\. Groups must be prefixed with `group:`, and operating system groups must be prefixed with `osgroup:`\. NICE DCV includes a built\-in `%owner%` reference that can be used to refer to the session owner, and a built\-in `%any%` reference that can be used to refer to any user\.
+The actor can be a user, a group, or an operating system group\. Groups must be prefixed with `group:`\. Operating system groups must be prefixed with `osgroup:`\. NICE DCV includes a built\-in `%owner%` reference that can be used to refer to the session owner and a built\-in `%any%` reference that can be used to refer to any user\.
 
-The following **rules** can be used in permissions statements:
+The following rules can be used in permissions statements:
 + `allow` — Grants access to the feature\.
 + `disallow` — Denies access to the feature, but can be overridden by subsequent permissions\.
 + `deny` — Denies access to the feature and cannot be overridden by subsequent permissions\.
 
-The **features** can include individual NICE DCV features, aliases, or a combination of both\. The list of features must be separated by a space\. NICE DCV includes a built\-in `builtin` alias that includes all of the NICE DCV features\.
+The features can include individual NICE DCV features, aliases, or a combination of both\. The list of features must be separated by a space\. NICE DCV includes a built\-in `builtin` alias that includes all of the NICE DCV features\.
 
 The following features can be referenced in the permissions file:
 + `display` — Receive visual data from the NICE DCV server\.
@@ -158,7 +155,7 @@ The following features can be referenced in the permissions file:
 + `mouse` — Input from the client pointer to the NICE DCV server\.
 + `keyboard` — Input from the client keyboard to the NICE DCV server\.
 + `keyboard-sas` — Use the secure attention sequence \(**CTRL\+Alt\+Del**\)\. Requires the `keyboard` feature\. Supported on version DCV 2017\.3 and later\.
-+ `touch` — Use native touch events\. Supported on version DCV 2017\.3 and later\. Not supported with Linux NICE DCV Servers\.
++ `touch` — Use native touch events\. Supported on version DCV 2017\.3 and later\. Not supported on Linux NICE DCV servers\.
 + `stylus` — Input from specialized USB devices, such as 3D pointing devices or graphic tablets\.
 + `usb` — Read the smart card from the client\.
 + `pointer` — View NICE DCV server mouse position events and pointer shapes\. Supported on version DCV 2017\.3 and later\.
@@ -169,7 +166,7 @@ The following features can be referenced in the permissions file:
 + `builtin` — All features\.
 
 **Example**  
-The following example adds the permissions section heading and adds four permissions\. The first permission grants a user named `john` access to the `display`, `file-upload`, and `file-download` features\. The second permission denies the `observers` group access to the `audio-in` and `audio-out` features, and an alias named `clipboard-management`\. The third permission grants the `guests` operating system group access to the `clipboard-management` and `file-management` aliases\. The fourth permission grants the session owner access to all features\.
+The following example adds the permissions section heading and adds four permissions\. The first permission grants a user named `john` access to the `display`, `file-upload`, and `file-download` features\. The second permission denies the `observers` group access to the `audio-in` and `audio-out` features, and the `clipboard-management` feature alias\. The third permission grants the `guests` operating system group access to the `clipboard-management` and `file-management` aliases\. The fourth permission grants the session owner access to all features\.
 
 ```
 [permissions]

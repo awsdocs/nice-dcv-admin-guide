@@ -1,6 +1,6 @@
 # Enabling Session Storage<a name="manage-storage"></a>
 
-Session storage is a folder on the NICE DCV server that clients can access when they are connected to a specific NICE DCV session\. When you enable session storage for a session, clients can download files from, and upload files to the specified folder\. This feature enables clients to share files while connected to a session\.
+Session storage is a folder on the NICE DCV server that clients can access when they are connected to a specific NICE DCV session\. When you enable session storage for a session, clients can download files from, and upload files to, the specified folder\. This feature enables clients to share files while connected to a session\.
 
 **Topics**
 + [Enabling Session Storage on Windows](#manage-storage-windows)
@@ -12,7 +12,7 @@ To enable session storage, first create the folder to use for session storage\. 
 
 **To enable session storage on Windows**
 
-1. Create the folder to use for session storage\. For example, `c:\session-storage`\.
+1. Create the folder to use for session storage \(for example, `c:\session-storage`\)\.
 
 1. Configure the `storage-root` parameter\.
 
@@ -22,13 +22,13 @@ To enable session storage, first create the folder to use for session storage\. 
 
       If there is no `storage-root` parameter in the registry key, create one as follows:
 
-      1. In the left pane, open the context \(right\-click\) menu for the **session\-management/automatic\-console\-session** key, and choose **New**, **String**\.
+      1. In the left pane, open the context \(right\-click\) menu for the **session\-management/automatic\-console\-session** key and choose **New**, **String**\.
 
-      1. For **Name**, type `storage-root` and press **Enter**\.
+      1. For **Name**, enter `storage-root` and press **Enter**\.
 
-   1. Open the **storage\-root** parameter\. For **Value data**, type the full path to the folder created in Step 1\.
+   1. Open the **storage\-root** parameter\. For **Value data**, enter the full path to the folder created in step 1\.
 
-      You can also use `%home%` in the path to specify the home directory of the user who is currenty logged in\. For example, the following path uses `c:\Users\username\storage\` as the session storage directory\.
+      You can also use `%home%` in the path to specify the home directory of the user who is currenty signed in\. For example, the following path uses `c:\Users\username\storage\` as the session storage directory\.
 
       ```
       %home%/storage/
@@ -48,13 +48,13 @@ To enable session storage, you must create the folder to use for session storage
 
 **To enable session storage on Linux**
 
-1. Create the folder to use for session storage\. For example, `/opt/session-storage/`\.
+1. Create the folder to use for session storage \(for example, `/opt/session-storage/`\)\.
 
 1. Configure the `storage-root` parameter\.
 
    1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
 
-   1. Locate the `storage-root` parameter in the `[session-management/automatic-console-session]` section\. Then replace the existing path with the full path to the folder that you created in Step 1\.
+   1. Locate the `storage-root` parameter in the `[session-management/automatic-console-session]` section\. Replace the existing path with the full path to the folder that you created in step 1\.
 
       If there is no `storage-root` parameter in the `[session-management/automatic-console-session]` section, add it manually using the following format\.
 
@@ -63,7 +63,7 @@ To enable session storage, you must create the folder to use for session storage
       storage-root="/opt/session-storage/"
       ```
 
-      You can also use `%home%` in the path to specify the home directory of the user who is currenty logged in\. For example, the following parameter uses the `$HOME/storage/` directory for session storage\.
+      You can also use `%home%` in the path to specify the home directory of the user who is currenty signed in\. For example, the following parameter uses the `$HOME/storage/` directory for session storage\.
 
       ```
       [session-management/automatic-console-session]

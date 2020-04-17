@@ -16,7 +16,7 @@ To configure the HTTP headers on Windows, configure the `web-extra-http-headers`
 
 1. Navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/connectivity/** key\.
 
-1. In the left\-hand pane, open the context \(right\-click\) menu for the **connectivity** key, and choose **New**, **String**\.
+1. In the left pane, open the context \(right\-click\) menu for the **connectivity** key, and choose **New**, **String**\.
 
 1. For **Name**, enter `web-extra-http-headers` and press **Enter**\.
 

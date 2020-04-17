@@ -2,7 +2,7 @@
 
 The NICE DCV server must be running in order to host sessions\.
 
-By default, the NICE DCV server is configured to start automatically when the server it is hosted on starts up\. However, if you chose to disable automatic startup when you installed the NICE DCV server, you must start the server manually using the following procedures\.
+By default, the NICE DCV server is configured to start automatically when the server it is hosted on starts up\. If you chose to disable automatic startup when you installed the NICE DCV server, you must start the server manually using the following procedures\.
 
 **Topics**
 + [Starting the Server on Windows](#manage-start-windows)
@@ -16,7 +16,7 @@ Use the following procedure to manually start the NICE DCV server using the Serv
 
 1. Open the Services snap\-in for the Microsoft Management Console\.
 
-1. In the right\-hand pane, open **DCV Server**\.
+1. In the right pane, open **DCV Server**\.
 
 1. Choose **Start**\.
 
@@ -29,7 +29,7 @@ Use the following procedure to configure the NICE DCV server to start automatica
 
 1. Open the Services snap\-in for the Microsoft Management Console\.
 
-1. In the right\-hand pane, open **DCV Server**\.
+1. In the right pane, open **DCV Server**\.
 
 1. For **Startup service**, choose **Automatic**\.
 

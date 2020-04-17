@@ -1,6 +1,6 @@
 # Prerequisites for Linux NICE DCV Servers<a name="setting-up-installing-linux-prereq"></a>
 
-NICE DCV enables clients to access a remote graphical X session on a Linux server, which provides access to the corresponding Linux desktop\. NICE DCV supports two different types of Linux desktop streaming: console sessions and virtual sessions\. For more information about console and virtual sessions, see [Managing NICE DCV Sessions](managing-sessions.md)\.
+NICE DCV enables clients to access a remote graphical X session on a Linux server, which provides access to the corresponding Linux desktop\. NICE DCV supports two types of Linux desktop streaming: console sessions and virtual sessions\. For more information about console and virtual sessions, see [Managing NICE DCV Sessions](managing-sessions.md)\.
 
 This topic explains how to install the prerequisites required to use NICE DCV on a Linux server\.
 
@@ -288,7 +288,7 @@ The following tabbed content shows how to configure and start the X server on th
 
 The glxinfo utility provides information about your Linux server's OpenGL configuration\. It can be used to determine whether your Linux server is configured to support OpenGL hardware or software rendering, and it provides information about the drivers and supported extensions\.
 
-The glxinfo utility is installed as a package dependency of DCV GL\. Therefore, if you installed DCV GL the glxinfo utility will already be installed on your Linux server\.
+The glxinfo utility is installed as a package dependency of DCV GL\. Therefore, if you installed DCV GL, the glxinfo utility is already installed on your Linux server\.
 
 **To install the glxinfo utility**  
 Run the following command:
@@ -322,7 +322,7 @@ Run the following command:
 $ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\).*/\1/p') glxinfo | grep -i "opengl.*version"
 ```
 
-The following shows example output if OpenGL software rendering is available
+The following shows example output if OpenGL software rendering is available:
 
 ```
 OpenGL core profile version string: 3.3 (Core Profile) Mesa 17.0.5

@@ -3,13 +3,14 @@
 You must create a NICE DCV session on your NICE DCV server that your clients can connect to\. Clients can only connect to a NICE DCV server if there is an active session\.
 
 **Topics**
-+ [Introduction to NICE DCV sessions](#managing-sessions-intro)
-+ [Using the Command Line Tool to Manage NICE DCV sessions](managing-sessions-cli.md)
++ [Introduction to NICE DCV Sessions](#managing-sessions-intro)
++ [Using the Command Line Tool to Manage NICE DCV Sessions](managing-sessions-cli.md)
 + [Starting NICE DCV Sessions](managing-sessions-start.md)
 + [Stopping NICE DCV Sessions](managing-sessions-lifecycle-stop.md)
++ [Managing the NICE DCV Session Display Layout](managing-session-display.md)
 + [Viewing NICE DCV Sessions](managing-sessions-lifecycle-view.md)
 
-## Introduction to NICE DCV sessions<a name="managing-sessions-intro"></a>
+## Introduction to NICE DCV Sessions<a name="managing-sessions-intro"></a>
 
 Every NICE DCV session has the following attributes:
 + **ID** — Used to uniquely identify the session on the NICE DCV server\.
@@ -17,13 +18,13 @@ Every NICE DCV session has the following attributes:
 
 NICE DCV clients need this information to connect to the session\.
 
-NICE DCV offers two types of sessions:
+NICE DCV offers two types of sessions\.
 
 ### Console Sessions<a name="managing-sessions-intro-console"></a>
 
 Console sessions are supported on Windows and Linux NICE DCV servers\.
 
-Only one console session can be hosted on the NICE DCV server at a time\. Console sessions are created and managed by the Administrator on Windows NICE DCV servers, and the root user on Linux NICE DCV servers\. 
+Only one console session can be hosted on the NICE DCV server at a time\. Console sessions are created and managed by the Administrator on Windows NICE DCV servers and the root user on Linux NICE DCV servers\. 
 
 With console sessions, NICE DCV captures the content of the X server\. NICE DCV console sessions have direct access to the NICE DCV server's GPU\. Only one X server session can run at a time, and therefore, only one NICE DCV console session can run at at time\.
 
