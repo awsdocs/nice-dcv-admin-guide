@@ -316,7 +316,7 @@ On non\-GPU Linux servers, OpenGL is only supported in software rendering mode u
 This applies to non\-GPU Linux servers only\.
 
 **To verify that OpenGL software rendering is available**  
-Run the following command:
+Make sure that the X server is running, and use the following command:
 
 ```
 $ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\).*/\1/p') glxinfo | grep -i "opengl.*version"
@@ -342,32 +342,56 @@ This applies to Linux servers with NVIDIA GPUs only\.
 
 After you have installed the NVIDIA drivers on your Linux server, you must update the `xorg.conf`\.
 
-**To generate an updated xorg\.conf**  
-Run the following command:
+**To generate an updated xorg\.conf**
 
-```
-nvidia-xconfig --preserve-busid
-```
+1. Run the following command\.
 
-If your Linux server is configured with more than one NVIDIA GPU, include the `--enable-all-gpus` parameter\.
+   ```
+   nvidia-xconfig --preserve-busid --enable-all-gpus
+   ```
 
+   If you are using a G3 or G4 Amazon EC2 instance and you want to use a multi\-monitor console session, include the `--connected-monitor=DFP-0,DFP-1,DFP-2,DFP-3` parameter as follows\.
+
+   ```
+   nvidia-xconfig --preserve-busid --enable-all-gpus --connected-monitor=DFP-0,DFP-1,DFP-2,DFP-3
+   ```
 **Note**  
 Make sure that your server does not have the legacy `/etc/X11/XF86Config` file\. If it does, `nvidia-xconfig` updates that configuration file instead of generating the required `/etc/X11/xorg.conf` file\. Run the following command to remove the legacy `XF86Config` file:  
 
-```
-rm -rf /etc/X11/XF86Config*
-```
+   ```
+   rm -rf /etc/X11/XF86Config*
+   ```
+
+1. Restart the X server for the changes to take effect\.
+   + RHEL 7\.x, CentOs 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
+
+     ```
+     $ sudo systemctl isolate multi-user.target
+     ```
+
+     ```
+     $ sudo systemctl isolate graphical.target
+     ```
+   + RHEL 6\.x and CentOs 6\.x
+
+     ```
+     $ sudo init 3
+     ```
+
+     ```
+     $ sudo init 5
+     ```
 
 You must also ensure that OpenGL hardware rendering is available on the Linux server\.
 
 **To verify that OpenGL hardware rendering is available**  
-Run the following command:
+Use the following command to ensure that the X server is running\.
 
 ```
-$ sudo DISPLAY=:0 glxinfo | grep -i "opengl.*version"
+$ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n 's/.*-auth \([^ ]\+\).*/\1/p') glxinfo | grep -i "opengl.*version"
 ```
 
-The following shows example output if OpenGL hardware rendering is available
+The following shows example output if OpenGL hardware rendering is available\.
 
 ```
 OpenGL core profile version string: 4.4.0 NVIDIA 390.75

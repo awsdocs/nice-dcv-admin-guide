@@ -10,7 +10,7 @@ This topic explains how to configure your Windows Amazon EC2 instance before you
 
 ### Prerequisites for GPU Graphics Instances<a name="setting-up-installing-graphics"></a>
 
-If you're using a GPU graphics instance, such as G2, G3, or G3s, we recommend that you install and configure the appropriate NVIDIA GPU drivers\. The NVIDIA GPU drivers enable the following:
+If you're using a GPU graphics instance, such as G2, G3, or G4, we recommend that you install and configure the appropriate NVIDIA GPU drivers\. The NVIDIA GPU drivers enable the following:
 + DirectX and OpenGL hardware acceleration for applications
 + Hardware acceleration for H\.264 video streaming encoding
 + Customizable server monitor resolutions

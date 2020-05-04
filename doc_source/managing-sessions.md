@@ -7,7 +7,7 @@ You must create a NICE DCV session on your NICE DCV server that your clients can
 + [Using the Command Line Tool to Manage NICE DCV Sessions](managing-sessions-cli.md)
 + [Starting NICE DCV Sessions](managing-sessions-start.md)
 + [Stopping NICE DCV Sessions](managing-sessions-lifecycle-stop.md)
-+ [Managing the NICE DCV Session Display Layout](managing-session-display.md)
++ [Managing Running NICE DCV Sessions](managing-running-session.md)
 + [Viewing NICE DCV Sessions](managing-sessions-lifecycle-view.md)
 
 ## Introduction to NICE DCV Sessions<a name="managing-sessions-intro"></a>

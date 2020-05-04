@@ -1,4 +1,4 @@
-# Installing a Production License<a name="setting-up-floating"></a>
+# Installing a Production License<a name="setting-up-production"></a>
 
 The following sections in this topic explain how to purchase and use a production license \(perpetual license or subscription\)\.
 
@@ -6,9 +6,9 @@ The following sections in this topic explain how to purchase and use a productio
 + [Step 1: Install the RLM Server](#install-rlm)
 + [Step 2: Get the RLM Server's Host ID](#hostid-rlm)
 + [Step 3: Purchase the Perpetual License or Subscription](#license-purchase)
-+ [Step 4: Modify the License File](#setting-up-floating-modify)
-+ [Step 5: Configure the RLM Server](#setting-up-floating-prep)
-+ [Step 6: Configure the NICE DCV Server](#setting-up-floating-config)
++ [Step 4: Modify the License File](#setting-up-production-license-file)
++ [Step 5: Configure the RLM Server](#setting-up-rlm-server)
++ [Step 6: Configure the NICE DCV Server](#setting-up-dcv-server)
 
 ## Step 1: Install the RLM Server<a name="install-rlm"></a>
 
@@ -104,7 +104,7 @@ For information about how to purchase a NICE DCV perpetual license or a subscrip
 
 You must provide your RLM server's host ID\. The host ID is embedded in the license file that NICE provides\.
 
-## Step 4: Modify the License File<a name="setting-up-floating-modify"></a>
+## Step 4: Modify the License File<a name="setting-up-production-license-file"></a>
 
 When you purchase a NICE DCV perpetual license or subscription, you receive a `license.lic` file that defines the license\. The `license.lic` file includes the following information:
 + The RLM server's hostname\.
@@ -153,7 +153,7 @@ The *RLM\_server\_host\_id* is the host ID that you provided when you purchased 
 **Warning**  
 Editing any other part of the license file corrupts the file's signature and invalidates the license\.
 
-## Step 5: Configure the RLM Server<a name="setting-up-floating-prep"></a>
+## Step 5: Configure the RLM Server<a name="setting-up-rlm-server"></a>
 
 After you have modified the license file, you must place it on your RLM server and then start the RLM service\.
 
@@ -346,7 +346,7 @@ The contents of the `rlm.log` file might vary slightly depending on the RLM serv
 **Note**  
 The contents of the `rlm.log` file might vary slightly depending on the RLM server version\.
 
-## Step 6: Configure the NICE DCV Server<a name="setting-up-floating-config"></a>
+## Step 6: Configure the NICE DCV Server<a name="setting-up-dcv-server"></a>
 
 Configure your NICE DCV server to use the RLM server\. To do this, you must configure the `license-file` configuration parameter on your NICE DCV server\.
 
