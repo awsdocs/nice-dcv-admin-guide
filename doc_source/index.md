@@ -15,6 +15,7 @@ Amazon's trademarks and trade dress may not be used in
 -----
 ## Contents
 + [What Is NICE DCV?](what-is-dcv.md)
++ [NICE DCV Servers](servers.md)
 + [Setting Up the NICE DCV Server](setting-up.md)
    + [Installing the NICE DCV Server](setting-up-installing.md)
       + [Installing the NICE DCV Server on Windows](setting-up-installing-windows.md)

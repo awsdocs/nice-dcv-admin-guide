@@ -5,7 +5,6 @@ NICE DCV is a high\-performance remote display protocol\. It lets you securely d
 **Topics**
 + [How NICE DCV Works](#what-is-dcv-how)
 + [Features](#what-is-dcv-features)
-+ [Requirements](#what-is-dcv-requirements)
 + [Pricing](#what-is-dcv-pricing)
 
 ## How NICE DCV Works<a name="what-is-dcv-how"></a>
@@ -30,32 +29,6 @@ NICE DCV offers the following features:
 + **Supports file transfer** — Lets you transfer files between the session and your local computer\.
 + **Provides an HTML5 client** \- Offers an HTML5 client that can be used with any modern web browser on Windows and Linux\.
 + **Supports modern Linux desktop environments** — Supports modern Linux desktops, such as Gnome 3 on RHEL 7\.
-
-## NICE DCV Requirements<a name="what-is-dcv-requirements"></a>
-
-For a good user experience with NICE DCV, ensure that the server and client computers meet the following minimum requirements\. Keep in mind that your users' experience is largely dependent on the number of pixels streamed from the NICE DCV server to the NICE DCV client\.
-
-**Contents**
-+ [Server Requirements](#what-is-dcv-requirements-server)
-+ [Client Requirements](#what-is-dcv-requirements-client)
-
-### NICE DCV Server Requirements<a name="what-is-dcv-requirements-server"></a>
-
-If you are installing the NICE DCV server on an Amazon EC2 instance, we recommend that you use an Amazon EC2 G3 or G4 instance type\. These instance types offer NVIDIA GPUs that support hardware\-based OpenGL and GPU sharing\. For more information, see [Amazon EC2 G3 Instances](https://aws.amazon.com/ec2/instance-types/g3/) and [Amazon EC2 G4 Instances](https://aws.amazon.com/ec2/instance-types/g4/)\. You can install the NICE DCV server on any other instance type, but there might be screen resolution limitations\. A third\-party driver can be used to bypass this limitation\. If you need the third\-party driver, request it from [NICE Support\.](https://support.nice-software.com/support/login/)
-
-NICE DCV servers must meet the minimum requirements listed in the following table\.
-
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html)
-
-### NICE DCV Client Requirements<a name="what-is-dcv-requirements-client"></a>
-
-The following table lists the minimum system requirements for the NICE DCV clients\.
-
-
-|  | Native Windows client | Web browser client | Linux client | macOS client | 
-| --- | --- | --- | --- | --- | 
-| **Software** |  The Native Windows client is supported on 32\-bit and 64\-bit versions of the following operating systems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html) The client also requires the following additional software: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html)  |  The web browser client is supported on the following browsers across all desktop operating systems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html) The web browser client also requires WebGL and asm\.js\. The web browser client is not supported on mobile operating systems, such as Android and iOS\.  |  The Linux client is supported on the following modern Linux operating systems: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/what-is-dcv.html)  |  The macOS client requires macOS High Sierra or later\.  | 
-| **Network** | The client must be able to connect to the NICE DCV server, and it must be able to communicate over the required port \(8443 by default\)\. | 
 
 ## NICE DCV Pricing<a name="what-is-dcv-pricing"></a>
 
