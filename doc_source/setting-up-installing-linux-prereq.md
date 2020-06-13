@@ -339,6 +339,7 @@ With Linux servers that have a dedicated NVIDIA GPU, you must ensure that the ap
 
 **Note**  
 This applies to Linux servers with NVIDIA GPUs only\.
+The GRID drivers support up to four 4K displays per GPU, while the gaming drivers support a single 4K display per GPU\.
 
 After you have installed the NVIDIA drivers on your Linux server, you must update the `xorg.conf`\.
 

@@ -82,7 +82,7 @@ Specify the group name prefixed with `group:`
 group_name=group:group_1, group:group_2
 ```
 
-**To add an operating system user group to a group**  
+**To add an operating system user group to a group \(Linux NICE DCV servers only\)**  
 Specify the group's name prefixed with `osgroup:`
 
 ```

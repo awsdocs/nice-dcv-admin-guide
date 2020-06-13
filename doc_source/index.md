@@ -62,4 +62,4 @@ Amazon's trademarks and trade dress may not be used in
    + [Common Issues](troubleshooting-issues.md)
 + [NICE DCV Server Parameter Reference](config-param-ref.md)
    + [Modifying Configuration Parameters](config-param-ref-modify.md)
-+ [Document History for NICE DCV](doc-history.md)
++ [Release Notes and Document History for NICE DCV](doc-history-release-notes.md)

@@ -22,7 +22,7 @@ NICE DCV offers two types of sessions\.
 
 ### Console Sessions<a name="managing-sessions-intro-console"></a>
 
-Console sessions are supported on Windows and Linux NICE DCV servers\.
+Console sessions are supported on Windows and Linux NICE DCV servers\. If you are using a Windows NICE DCV server, you are only able to use console sessions\.
 
 Only one console session can be hosted on the NICE DCV server at a time\. Console sessions are created and managed by the Administrator on Windows NICE DCV servers and the root user on Linux NICE DCV servers\. 
 
@@ -35,7 +35,7 @@ You can't run console and virtual sessions on the same NICE DCV server at the sa
 
 Virtual sessions are supported on Linux NICE DCV servers only\.
 
-A NICE DCV server can host multiple virtual sessions simultaneously\. Virtual sessions are created and managed by NICE DCV users\. NICE DCV users can only manage sessions that they have created\. The root user can manage all virtual sessions that are currently running on the NICE DCV server\.
+You can host multiple virtual sessions on the same NICE DCV server simultaneously\. Virtual sessions are created and managed by NICE DCV users\. NICE DCV users can only manage sessions that they have created\. The root user can manage all virtual sessions that are currently running on the NICE DCV server\.
 
 With virtual sessions, NICE DCV starts an X server instance and runs a desktop environment inside the X server\. NICE DCV starts a new dedicated X server instance for each virtual session\. Each virtual session uses the display provided by its X server instance\.
 
