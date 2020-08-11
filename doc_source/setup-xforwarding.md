@@ -1,4 +1,4 @@
-# Enable Remote X Connections to the X Server<a name="how-to-xforwarding"></a>
+# Enable Remote X Connections to the X Server<a name="setup-xforwarding"></a>
 
 By default, NICE DCV 2017 prevents the use of X forwarding, because of inherent security risks\. NICE DCV inherits this behavior from the newer versions of the Xorg server\. The NICE DCV server implements the following default inherited mitigations to minimize the security risks:
 + The NICE DCV server prevents X connections from the network\. The NICE DCV server is configured to start with `-nolisten tcp` command line option\. However, it is possible to change the default behavior to enable remote X connections to the X server\. For more information about this workaround, see [Enable Remote X Connections to the X Server](#enable-remotex)\.

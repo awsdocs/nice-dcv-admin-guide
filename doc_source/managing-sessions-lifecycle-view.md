@@ -12,7 +12,7 @@ dcv list-sessions
 The command returns a list of active sessions in the following format:
 
 ```
-Session: session-id (owner: session-owner)
+Session: session-id (owner:session-owner type:virtual|console name:'my session')
 ```
 
 **To view information about a session**  
@@ -27,6 +27,7 @@ In the following example output, the `display-layout` element indicates that the
 ```
 Session: test
   owner: session-id
+  name: session-name
   x display: :1
   x authority: /run/user/1009/dcv/test.xauth
   display layout: 800x600+0+0,800x600+800+0
@@ -44,6 +45,7 @@ The following is example JSON output\.
 {
   "id" : "session-id",
   "owner" : "dcvuser",
+  "name" : "session-name",
   "num-of-connections" : 0,
   "creation-time" : "2020-03-02T16:08:50Z",
   "last-disconnection-time" : "",

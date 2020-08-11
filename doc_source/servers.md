@@ -36,7 +36,7 @@ The following table compares the features that are supported by the WIndows and 
 | [Custom HTTP headers](manage-headers.md) | ✓ | ✓ | 
 | Printing from sessions | ✓ | ✓ | 
 | Stereo 2\.0 audio playback | ✓ | ✓ \(Not supported with CentOS 6\) | 
-| Surround sound up to 7\.1 audio playback | ✓  | ✗ | 
+| Surround sound audio playback | ✓ \(up to 7\.1\) | ✓ \(up to 5\.1\) | 
 | Stereo 2\.0 audio recording | ✓ | ✗ | 
 | [Touchscreen support](enable-stylus.md) | ✓ \(Windows 8 and Server 2012 and later\) | ✓ | 
 | [Stylus support](enable-stylus.md) | ✓ \(Windows 10 and Server 2019 \) | ✓ | 

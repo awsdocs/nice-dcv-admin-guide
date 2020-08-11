@@ -6,6 +6,8 @@ The NICE DCV log files can be used to identify and troubleshoot problems with yo
   ```
   C:\ProgramData\NICE\dcv\log\
   ```
+**Note**  
+The `ProgramData` folder might be hidden by default\. If you do not see the `ProgramData` folder, set your file browser to show hidden items\. Alternatively, enter `%programdata%` in the address bar and press **Enter**\.
 + Linux server
 
   ```

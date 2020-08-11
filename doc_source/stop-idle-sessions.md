@@ -1,4 +1,4 @@
-# Find and Stop Idle Sessions<a name="how-to-idle-sessions"></a>
+# Find and Stop Idle Sessions<a name="stop-idle-sessions"></a>
 
 You can identify idle NICE DCV sessions using the `dcv describe-sessions` CLI command with the `-j` command option\. Specifying the `-j` option configures the command to return the output in JSON format, which provides additional details about the session\.
 

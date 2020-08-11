@@ -28,7 +28,7 @@ To enable session storage, first create the folder to use for session storage\. 
 
    1. Open the **storage\-root** parameter\. For **Value data**, enter the full path to the folder created in step 1\.
 
-      You can also use `%home%` in the path to specify the home directory of the user who is currenty signed in\. For example, the following path uses `c:\Users\username\storage\` as the session storage directory\.
+      You can also use `%home%` in the path to specify the home directory of the user who is currently signed in\. For example, the following path uses `c:\Users\username\storage\` as the session storage directory\.
 
       ```
       %home%/storage/
@@ -63,7 +63,7 @@ To enable session storage, you must create the folder to use for session storage
       storage-root="/opt/session-storage/"
       ```
 
-      You can also use `%home%` in the path to specify the home directory of the user who is currenty signed in\. For example, the following parameter uses the `$HOME/storage/` directory for session storage\.
+      You can also use `%home%` in the path to specify the home directory of the user who is currently signed in\. For example, the following parameter uses the `$HOME/storage/` directory for session storage\.
 
       ```
       [session-management/automatic-console-session]

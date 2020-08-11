@@ -26,6 +26,10 @@ The following options can be used with the `dcv create-session` command:
 **\-\-type=console\|virtual**  
 This option is supported on Linux NICE DCV servers only\. It specifies the type of session to be created and can be either `console` or `virtual`\.
 
+**\-\-name**  
+Specifies a name for the session\. Session names can be any string of up to 256 characters\. If the string exceeds 256 characters, the command fails\. Session names don't need to be unique across running sessions\.  
+You can change a session's name at any time using the `dcv set-name` command\. For more information, see [Managing the Session Name](managing-session-name.md)\.
+
 **\-\-user**  
 This option is supported with virtual sessions on Linux NICE DCV sessions only\. This value is the user to be used to create the session\. Only the root user can impersonate other users\.
 
@@ -56,16 +60,16 @@ This option is supported with virtual sessions on Linux NICE DCV servers only\. 
 ### Examples<a name="managing-sessions-start-manual"></a>
 
 **Example 1 \- Console session**  
-The following command creates a `console` session owned by `dcv-user` with a unique session ID `my-session`\. It specifies a permissions file named `perm-file.txt`:
+The following command creates a `console` session owned by `dcv-user` with a unique session ID of `my-session`, and a session name of `my graphics session`\. It also specifies a permissions file named `perm-file.txt`\.
 + Windows NICE DCV server
 
   ```
-  C:\> dcv create-session --owner dcv-user --permissions-file perm-file.txt my-session
+  C:\> dcv create-session --owner dcv-user --name "my graphics session" --permissions-file perm-file.txt my-session
   ```
 + Linux NICE DCV server
 
   ```
-  $ sudo dcv create-session --type=console --owner dcv-user --permissions-file perm-file.txt my-session
+  $ sudo dcv create-session --type=console --owner dcv-user --name "my graphics session" --permissions-file perm-file.txt my-session
   ```
 
 **Example 2 \- Virtual Session \(Linux NICE DCV servers only\)**  

@@ -74,7 +74,7 @@ Touchscreen and stylus are supported with all of the supported Linux operating s
    $ sudo DISPLAY=:0 xinput
    ```
 
-   The DCV stylus pen, DCV stylus eraser, and DCV touchschreen should appear in the command output\. The following is example output\.
+   The DCV stylus pen, DCV stylus eraser, and DCV ttouchscreen should appear in the command output\. The following is example output\.
 
    ```
    | Virtual core pointer                          id=2    [master pointer  (3)]

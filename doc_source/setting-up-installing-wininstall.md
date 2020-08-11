@@ -21,11 +21,11 @@ Use the NICE DCV server installation wizard for a guided installation\.
 **Note**  
 The NICE DCV server is available only in a 64\-bit version and supported on 64\-bit Windows operating systems\.
 
-1. Run `nice-dcv-server-x64-Release-2020.0-version_number.msi`\. 
+1. Run `nice-dcv-server-x64-Release-2020.1-version_number.msi`\. 
 
 1. On the Welcome screen, choose **Next**\.
 
-1. On the End\-User License Agreement screen, read the license agreement\. If you accept the terms, select the **I accept the terms in the License Agreement** check box, and choose **Next**\.
+1. On the End\-User License Agreement screen, read the license agreement\. If you accept the terms, select the **I accept the terms in the License Agreement** check box, and then choose **Next**\.
 
 1. \(Optional\) On the **Drivers Selection** screen, select **USB device remotization**, and choose **Will be installed on local hard drive**, **Next**\. This installs the drivers required to support some specialized USB devices, such as 3D pointing devices and graphic tablets\.
 
@@ -71,5 +71,5 @@ The NICE DCV server is available only in a 64\-bit version and supported on 64\-
 1. Run the unattended installer:
 
    ```
-   C:\> msiexec.exe /i nice-dcv-server-x64-Release-2020.0-version_number.msi /quiet /norestart /l*v dcv_install_msi.log
+   C:\> msiexec.exe /i nice-dcv-server-x64-Release-2020.1-version_number.msi /quiet /norestart /l*v dcv_install_msi.log
    ```

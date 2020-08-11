@@ -165,7 +165,7 @@ After you have modified the license file, you must place it on your RLM server a
 
 **To configure the RLM server on Windows**
 
-1. Connect to your RLM sever\.
+1. Connect to your RLM server\.
 
 1. Copy the edited `license.lic` file to `C:\RLM\license\`\.
 

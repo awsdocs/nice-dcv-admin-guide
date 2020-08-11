@@ -14,6 +14,7 @@ The NICE DCV server runs as an operating system service\. You must be signed in 
 + [Enabling Session Storage](manage-storage.md)
 + [Configuring the Clipboard on Linux](manage-clipboard.md)
 + [Enabling Touchscreen and Stylus Support](enable-stylus.md)
++ [Configuring Multi\-Channel Audio](manage-audio.md)
 + [Configuring the HTTP headers](manage-headers.md)
 + [Configuring Authentication](security-authentication.md)
 + [Configuring Authorization](security-authorization.md)

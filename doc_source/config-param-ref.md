@@ -185,7 +185,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 | Parameter | Type \(Windows only\) | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
 | disable\-display\-sleep | DWORD \(32\-bit\) | session | true | Prevent display from entering power\-saving mode — Specifies whether to prevent the display from entering power\-saving mode\. | 
-| printer | String | session | 'DCV printer' | Printer to be set as default — Specifies the name of the virtual DCV printer\. Defaults to 'DCV printer'\. | 
+| printer | String | session | 'DCV printer' | Printer to be set as default — Specifies the name of the virtual DCV printer\. Defaults to 'DCV printer'\. The name is used to change the default printer on the system\. If set to an empty string, DCV will not change the current default printer\. | 
 
 ## `clipboard` Parameters<a name="clipboard"></a>
 
@@ -200,6 +200,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 | max\-image\-area | DWORD \(32\-bit\) | session | \-1 | Maximum area of clipboard's image — Specifies the maximum area \(number of pixels\) of clipboard images that can be transferred from server to clients\. If this value is missing or set to \-1, no limit is enforced\. | 
 | primary\-selection\-paste | DWORD \(32\-bit\) | session | false | Enables the primary selection pasting on linux — Linux desktops support multiple clipboards: the clipboard and the primary selection\. The primary selection is updated or copied when content is selected\. It can then be pasted using the mouse's middle button or the Shift\+Insert key combination\. When enabled, the client's clipboard content will be also inserted in the primary selection\.  | 
 | primary\-selection\-copy | DWORD \(32\-bit\) | session | false | Enables the primary selection copy from linux — Linux desktops supports multiple clipboards: the clipboard and the primary selection\. The primary selection is updated or copied when content is selected\. It can then be pasted using the mouse's middle button or with the Shift\+Insert key combination\. When enabled, the primary selection is monitored and updates are propagated to the client\.  | 
+| update\-timeout | DWORD \(32\-bit\) | session | 200 | Update event notification timeout — Specifies the time in msec to wait from the last update event for sending the notification to the client\. Default value 200 msec\. | 
 
 ## `smartcard` Parameters<a name="smartcard"></a>
 
