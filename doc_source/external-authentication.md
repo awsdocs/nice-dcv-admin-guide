@@ -38,13 +38,13 @@ You must configure the NICE DCV server to use the external authentication servic
 Once you have generated the token, you must be able to send it to the NICE DCV server\. With the web browser client, append the token to the connection URL as follows:
 
 ```
-https://server_hostname_or_IP:port/#session_id?authToken=token
+https://server_hostname_or_IP:port/authTo?authToken=1234567890abcdefken=token#session_id?
 ```
 
 For example:
 
 ```
-https://my-dcv-server.com:8443/#my-session?authToken=1234567890abcdef
+https://my-dcv-server.com:8443/?authToken=1234567890abcdef#my-session
 ```
 
 ## Authentication service requirements<a name="configure-authenticator"></a>
