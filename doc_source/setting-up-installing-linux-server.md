@@ -160,7 +160,7 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    DKMS can be installed from the Extra Packages for Enterprise Linux \(EPEL\) repository\. Run the following command to enable the EPEL repository:
 
    ```
-   $ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+   $ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
    ```
 
    After you have enabled the EPEL repository, run the following command to install DKMS:
@@ -247,7 +247,7 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    DKMS can be installed from the Extra Packages for Enterprise Linux \(EPEL\) repository\. Run the following command to enable the EPEL repository:
 
    ```
-   $ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+   $ sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    ```
 
    After you have enabled the EPEL repository, run the following command to install DKMS:
