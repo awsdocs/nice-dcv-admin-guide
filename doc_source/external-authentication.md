@@ -18,6 +18,9 @@ In order to use an external authentication server, you must have the following i
 
 You must configure the NICE DCV server to use the external authentication service\.
 
+------
+#### [ Linux NICE DCV server ]
+
 **To specify an external authentication server on Linux**
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
@@ -33,18 +36,35 @@ You must configure the NICE DCV server to use the external authentication servic
 
 1. Save and close the file\.
 
+------
+#### [ Windows NICE DCV server ]
+
+**To specify an external authentication server on Windows**
+
+1. Open the Windows Registry Editor and navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/security/** key\.
+
+1. Open the **auth\-token\-verifier** parameter\. For **Value data**, enter the URL of the external authentication server and the port over which to communicate, in the following format: `url:port`\. For example, if you're using the DcvSimpleExternalAuthenticator, specify the following: `http://127.0.0.1:8444`\.
+**Note**  
+If the parameter does not exist, create a new String parameter and name it `auth-token-verifier`\.
+
+1. Close the Windows Registry Editor\.
+
+1. [Stop](manage-stop.md) and [restart](manage-start.md) the NICE DCV server\.
+
+------
+
 ## Using the Token<a name="using-token"></a>
 
 Once you have generated the token, you must be able to send it to the NICE DCV server\. With the web browser client, append the token to the connection URL as follows:
 
 ```
-https://server_hostname_or_IP:port/#session_id?authToken=token
+https://server_hostname_or_IP:port/?authToken=token#session_id
 ```
 
 For example:
 
 ```
-https://my-dcv-server.com:8443/#my-session?authToken=1234567890abcdef
+https://my-dcv-server.com:8443/?authToken=1234567890abcdef#my-session
 ```
 
 ## Authentication service requirements<a name="configure-authenticator"></a>

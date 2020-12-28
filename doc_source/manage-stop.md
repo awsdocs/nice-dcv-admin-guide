@@ -42,7 +42,7 @@ Use the following commands:
   ```
   $ sudo service dcvserver stop
   ```
-+ RHEL 7\.x, CentOS 7\.x, and SUSE Linux Enterprise 12 
++ RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, and SUSE Linux Enterprise 12 
 
   ```
   $ sudo systemctl stop dcvserver
@@ -57,7 +57,7 @@ Use the following commands:
   ```
   $ sudo chkconfig —del dcvserver
   ```
-+ RHEL 7\.x, CentOS 7\.x, and SUSE Linux Enterprise 12 
++ RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, and SUSE Linux Enterprise 12 
 
   ```
   $ sudo systemctl disable dcvserver

@@ -4,14 +4,14 @@ The NICE DCV log files can be used to identify and troubleshoot problems with yo
 + Windows server
 
   ```
-  C:\ProgramData\NICE\dcv\log\
+  C:\ProgramData\NICE\dcv\log\server.log
   ```
 **Note**  
 The `ProgramData` folder might be hidden by default\. If you do not see the `ProgramData` folder, set your file browser to show hidden items\. Alternatively, enter `%programdata%` in the address bar and press **Enter**\.
 + Linux server
 
   ```
-  /var/log/dcv/
+  /var/log/dcv/server.log
   ```
 
 The NICE DCV server enables you to configure the verbosity level of the log files\. The following verbosity levels are available:

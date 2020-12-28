@@ -6,6 +6,7 @@ This topic explains how to install the prerequisites required to use NICE DCV on
 
 **Topics**
 + [Install a Desktop Environment and Desktop Manager](#linux-prereq-gui)
++ [Disable the Wayland protocol \(GDM3 only\)](#linux-prereq-wayland)
 + [Configure the X Server](#linux-prereq-xserver)
 + [Install the glxinfo Utility](#linux-prereq-tools)
 + [Verify OpenGL Software Rendering](#linux-prereq-opengl)
@@ -20,42 +21,23 @@ A desktop environment is a graphical user interface \(GUI\) that helps you to in
 The following tabbed content shows the steps for installing the default desktop environment and desktop manager on the supported operating systems\.
 
 ------
-#### [ RHEL 7\.x ]
+#### [ RHEL 7\.x/8\.x and CentOS 7\.x/8\.x ]
 
-The default desktop environment for RHEL 7\.x is Gnome3 and the default desktop manager is GDM\.
+The default desktop environment for RHEL 7\.x/8\.x and CentOS 7\.x/8\.x is Gnome3 and the default desktop manager is GDM\.
 
-**To install and configure the desktop environment and desktop manager on RHEL 7\.x**
-
-1. Install the desktop environment and the desktop manager packages\.
-
-   ```
-   $ sudo yum groupinstall 'Server with GUI'
-   ```
-
-1. Update the software packages to ensure that the Linux server is up to date\.
-
-   ```
-   $ sudo yum upgrade
-   ```
-
-1. Reboot the Linux server\.
-
-   ```
-   $ sudo reboot
-   ```
-
-------
-#### [ CentOS 7\.x ]
-
-The default desktop environment for CentOS 7\.x is Gnome3 and the default desktop manager is GDM\.
-
-**To install and configure the desktop environment and desktop manager on CentOS 7\.x**
+**To install and configure the desktop environment and desktop manager on RHEL 7\.x/8\.x and CentOS 7\.x/8\.x**
 
 1. Install the desktop environment and the desktop manager packages\.
+   + RHEL 7\.x/8\.x and CentOS 8\.x
 
-   ```
-   $ sudo yum groupinstall "GNOME Desktop"
-   ```
+     ```
+     $ sudo yum groupinstall 'Server with GUI'
+     ```
+   + CentOS 7\.x
+
+     ```
+     $ sudo yum groupinstall "GNOME Desktop"
+     ```
 
 1. Update the software packages to ensure that the Linux server is up to date\.
 
@@ -128,11 +110,13 @@ The default desktop environment for Amazon Linux 2 is Gnome3 and the default des
    ```
 
 ------
-#### [ Ubuntu 18\.x ]
+#### [ Ubuntu 18\.x/20\.x ]
 
-The default desktop environment for Ubuntu 18\.x is Gnome3 and the default desktop manager is GDM3\. GDM3 is currently not supported with NICE DCV console sessions\. We recommend that you use the LightDM desktop manager if you plan to work with NICE DCV console sessions\.
+For Ubuntu 18\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. With Ubuntu 18\.x, GDM3 is currently not supported with NICE DCV console sessions\. For this reason, we recommend that you use the LightDM desktop manager if you plan to work with NICE DCV console sessions\.
 
-**To install and configure the desktop environment and desktop manager on Ubuntu 18\.x**
+For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. With Ubuntu 20\.x, LightDM is currently not supported with NICE DCV console sessions\. For this reason, we recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\.
+
+**To install and configure the desktop environment and desktop manager on Ubuntu 18\.x/20\.x**
 
 1. Install the desktop environment and the desktop manager packages\.
 
@@ -145,9 +129,33 @@ The default desktop environment for Ubuntu 18\.x is Gnome3 and the default deskt
    ```
 
    Install LightDM\.
+   + Ubuntu 18\.x
+
+     ```
+     $ sudo apt install lightdm
+     ```
+   + Ubuntu 20\.x
+
+     ```
+     $ sudo apt install gdm3
+     ```
+
+1. \(Ubuntu 20\.x only\) Verify that GDM3 is set as the default desktop manager\.
 
    ```
-   $ sudo apt install lightdm
+   $ cat /etc/X11/default-display-manager
+   ```
+
+   Expected output
+
+   ```
+   /usr/sbin/gdm3
+   ```
+
+   If GDM3 is not set as the default desktop manager, use the following command to set it as the default\.
+
+   ```
+   $ sudo dpkg-reconfigure gdm3
    ```
 
 1. Update the software packages to ensure that the Linux server is up to date\.
@@ -163,25 +171,41 @@ The default desktop environment for Ubuntu 18\.x is Gnome3 and the default deskt
    ```
 
 ------
-#### [ SUSE Linux Enterprise 12\.x ]
+#### [ SUSE Linux Enterprise 12\.x/15\.x ]
 
 The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic and the default desktop manager is GDM\.
+
+The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic and the default desktop manager is GDM3\. Other display managers, such as LightDM, are currently not supported with NICE DCV console sessions\. We recommend that you use the GDM3 desktop manager for SUSE Linux Enterprise 15\.x if you plan to work with NICE DCV console sessions\.
 
 **To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 12\.x**
 
 1. Install the desktop environment and the desktop manager packages\.
+   + SUSE Linux Enterprise 12\.x
 
-   ```
-   $ sudo zypper install -t pattern gnome-basic
-   ```
+     ```
+     $ sudo zypper install -t pattern gnome-basic
+     ```
 
-   ```
-   $ sudo sed -i "s/DISPLAYMANAGER=\"\"/DISPLAYMANAGER=\"gdm\"/" /etc/sysconfig/displaymanager
-   ```
+     ```
+     $ sudo sed -i "s/DISPLAYMANAGER=\"\"/DISPLAYMANAGER=\"gdm\"/" /etc/sysconfig/displaymanager
+     ```
 
-   ```
-   $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"sle-classic\"/" /etc/sysconfig/windowmanager
-   ```
+     ```
+     $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"sle-classic\"/" /etc/sysconfig/windowmanager
+     ```
+   + SUSE Linux Enterprise 15\.x
+
+     ```
+     $ sudo zypper install -t pattern gnome_basic
+     ```
+
+     ```
+     $ sudo update-alternatives --set default-displaymanager /usr/lib/X11/displaymanagers/gdm
+     ```
+
+     ```
+     $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"gnome\"/" /etc/sysconfig/windowmanager
+     ```
 
 1. Update the software packages to ensure that the Linux server is up to date\.
 
@@ -196,6 +220,48 @@ The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic a
    ```
 
 ------
+
+## Disable the Wayland protocol \(GDM3 only\)<a name="linux-prereq-wayland"></a>
+
+NICE DCV does not support the Wayland protocol\. If you are using the GDM3 desktop manager, you must disable the Wayland protocol\. If you are not using GDM3, skip this step\.
+
+**To disable the Wayland protocol**
+
+1. Open the following file using your preferred text editor\.
+   + RHEL 8\.x, CentOS 8\.x, and SUSE Linux Enterprise 15\.x
+
+     ```
+     /etc/gdm/custom.conf
+     ```
+   + Ubuntu 20\.x
+
+     ```
+     /etc/gdm3/custom.conf
+     ```
+
+1. In the `[daemon]` section, set `WaylandEnable` to `false`\.
+
+   ```
+   [daemon]
+   WaylandEnable=false
+   ```
+
+1. Restart the GDM service\.
+   + RHEL 8\.x and CentOS 8\.x
+
+     ```
+     $ sudo systemctl restart gdm
+     ```
+   + Ubuntu 20\.x
+
+     ```
+     $ sudo systemctl restart gdm3
+     ```
+   + SUSE Linux Enterprise 15\.x
+
+     ```
+     $ sudo systemctl restart xdm
+     ```
 
 ## Configure the X Server<a name="linux-prereq-xserver"></a>
 
@@ -246,9 +312,9 @@ The following tabbed content shows how to configure and start the X server on th
    ```
 
 ------
-#### [ RHEL 7\.x, CentOS 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x ]
+#### [ RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x/20\.x, and SUSE Linux Enterprise 12\.x/15\.x ]
 
-**To configure and start the X server on RHEL 7\.x, CentOS 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x**
+**To configure and start the X server on RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x/20\.x, and SUSE Linux Enterprise 12\.x/15\.x**
 
 1. Configure the X server to start automatically when the Linux server boots\.
 
@@ -292,17 +358,17 @@ The glxinfo utility is installed as a package dependency of DCV GL\. Therefore, 
 
 **To install the glxinfo utility**  
 Run the following command:
-+ RHEL 6\.x/7\.x, CentOs 6\.x/7\.x, and Amazon Linux 2
++ RHEL 6\.x/7\.x/8\.x, CentOs 6\.x/7\.x8\.x, and Amazon Linux 2
 
   ```
   $ sudo yum install glx-utils
   ```
-+ Ubuntu 18\.x
++ Ubuntu 18\.x/20\.x
 
   ```
   $ sudo apt install mesa-utils
   ```
-+ SUSE Linux Enterprise 12\.x
++ SUSE Linux Enterprise 12\.x/15\.x
 
   ```
   $ sudo zypper in Mesa-demo-x
@@ -348,19 +414,19 @@ After you have installed the NVIDIA drivers on your Linux server, you must updat
 1. Run the following command\.
 
    ```
-   nvidia-xconfig --preserve-busid --enable-all-gpus
+   sudo nvidia-xconfig --preserve-busid --enable-all-gpus
    ```
 
    If you are using a G3 or G4 Amazon EC2 instance and you want to use a multi\-monitor console session, include the `--connected-monitor=DFP-0,DFP-1,DFP-2,DFP-3` parameter as follows\.
 
    ```
-   nvidia-xconfig --preserve-busid --enable-all-gpus --connected-monitor=DFP-0,DFP-1,DFP-2,DFP-3
+   sudo nvidia-xconfig --preserve-busid --enable-all-gpus --connected-monitor=DFP-0,DFP-1,DFP-2,DFP-3
    ```
 **Note**  
 Make sure that your server does not have the legacy `/etc/X11/XF86Config` file\. If it does, `nvidia-xconfig` updates that configuration file instead of generating the required `/etc/X11/xorg.conf` file\. Run the following command to remove the legacy `XF86Config` file:  
 
    ```
-   rm -rf /etc/X11/XF86Config*
+   sudo rm -rf /etc/X11/XF86Config*
    ```
 
 1. Restart the X server for the changes to take effect\.
@@ -383,7 +449,12 @@ Make sure that your server does not have the legacy `/etc/X11/XF86Config` file\.
      $ sudo init 5
      ```
 
-You must also ensure that OpenGL hardware rendering is available on the Linux server\.
+**To verify that your NVIDIA GPU supports hardware\-based video encoding**  
+You must ensure that it supports NVENC encoding and that it has compute capabilities >= 3\.0, or >= 3\.5 for Ubuntu 20\.
+
+To verify NVENC support, see the [ NVIDIA Video Encode and Decode GPU Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new#Encoder)\. To check the compute capabilities, see the [NVIDIA Compute Capacility tables\.](https://developer.nvidia.com/cuda-gpus)\. 
+
+If your NVIDIA GPU does not support NVENC encoding or if it does not have the required compute capabilities, software\-based video encoding is used\.
 
 **To verify that OpenGL hardware rendering is available**  
 Use the following command to ensure that the X server is running\.

@@ -5,7 +5,14 @@ The NICE DCV licensing requirements differ depending on where you are installing
 **Important**  
 The following licensing requirements only apply to NICE DCV version 2017\.0 and later\.
 
-## NICE DCV on Amazon EC2<a name="setting-up-license-ec2"></a>
+## NICE DCV Licensing Requirements<a name="dcv-lic-req"></a>
+
+**Topics**
++ [NICE DCV on Amazon EC2](#setting-up-license-ec2)
++ [NICE DCV on On\-premises and Other Cloud\-based Servers](#setting-up-license-onprem)
++ [Microsoft licensing requirements for remotely accessing Windows Server](#windows-lic-reqs)
+
+### NICE DCV on Amazon EC2<a name="setting-up-license-ec2"></a>
 
 You do not need a license server to install and use the NICE DCV server on an EC2 instance\. The NICE DCV server automatically detects that it is running on an Amazon EC2 instance and periodically connects to an S3 bucket to determine whether a valid license is available\. 
 
@@ -31,7 +38,7 @@ Make sure that your instance:
 
 If you are installing and using the NICE DCV server on an Amazon EC2 instance, you can skip the rest of this chapter\. The rest of this chapter only applies to using the NICE DCV server on an on\-premises or alternative cloud\-based server\.
 
-## NICE DCV on On\-premises and Other Cloud\-based Servers<a name="setting-up-license-onprem"></a>
+### NICE DCV on On\-premises and Other Cloud\-based Servers<a name="setting-up-license-onprem"></a>
 
 A license is required to install and use the NICE DCV server on an on\-premises or alternative cloud\-based server\. The following licensing options are available:
 + **Automatic evaluation license**— Automatically installed when you install the NICE DCV server\. These licenses are valid for a period of 30 days from the date of installation\. After the license expires, you are no longer able to create and host NICE DCV sessions on the server\. These licenses are ideal for short\-term testing and evaluation\. To test for a longer period, request an extended evaluation license\.
@@ -52,8 +59,10 @@ NICE DCV server version 2020 is not compatible with production license and exten
 NICE DCV server version 2020 license files are backward compatible with NICE DCV server versions 2017 and 2019\.
 NICE DCV clients do not require a license\.
 
-**Topics**
-+ [NICE DCV on Amazon EC2](#setting-up-license-ec2)
-+ [NICE DCV on On\-premises and Other Cloud\-based Servers](#setting-up-license-onprem)
-+ [Installing an Extended Evaluation License](setting-up-evaluation.md)
-+ [Installing a Production License](setting-up-production.md)
+### Microsoft licensing requirements for remotely accessing Windows Server<a name="windows-lic-reqs"></a>
+
+Microsoft requires that, in addition to a Windows Server Client Access License \(CAL\), you must have a Windows Server Remote Desktop Services \(RDS\) CAL for your version of Windows Server for each user that remotely accesses the server’s graphical user interface \(GUI\), regardless of the remote display protocol that you use\. This license is also required if you use NICE DCV to access the GUI of a remote Windows Server host\.
+
+If you run a NICE DCV server on an Amazon EC2 instance and you use a [ Windows Server AMI](https://aws.amazon.com/windows/resources/amis/), Amazon takes care of the licensing costs for the Windows Server CAL, and provides two Windows Server RDS CALs that are intended solely for administrative purposes \(i\.e\., testing, maintenance, and administration only\)\.
+
+For more information, see the [Microsoft Product Terms Site](https://www.microsoft.com/licensing/terms/)\. If you have questions about your licensing or rights to Microsoft software, consult your legal team, Microsoft, or your Microsoft reseller\.

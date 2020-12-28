@@ -9,7 +9,7 @@ The following topic explains how to upgrade the NICE DCV server\.
 
 **Topics**
 + [Upgrading the NICE DCV Server on Windows](#upgrading-windows-upgrade)
-+ [Upgrade the NICE DCV Server on Linux](#upgrading-linux)
++ [Upgrading the NICE DCV Server on Linux](#upgrading-linux)
 
 ## Upgrading the NICE DCV Server on Windows<a name="upgrading-windows-upgrade"></a>
 
@@ -31,7 +31,7 @@ The following topic explains how to upgrade the NICE DCV server\.
 
 1. Test the NICE DCV server by starting a new NICE DCV session\. For more information, see [Starting NICE DCV Sessions](managing-sessions-start.md)\.
 
-## Upgrade the NICE DCV Server on Linux<a name="upgrading-linux"></a>
+## Upgrading the NICE DCV Server on Linux<a name="upgrading-linux"></a>
 
 **To upgrade the NICE DCV server on Linux**
 

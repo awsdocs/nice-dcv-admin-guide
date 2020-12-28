@@ -25,37 +25,37 @@ The NICE DCV server is available for RHEL and CentOS 6\.x servers based on the 6
 1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
 
    ```
-   $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.1/Servers/nice-dcv-2020.1-8942-el6-x86_64.tgz
+   $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-el6-x86_64.tgz
    ```
 
 1. Extract the contents of the `.tgz` archive\.
 
    ```
-   $ tar -xvzf nice-dcv-2020.1-8942-el6-x86_64.tgz
+   $ tar -xvzf nice-dcv-2020.2-9662-el6-x86_64.tgz
    ```
 
 1. Navigate into the extracted folder\.
 
    ```
-   $ cd nice-dcv-2020.1-8942-el6-x86_64
+   $ cd nice-dcv-2020.2-9662-el6-x86_64
    ```
 
 1. Install the NICE DCV server\.
 
    ```
-   $ sudo yum install nice-dcv-server-2020.1.8942-1.el6.x86_64.rpm
+   $ sudo yum install nice-dcv-server-2020.2.9662-1.el6.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
 
    ```
-   $ sudo yum install nice-xdcv-2020.1.338-1.el6.x86_64.rpm
+   $ sudo yum install nice-xdcv-2020.2.359-1.el6.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
 
    ```
-   $ sudo yum install nice-dcv-gl-2020.1.840-1.el6.x86_64.rpm
+   $ sudo yum install nice-dcv-gl-2020.2.881-1.el6.x86_64.rpm
    ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
@@ -63,7 +63,7 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
 1. \(Optional\) If you plan to use NICE DCV with NICE EnginFrame, install the `nice-dcv-simple-external-authenticator` package\. 
 
    ```
-   $ sudo yum install nice-dcv-simple-external-authenticator-2020.1.111-1.el6.x86_64.rpm
+   $ sudo yum install nice-dcv-simple-external-authenticator-2020.2.125-1.el6.x86_64.rpm
    ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
@@ -96,9 +96,6 @@ The NICE DCV server is available for Amazon Linux 2, RHEL, and CentOS 7\.x serve
 **Important**  
 The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers based on the 64\-bit ARM architecture\.
 
-**Note**  
-The following instructions are for installing the NICE DCV server on an Amazon Linux 2 RHEL, or CentOS 7\.x server based on the 64\-bit x86 architecture\. To install the NICE DCV server on an Amazon Linux 2, RHEL, or CentOS 7\.x server based on the 64\-bit ARM architecture, replace *x86\_64* with `aarch64` in the following commands\.
-
 **To install the NICE DCV server on Amazon Linux 2, RHEL 7\.x, and CentOS 7\.x**
 
 1. Launch and connect to the server on which to install the NICE DCV server\.
@@ -110,48 +107,73 @@ The following instructions are for installing the NICE DCV server on an Amazon L
    ```
 
 1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+   + 64\-bit x86
 
-   ```
-   $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.1/Servers/nice-dcv-2020.1-8942-el7-x86_64.tgz
-   ```
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-el7-x86_64.tgz
+     ```
+   + 64\-bit ARM
 
-1. Extract the contents of the `.tgz` archive\.
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-el7-aarch64.tgz
+     ```
 
-   ```
-   $ tar -xvzf nice-dcv-2020.1-8942-el7-x86_64.tgz
-   ```
+1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
+   + 64\-bit x86
 
-1. Navigate into the extracted folder\.
+     ```
+     $ tar -xvzf nice-dcv-2020.2-9662-el7-x86_64.tgz && cd nice-dcv-2020.2-9662-el7-x86_64
+     ```
+   + 64\-bit ARM
 
-   ```
-   $ cd nice-dcv-2020.1-8942-el7-x86_64
-   ```
+     ```
+     $ tar -xvzf nice-dcv-2020.2-9662-el7-aarch64.tgz && cd nice-dcv-2020.2-9662-el7-aarch64
+     ```
 
 1. Install the NICE DCV server\.
+   + 64\-bit x86
 
-   ```
-   $ sudo yum install nice-dcv-server-2020.1.8942-1.el7.x86_64.rpm
-   ```
+     ```
+     $ sudo yum install nice-dcv-server-2020.2.9662-1.el7.x86_64.rpm
+     ```
+   + 64\-bit ARM
+
+     ```
+     $ sudo yum install nice-dcv-server-2020.2.9662-1.el7.aarch64.rpm
+     ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
+   + 64\-bit x86
 
-   ```
-   $ sudo yum install nice-xdcv-2020.1.338-1.el7.x86_64.rpm
-   ```
+     ```
+     $ sudo yum install nice-xdcv-2020.2.359-1.el7.x86_64.rpm
+     ```
+   + 64\-bit ARM
+
+     ```
+     $ sudo yum install nice-xdcv-2020.2.359-1.el7.aarch64.rpm
+     ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
+   + 64\-bit x86
 
-   ```
-   $ sudo yum install nice-dcv-gl-2020.1.840-1.el7.x86_64.rpm
-   ```
+     ```
+     $ sudo yum install nice-dcv-gl-2020.2.881-1.el7.x86_64.rpm
+     ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
 
 1. \(Optional\) If you plan to use NICE DCV with NICE EnginFrame, install the `nice-dcv-simple-external-authenticator` package\.
+   + 64\-bit x86
 
-   ```
-   $ sudo yum install nice-dcv-simple-external-authenticator-2020.1.111-1.el7.x86_64.rpm
-   ```
+     ```
+     $ sudo yum install nice-dcv-simple-external-authenticator-2020.2.125-1.el7.x86_64.rpm
+     ```
+   + 64\-bit ARM
+
+     ```
+     $ sudo yum install nice-dcv-simple-external-authenticator-2020.2.125-1.el7.aarch64.rpm
+     ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
 
@@ -183,9 +205,6 @@ The NICE DCV server is available for RHEL and CentOS 8\.x servers based on the 6
 **Important**  
 The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers based on the 64\-bit ARM architecture\.
 
-**Note**  
-The following instructions are for installing the NICE DCV server on a RHEL or CentOS 8\.x server based on the 64\-bit x86 architecture\. To install the NICE DCV server on a RHEL or CentOS 8\.x server based on the 64\-bit ARM architecture, replace *x86\_64* with `aarch64` in the following commands\.
-
 **To install the NICE DCV server on RHEL 8\.x or CentOS 8\.x**
 
 1. Launch and connect to the server on which to install the NICE DCV server\.
@@ -197,48 +216,73 @@ The following instructions are for installing the NICE DCV server on a RHEL or C
    ```
 
 1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+   + 64\-bit x86
 
-   ```
-   $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.1/Servers/nice-dcv-2020.1-8942-el8-x86_64.tgz
-   ```
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-el8-x86_64.tgz
+     ```
+   + 64\-bit ARM
 
-1. Extract the contents of the `.tgz` archive\.
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-el8-aarch64.tgz
+     ```
 
-   ```
-   $ tar -xvzf nice-dcv-2020.1-8942-el8-x86_64.tgz
-   ```
+1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
+   + 64\-bit x86
 
-1. Navigate into the extracted folder\.
+     ```
+     $ tar -xvzf nice-dcv-2020.2-9662-el8-x86_64.tgz && cd nice-dcv-2020.2-9662-el8-x86_64
+     ```
+   + 64\-bit ARM
 
-   ```
-   $ cd nice-dcv-2020.1-8942-el8-x86_64
-   ```
+     ```
+     $ tar -xvzf nice-dcv-2020.2-9662-el8-aarch64.tgz && cd nice-dcv-2020.2-9662-el8-aarch64
+     ```
 
 1. Install the NICE DCV server\.
+   + 64\-bit x86
 
-   ```
-   $ sudo yum install nice-dcv-server-2020.1.8942-1.el8.x86_64.rpm
-   ```
+     ```
+     $ sudo yum install nice-dcv-server-2020.2.9662-1.el8.x86_64.rpm
+     ```
+   + 64\-bit ARM
+
+     ```
+     $ sudo yum install nice-dcv-server-2020.2.9662-1.el8.aarch64.rpm
+     ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
+   + 64\-bit x86
 
-   ```
-   $ sudo yum install nice-xdcv-2020.1.338-1.el8.x86_64.rpm
-   ```
+     ```
+     $ sudo yum install nice-xdcv-2020.2.359-1.el8.x86_64.rpm
+     ```
+   + 64\-bit ARM
+
+     ```
+     $ sudo yum install nice-xdcv-2020.2.359-1.el8.aarch64.rpm
+     ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
+   + 64\-bit x86
 
-   ```
-   $ sudo yum install nice-dcv-gl-2020.1.840-1.el8.x86_64.rpm
-   ```
+     ```
+     $ sudo yum install nice-dcv-gl-2020.2.881-1.el8.x86_64.rpm
+     ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
 
 1. \(Optional\) If you plan to use NICE DCV with NICE EnginFrame, install the `nice-dcv-simple-external-authenticator` package\.
+   + 64\-bit x86
 
-   ```
-   $ sudo yum install nice-dcv-simple-external-authenticator-2020.1.111-1.el8.x86_64.rpm
-   ```
+     ```
+     $ sudo yum install nice-dcv-simple-external-authenticator-2020.2.125-1.el8.x86_64.rpm
+     ```
+   + 64\-bit ARM
+
+     ```
+     $ sudo yum install nice-dcv-simple-external-authenticator-2020.2.125-1.el8.aarch64.rpm
+     ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
 
@@ -263,11 +307,11 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    ```
 
 ------
-#### [ SLES 12\.x ]
+#### [ SLES 12\.x/15\.x ]
 
-The NICE DCV server is available for SUSE Linux Enterprise Server \(SLES\) 12\.x servers based on the 64\-bit x86 architecture only\.
+The NICE DCV server is available for SUSE Linux Enterprise Server \(SLES\) 12\.x/15\.x servers based on the 64\-bit x86 architecture only\.
 
-**To install the NICE DCV server on SLES 12\.x**
+**To install the NICE DCV server on SLES 12\.x/15\.x**
 
 1. Launch and connect to the server on which to install the NICE DCV server\.
 
@@ -278,58 +322,120 @@ The NICE DCV server is available for SUSE Linux Enterprise Server \(SLES\) 12\.x
    ```
 
 1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+   + SLES 12\.x
 
-   ```
-   $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2020.1/Servers/nice-dcv-2020.1-8942-sles12-x86_64.tgz
-   ```
+     ```
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-sles12-x86_64.tgz
+     ```
+   + SLES 15\.x
 
-1. Extract the contents of the `.tgz` archive\.
+     ```
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-sles15-x86_64.tgz
+     ```
 
-   ```
-   $ tar -xvzf nice-dcv-2020.1-8942-sles12-x86_64.tgz
-   ```
+1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
+   + SLES 12\.x
 
-1. Navigate into the extracted folder\.
+     ```
+     $ tar -xvzf nice-dcv-2020.2-9662-sles12-x86_64.tgz && cd nice-dcv-2020.2-9662-sles12-x86_64
+     ```
+   + SLES 15\.x
 
-   ```
-   $ cd nice-dcv-2020.1-8942-sles12-x86_64
-   ```
+     ```
+     $ tar -xvzf nice-dcv-2020.2-9662-sles15-x86_64.tgz && cd nice-dcv-2020.2-9662-sles15-x86_64
+     ```
 
 1. Install the NICE DCV server\.
+   + SLES 12\.x
 
-   ```
-   $ sudo zypper install nice-dcv-server-2020.1.8942-1.sles12.x86_64.rpm
-   ```
+     ```
+     $ sudo zypper install nice-dcv-server-2020.2.9662-1.sles12.x86_64.rpm
+     ```
+   + SLES 15\.x
+
+     ```
+     $ sudo zypper install nice-dcv-server-2020.2.9662-1.sles15.x86_64.rpm
+     ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
+   + SLES 12\.x
 
-   ```
-   $ sudo zypper install nice-xdcv-2020.1.338-1.sles12.x86_64.rpm
-   ```
+     ```
+     $ sudo zypper install nice-xdcv-2020.2.359-1.sles12.x86_64.rpm
+     ```
+   + SLES 15\.x
+
+     ```
+     $ sudo zypper install nice-xdcv-2020.2.359-1.sles15.x86_64.rpm
+     ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
+   + SLES 12\.x
 
-   ```
-   $ sudo zypper install nice-dcv-gl-2020.1.840-1.sles12.x86_64.rpm
-   ```
+     ```
+     $ sudo zypper install nice-dcv-gl-2020.2.881-1.sles12.x86_64.rpm
+     ```
+   + SLES 15\.x
+
+     ```
+     $ sudo zypper install nice-dcv-gl-2020.2.881-1.sles15.x86_64.rpm
+     ```
 **Note**  
-You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
+You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\. 
 
 1. \(Optional\) If you plan to use NICE DCV with NICE EnginFrame, install the `nice-dcv-simple-external-authenticator` package\. 
+   + SLES 12\.x
 
-   ```
-   $ sudo zypper install nice-dcv-simple-external-authenticator-2020.1.111-1.sles12.x86_64.rpm
-   ```
+     ```
+     $ sudo zypper install nice-dcv-simple-external-authenticator-2020.2.125-1.sles12.x86_64.rpm
+     ```
+   + SLES 15\.x
+
+     ```
+     $ sudo zypper install nice-dcv-simple-external-authenticator-2020.2.125-1.sles15.x86_64.rpm
+     ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
 
    To install the DCV USB drivers, you must have Dynamic Kernel Module Support \(DKMS\) installed on your server\. Use the following commands to install DKMS\.
 
    Run the following command to install DKMS:
+   + SLES 12\.x
 
-   ```
-   $ sudo zypper install http://download.opensuse.org/repositories/home:/Ximi1970:/Dkms:/Staging/SLE_12_SP4/noarch/dkms-2.5-11.1.noarch.rpm
-   ```
+     ```
+     $ sudo zypper install http://download.opensuse.org/repositories/home:/Ximi1970:/Dkms:/Staging/SLE_12_SP4/noarch/dkms-2.5-11.1.noarch.rpm
+     ```
+   + SLES 15
+
+     Enable the PackageHub repository\.
+
+     ```
+     $ sudo SUSEConnect -p PackageHub/15/x86_64
+     ```
+**Note**  
+If you are using SLES 15 SP1 or SP2, replace *15* in the command above with either `15.1` or `15.2`\. 
+
+     Install DKMS\.
+
+     ```
+     $ sudo zypper refresh
+     ```
+
+     ```
+     $ sudo zypper install dkms
+     ```
+
+     Install the kernel source\.
+
+     ```
+     $ sudo zypper install -y kernel-source
+     ```
+
+     Reboot the instance\.
+
+     ```
+     $ sudo reboot
+     ```
 
    After you have installed DKMS, run the following command to install the DCV USB drivers:
 
@@ -338,17 +444,14 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    ```
 
 ------
-#### [ Ubuntu 18\.04 ]
+#### [ Ubuntu 18\.04/20\.04 ]
 
 The NICE DCV server is available for Ubuntu servers based on the 64\-bit x86 and 64\-bit ARM architectures\.
 
 **Important**  
 The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers based on the 64\-bit ARM architecture\.
 
-**Note**  
-The following instructions are for installing the NICE DCV server on an Ubuntu server based on the 64\-bit x86 architecture\. To install the NICE DCV server on an Ubuntu server based on the 64\-bit ARM architecture, replace *x86\_64* with `arm64` in the following commands\.
-
-**To install the NICE DCV server on Ubuntu 18\.04**
+**To install the NICE DCV server on Ubuntu 18\.04/20\.04**
 
 1. Launch and connect to the server on which to install the NICE DCV server\.
 
@@ -363,48 +466,103 @@ The following instructions are for installing the NICE DCV server on an Ubuntu s
    ```
 
 1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+   + Ubuntu 18\.04 \(64\-bit x86\)
 
-   ```
-   $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.1/Servers/nice-dcv-2020.1-8942-ubuntu1804-x86_64.tgz
-   ```
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-ubuntu1804-x86_64.tgz
+     ```
+   + Ubuntu 18\.04 \(64\-bit ARM\)
 
-1. Extract the contents of the `.tgz` archive\.
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-ubuntu1804-aarch64.tgz
+     ```
+   + Ubuntu 20\.04 \(64\-bit x86\)
 
-   ```
-   $ tar -xvzf nice-dcv-2020.1-8942-ubuntu1804-x86_64.tgz
-   ```
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2020.2/Servers/nice-dcv-2020.2-9662-ubuntu2004-x86_64.tgz
+     ```
 
-1. Navigate into the extracted folder\.
+1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
+   + Ubuntu 18\.04 \(64\-bit x86\)
 
-   ```
-   $ cd nice-dcv-2020.1-8942-ubuntu1804-x86_64
-   ```
+     ```
+     $ tar -xvzf nice-dcv-2020.2-9662-ubuntu1804-x86_64.tgz && cd nice-dcv-2020.2-9662-ubuntu1804-x86_64
+     ```
+   + Ubuntu 18\.04 \(64\-bit ARM\)
+
+     ```
+     $ tar -xvzf nice-dcv-2020.2-9662-ubuntu1804-arm64.tgz && cd nice-dcv-2020.2-9662-ubuntu1804-arm64
+     ```
+   + Ubuntu 20\.04 \(64\-bit x86\)
+
+     ```
+     $ tar -xvzf nice-dcv-2020.2-9662-ubuntu2004-x86_64.tgz && cd nice-dcv-2020.2-9662-ubuntu2004-x86_64
+     ```
 
 1. Install the NICE DCV server\.
+   + Ubuntu 18\.04 \(64\-bit x86\)
 
-   ```
-   $ sudo apt install ./nice-dcv-server_2020.1.8942-1_amd64.ubuntu1804.deb
-   ```
+     ```
+     $ sudo apt install ./nice-dcv-server_2020.2.9662-1_amd64.ubuntu1804.deb
+     ```
+   + Ubuntu 18\.04 \(64\-bit ARM\)
+
+     ```
+     $ sudo apt install ./nice-dcv-server_2020.2.9662-1_arm64.ubuntu1804.deb
+     ```
+   + Ubuntu 20\.04 \(64\-bit x86\)
+
+     ```
+     $ sudo apt install ./nice-dcv-server_2020.2.9662-1_amd64.ubuntu2004.deb
+     ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
+   + Ubuntu 18\.04 \(64\-bit x86\)
 
-   ```
-   $ sudo apt install ./nice-xdcv_2020.1.338-1_amd64.ubuntu1804.deb
-   ```
+     ```
+     $ sudo apt install ./nice-xdcv_2020.2.359-1_amd64.ubuntu1804.deb
+     ```
+   + Ubuntu 18\.04 \(64\-bit ARM\)
+
+     ```
+     $ sudo apt install ./nice-xdcv_2020.2.359-1_arm64.ubuntu1804.deb
+     ```
+   + Ubuntu 20\.04 \(64\-bit x86\)
+
+     ```
+     $ sudo apt install ./nice-xdcv_2020.2.359-1_amd64.ubuntu2004.deb
+     ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
+   + Ubuntu 18\.04 \(64\-bit x86\)
 
-   ```
-   $ sudo apt install ./nice-dcv-gl_2020.1.840-1_amd64.ubuntu1804.deb
-   ```
+     ```
+     $ sudo apt install ./nice-dcv-gl_2020.2.881-1_amd64.ubuntu1804.deb
+     ```
+   + Ubuntu 20\.04 \(64\-bit x86\)
+
+     ```
+     $ sudo apt install ./nice-dcv-gl_2020.2.881-1_amd64.ubuntu2004.deb
+     ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
 
 1. \(Optional\) If you plan to use NICE DCV with NICE EnginFrame, install the `nice-dcv-simple-external-authenticator` package\. 
+   + Ubuntu 18\.04 \(64\-bit x86\)
 
-   ```
-   $ sudo apt install ./nice-dcv-simple-external-authenticator_2020.1.111-1_amd64.ubuntu1804.deb
-   ```
+     ```
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2020.2.125-1_amd64.ubuntu1804.deb
+     ```
+   + Ubuntu 18\.04 \(64\-bit ARM\)
+
+     ```
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2020.2.125-1_arm64.ubuntu1804.deb
+     ```
+   + Ubuntu 20\.04 \(64\-bit x86\)
+
+     ```
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2020.2.125-1_amd64.ubuntu2004.deb
+     ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
 

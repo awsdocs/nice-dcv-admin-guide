@@ -49,7 +49,7 @@ Touchscreen and stylus are supported with all of the supported Linux operating s
 1. Save the changes and close the file\.
 
 1. Restart the X server\.
-   + RHEL 7\.x, CentOs 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
+   + RHEL 7\.x/8\.x, CentOs 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
 
      ```
      $ sudo systemctl isolate multi-user.target

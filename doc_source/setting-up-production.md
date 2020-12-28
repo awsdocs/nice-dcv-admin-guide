@@ -1,5 +1,7 @@
 # Installing a Production License<a name="setting-up-production"></a>
 
+
+
 The following sections in this topic explain how to purchase and use a production license \(perpetual license or subscription\)\.
 
 **Topics**

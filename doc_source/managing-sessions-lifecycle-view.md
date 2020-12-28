@@ -2,6 +2,8 @@
 
 The administrator on a Windows NICE DCV server or the root user on a Linux NICE DCV server can view all active sessions running on the server\. NICE DCV users can only view sessions that they have created\.
 
+
+
 **To list the active console or virtual sessions on a Windows or Linux NICE DCV server**  
 Use the `dcv list-sessions` command:
 

@@ -28,7 +28,7 @@ NICE DCV offers the following features:
 + **Supports audio in and out, printing, and copy and paste** — Lets you perform these key actions between the session and your local computer\.
 + **Supports file transfer** — Lets you transfer files between the session and your local computer\.
 + **Provides an HTML5 client** \- Offers an HTML5 client that can be used with any modern web browser on Windows and Linux\.
-+ **Supports modern Linux desktop environments** — Supports modern Linux desktops, such as Gnome 3 on RHEL 7\.
++ **Supports modern Linux desktop environments** — Supports modern Linux desktops, such as Gnome 3 on RHEL 8\.
 
 ## NICE DCV Pricing<a name="what-is-dcv-pricing"></a>
 

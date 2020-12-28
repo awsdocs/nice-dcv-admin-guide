@@ -2,6 +2,8 @@
 
 The NICE DCV server includes a command line tool that can be used to start, stop, and view NICE DCV sessions\.
 
+
+
 ## Using the Command Line Tool on a Windows NICE DCV Server<a name="cli-win"></a>
 
 To use the command line tool on a Windows NICE DCV server, you must run the commands from the NICE DCV installation directory or you must add the NICE DCV directory to the PATH environment variable\. If you add the NICE DCV directory to the PATH environment variable, you can use the commands from any directory\.

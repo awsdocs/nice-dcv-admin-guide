@@ -31,7 +31,7 @@ $ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n
 If the command returns `SI:localuser:dcv`, the dcv user can access the X server\.
 
 If the command does not return `SI:localuser:dcv`, the dcv user does not have access to the X server\. Run the following commands to restart the X server:
-+ RHEL 7\.x, CentOs 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
++ RHEL 7\.x/8\.x, CentOs 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
 
   ```
   $ sudo systemctl isolate multi-user.target
@@ -64,7 +64,7 @@ $ sudo DISPLAY=:0 XAUTHORITY=$(ps aux | grep "X.*\-auth" | grep -v grep | sed -n
 If the command returns `LOCAL:`, local users can access the X server\.
 
 If the command does not return `LOCAL:`, local users do not have access to the X server\. Run the following commands to restart the X server, and to disable and re\-enable DCV GL:
-+ RHEL 7\.x, CentOs 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
++ RHEL 7\.x/8\.x, CentOs 7\.x/8x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
 
   ```
   $ sudo systemctl isolate multi-user.target

@@ -42,6 +42,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Configuring the Clipboard on a Linux NICE DCV Server](manage-clipboard.md)
    + [Enabling Touchscreen and Stylus Support](enable-stylus.md)
    + [Configuring Multi-Channel Audio](manage-audio.md)
+   + [Enable the QUIC UDP transport protocol](enable-quic.md)
    + [Configuring HTTP Headers](manage-headers.md)
    + [Configuring NICE DCV Authentication](security-authentication.md)
    + [Configuring NICE DCV Authorization](security-authorization.md)
@@ -65,4 +66,5 @@ Amazon's trademarks and trade dress may not be used in
    + [Common Issues](troubleshooting-issues.md)
 + [NICE DCV Server Parameter Reference](config-param-ref.md)
    + [Modifying Configuration Parameters](config-param-ref-modify.md)
++ [NICE DCV end of support life](eosl.md)
 + [Release Notes and Document History for NICE DCV](doc-history-release-notes.md)

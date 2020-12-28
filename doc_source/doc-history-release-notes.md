@@ -11,6 +11,10 @@ This page provides the release notes and document history for NICE DCV\.
 This section describes NICE DCV features, improvements, and bug fixes by release date\.
 
 **Topics**
++ [DCV 2020\.2\-9662— December 04, 2020](#dcv-2020-2-9662)
++ [DCV 2020\.2\-9508— November 11, 2020](#dcv-2020-2-9508)
++ [DCV 2020\.1\-9012— September 30, 2020](#dcv-2020-1-9012sep)
++ [DCV 2020\.1\-9012— August 24, 2020](#dcv-2020-1-9012)
 + [DCV 2020\.1\-8942— August 03, 2020](#dcv-2020-1-8942)
 + [DCV 2020\.0\-8428 — April 16, 2020](#dcv-2020-0-8428)
 + [DCV 2019\.1\-7644 — October 24, 2019](#dcv-2019-1-7644)
@@ -25,6 +29,42 @@ This section describes NICE DCV features, improvements, and bug fixes by release
 + [DCV 2017\.0\-5121 — March 18, 2018](#dcv-2017-0-5121)
 + [DCV 2017\.0\-4334 — January 24, 2018](#dcv-2017-0-4334)
 + [DCV 2017\.0\-4100 — December 18, 2017](#dcv-2017-0-4100)
+
+### DCV 2020\.2\-9662— December 04, 2020<a name="dcv-2020-2-9662"></a>
+
+
+****  
+
+| Build numbers | Changes and bug fixes | 
+| --- | --- | 
+|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
+
+### DCV 2020\.2\-9508— November 11, 2020<a name="dcv-2020-2-9508"></a>
+
+
+****  
+
+| Build numbers | New features | Changes and bug fixes | 
+| --- | --- | --- | 
+|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
+
+### DCV 2020\.1\-9012— September 30, 2020<a name="dcv-2020-1-9012sep"></a>
+
+
+****  
+
+| Build numbers | Changes and bug fixes | 
+| --- | --- | 
+|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
+
+### DCV 2020\.1\-9012— August 24, 2020<a name="dcv-2020-1-9012"></a>
+
+
+****  
+
+| Build numbers | Changes and bug fixes | 
+| --- | --- | 
+|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
 
 ### DCV 2020\.1\-8942— August 03, 2020<a name="dcv-2020-1-8942"></a>
 
@@ -161,6 +201,7 @@ The following table describes the documentation for this release of NICE DCV\.
 
 | Change | Description | Date | 
 | --- | --- | --- | 
+| NICE DCV Version 2020\.2 | NICE DCV 2020\.2 is now available\. For more information, see [DCV 2020\.2\-9508— November 11, 2020](#dcv-2020-2-9508)\. | November 11, 2020 | 
 | NICE DCV Version 2020\.1 | NICE DCV 2020\.1 is now available\. For more information, see [DCV 2020\.1\-8942— August 03, 2020](#dcv-2020-1-8942)\. | August 03, 2020 | 
 | NICE DCV Version 2020\.0 | NICE DCV 2020\.0 includes support for surround sound 7\.1, touch and stylus, and multi\-monitor using the new Microsoft Edge browser\. For more information, see [ Installing the NICE DCV Server](https://docs.aws.amazon.com/dcv/latest/adminguide/setting-up-installing.html) in the NICE DCV Administrator Guide\. | April 16, 2020 | 
 | HTTP response headers | The NICE DCV server can be configured to send additional HTTP response headers\. | August 26, 2019 | 

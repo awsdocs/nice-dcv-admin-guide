@@ -4,6 +4,9 @@ NICE DCV automatically generates a self\-signed certificate that is used to secu
 
 You can replace the default NICE DCV certificate and its key with your own certificate and key\.
 
+**Important**  
+If you use your own certificate and key, you must name your certificate `dcv.pem` and you must name the key `dcv.key`\.
+
 **To change the NICE DCV server's TLS certificate**
 + Windows NICE DCV server
 
@@ -23,9 +26,9 @@ You can replace the default NICE DCV certificate and its key with your own certi
   Grant ownership of both files to the `dcv` user, and change their permissions to 600 \(only the owner can read or write to them\)\.
 
   ```
-  $  sudo chown dcv certificate_filename.pem key_filename.key
+  $  sudo chown dcv dcv.pem dcv.key
   ```
 
   ```
-  $  sudo chmod 600 certificate_filename.pem key_filename.key
+  $  sudo chmod 600 dcv.pem dcv.key
   ```

@@ -14,9 +14,9 @@ If the host server's hardware and software configuration does not support the sp
 You can configure the NICE DCV server to prevent clients from requesting display layouts that are outside of a specified range\. To restrict display layout changes, configure the following NICE DCV server parameters\.
 + [`enable-client-resize`](config-param-ref.md#paramref.display.enable-client-resize)—To prevent clients from changing the display layout, set this parameter to `false`\.
 + [`min-head-resolution`](config-param-ref.md#paramref.display.min-head-resolution) and [`max-head-resolution`](config-param-ref.md#paramref.display.max-head-resolution)—Specifies the minimum and maximum allowed resolutions respectively\.
-+ [`web-client-max-head-resolution`](config-param-ref.md#paramref.display.web-client-max-head-resolution)—Specifies the maximum allowed resolution for web browser clients\. The `max-head-resolution` limitation is applied on top of `web-client-max-head-resolution` limitation\.
++ [`web-client-max-head-resolution`](config-param-ref.md#paramref.display.web-client-max-head-resolution)—Specifies the maximum allowed resolution for web browser clients\. The `max-head-resolution` limitation is applied on top of `web-client-max-head-resolution` limitation\. By default, the maximum resolution for web browser clients is 1920x1080\. Specifying a higher resolution might cause performance issues, depending on the web browser and specifications of the client computer\.
 + [`max-num-heads`](config-param-ref.md#paramref.display.max-num-heads)—Specifies the maximum number of displays\.
-+ `max-layout-area`— Specifies the maximum number of pixels allowed for the screen area\. Requests in which the total screen area expressed in pixels exceeds the specified value are ignored\.
++ `max\-layout\-area`— Specifies the maximum number of pixels allowed for the screen area\. Requests in which the total screen area expressed in pixels exceeds the specified value are ignored\.
 
 For more information about these parameters, see [`display` Parameters](config-param-ref.md#display) in the Parameter Reference\.
 

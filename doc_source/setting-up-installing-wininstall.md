@@ -21,7 +21,7 @@ Use the NICE DCV server installation wizard for a guided installation\.
 **Note**  
 The NICE DCV server is available only in a 64\-bit version and supported on 64\-bit Windows operating systems\.
 
-1. Run `nice-dcv-server-x64-Release-2020.1-version_number.msi`\. 
+1. Run `nice-dcv-server-x64-Release-2020.2-version_number.msi`\. 
 
 1. On the Welcome screen, choose **Next**\.
 
@@ -54,7 +54,7 @@ The unattended installation does the following by default:
 You can override the default actions by appending the following options to the installation command:
 + `DISABLE_FIREWALL=1` — Prevents the installer from adding the firewall rule\.
 + `DISABLE_SERVER_AUTOSTART=1` — Prevents the NICE DCV server from starting automatically after the installation\.
-+ `DISABLE_SERVER_AUTOMATIC_SESSION_CREATION=1` — Prevents the installer from starting the automatic console session\.
++ `DISABLE_AUTOMATIC_SESSION_CREATION=1` — Prevents the installer from starting the automatic console session\.
 + `AUTOMATIC_SESSION_OWNER=owner_name` — Specifies a different owner for the automatic console session\.
 + `ADDLOCAL=ALL` — Installs the DCV drivers required for USB remotization\.
 
@@ -71,5 +71,5 @@ The NICE DCV server is available only in a 64\-bit version and supported on 64\-
 1. Run the unattended installer:
 
    ```
-   C:\> msiexec.exe /i nice-dcv-server-x64-Release-2020.1-version_number.msi /quiet /norestart /l*v dcv_install_msi.log
+   C:\> msiexec.exe /i nice-dcv-server-x64-Release-2020.2-version_number.msi ADDLOCAL=ALL /quiet /norestart /l*v dcv_install_msi.log
    ```
