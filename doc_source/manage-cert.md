@@ -17,18 +17,18 @@ If you use your own certificate and key, you must name your certificate `dcv.pem
   ```
 + Linux NICE DCV server
 
-  Place the certificate and its key in the following location on your Linux NICE DCV server:
+  Replace the certificate and its key in the following location on your Linux NICE DCV server:
 
   ```
-  /etc/dcv/
+  /var/lib/dcv/.config/NICE/dcv/
   ```
 
   Grant ownership of both files to the `dcv` user, and change their permissions to 600 \(only the owner can read or write to them\)\.
 
   ```
-  $  sudo chown dcv dcv.pem dcv.key
+  $  sudo chown dcv /var/lib/dcv/.config/NICE/dcv/*
   ```
 
   ```
-  $  sudo chmod 600 dcv.pem dcv.key
+  $  sudo chmod 600 /var/lib/dcv/.config/NICE/dcv/*
   ```
