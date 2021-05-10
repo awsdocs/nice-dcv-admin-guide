@@ -40,15 +40,6 @@ If the command does not return `SI:localuser:dcv`, the dcv user does not have ac
   ```
   $ sudo systemctl isolate graphical.target
   ```
-+ RHEL 6\.x and CentOs 6\.x
-
-  ```
-  $ sudo init 3
-  ```
-
-  ```
-  $ sudo init 5
-  ```
 
 ### Virtual Sessions<a name="checks-xserver-virtual"></a>
 
@@ -80,23 +71,6 @@ If the command does not return `LOCAL:`, local users do not have access to the X
 
   ```
   $ sudo systemctl isolate graphical.target
-  ```
-+ RHEL 6\.x and CentOs 6\.x
-
-  ```
-  $ sudo init 3
-  ```
-
-  ```
-  $ sudo dcvgladmin disable
-  ```
-
-  ```
-  $ sudo dcvgladmin enable
-  ```
-
-  ```
-  $ sudo init 5
   ```
 
 ## Verify That DCV GL Is Properly Installed<a name="checks-gl"></a>

@@ -9,37 +9,59 @@ If you are using a floating license on an on\-premises or alternative cloud\-bas
 
 The NICE DCV server must be running to start a session\. For more information, see [Starting the NICE DCV Server](manage-start.md)\.
 
-**Contents**
+**Topics**
 + [Manually Starting Console and Virtual Sessions](#managing-sessions-start-manual)
-  + [Examples](#managing-sessions-start-manual)
 + [Enabling Automatic Console Sessions](#managing-sessions-start-auto)
 
 ## Manually Starting Console and Virtual Sessions<a name="managing-sessions-start-manual"></a>
 
 You can start a NICE DCV session at any time\. You can only run one console session at a time\. If you are using a Linux NICE DCV server, you can run multiple virtual sessions simultaneously\.
 
-**To create a console or virtual session on a Windows or Linux NICE DCV server**  
-Use the `dcv create-session` command and specify the session type and a unique session ID\.
+To create a console or virtual session on a Windows or Linux NICE DCV server, use the `dcv create-session` command\.
+
+**Topics**
++ [Syntax](#syntax)
++ [Options](#options)
++ [Examples](#managing-sessions-start-manual)
+
+### Syntax<a name="syntax"></a>
+
+```
+dcv create-session --type console|virtual --name session_name --user username --owner owner_name --permissions-file /path_to/permissions_file --storage-root /path_to/storage_directory --gl on|off --max-concurrent-clients number_of_clients --init /path_to/init_script session_name
+```
+
+### Options<a name="options"></a>
 
 The following options can be used with the `dcv create-session` command:
 
-**\-\-type=console\|virtual**  
-This option is supported on Linux NICE DCV servers only\. It specifies the type of session to be created and can be either `console` or `virtual`\.
+**`--type`**  
+This option is supported on Linux NICE DCV servers only\. It specifies the type of session to be created and can be either `console` or `virtual`\.  
+Type: String  
+Allowed values: `console` \| `virtual`  
+Required: No
 
-**\-\-name**  
+**`--name`**  
 Specifies a name for the session\. Session names can be any string of up to 256 characters\. If the string exceeds 256 characters, the command fails\. Session names don't need to be unique across running sessions\.  
-You can change a session's name at any time using the `dcv set-name` command\. For more information, see [Managing the Session Name](managing-session-name.md)\.
+You can change a session's name at any time using the `dcv set-name` command\. For more information, see [Managing the Session Name](managing-session-name.md)\.  
+Type: String  
+Required: Yes
 
-**\-\-user**  
-This option is supported with virtual sessions on Linux NICE DCV sessions only\. This value is the user to be used to create the session\. Only the root user can impersonate other users\.
+**`--user`**  
+This option is supported with virtual sessions on Linux NICE DCV sessions only\. This value is the user to be used to create the session\. Only the root user can impersonate other users\.  
+Type: String  
+Required: No
 
-**\-\-owner**  
-Specifies the session owner\. Defaults to the currently signed in user if omitted\.
+**`--owner`**  
+Specifies the session owner\. Defaults to the currently signed in user if omitted\.  
+Type: String  
+Required: No
 
-**\-\-permissions\-file**  
-Specifies a path to a custom permissions file\. Defaults to the server defaults if omitted\.
+**`-permissions-file`\-**  
+Specifies a path to a custom permissions file\. Defaults to the server defaults if omitted\.  
+Type: String  
+Required: No
 
-**\-\-storage\-root**  
+**`--storage-root`**  
 Specifies the path to the folder used for session storage\.  
 You can use `%home%` to specify the home directory of the user who is currently signed in\. For example, the following sets the directory for session storage as `c:\Users\username\storage\` for Windows servers or `$HOME/storage/` for Linux servers\.  
 
@@ -47,15 +69,24 @@ You can use `%home%` to specify the home directory of the user who is currently 
 --storage-root %home%/storage/
 ```
 If a specified subdirectory does not exist, session storage is disabled\.
+Type: String  
+Required: No
 
-**\-\-gl**  
-This option is supported with virtual sessions on Linux NICE DCV sessions only\. It overrides the default `dcv-gl` state and can be either `on` or `off`\.
+**`--gl`**  
+This option is supported with virtual sessions on Linux NICE DCV sessions only\. It overrides the default `dcv-gl` state and can be either `on` or `off`\.  
+Type: String  
+Allowed values: `on` \| `off`  
+Required: No
 
 **\-\-max\-concurrent\-clients**  
-Specifies the maximum number of NICE DCV clients that are allowed to connect to the session\. Defaults to unlimited connections if omitted\.
+Specifies the maximum number of NICE DCV clients that are allowed to connect to the session\. Defaults to unlimited connections if omitted\.  
+Type: Integer  
+Required: No
 
 **\-\-init**  
-This option is supported with virtual sessions on Linux NICE DCV servers only\. It specifies the path to a custom `init` script\. The script can be used to start a specific desktop environment and launch specific applications automatically when the session starts\. The script must be executable\. Defaults to a script that starts the default desktop environment if omitted\.
+This option is supported with virtual sessions on Linux NICE DCV servers only\. It specifies the path to a custom `init` script\. The script can be used to start a specific desktop environment and launch specific applications automatically when the session starts\. The script must be executable\. Defaults to a script that starts the default desktop environment if omitted\.  
+Type: String  
+Required: No
 
 ### Examples<a name="managing-sessions-start-manual"></a>
 
@@ -95,6 +126,9 @@ Other parameters affecting automatic console sessions are `max-concurrent-client
 **Note**  
 NICE DCV does not support automatic virtual sessions\.
 
+------
+#### [ Windows NICE DCV server ]
+
 **To enable an automatic console session on a Windows NICE DCV server**
 
 1. Open the Windows Registry Editor\.
@@ -123,6 +157,9 @@ NICE DCV does not support automatic virtual sessions\.
 
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the NICE DCV server\.
 
+------
+#### [ Linux NICE DCV server ]
+
 **To enable an automatic console session on a Linux NICE DCV server**
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
@@ -140,3 +177,5 @@ NICE DCV does not support automatic virtual sessions\.
 1. Save and close the file\.
 
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the NICE DCV server\.
+
+------

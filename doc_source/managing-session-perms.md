@@ -2,8 +2,24 @@
 
 Authorization is used to grant or deny NICE DCV clients permissions to specific NICE DCV features\. Typically, authorization is configured when a NICE DCV session is started\. However, it is possible to edit the permissions for a running session\. For more information about NICE DCV authorization, see [Configuring NICE DCV Authorization](security-authorization.md)\.
 
-**To modify the permissions for a running session**  
-Use the `dcv set-permissions` command\. The following options can be used with the `dcv set-permissions` command\.
+To modify the permissions for a running session, use the `dcv set-permissions` command\.
+
+**Topics**
++ [Syntax](#syntax)
++ [Options](#options)
++ [Examples](#session-perms-example)
+
+## Syntax<a name="syntax"></a>
+
+```
+dcv set-permissions --session sessions_name --none | --reset-built-in | --file /path_to/permissions_file
+```
+
+You must specify either `--none`, `--reset-built-in`, or `--file`\.
+
+## Options<a name="options"></a>
+
+The following options can be used with the `dcv set-permissions` command\.
 
 **\-\-session**  
 Specifies the ID of the session for which to set the permissions\.

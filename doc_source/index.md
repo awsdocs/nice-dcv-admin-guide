@@ -1,7 +1,7 @@
 # NICE DCV Administrator Guide
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -39,6 +39,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Enabling USB Remotization](manage-usb-remote.md)
    + [Configuring Smart Card Caching](manage-smart-card.md)
    + [Enabling Session Storage](manage-storage.md)
+   + [Configuring the Printer on a Linux NICE DCV Server](manage-printer.md)
    + [Configuring the Clipboard on a Linux NICE DCV Server](manage-clipboard.md)
    + [Enabling Touchscreen and Stylus Support](enable-stylus.md)
    + [Configuring Multi-Channel Audio](manage-audio.md)
@@ -57,10 +58,12 @@ Amazon's trademarks and trade dress may not be used in
       + [Managing the NICE DCV Session Display Layout](managing-session-display.md)
       + [Managing the Session Name](managing-session-name.md)
    + [Viewing NICE DCV Sessions](managing-sessions-lifecycle-view.md)
+   + [Getting NICE DCV Session Screenshots](managing-sessions-lifecycle-screenshot.md)
 + [How to...](how-to.md)
    + [Use External Authentication](external-authentication.md)
    + [Find and Stop Idle Sessions](stop-idle-sessions.md)
    + [Enable Remote X Connections to the X Server](setup-xforwarding.md)
+   + [Embed the NICE DCV web browser client inside an iFrame](embed-in-iframe.md)
 + [Troubleshooting NICE DCV](troubleshooting.md)
    + [Using the Log Files](troubleshooting-logs.md)
    + [Common Issues](troubleshooting-issues.md)

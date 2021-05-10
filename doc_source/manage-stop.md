@@ -37,11 +37,6 @@ Use the following procedure to stop the NICE DCV server using the command line\.
 
 **To stop the NICE DCV server on Linux**  
 Use the following commands:
-+ RHEL 6\.x and CentOS 6\.x
-
-  ```
-  $ sudo service dcvserver stop
-  ```
 + RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, and SUSE Linux Enterprise 12 
 
   ```
@@ -52,11 +47,6 @@ Use the following procedure to disable automatic NICE DCV server startup using t
 
 **To prevent the NICE DCV server from starting automatically on Linux**  
 Use the following commands:
-+ RHEL 6\.x and CentOS 6\.x
-
-  ```
-  $ sudo chkconfig —del dcvserver
-  ```
 + RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, and SUSE Linux Enterprise 12 
 
   ```

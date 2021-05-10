@@ -5,14 +5,21 @@ A console session can only be stopped by the administrator on Windows NICE DCV s
 **Note**  
 Stopping a session closes all of the applications that are running in the session\.
 
-**To stop a console or virtual session on a Windows or Linux NICE DCV servers**  
-Use the `dcv close-session` command and specify the unique session ID:
+To stop a console or virtual session on a Windows or Linux NICE DCV server, use the `dcv close-session` command and specify the unique session ID\.
+
+**Topics**
++ [Syntax](#syntax)
++ [Example](#example)
+
+## Syntax<a name="syntax"></a>
 
 ```
 dcv close-session session-id
 ```
 
-For example, the following command stops a session with the unique ID of `my-session`:
+## Example<a name="example"></a>
+
+For example, the following command stops a session with the unique ID of `my-session`\.
 
 ```
 dcv close-session my-session

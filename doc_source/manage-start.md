@@ -39,11 +39,6 @@ Use the following procedure to manually start the NICE DCV server using the comm
 
 **To start the NICE DCV server on Linux**  
 Use the following commands:
-+ RHEL 6\.x and CentOS 6\.x
-
-  ```
-  $ sudo service dcvserver start
-  ```
 + RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, SUSE Linux Enterprise 12, and Ubuntu 18\.x
 
   ```
@@ -54,11 +49,6 @@ Use the following procedure to configure the NICE DCV server to start automatica
 
 **To configure the NICE DCV server to start automatically on Linux**  
 Use the following commands:
-+ RHEL 6\.x and CentOS 6\.x
-
-  ```
-  $ sudo chkconfig —add dcvserver
-  ```
 + RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, SUSE Linux Enterprise 12, and Ubuntu 18\.x
 
   ```

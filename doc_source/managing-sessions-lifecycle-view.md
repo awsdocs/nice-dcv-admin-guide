@@ -4,12 +4,25 @@ The administrator on a Windows NICE DCV server or the root user on a Linux NICE 
 
 
 
-**To list the active console or virtual sessions on a Windows or Linux NICE DCV server**  
-Use the `dcv list-sessions` command:
+**Topics**
++ [List all active sessions](#list-all)
++ [View information about a specific session](#view-specific)
+
+## List all active sessions<a name="list-all"></a>
+
+To list the active console or virtual sessions on a Windows or Linux NICE DCV server, use the `dcv list-sessions` command\.
+
+**Topics**
++ [Syntax](#syntax)
++ [Output](#output)
+
+### Syntax<a name="syntax"></a>
 
 ```
 dcv list-sessions
 ```
+
+### Output<a name="output"></a>
 
 The command returns a list of active sessions in the following format:
 
@@ -17,12 +30,21 @@ The command returns a list of active sessions in the following format:
 Session: session-id (owner:session-owner type:virtual|console name:'my session')
 ```
 
-**To view information about a session**  
-Use the `dcv describe-session` command and specify the unique session ID\.
+## View information about a specific session<a name="view-specific"></a>
+
+To view information about a session, use the `dcv describe-session` command and specify the unique session ID\.
+
+**Topics**
++ [Syntax](#syntax)
++ [Output](#output)
+
+### Syntax<a name="syntax"></a>
 
 ```
-$ dcv describe-session session-id
+$ dcv describe-session session_id
 ```
+
+### Output<a name="output"></a>
 
 In the following example output, the `display-layout` element indicates that the session's display layout is set to use two 800x600 screens, with the second screen offset to x=800 \(to the right\) of the first screen\.
 

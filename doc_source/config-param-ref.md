@@ -19,6 +19,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 + [`input` Parameters](#input)
 + [`display` Parameters](#display)
 + [`display/linux` Parameters](#display_linux)
++ [`webcam` Parameters](#webcam)
 + [`audio` Parameters](#audio)
 + [`log` Parameters](#log)
 + [`windows` Parameters](#windows)
@@ -40,8 +41,8 @@ The **Reload context** column in each table indicates when the parameter is relo
 | ws\-keepalive\-interval | integer \- DWORD \(32\-bit\) | server | 10 | Websocket keepalive interval — Specifies the interval \(in seconds\) after which to send a keepalive message\. If set to 0, the keepalive message is disabled\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
 | idle\-timeout | integer \- DWORD \(32\-bit\) | custom | 60 | Idle timeout — Specifies the number of minutes to wait before disconnecting idle clients\. Specify 0 to never disconnect idle clients\. This parameter value is read every 5 seconds\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
 | idle\-timeout\-warning | integer \- DWORD \(32\-bit\) | custom | 350 | Idle timeout warning — Specifies the number of seconds relative to idle\-timeout to wait before warning idle clients about idle timeout disconnection\. Specify 0 to never warn idle clients\. — Available since version [2017\.4\-6898](doc-history-release-notes.md#release.2017.4-6898)\.  | 
-| enable\-quic\-frontend | true or false \- DWORD \(32\-bit\) | server | Linux: false \- Windows: 0 | Whether to enable the QUIC frontend — Specifies whether the QUIC frontend should be enabled\. — Available since version 2020\.2\.  | 
-| quic\-port | integer \- DWORD \(32\-bit\) | server | 8443 | UDP port for the QUIC frontend — Specifies the UDP port on which the DCV server listens for UDP connections\. The port number must be between 1024 and 65535\. — Available since version 2020\.2\.  | 
+| enable\-quic\-frontend | true or false \- DWORD \(32\-bit\) | server | Linux: false \- Windows: 0 | Whether to enable the QUIC frontend — Specifies whether the QUIC frontend should be enabled\. — Available since version [DCV 2020\.2\-9508— November 11, 2020](doc-history-release-notes.md#dcv-2020-2-9508)\.  | 
+| quic\-port | integer \- DWORD \(32\-bit\) | server | 8443 | UDP port for the QUIC frontend — Specifies the UDP port on which the DCV server listens for UDP connections\. The port number must be between 1024 and 65535\. — Available since version [DCV 2020\.2\-9508— November 11, 2020](doc-history-release-notes.md#dcv-2020-2-9508)\.  | 
 
 ## `session-management` Parameters<a name="session_management"></a>
 
@@ -51,6 +52,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 | Parameter | Type \- Windows registry type | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
 | max\-concurrent\-sessions | integer \- DWORD \(32\-bit\) | server | 0 | Maximum number of concurrent sessions — Specifies the maximum number of allowed concurrent sessions\. This limit currently applies only to virtual sessions, because console sessions are intrinsically limited to one\. Specify 0 to not enforce any limit\. — Available since version [2019\.0\-7318](doc-history-release-notes.md#release.2019.0-7318)\.  | 
+| max\-sessions\-per\-user | integer \- DWORD \(32\-bit\) | server | 0 | Maximum number of sessions per user — Specifies the maximum number of allowed concurrent sessions that each user can own\. This limit currently applies only to virtual sessions\. Specify 0 to not enforce any limit\. — Available since version 2021\.0\.  | 
 | create\-session | true or false \- DWORD \(32\-bit\) | server | Linux: false \- Windows: 0 | Create a console session at server startup — Specifies whether to automatically create a console session \(with ID "console"\) at server startup\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
 | max\-concurrent\-clients | integer \- DWORD \(32\-bit\) | session | \-1 | Maximum number of concurrent clients per session — Specifies the maximum number of concurrent clients per session\. If set to \-1, no limit is enforced\. To set the limit only for the automatic session, use 'max\-concurrent\-clients' of section 'session\-management/automatic\-console\-session'\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
 | enable\-gl\-in\-virtual\-sessions | string | session | 'default\-on' | Whether to employ dcv\-gl feature — Specifies whether to use the dcv\-gl feature \(a license is required\)\. Allowed values: 'always\-on', 'always\-off', 'default\-on', 'default\-off'\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
@@ -104,7 +106,7 @@ The **Reload context** column in each table indicates when the parameter is relo
 | connection\-setup\-timeout | integer \- DWORD \(32\-bit\) | server | 5 | Channel connection setup timeout — Specifies the amount of time \(in seconds\) allowed for the channel connection setup procedure to be completed before timing out\. If the procedure takes more, then the channel is closed\. If set to 0, the channel connection setup does not time out\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
 | auth\-connection\-setup\-timeout | integer \- DWORD \(32\-bit\) | server | 120 | Authentication channel connection setup timeout — Specifies the amount of time \(in seconds\) allowed for the authentication channel connection setup procedure to be completed before timing out\. If the procedure takes more, then the channel is closed\. If set to 0, the authentication channel connection setup timeout is disabled\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
 | ciphers | string | server | 'ECDHE\-RSA\-AES128\-GCM\-SHA256:ECDHE\-ECDSA\-AES128\-GCM\-SHA256:ECDHE\-RSA\-AES256\-GCM\-SHA384:ECDHE\-ECDSA\-AES256\-GCM\-SHA384:ECDHE\-RSA\-AES128\-SHA256:ECDHE\-RSA\-AES256\-SHA384' | Cipher list used on the TLS connections — Specifies the cipher list used on TLS connections\. The cipher list must be separated using the character ":" and must be supported by openssl and the clients\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
-| os\-auto\-lock | true or false \- DWORD \(32\-bit\) | custom | Linux: true \- Windows: 1 | Whether to lock the OS session when last client connection ends — If enabled, the OS session is locked when the last client connection is closed\. This setting is read every time the session is going to be closed\. — Available since version [2017\.1\-5777](doc-history-release-notes.md#release.2017.1-5777)\.  | 
+| os\-auto\-lock | true or false \- DWORD \(32\-bit\) | session | Linux: true \- Windows: 1 | Whether to lock the OS session when last client connection ends — If enabled, the OS session is locked when the last client connection is closed\. — Available since version [2017\.1\-5777](doc-history-release-notes.md#release.2017.1-5777)\.  | 
 
 ## `license` Parameters<a name="license"></a>
 
@@ -157,6 +159,16 @@ The **Reload context** column in each table indicates when the parameter is relo
 | --- | --- | --- | --- | --- | 
 | gl\-displays | string | session | \[':0\.0'\] | 3D accelerated X displays — Specifies the list of local 3D accelerated X displays and screens used by DCV for OpenGL rendering in virtual sessions\. If this value is missing, you can't run OpenGL applications in virtual sessions\. This setting is ignored for console sessions\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
 | h264\-encoder\-displays | string | connection | \[\] | H\.264 encoder X displays — Specifies the list of local X displays and screens that support accelerated H\.264 encoding\. If empty, DCV uses the same display selected for OpenGL rendering\. This setting is useful only in cases when some of the GPUs installed on the system do not provide acceleration for H\.264 encoding using one of the supported technologies\. — Available since version [2017\.0\-4100](doc-history-release-notes.md#release.2017.0-4100)\.  | 
+
+## `webcam` Parameters<a name="webcam"></a>
+
+ The following table describes the configuration parameters in the `[webcam]` section of the `/etc/dcv/dcv.conf` file for Linux NICE DCV servers, and the `webcam` registry key for Windows NICE DCV servers\. 
+
+
+| Parameter | Type \- Windows registry type | Reload context | Default value | Description | 
+| --- | --- | --- | --- | --- | 
+| preferred\-resolution | string | connection | \(640, 480\) | The preferred webcam resolution — Specifies the preferred webcam resolution among the resolutions provided by the client\. If the specified resolution is not supported, the closest matching resolution is selected and exposed to applications\. If one of the values specified is 0, webcam sharing is disabled\. — Available since version 2021\.0\.  | 
+| max\-resolution | string | connection | \(1280, 720\) | Max webcam resolution — Specifies the maximum webcam resolution that is exposed to applications\. — Available since version 2021\.0\.  | 
 
 ## `audio` Parameters<a name="audio"></a>
 
@@ -211,4 +223,4 @@ The **Reload context** column in each table indicates when the parameter is relo
 
 | Parameter | Type \- Windows registry type | Reload context | Default value | Description | 
 | --- | --- | --- | --- | --- | 
-| enable\-cache | string | custom | 'default\-off' | Whether to enable smartcard caching messages\. — Enables or disables smart card caching\. When enabled, the NICE DCV server caches the last value received from the client's smart card\. Future calls are retrieved directly from the server's cache, instead of from client\. This helps to reduce the amount of traffic that is transferred between the client and the server, and improves performance\. Allowed values include 'always\-on', 'always\-off', 'default\-on', and 'default\-off'\. This value is read from the configuration every time a client smartcard application is started\. — Available since version [2017\.2\-6182](doc-history-release-notes.md#release.2017.2-6182)\.  | 
+| enable\-cache | string | custom | 'default\-on' | Whether to enable smartcard caching messages\. — Enables or disables smart card caching\. When enabled, the NICE DCV server caches the last value received from the client's smart card\. Future calls are retrieved directly from the server's cache, instead of from client\. This helps to reduce the amount of traffic that is transferred between the client and the server, and improves performance\. Allowed values include 'always\-on', 'always\-off', 'default\-on', and 'default\-off'\. This value is read from the configuration every time a client smartcard application is started\. — Available since version [2017\.2\-6182](doc-history-release-notes.md#release.2017.2-6182)\.  | 

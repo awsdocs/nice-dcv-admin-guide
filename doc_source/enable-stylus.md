@@ -4,6 +4,8 @@ Touchscreen is supported with all of the supported Windows operating systems\. S
 
 Touchscreen and stylus are supported with all of the supported Linux operating systems\. The features are enabled by default on virtual sessions hosted on Linux NICE DCV servers\. However, some additional configuration is required to enable the features on console sessions hosted on Linux NICE DCV servers\.
 
+Stylus pen pressure and tilt events are supported only with the Windows, Linux, and macOS clients, and with the web browser client running in a Chromium\-based web browser, such as Edge version 79 and later and Google Chrome\.
+
 **To enable touchscreen and stylus support for console sessions hosted on a Linux NICE DCV server**
 
 1. Open `/etc/X11/xorg.conf` using your preferred text editor\.
@@ -58,15 +60,6 @@ Touchscreen and stylus are supported with all of the supported Linux operating s
      ```
      $ sudo systemctl isolate graphical.target
      ```
-   + RHEL 6\.x and CentOs 6\.x
-
-     ```
-     $ sudo init 3
-     ```
-
-     ```
-     $ sudo init 5
-     ```
 
 1. To ensure that the input devices are properly configured, run the following command\.
 
@@ -74,7 +67,7 @@ Touchscreen and stylus are supported with all of the supported Linux operating s
    $ sudo DISPLAY=:0 xinput
    ```
 
-   The DCV stylus pen, DCV stylus eraser, and DCV ttouchscreen should appear in the command output\. The following is example output\.
+   The DCV stylus pen, DCV stylus eraser, and DCV touchscreen should appear in the command output\. The following is example output\.
 
    ```
    | Virtual core pointer                          id=2    [master pointer  (3)]

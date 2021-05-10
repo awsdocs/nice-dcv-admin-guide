@@ -155,14 +155,15 @@ The following features can be referenced in the permissions file:
 + `mouse` — Input from the client pointer to the NICE DCV server\.
 + `keyboard` — Input from the client keyboard to the NICE DCV server\.
 + `keyboard-sas` — Use the secure attention sequence \(**CTRL\+Alt\+Del**\)\. Requires the `keyboard` feature\. Supported on version DCV 2017\.3 and later\.
-+ `touch` — Use native touch events\. Supported on version DCV 2017\.3 and later\. Not supported on Linux NICE DCV servers\.
++ `touch` — Use native touch events\. Supported on version DCV 2017\.3 and later\.
 + `stylus` — Input from specialized USB devices, such as 3D pointing devices or graphic tablets\.
-+ `usb` — Read the smart card from the client\.
++ `usb` — Use USB devices from the client\.
 + `pointer` — View NICE DCV server mouse position events and pointer shapes\. Supported on version DCV 2017\.3 and later\.
 + `audio-out` — Play back NICE DCV server audio on the client\.
 + `audio-in` — Insert audio from the client to the NICE DCV server\.
 + `printer` — Print PDFs or XPS files from the NICE DCV server to the client\.
 + `smartcard` — Read the smart card from the client\.
++ `webcam` — Use the webcam connected to a client computer in a session\. Supported on version DCV 2021\.0 and later\.
 + `builtin` — All features\.
 
 **Example**  

@@ -10,7 +10,7 @@ This topic explains how to install the prerequisites required to use NICE DCV on
 + [Configure the X Server](#linux-prereq-xserver)
 + [Install the glxinfo Utility](#linux-prereq-tools)
 + [Verify OpenGL Software Rendering](#linux-prereq-opengl)
-+ [Install and Configure NVIDIA Drivers](#linux-prereq-nvidia)
++ [Install GPU Drivers for Graphics Instances](#linux-prereq-gpu)
 
 ## Install a Desktop Environment and Desktop Manager<a name="linux-prereq-gui"></a>
 
@@ -38,31 +38,6 @@ The default desktop environment for RHEL 7\.x/8\.x and CentOS 7\.x/8\.x is Gnome
      ```
      $ sudo yum groupinstall "GNOME Desktop"
      ```
-
-1. Update the software packages to ensure that the Linux server is up to date\.
-
-   ```
-   $ sudo yum upgrade
-   ```
-
-1. Reboot the Linux server\.
-
-   ```
-   $ sudo reboot
-   ```
-
-------
-#### [ RHEL 6\.x and CentOS 6\.x ]
-
-The default desktop environment for RHEL 6\.x and CentOS 6\.x is Gnome and the default desktop manager is GDM\.
-
-**To install and configure the desktop environment and desktop manager on RHEL 6\.x and CentOS 6\.x**
-
-1. Install the desktop environment and the desktop manager packages\.
-
-   ```
-   $ sudo yum groupinstall\"X Window System" "Desktop" "General Purpose Desktop"
-   ```
 
 1. Update the software packages to ensure that the Linux server is up to date\.
 
@@ -275,43 +250,6 @@ The X server packages are typically installed as dependencies of the desktop env
 The following tabbed content shows how to configure and start the X server on the supported operating systems\.
 
 ------
-#### [ RHEL 6\.x and CentOS 6\.x ]
-
-**To configure and start the X server on RHEL 6\.x and CentOS 6\.x**
-
-1. Configure the X server to start automatically when the Linux server boots\.
-
-   ```
-   $ cat /etc/inittab  | grep "id.*initdefault"
-   ```
-
-   If the command returns `id:5:initdefault`, the X server is already configured to start automatically\. Continue to the next step\.
-
-   If the command returns `id:3:initdefault`, the X server is not configured to start automatically\. Run the following command\.
-
-   ```
-   $ sudo sed -i "s/id:3:initdefault:/id:5:initdefault:/" /etc/inittab
-   ```
-
-1. Start the X server\.
-
-   ```
-   $ sudo init 5
-   ```
-
-1. Verify that the X server is running\.
-
-   ```
-   $ ps aux | grep X | grep -v grep
-   ```
-
-   The following shows example output if the X server is running\.
-
-   ```
-   root      1891  0.0  0.7 277528 30448 tty7     Ssl+ 10:59   0:00 /usr/bin/Xorg :0 -background none -verbose -auth /run/gdm/auth-for-gdm-wltseN/database -seat seat0 vt7
-   ```
-
-------
 #### [ RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x/20\.x, and SUSE Linux Enterprise 12\.x/15\.x ]
 
 **To configure and start the X server on RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x/20\.x, and SUSE Linux Enterprise 12\.x/15\.x**
@@ -358,7 +296,7 @@ The glxinfo utility is installed as a package dependency of DCV GL\. Therefore, 
 
 **To install the glxinfo utility**  
 Run the following command:
-+ RHEL 6\.x/7\.x/8\.x, CentOs 6\.x/7\.x8\.x, and Amazon Linux 2
++ RHEL 7\.x/8\.x, CentOs 7\.x/8\.x, and Amazon Linux 2
 
   ```
   $ sudo yum install glx-utils
@@ -399,7 +337,13 @@ OpenGL ES profile version string: OpenGL ES 3.0 Mesa 17.0.5
 OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
 ```
 
-## Install and Configure NVIDIA Drivers<a name="linux-prereq-nvidia"></a>
+## Install GPU Drivers for Graphics Instances<a name="linux-prereq-gpu"></a>
+
+**Topics**
++ [Install and Configure NVIDIA Drivers](#gpu-nvidia)
++ [Install and Configure AMD Drivers](#gpu-amd)
+
+### Install and Configure NVIDIA Drivers<a name="gpu-nvidia"></a>
 
 With Linux servers that have a dedicated NVIDIA GPU, you must ensure that the appropriate NVIDIA drivers are installed and properly configured\. For more information about installing the NVIDIA drivers on an Amazon EC2 Linux instance, see [Installing the NVIDIA Driver on Linux Servers](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-nvidia-driver.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
@@ -439,15 +383,6 @@ Make sure that your server does not have the legacy `/etc/X11/XF86Config` file\.
      ```
      $ sudo systemctl isolate graphical.target
      ```
-   + RHEL 6\.x and CentOs 6\.x
-
-     ```
-     $ sudo init 3
-     ```
-
-     ```
-     $ sudo init 5
-     ```
 
 **To verify that your NVIDIA GPU supports hardware\-based video encoding**  
 You must ensure that it supports NVENC encoding and that it has compute capabilities >= 3\.0, or >= 3\.5 for Ubuntu 20\.
@@ -467,9 +402,15 @@ The following shows example output if OpenGL hardware rendering is available\.
 
 ```
 OpenGL core profile version string: 4.4.0 NVIDIA 390.75
-OpenGL core profile shading language version string: 4.40 NVIDIA via Cg compiler
-OpenGL version string: 4.6.0 NVIDIA 390.75
-OpenGL shading language version string: 4.60 NVIDIA
-OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 390.75
-OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+	OpenGL core profile shading language version string: 4.40 NVIDIA via Cg compiler
+	OpenGL version string: 4.6.0 NVIDIA 390.75
+	OpenGL shading language version string: 4.60 NVIDIA
+	OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 390.75
+	OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
 ```
+
+### Install and Configure AMD Drivers<a name="gpu-amd"></a>
+
+An instance with an attached AMD GPU, such as a G4ad instance, must have the appropriate AMD driver installed\. For more information about installing the AMD GPU drivers on a compatible Amazon EC2 instance, see [ Install AMD drivers on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-amd-driver.html)\.
+
+For more information about Amazon EC2 G4ad instances, see the [Deep dive on the new Amazon EC2 G4ad instances ](http://aws.amazon.com/blogs/compute/deep-dive-on-the-new-amazon-ec2-g4ad-instances/) blog post\.

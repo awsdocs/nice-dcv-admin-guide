@@ -10,14 +10,18 @@ This topic explains how to configure your Windows Amazon EC2 instance before you
 
 ### Prerequisites for GPU Graphics Instances<a name="setting-up-installing-graphics"></a>
 
-If you're using a GPU graphics instance, such as G2, G3, or G4, we recommend that you install and configure the appropriate NVIDIA GPU drivers\. The NVIDIA GPU drivers enable the following:
+If you're using a GPU graphics instance, such as G2, G3, G4dn, or G4ad, we recommend that you install and configure the appropriate NVIDIA or AMD GPU drivers\. The GPU drivers enable the following:
 + DirectX and OpenGL hardware acceleration for applications
 + Hardware acceleration for H\.264 video streaming encoding
 + Customizable server monitor resolutions
 + Increased maximum resolution for server monitors— up to 4096x2160
 + Increased number of server monitors
 
-For more information about installing NVIDIA GPU drivers on your GPU graphics instance, see [ Installing the NVIDIA Driver on Windows](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+For more information about installing NVIDIA GPU drivers on your GPU graphics instance, see the following topics in the *Amazon EC2 User Guide*\.
++ For instances with an NVIDIA GPU, such as a G2, G3, or G4dn instance, see [ Installing the NVIDIA Driver on Windows](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver.html)\.
++ For instances with an AMD GPU, such as a G4ad instance, see [ Install AMD drivers on Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-amd-driver.html)\.
+
+For more information about Amazon EC2 G4ad instances, see the [Deep dive on the new Amazon EC2 G4ad instances ](http://aws.amazon.com/blogs/compute/deep-dive-on-the-new-amazon-ec2-g4ad-instances/) blog post\.
 
 ### Prerequisites for Other Accelerated Computing Instances<a name="setting-up-installing-accelerated"></a>
 
