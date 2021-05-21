@@ -11,7 +11,7 @@ This page provides the release notes and document history for NICE DCV\.
 This section describes NICE DCV features, improvements, and bug fixes by release date\.
 
 **Topics**
-+ [DCV 2021\.0\-10242— April 12, 2021](#dcv-2021.0-10242)
++ [DCV 2021\.0\-10242— April 12, 2021](#dcv-2021-0-10242)
 + [DCV 2020\.2\-9662— December 04, 2020](#dcv-2020-2-9662)
 + [DCV 2020\.2\-9508— November 11, 2020](#dcv-2020-2-9508)
 + [DCV 2020\.1\-9012— September 30, 2020](#dcv-2020-1-9012sep)
@@ -31,7 +31,7 @@ This section describes NICE DCV features, improvements, and bug fixes by release
 + [DCV 2017\.0\-4334 — January 24, 2018](#dcv-2017-0-4334)
 + [DCV 2017\.0\-4100 — December 18, 2017](#dcv-2017-0-4100)
 
-### DCV 2021\.0\-10242— April 12, 2021<a name="dcv-2021.0-10242"></a>
+### DCV 2021\.0\-10242— April 12, 2021<a name="dcv-2021-0-10242"></a>
 
 
 ****  
@@ -211,7 +211,7 @@ The following table describes the documentation for this release of NICE DCV\.
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-| NICE DCV Version 2021\.0 | NICE DCV 2021\.0 is now available\. For more information, see [DCV 2021\.0\-10242— April 12, 2021](#dcv-2021.0-10242)\. | April 12, 2021 | 
+| NICE DCV Version 2021\.0 | NICE DCV 2021\.0 is now available\. For more information, see [DCV 2021\.0\-10242— April 12, 2021](#dcv-2021-0-10242)\. | April 12, 2021 | 
 | NICE DCV Web Client SDK | The NICE DCV Web Client SDK is now available\. The NICE DCV Web Client SDK is a JavaScript library that you can use to develop your own NICE DCV web browser client applications that your end users can use to connect to and interact with a running NICE DCV session\. For more information, see the [NICE DCV Web Client SDK Developer Guide](https://docs.aws.amazon.com/dcv/latest/devguide/what-is.html)\. | March 24, 2021 | 
 | NICE DCV Version 2020\.2 | NICE DCV 2020\.2 is now available\. For more information, see [DCV 2020\.2\-9508— November 11, 2020](#dcv-2020-2-9508)\. | November 11, 2020 | 
 | NICE DCV Version 2020\.1 | NICE DCV 2020\.1 is now available\. For more information, see [DCV 2020\.1\-8942— August 03, 2020](#dcv-2020-1-8942)\. | August 03, 2020 | 

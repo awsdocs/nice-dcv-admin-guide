@@ -424,31 +424,22 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
      ```
      $ sudo apt install ./nice-dcv-server_2021.0.10242-1_amd64.ubuntu1804.deb
      ```
-   + Add the DCV User video permissions:
-
-     ```
-     $ sudo usermod -aG video dcv
-     ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
      $ sudo apt install ./nice-dcv-server_2021.0.10242-1_arm64.ubuntu1804.deb
-     ```
-   + Add the DCV User video permissions:
-
-     ```
-     $ sudo usermod -aG video dcv
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
      $ sudo apt install ./nice-dcv-server_2021.0.10242-1_amd64.ubuntu2004.deb
      ```
-   + Add the DCV User video permissions:
 
-     ```
-     $ sudo usermod -aG video dcv
-     ```
+1. Add the `dcv` user to the `video` group\.
+
+   ```
+   $ sudo usermod -aG video dcv
+   ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
    + Ubuntu 18\.04 \(64\-bit x86\)

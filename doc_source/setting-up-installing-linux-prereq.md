@@ -85,13 +85,11 @@ The default desktop environment for Amazon Linux 2 is Gnome3 and the default des
    ```
 
 ------
-#### [ Ubuntu 18\.x/20\.x ]
+#### [ Ubuntu 18\.x ]
 
 For Ubuntu 18\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. With Ubuntu 18\.x, GDM3 is currently not supported with NICE DCV console sessions\. For this reason, we recommend that you use the LightDM desktop manager if you plan to work with NICE DCV console sessions\.
 
-For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. With Ubuntu 20\.x, LightDM is currently not supported with NICE DCV console sessions\. For this reason, we recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\.
-
-**To install and configure the desktop environment and desktop manager on Ubuntu 18\.x/20\.x**
+**To install and configure the desktop environment and desktop manager on Ubuntu 18\.x**
 
 1. Install the desktop environment and the desktop manager packages\.
 
@@ -104,18 +102,67 @@ For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desk
    ```
 
    Install LightDM\.
-   + Ubuntu 18\.x
 
-     ```
-     $ sudo apt install lightdm
-     ```
-   + Ubuntu 20\.x
+   ```
+   $ sudo apt install lightdm
+   ```
 
-     ```
-     $ sudo apt install gdm3
-     ```
+1. Update the software packages to ensure that the Linux server is up to date\.
 
-1. \(Ubuntu 20\.x only\) Verify that GDM3 is set as the default desktop manager\.
+   ```
+   $ sudo apt upgrade
+   ```
+
+1. Reboot the Linux server\.
+
+   ```
+   $ sudo reboot
+   ```
+
+------
+#### [ Ubuntu 20\.x ]
+
+For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. Depending on the session type you need to run, you might need to configure the system differently\. 
++ **Console sessions**
+
+  LightDM is currently not supported with NICE DCV console sessions on Ubuntu 20\.x\. We recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\. 
++ **Virtual Sessions**
+
+  Because of [a known GDM issue](https://gitlab.gnome.org/GNOME/gdm/-/issues/650), virtual sessions cannot work with GDM3 on Ubuntu 20\.x\. To make virtual sessions working correctly, you can adopt one of the following solutions:
+  + **On servers that do not have a GPU**, you can disable the desktop manager since it is not needed to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:
+
+    ```
+    sudo systemctl isolate multi-user.target
+    ```
+  + **On servers with a GPU**, in addition to disabling the desktop manager, you need to start an X server on the system before creating virtual sessions\. To do this, run the following commands:
+
+    ```
+    sudo systemctl isolate multi-user.target
+    ```
+
+    ```
+    sudo dcvstartx &
+    ```
+
+**To install and configure the desktop environment and desktop manager on Ubuntu 20\.x**
+
+1. Install the desktop environment and the desktop manager packages\.
+
+   ```
+   $ sudo apt update
+   ```
+
+   ```
+   $ sudo apt install ubuntu-desktop
+   ```
+
+   Install GDM3 \(*only works with console sessions*\)
+
+   ```
+   $ sudo apt install gdm3
+   ```
+
+1. In case you use GDM3, verify that GDM3 is set as the default desktop manager\.
 
    ```
    $ cat /etc/X11/default-display-manager
@@ -146,41 +193,78 @@ For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desk
    ```
 
 ------
-#### [ SUSE Linux Enterprise 12\.x/15\.x ]
+#### [ SUSE Linux Enterprise 12\.x ]
 
-The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic and the default desktop manager is GDM\.
-
-The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic and the default desktop manager is GDM3\. Other display managers, such as LightDM, are currently not supported with NICE DCV console sessions\. We recommend that you use the GDM3 desktop manager for SUSE Linux Enterprise 15\.x if you plan to work with NICE DCV console sessions\.
+The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic and the default desktop manager is GDM\. 
 
 **To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 12\.x**
 
 1. Install the desktop environment and the desktop manager packages\.
-   + SUSE Linux Enterprise 12\.x
 
-     ```
-     $ sudo zypper install -t pattern gnome-basic
-     ```
+   ```
+   $ sudo zypper install -t pattern gnome_basic
+   ```
 
-     ```
-     $ sudo sed -i "s/DISPLAYMANAGER=\"\"/DISPLAYMANAGER=\"gdm\"/" /etc/sysconfig/displaymanager
-     ```
+   ```
+   $ sudo update-alternatives --set default-displaymanager /usr/lib/X11/displaymanagers/gdm
+   ```
 
-     ```
-     $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"sle-classic\"/" /etc/sysconfig/windowmanager
-     ```
-   + SUSE Linux Enterprise 15\.x
+   ```
+   $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"gnome\"/" /etc/sysconfig/windowmanager
+   ```
 
-     ```
-     $ sudo zypper install -t pattern gnome_basic
-     ```
+1. Update the software packages to ensure that the Linux server is up to date\.
 
-     ```
-     $ sudo update-alternatives --set default-displaymanager /usr/lib/X11/displaymanagers/gdm
-     ```
+   ```
+   $ sudo zypper update
+   ```
 
-     ```
-     $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"gnome\"/" /etc/sysconfig/windowmanager
-     ```
+1. Reboot the Linux server\.
+
+   ```
+   $ sudo reboot
+   ```
+
+------
+#### [ SUSE Linux Enterprise 15\.x ]
+
+The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic and the default desktop manager is GDM3\. Depending on the session type you need to run, you might need to configure the system differently\. 
++ **Console sessions**
+
+  LightDM is currently not supported with NICE DCV console sessions on SUSE Linux Enterprise 15\.x\. We recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\. 
++ **Virtual Sessions**
+
+  Because of [a known GDM issue](https://gitlab.gnome.org/GNOME/gdm/-/issues/650), virtual sessions cannot work on SUSE Linux Enterprise 15\.x\. To make virtual sessions working correctly, you can adopt one of the following solutions:
+  + **On servers that do not have a GPU**, you can disable the desktop manager since it is not needed to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:
+
+    ```
+    sudo systemctl isolate multi-user.target
+    ```
+  + **On servers with a GPU**, in addition to disabling the desktop manager, you need to start an X server on the system before creating virtual sessions\. To do this, run the following commands:
+
+    ```
+    sudo systemctl isolate multi-user.target
+    ```
+
+    ```
+    sudo dcvstartx &
+    ```
+
+**To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 15\.x**
+
+1. Install the desktop environment and the desktop manager packages\.
+
+   ```
+   $ sudo zypper install -t pattern gnome_basic
+   ```
+
+   ```
+   $ sudo update-alternatives --set default-displaymanager /usr/lib/X11/displaymanagers/gdm
+   ```
+
+   ```
+   $ sudo sed -i "s/DEFAULT_WM=\"\"/DEFAULT_WM=\"gnome\"/" /etc/sysconfig/windowmanager
+   ```
 
 1. Update the software packages to ensure that the Linux server is up to date\.
 
