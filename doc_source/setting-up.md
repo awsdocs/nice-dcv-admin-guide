@@ -8,3 +8,4 @@ The following topics explain how to install and license the NICE DCV server\. Th
 + [Installing](setting-up-installing.md)
 + [Licensing](setting-up-license.md)
 + [Upgrading](setting-up-upgrading.md)
++ [Uninstalling](setting-up-uninstalling.md)

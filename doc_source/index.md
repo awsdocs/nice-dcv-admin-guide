@@ -29,6 +29,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Installing an Extended Evaluation License](setting-up-evaluation.md)
       + [Installing a Production License](setting-up-production.md)
    + [Upgrading the NICE DCV Server](setting-up-upgrading.md)
+   + [Uninstalling the NICE DCV Server](setting-up-uninstalling.md)
 + [Managing the NICE DCV Server](manage.md)
    + [Starting the NICE DCV Server](manage-start.md)
    + [Stopping the NICE DCV Server](manage-stop.md)

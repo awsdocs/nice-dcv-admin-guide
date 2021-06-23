@@ -24,11 +24,11 @@ Make sure that your instance:
   {
       "Version": "2012-10-17",
       "Statement": [
-          {
-              "Effect": "Allow",
-              "Action": "s3:GetObject",
-              "Resource": "arn:aws:s3:::dcv-license.region/*"
-          }
+         {
+             "Effect": "Allow",
+             "Action": "s3:GetObject",
+             "Resource": "arn:aws:s3:::dcv-license.region/*"
+         }
       ]
   }
   ```

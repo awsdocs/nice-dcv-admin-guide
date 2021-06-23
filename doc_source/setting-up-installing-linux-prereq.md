@@ -302,7 +302,7 @@ NICE DCV does not support the Wayland protocol\. If you are using the GDM3 deskt
 
    ```
    [daemon]
-   WaylandEnable=false
+                 WaylandEnable=false
    ```
 
 1. Restart the GDM service\.
@@ -414,11 +414,11 @@ The following shows example output if OpenGL software rendering is available:
 
 ```
 OpenGL core profile version string: 3.3 (Core Profile) Mesa 17.0.5
-OpenGL core profile shading language version string: 3.30
-OpenGL version string: 3.0 Mesa 17.0.5
-OpenGL shading language version string: 1.30
-OpenGL ES profile version string: OpenGL ES 3.0 Mesa 17.0.5
-OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
+          OpenGL core profile shading language version string: 3.30
+          OpenGL version string: 3.0 Mesa 17.0.5
+          OpenGL shading language version string: 1.30
+          OpenGL ES profile version string: OpenGL ES 3.0 Mesa 17.0.5
+          OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
 ```
 
 ## Install GPU Drivers for Graphics Instances<a name="linux-prereq-gpu"></a>
@@ -486,11 +486,11 @@ The following shows example output if OpenGL hardware rendering is available\.
 
 ```
 OpenGL core profile version string: 4.4.0 NVIDIA 390.75
-	OpenGL core profile shading language version string: 4.40 NVIDIA via Cg compiler
-	OpenGL version string: 4.6.0 NVIDIA 390.75
-	OpenGL shading language version string: 4.60 NVIDIA
-	OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 390.75
-	OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+            OpenGL core profile shading language version string: 4.40 NVIDIA via Cg compiler
+            OpenGL version string: 4.6.0 NVIDIA 390.75
+            OpenGL shading language version string: 4.60 NVIDIA
+            OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 390.75
+            OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
 ```
 
 ### Install and Configure AMD Drivers<a name="gpu-amd"></a>

@@ -40,7 +40,7 @@ The following table compares the features that are supported by the WIndows and 
 | [Printing from sessions](manage-printer.md) | ✓ | ✓ | 
 | [Stereo 2\.0 audio playback](manage-audio.md) | ✓ | ✓ | 
 | [Surround sound audio playback](manage-audio.md) | ✓ \(up to 7\.1\) | ✓ \(up to 5\.1\) | 
-| [Stereo 2\.0 audio recording](manage-audio.md) | ✓ | ✗ | 
+| [Stereo 2\.0 audio recording](manage-audio.md) | ✓ | ✓ | 
 | [Touchscreen support](enable-stylus.md) | ✓ \(Windows 8\.1 and Server 2012 and later\) | ✓ | 
 | [Stylus support](enable-stylus.md) | ✓ \(Windows 10 and Server 2019\) | ✓ | 
 

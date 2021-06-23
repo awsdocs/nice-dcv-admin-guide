@@ -4,8 +4,8 @@ The following topic explains how to upgrade the NICE DCV server\.
 
 **Considerations**
 + NICE DCV server versions 2017 and later are compatible with NICE DCV client versions 2017 and later\. 
-+ NICE DCV server version 2020 is not compatible with production license and extended evaluation files from NICE DCV server version 2019 and earlier\. If you upgrade to NICE DCV server version 2020, you must request compatible license files\. For more information, contact your NICE DCV distributor or reseller\.
-+ NICE DCV server version 2020 license files are backward compatible with NICE DCV server versions 2017 and 2019\.
++ NICE DCV server license files are backward compatible with previous versions of the NICE DCV server\. For instance you can use a NICE DCV server version 2021 license with NICE DCV server version 2019\. 
++ NICE DCV server versions require at least the same version of the NICE DCV server license\. For instance if you use a NICE DCV server version 2021 you need a license version 2021 or greater\. If you upgrade to a later NICE DCV server version, you must request compatible license files\. For more information, contact your NICE DCV distributor or reseller\. 
 
 **Topics**
 + [Upgrading the NICE DCV Server on Windows](#upgrading-windows-upgrade)

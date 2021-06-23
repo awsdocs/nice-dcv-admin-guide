@@ -4,6 +4,10 @@ NICE DCV automatically generates a self\-signed certificate that is used to secu
 
 You can replace the default NICE DCV certificate and its key with your own certificate and key\.
 
+When generating your own certificate you will need to carefully select which certificate attributes to specify\. The `CN (Common Name)` attribute should usually match the public hostname of the host\. You also may want to specify the `SAN (Subject Alternative Name)` attribute and set it to the IP address of the host\.
+
+Please refer to your Certification Authority documentation for more information on generating a certificate\.
+
 **Important**  
 If you use your own certificate and key, you must name your certificate `dcv.pem` and you must name the key `dcv.key`\.
 

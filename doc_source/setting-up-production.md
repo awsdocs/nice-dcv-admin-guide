@@ -252,67 +252,67 @@ The contents of the `rlm.log` file might vary slightly depending on the RLM serv
       RLM_LOG_FILE="/var/log/rlm.log"
       
       _getpid() {
-      	pidof -o $$ -o $PPID -o %PPID -x "$1"
+          pidof -o $$ -o $PPID -o %PPID -x "$1"
       }
       
       start() {
-      	echo -n "Starting rlm: "
-      	touch ${RLM_LOG_FILE}
-      	chown "${RLM_USER}" ${RLM_LOG_FILE}
-      	su -p -s /bin/sh "${RLM_USER}" -c "${RLM_ROOT}/rlm -c ${RLM_LICENSE_DIR} \
-      	    -nows -dlog +${RLM_LOG_FILE} &"
-      	if [ $? -ne 0 ]; then
-      		echo "FAILED"
-      		return 1
-      	fi
-      	echo "OK"
+          echo -n "Starting rlm: "
+          touch ${RLM_LOG_FILE}
+          chown "${RLM_USER}" ${RLM_LOG_FILE}
+          su -p -s /bin/sh "${RLM_USER}" -c "${RLM_ROOT}/rlm -c ${RLM_LICENSE_DIR} \
+              -nows -dlog +${RLM_LOG_FILE} &"
+          if [ $? -ne 0 ]; then
+              echo "FAILED"
+              return 1
+          fi
+          echo "OK"
       }
       
       stop() {
-      	echo -n "Stopping rlm: "
-      	pid=`_getpid ${RLM_ROOT}/rlm`
-      	if [ -n "$pid" ]; then
-      		kill $pid >/dev/null 2>&1
-      		sleep 3
-      		if [ -d "/proc/$pid" ] ; then
-      			echo "FAILED"
-      			return 1
-      		fi
-      	fi
-      	echo "OK"
+          echo -n "Stopping rlm: "
+          pid=`_getpid ${RLM_ROOT}/rlm`
+          if [ -n "$pid" ]; then
+              kill $pid >/dev/null 2>&1
+              sleep 3
+              if [ -d "/proc/$pid" ] ; then
+                  echo "FAILED"
+                  return 1
+              fi
+          fi
+          echo "OK"
       }
       
       status() {
-      	pid=`_getpid ${RLM_ROOT}/rlm`
-      	if [ -z "$pid" ]; then
-      		echo "rlm is stopped"
-      		return 3
-      	fi
-      	echo "rlm (pid $pid) is running..."
-      	return 0
+          pid=`_getpid ${RLM_ROOT}/rlm`
+          if [ -z "$pid" ]; then
+              echo "rlm is stopped"
+              return 3
+          fi
+          echo "rlm (pid $pid) is running..."
+          return 0
       }
       
       restart() {
-      	stop
-      	start
+          stop
+          start
       }
       
       case "$1" in
-      	start)
-      		start
-      		;;
-      	stop)
-      		stop
-      		;;
-      	status)
-      		status
-      		;;
-      	restart)
-      		restart
-      		;;
-      	*)
-      	echo $"Usage: $0 {start|stop|status|restart}"
-      	exit 1
+          start)
+              start
+              ;;
+          stop)
+              stop
+              ;;
+          status)
+              status
+              ;;
+          restart)
+              restart
+              ;;
+          *)
+              echo $"Usage: $0 {start|stop|status|restart}"
+              exit 1
       esac
       
       exit $?

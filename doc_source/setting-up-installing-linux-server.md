@@ -29,55 +29,55 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    + 64\-bit x86
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.0/Servers/nice-dcv-2021.0-10242-el7-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.1/Servers/nice-dcv-2021.1-10598-el7-x86_64.tgz
      ```
    + 64\-bit ARM
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.0/Servers/nice-dcv-2021.0-10242-el7-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.1/Servers/nice-dcv-2021.1-10598-el7-aarch64.tgz
      ```
 
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
    + 64\-bit x86
 
      ```
-     $ tar -xvzf nice-dcv-2021.0-10242-el7-x86_64.tgz && cd nice-dcv-2021.0-10242-el7-x86_64
+     $ tar -xvzf nice-dcv-2021.1-10598-el7-x86_64.tgz && cd nice-dcv-2021.1-10598-el7-x86_64
      ```
    + 64\-bit ARM
 
      ```
-     $ tar -xvzf nice-dcv-2021.0-10242-el7-aarch64.tgz && cd nice-dcv-2021.0-10242-el7-aarch64
+     $ tar -xvzf nice-dcv-2021.1-10598-el7-aarch64.tgz && cd nice-dcv-2021.1-10598-el7-aarch64
      ```
 
 1. Install the NICE DCV server\.
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-server-2021.0.10242-1.el7.x86_64.rpm
+     $ sudo yum install nice-dcv-server-2021.1.10598-1.el7.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-server-2021.0.10242-1.el7.aarch64.rpm
+     $ sudo yum install nice-dcv-server-2021.1.10598-1.el7.aarch64.rpm
      ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-xdcv-2021.0.380-1.el7.x86_64.rpm
+     $ sudo yum install nice-xdcv-2021.1.392-1.el7.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-xdcv-2021.0.380-1.el7.aarch64.rpm
+     $ sudo yum install nice-xdcv-2021.1.392-1.el7.aarch64.rpm
      ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-gl-2021.0.912-1.el7.x86_64.rpm
+     $ sudo yum install nice-dcv-gl-2021.1.937-1.el7.x86_64.rpm
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
@@ -86,12 +86,12 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2021.0.134-1.el7.x86_64.rpm
+     $ sudo yum install nice-dcv-simple-external-authenticator-2021.1.154-1.el7.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2021.0.134-1.el7.aarch64.rpm
+     $ sudo yum install nice-dcv-simple-external-authenticator-2021.1.154-1.el7.aarch64.rpm
      ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
@@ -116,6 +116,12 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    $ sudo dcvusbdriverinstaller
    ```
 
+1. \(Optional\) If you plan to support the microphone redirection you need to verify that the `pulseaudio-utils` package is installed on your system\. Use the following command to install it\.
+
+   ```
+   $ sudo yum install pulseaudio-utils
+   ```
+
 ------
 #### [ RHEL/CentOS 8\.x ]
 
@@ -138,55 +144,55 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    + 64\-bit x86
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.0/Servers/nice-dcv-2021.0-10242-el8-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.1/Servers/nice-dcv-2021.1-10598-el8-x86_64.tgz
      ```
    + 64\-bit ARM
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.0/Servers/nice-dcv-2021.0-10242-el8-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.1/Servers/nice-dcv-2021.1-10598-el8-aarch64.tgz
      ```
 
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
    + 64\-bit x86
 
      ```
-     $ tar -xvzf nice-dcv-2021.0-10242-el8-x86_64.tgz && cd nice-dcv-2021.0-10242-el8-x86_64
+     $ tar -xvzf nice-dcv-2021.1-10598-el8-x86_64.tgz && cd nice-dcv-2021.1-10598-el8-x86_64
      ```
    + 64\-bit ARM
 
      ```
-     $ tar -xvzf nice-dcv-2021.0-10242-el8-aarch64.tgz && cd nice-dcv-2021.0-10242-el8-aarch64
+     $ tar -xvzf nice-dcv-2021.1-10598-el8-aarch64.tgz && cd nice-dcv-2021.1-10598-el8-aarch64
      ```
 
 1. Install the NICE DCV server\.
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-server-2021.0.10242-1.el8.x86_64.rpm
+     $ sudo yum install nice-dcv-server-2021.1.10598-1.el8.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-server-2021.0.10242-1.el8.aarch64.rpm
+     $ sudo yum install nice-dcv-server-2021.1.10598-1.el8.aarch64.rpm
      ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-xdcv-2021.0.380-1.el8.x86_64.rpm
+     $ sudo yum install nice-xdcv-2021.1.392-1.el8.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-xdcv-2021.0.380-1.el8.aarch64.rpm
+     $ sudo yum install nice-xdcv-2021.1.392-1.el8.aarch64.rpm
      ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-gl-2021.0.912-1.el8.x86_64.rpm
+     $ sudo yum install nice-dcv-gl-2021.1.937-1.el8.x86_64.rpm
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
@@ -195,12 +201,12 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2021.0.134-1.el8.x86_64.rpm
+     $ sudo yum install nice-dcv-simple-external-authenticator-2021.1.154-1.el8.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-simple-external-authenticator-2021.0.134-1.el8.aarch64.rpm
+     $ sudo yum install nice-dcv-simple-external-authenticator-2021.1.154-1.el8.aarch64.rpm
      ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
@@ -225,6 +231,12 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    $ sudo dcvusbdriverinstaller
    ```
 
+1. \(Optional\) If you plan to support the microphone redirection you need to verify that the `pulseaudio-utils` package is installed on your system\. Use the following command to install it\.
+
+   ```
+   $ sudo yum install pulseaudio-utils
+   ```
+
 ------
 #### [ SLES 12\.x/15\.x ]
 
@@ -244,60 +256,60 @@ The NICE DCV server is available for SUSE Linux Enterprise Server \(SLES\) 12\.x
    + SLES 12\.x
 
      ```
-     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2021.0/Servers/nice-dcv-2021.0-10242-sles12-x86_64.tgz
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2021.1/Servers/nice-dcv-2021.1-10598-sles12-x86_64.tgz
      ```
    + SLES 15\.x
 
      ```
-     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2021.0/Servers/nice-dcv-2021.0-10242-sles15-x86_64.tgz
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2021.1/Servers/nice-dcv-2021.1-10598-sles15-x86_64.tgz
      ```
 
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
    + SLES 12\.x
 
      ```
-     $ tar -xvzf nice-dcv-2021.0-10242-sles12-x86_64.tgz && cd nice-dcv-2021.0-10242-sles12-x86_64
+     $ tar -xvzf nice-dcv-2021.1-10598-sles12-x86_64.tgz && cd nice-dcv-2021.1-10598-sles12-x86_64
      ```
    + SLES 15\.x
 
      ```
-     $ tar -xvzf nice-dcv-2021.0-10242-sles15-x86_64.tgz && cd nice-dcv-2021.0-10242-sles15-x86_64
+     $ tar -xvzf nice-dcv-2021.1-10598-sles15-x86_64.tgz && cd nice-dcv-2021.1-10598-sles15-x86_64
      ```
 
 1. Install the NICE DCV server\.
    + SLES 12\.x
 
      ```
-     $ sudo zypper install nice-dcv-server-2021.0.10242-1.sles12.x86_64.rpm
+     $ sudo zypper install nice-dcv-server-2021.1.10598-1.sles12.x86_64.rpm
      ```
    + SLES 15\.x
 
      ```
-     $ sudo zypper install nice-dcv-server-2021.0.10242-1.sles15.x86_64.rpm
+     $ sudo zypper install nice-dcv-server-2021.1.10598-1.sles15.x86_64.rpm
      ```
 
 1. \(Optional\) If you plan to use virtual sessions, install the `nice-xdcv` package\.
    + SLES 12\.x
 
      ```
-     $ sudo zypper install nice-xdcv-2021.0.380-1.sles12.x86_64.rpm
+     $ sudo zypper install nice-xdcv-2021.1.392-1.sles12.x86_64.rpm
      ```
    + SLES 15\.x
 
      ```
-     $ sudo zypper install nice-xdcv-2021.0.380-1.sles15.x86_64.rpm
+     $ sudo zypper install nice-xdcv-2021.1.392-1.sles15.x86_64.rpm
      ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
    + SLES 12\.x
 
      ```
-     $ sudo zypper install nice-dcv-gl-2021.0.912-1.sles12.x86_64.rpm
+     $ sudo zypper install nice-dcv-gl-2021.1.937-1.sles12.x86_64.rpm
      ```
    + SLES 15\.x
 
      ```
-     $ sudo zypper install nice-dcv-gl-2021.0.912-1.sles15.x86_64.rpm
+     $ sudo zypper install nice-dcv-gl-2021.1.937-1.sles15.x86_64.rpm
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\. 
@@ -306,12 +318,12 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    + SLES 12\.x
 
      ```
-     $ sudo zypper install nice-dcv-simple-external-authenticator-2021.0.134-1.sles12.x86_64.rpm
+     $ sudo zypper install nice-dcv-simple-external-authenticator-2021.1.154-1.sles12.x86_64.rpm
      ```
    + SLES 15\.x
 
      ```
-     $ sudo zypper install nice-dcv-simple-external-authenticator-2021.0.134-1.sles15.x86_64.rpm
+     $ sudo zypper install nice-dcv-simple-external-authenticator-2021.1.154-1.sles15.x86_64.rpm
      ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
@@ -362,6 +374,12 @@ If you are using SLES 15 SP1 or SP2, replace *15* in the command above with eith
    $ sudo dcvusbdriverinstaller
    ```
 
+1. \(Optional\) If you plan to support the microphone redirection you need to verify that the `pulseaudio-utils` package is installed on your system\. Use the following command to install it\.
+
+   ```
+   $ sudo zypper install pulseaudio-utils
+   ```
+
 ------
 #### [ Ubuntu 18\.04/20\.04 ]
 
@@ -388,51 +406,51 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.0/Servers/nice-dcv-2021.0-10242-ubuntu1804-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.1/Servers/nice-dcv-2021.1-10598-ubuntu1804-x86_64.tgz
      ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.0/Servers/nice-dcv-2021.0-10242-ubuntu1804-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.1/Servers/nice-dcv-2021.1-10598-ubuntu1804-aarch64.tgz
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.0/Servers/nice-dcv-2021.0-10242-ubuntu2004-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.1/Servers/nice-dcv-2021.1-10598-ubuntu2004-x86_64.tgz
      ```
 
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ tar -xvzf nice-dcv-2021.0-10242-ubuntu1804-x86_64.tgz && cd nice-dcv-2021.0-10242-ubuntu1804-x86_64
+     $ tar -xvzf nice-dcv-2021.1-10598-ubuntu1804-x86_64.tgz && cd nice-dcv-2021.1-10598-ubuntu1804-x86_64
      ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
-     $ tar -xvzf nice-dcv-2021.0-10242-ubuntu1804-arm64.tgz && cd nice-dcv-2021.0-10242-ubuntu1804-arm64
+     $ tar -xvzf nice-dcv-2021.1-10598-ubuntu1804-arm64.tgz && cd nice-dcv-2021.1-10598-ubuntu1804-arm64
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ tar -xvzf nice-dcv-2021.0-10242-ubuntu2004-x86_64.tgz && cd nice-dcv-2021.0-10242-ubuntu2004-x86_64
+     $ tar -xvzf nice-dcv-2021.1-10598-ubuntu2004-x86_64.tgz && cd nice-dcv-2021.1-10598-ubuntu2004-x86_64
      ```
 
 1. Install the NICE DCV server\.
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2021.0.10242-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-server_2021.1.10598-1_amd64.ubuntu1804.deb
      ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2021.0.10242-1_arm64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-server_2021.1.10598-1_arm64.ubuntu1804.deb
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2021.0.10242-1_amd64.ubuntu2004.deb
+     $ sudo apt install ./nice-dcv-server_2021.1.10598-1_amd64.ubuntu2004.deb
      ```
 
 1. Add the `dcv` user to the `video` group\.
@@ -445,29 +463,29 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-xdcv_2021.0.380-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-xdcv_2021.1.392-1_amd64.ubuntu1804.deb
      ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
-     $ sudo apt install ./nice-xdcv_2021.0.380-1_arm64.ubuntu1804.deb
+     $ sudo apt install ./nice-xdcv_2021.1.392-1_arm64.ubuntu1804.deb
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-xdcv_2021.0.380-1_amd64.ubuntu2004.deb
+     $ sudo apt install ./nice-xdcv_2021.1.392-1_amd64.ubuntu2004.deb
      ```
 
 1. \(Optional\) If you plan to use GPU sharing, install the `nice-dcv-gl` package\. 
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-gl_2021.0.912-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-gl_2021.1.937-1_amd64.ubuntu1804.deb
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-gl_2021.0.912-1_amd64.ubuntu2004.deb
+     $ sudo apt install ./nice-dcv-gl_2021.1.937-1_amd64.ubuntu2004.deb
      ```
 **Note**  
 You can optionally install the `nice-dcv-gltest` package\. This package includes a simple OpenGL application that can be used to determine whether your virtual sessions are properly configured to use hardware\-based OpenGL\.
@@ -476,17 +494,17 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-simple-external-authenticator_2021.0.134-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2021.1.154-1_amd64.ubuntu1804.deb
      ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
-     $ sudo apt install ./nice-dcv-simple-external-authenticator_2021.0.134-1_arm64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2021.1.154-1_arm64.ubuntu1804.deb
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-simple-external-authenticator_2021.0.134-1_amd64.ubuntu2004.deb
+     $ sudo apt install ./nice-dcv-simple-external-authenticator_2021.1.154-1_amd64.ubuntu2004.deb
      ```
 
 1. \(Optional\) If you plan to support specialized USB devices using USB remotization, install the DCV USB drivers\. 
@@ -503,6 +521,12 @@ You can optionally install the `nice-dcv-gltest` package\. This package includes
 
    ```
    $ sudo dcvusbdriverinstaller
+   ```
+
+1. \(Optional\) If you plan to support the microphone redirection you need to verify that the `pulseaudio-utils` package is installed on your system\. Use the following command to install it\.
+
+   ```
+   $ sudo apt install pulseaudio-utils
    ```
 
 ------
