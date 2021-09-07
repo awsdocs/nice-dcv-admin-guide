@@ -1,10 +1,10 @@
-# Enabling Touchscreen and Stylus Support<a name="enable-stylus"></a>
+# Enabling touchscreen and stylus support<a name="enable-stylus"></a>
 
-Touchscreen is supported with all of the supported Windows operating systems\. Stylus is supported with Windows 10 and Windows Server 2019 only\. The features are enabled by default on Windows NICE DCV servers\. No additional configuration is required\.
+Touchscreens are supported on all of the supported Windows operating systems\. Styluses are supported on Windows 10 and Windows Server 2019 only\. The features are enabled by default on Windows NICE DCV servers\. No additional configuration is required\.
 
-Touchscreen and stylus are supported with all of the supported Linux operating systems\. The features are enabled by default on virtual sessions hosted on Linux NICE DCV servers\. However, some additional configuration is required to enable the features on console sessions hosted on Linux NICE DCV servers\.
+Touchscreens and styluses are supported on all of the supported Linux operating systems\. The features are enabled by default on virtual sessions hosted on Linux NICE DCV servers\. However, some additional configuration is required to enable the features on console sessions hosted on Linux NICE DCV servers\.
 
-Stylus pen pressure and tilt events are supported only with the Windows, Linux, and macOS clients, and with the web browser client running in a Chromium\-based web browser, such as Edge version 79 and later and Google Chrome\.
+Stylus pen pressure and tilt events are supported only on the Windows, Linux, and macOS clients, and a web browser client that's running in a Chromium\-based web browser, such as Edge version 79 and later and Google Chrome\.
 
 **To enable touchscreen and stylus support for console sessions hosted on a Linux NICE DCV server**
 
@@ -67,7 +67,7 @@ Stylus pen pressure and tilt events are supported only with the Windows, Linux, 
    $ sudo DISPLAY=:0 xinput
    ```
 
-   The DCV stylus pen, DCV stylus eraser, and DCV touchscreen should appear in the command output\. The following is example output\.
+   The DCV stylus pen, DCV stylus eraser, and DCV touchscreen appears in the command output\. The following is example output\.
 
    ```
    | Virtual core pointer                          id=2    [master pointer  (3)]

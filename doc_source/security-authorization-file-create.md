@@ -1,4 +1,4 @@
-# Working with Permissions Files<a name="security-authorization-file-create"></a>
+# Working with permissions files<a name="security-authorization-file-create"></a>
 
 You can create a custom permissions file or update an existing permissions file using your preferred text editor\. A permissions file typically takes the following format:
 
@@ -18,19 +18,19 @@ user_permissions
 The following sections explain how to populate the sections when updating or creating a permissions file\.
 
 **Contents**
-+ [Import a Permissions File](#security-authorization-file-create-import)
-+ [Create Groups](#security-authorization-file-create-group)
-+ [Create Aliases](#security-authorization-file-create-alias)
-+ [Add Permissions](#security-authorization-file-create-permission)
++ [Import a permissions file](#security-authorization-file-create-import)
++ [Create groups](#security-authorization-file-create-group)
++ [Create aliases](#security-authorization-file-create-alias)
++ [Add permissions](#security-authorization-file-create-permission)
 
-## Import a Permissions File<a name="security-authorization-file-create-import"></a>
+## Import a permissions file<a name="security-authorization-file-create-import"></a>
 
-The `imports` section is typically the first section of the permissions file\. This section lets you reference and include existing permissions files\. This enables you to incorporate previously defined NICE DCV permissions into your permissions file\.
+The `imports` section is typically the first section of the permissions file\. You can use this section to reference and include existing permissions files\. You can also use it to incorporate previously defined NICE DCV permissions into your permissions file\.
 
 A permissions file can include multiple imports\. An imported permissions file might import other permissions files\.
 
 **To import a permissions file into your permissions file**
-+ Use the `#import` statement and specify the location of the file with an absolute or a relative path\.\.
++ Use the `#import` statement and specify the location of the file with an absolute or a relative path
   + Windows NICE DCV server:
 
     ```
@@ -43,13 +43,13 @@ A permissions file can include multiple imports\. An imported permissions file m
     ```
 
 **Example**  
-The following statement imports a permissions file named `dcv-permissions.file` that is located in the NICE DCV installation folder on a Windows NICE DCV server using an absolute path:
+The following statement imports a permissions file named `dcv-permissions.file` using an absolute path\. It's located in the NICE DCV installation folder on a Windows NICE DCV server:
 
 ```
 #import c:\Program Files\NICE\DCV\dcv-permissions.file
 ```
 
-## Create Groups<a name="security-authorization-file-create-group"></a>
+## Create groups<a name="security-authorization-file-create-group"></a>
 
 The `[groups]` section of the permissions file lets you define user groups for users that have similar use cases or permissions requirements\. Groups can be assigned specific permissions\. Permissions assigned to a group apply to all of the users that are included in the group\.
 
@@ -90,16 +90,16 @@ group_name=osgroup:os_group_1, osgroup:os_group2
 ```
 
 **Example**  
-The following example adds the groups section heading and creates a group named `my-group` that includes individual users named `john` and `jane`, an existing group named `observers`, and an operating system user group named `guests`:
+The following example adds the groups section heading and creates a group named `my-group`\. This group includes individual users\. They're named `john` and `jane`, one of which is an existing group named `observers`, and other of which an operating system user group named `guests`:
 
 ```
 [groups]
 my-group=john, user:jane, group:observers, osgroup:guests
 ```
 
-## Create Aliases<a name="security-authorization-file-create-alias"></a>
+## Create aliases<a name="security-authorization-file-create-alias"></a>
 
-The `[aliases]` section of the permissions file lets you create sets of NICE DCV features\. After an alias has been defined, you can grant or deny groups or individual users permissions to use it\. Granting or denying permissions to an alias grants or denies permissions to all of the features that are included in it\.
+You can use the `[aliases]` section of the permissions file to create sets of NICE DCV features\. After an alias was defined, you can grant or deny groups or individual users permissions to use it\. Granting or denying permissions to an alias grants or denies permissions to all of the features that are included in it\.
 
 To create aliases in your permissions file, you must first add the aliases section heading to the file\.
 
@@ -121,7 +121,7 @@ The following example adds the aliases section heading and creates an alias name
 file-management=file-upload, file-download, clipboard-management
 ```
 
-## Add Permissions<a name="security-authorization-file-create-permission"></a>
+## Add permissions<a name="security-authorization-file-create-permission"></a>
 
 The `[permissions]` section of the permissions file lets you control user and group access to specific features or aliases\.
 
@@ -164,6 +164,9 @@ The following features can be referenced in the permissions file:
 + `printer` — Print PDFs or XPS files from the NICE DCV server to the client\.
 + `smartcard` — Read the smart card from the client\.
 + `webcam` — Use the webcam connected to a client computer in a session\. Supported on version DCV 2021\.0 and later\.
++ `screenshot` — Save a screenshot of the remote desktop\. Supported on version NICE DCV 2021\.2 and later\.
+
+  When removing `screenshot` authorization, it is recommended that you disable the `clipboard-copy` permission as well\. This will prevent users from capturing a screenshot on the clipboard of the server and then pasting it on the client\. When the `screenshot` authorization is denied, Windows and macOS will also prevent external tools from capturing a screenshot of the client\. For example, using the Windows Snipping Tool on the NICE DCV client window will result in a black image\.
 + `builtin` — All features\.
 
 **Example**  

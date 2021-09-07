@@ -1,6 +1,6 @@
 # Installing the NICE DCV Server on Windows<a name="setting-up-installing-windows"></a>
 
-This section explains how to install the NICE DCV server on Windows\.
+This section describes how to install the NICE DCV server on Windows\.
 
 **Topics**
 + [Prerequisites](setting-up-installing-winprereq.md)

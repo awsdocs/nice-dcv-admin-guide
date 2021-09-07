@@ -1,4 +1,4 @@
-# Installing an Extended Evaluation License<a name="setting-up-evaluation"></a>
+# Installing an extended evaluation license<a name="setting-up-evaluation"></a>
 
 When you request an extended evaluation license from NICE, you receive a `license.lic` file that defines the license\. 
 
@@ -15,13 +15,13 @@ Place the `license.lic` file in the following folder on your server:
   /usr/share/dcv/license/license.lic
   ```
 
-Or, to place the `license.lic` in a different folder on the server, you must update the `license-file` configuration parameter so that it specifies the license file's full path\.
+Or, to place the `license.lic` in a different folder on the server, you must update the `license-file` configuration parameter so that it specifies the full path for the license file\.
 
 **Topics**
-+ [Changing the License Path on a Windows Server](#change-param-win)
-+ [Changing the License Path on a Linux Server](#change-param-lin)
++ [Changing the license path on a Windows Server](#change-param-win)
++ [Changing the license path on a Linux server](#change-param-lin)
 
-## Changing the License Path on a Windows Server<a name="change-param-win"></a>
+## Changing the license path on a Windows Server<a name="change-param-win"></a>
 
 **To update the `license-file` configuration parameter on a Windows server**
 
@@ -39,7 +39,7 @@ Or, to place the `license.lic` in a different folder on the server, you must upd
 
 1. Choose **OK** and close the Windows Registry Editor\.
 
-## Changing the License Path on a Linux Server<a name="change-param-lin"></a>
+## Changing the license path on a Linux server<a name="change-param-lin"></a>
 
 **To update the `license-file` configuration parameter on a Linux server**
 

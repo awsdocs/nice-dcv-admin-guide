@@ -16,6 +16,7 @@ NICE DCV clients need this information to connect to the session\.
 + [Managing Running NICE DCV Sessions](managing-running-session.md)
 + [Viewing NICE DCV Sessions](managing-sessions-lifecycle-view.md)
 + [Getting NICE DCV Session Screenshots](managing-sessions-lifecycle-screenshot.md)
++ [Set certificate validation policy](set-certificate-validation-policy.md)
 
 ## Introduction to NICE DCV Sessions<a name="managing-sessions-intro"></a>
 

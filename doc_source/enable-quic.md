@@ -7,7 +7,7 @@ You can configure NICE DCV to use the QUIC transport protocol, which is based on
 **Note**  
 You can only use QUIC if your network and security configuration allows UDP traffic\.
 
-If you enable QUIC, clients can choose to use the QUIC protocol for data transport when they connect to a session hosted on the NICE DCV server\. If clients do not specifically choose the QUIC protocol when connecting, they will use WebSocket by default\. For more information about choosing the QUIC protocol when connecting to a session, see [ Connecting to a NICE DCV Session](https://docs.aws.amazon.com/dcv/latest/userguide/using-connecting.html) in the *NICE DCV User Guide*\.
+If you enable QUIC, clients can choose to use the QUIC protocol for transporting data when connecting to a session on the NICE DCV server\. If clients don't choose the QUIC protocol when they connect, they will use WebSocket\. For more information about choosing the QUIC protocol when connecting to a session, see [ Connecting to a NICE DCV Session](https://docs.aws.amazon.com/dcv/latest/userguide/using-connecting.html) in the *NICE DCV User Guide*\.
 
 ------
 #### [ Windows NICE DCV server ]
@@ -18,15 +18,15 @@ If you enable QUIC, clients can choose to use the QUIC protocol for data transpo
 
 1. Open the **enable\-quic\-frontend** parameter\. For **Value data**, enter `1`\.
 **Note**  
-If the parameter does not exist, create a new DWORD \(32\-bit\) parameter and name it `enable-quic-frontend`\.
+If the parameter doesn't exist, create a new DWORD \(32\-bit\) parameter and name it `enable-quic-frontend`\.
 
-1. \(Optional\) Open the **quic\-port** parameter\. For **Value data**, enter the port to use for QUIC traffic\. If you do not configure this parameter, the NICE DCV server uses port 8443 by default\.
+1. \(Optional\) Open the **quic\-port** parameter\. For **Value data**, enter the port to use for QUIC traffic\. If you don't configure this parameter, the NICE DCV server uses port 8443 by default\.
 **Note**  
-If the parameter does not exist, create a new DWORD \(32\-bit\) parameter and name it `quic-port`\.
+If the parameter doesn't exist, create a new DWORD \(32\-bit\) parameter and name it `quic-port`\.
 
-1. \(Optional\) Open the **web\-port** parameter\. For **Value data**, enter the port to use for WebSocket \(TCP\) traffic\. If you do not configure this parameter, the NICE DCV server uses port 8443 by default\.
+1. \(Optional\) Open the **web\-port** parameter\. For **Value data**, enter the port to use for WebSocket \(TCP\) traffic\. If you don't configure this parameter, the NICE DCV server uses port 8443 by default\.
 **Note**  
-If the parameter does not exist, create a new DWORD \(32\-bit\) parameter and name it `web-port`\.
+If the parameter doesn't exist, create a new DWORD \(32\-bit\) parameter and name it `web-port`\.
 
 1. Close the Windows Registry Editor\.
 
@@ -41,8 +41,8 @@ If the parameter does not exist, create a new DWORD \(32\-bit\) parameter and na
 
 1. In the `[connectivity]` section, do the following:
    + For `enable-quic-frontend`, specify `true`\.
-   + \(Optional\) For `quic-port`, enter the port to use for QUIC traffic\. If you do not configure this parameter, the NICE DCV server uses port 8443 by default\.
-   + \(Optional\) For `web-port`, enter the port to use for WebSocket \(TCP\) traffic\. If you do not configure this parameter, the NICE DCV server uses port 8443 by default\. 
+   + \(Optional\) For `quic-port`, enter the port to use for QUIC traffic\. If you don't configure this parameter, the NICE DCV server uses port 8443 by default\.
+   + \(Optional\) For `web-port`, enter the port to use for WebSocket \(TCP\) traffic\. If you don't configure this parameter, the NICE DCV server uses port 8443 by default\. 
 
    For example:
 

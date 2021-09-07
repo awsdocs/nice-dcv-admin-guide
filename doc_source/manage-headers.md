@@ -1,12 +1,12 @@
-# Configuring HTTP Headers<a name="manage-headers"></a>
+# Configuring HTTP headers<a name="manage-headers"></a>
 
 You can configure the NICE DCV server to send additional HTTP response headers to the NICE DCV client when users connect to a session using the web browser client\. The response headers can provide additional information about the NICE DCV server that users are connecting to\.
 
 **Topics**
-+ [Configuring HTTP Headers on a Windows NICE DCV Server](#manage-headers-windows)
-+ [Configuring HTTP Headers on a Linux NICE DCV Server](#manage-headers-linux)
++ [Configuring HTTP headers on a Windows NICE DCV Server](#manage-headers-windows)
++ [Configuring HTTP headers on a Linux NICE DCV Server](#manage-headers-linux)
 
-## Configuring HTTP Headers on a Windows NICE DCV Server<a name="manage-headers-windows"></a>
+## Configuring HTTP headers on a Windows NICE DCV Server<a name="manage-headers-windows"></a>
 
 To configure the HTTP headers on Windows, configure the `web-extra-http-headers` parameter using the Windows Registry Editor\.
 
@@ -36,7 +36,7 @@ To configure the HTTP headers on Windows, configure the `web-extra-http-headers`
 
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the NICE DCV server\.
 
-## Configuring HTTP Headers on a Linux NICE DCV Server<a name="manage-headers-linux"></a>
+## Configuring HTTP headers on a Linux NICE DCV Server<a name="manage-headers-linux"></a>
 
 To configure the HTTP headers on Linux, configure the `web-extra-http-headers` parameter in the `dcv.conf` file\.
 

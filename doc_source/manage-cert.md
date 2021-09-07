@@ -1,12 +1,12 @@
-# Changing the TLS Certificate<a name="manage-cert"></a>
+# Changing the TLS certificate<a name="manage-cert"></a>
 
-NICE DCV automatically generates a self\-signed certificate that is used to secure traffic between the NICE DCV client and NICE DCV server\. This certificate is used by default if no other certificate is installed on your NICE DCV server\. The default certificate includes two files, the certificate itself \(`dcv.pem)` and a key \(`dcv.key`\)\.
+NICE DCV automatically generates a self\-signed certificate that's used to secure traffic between the NICE DCV client and NICE DCV server\. This certificate is used by default if no other certificate is installed on your NICE DCV server\. The default certificate includes two files, the certificate itself \(`dcv.pem)` and a key \(`dcv.key`\)\.
 
 You can replace the default NICE DCV certificate and its key with your own certificate and key\.
 
-When generating your own certificate you will need to carefully select which certificate attributes to specify\. The `CN (Common Name)` attribute should usually match the public hostname of the host\. You also may want to specify the `SAN (Subject Alternative Name)` attribute and set it to the IP address of the host\.
+When you generate your own certificate, select the certificate attributes that meet your specific needs\. The `CN (Common Name)` attribute in most cases must match the public hostname of the host\. You also might want to specify the `SAN (Subject Alternative Name)` attribute and set it to the IP address of the host\.
 
-Please refer to your Certification Authority documentation for more information on generating a certificate\.
+For instructions on how to generate a certificate, see the documentation of your specific Certification Authority\.
 
 **Important**  
 If you use your own certificate and key, you must name your certificate `dcv.pem` and you must name the key `dcv.key`\.

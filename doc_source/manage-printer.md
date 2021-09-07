@@ -1,6 +1,6 @@
-# Configuring the Printer on a Linux NICE DCV Server<a name="manage-printer"></a>
+# Configuring the printer on a Linux NICE DCV Server<a name="manage-printer"></a>
 
-If you are using a supported Linux distribution, you must configure the NICE DCV server to support printing\. No additional configuration is required for Windows NICE DCV servers\.
+If you're using a supported Linux distribution, you must configure the NICE DCV server to support printing\. No additional configuration is required for Windows NICE DCV servers\.
 
 **To enable printer redirection on your Linux NICE DCV server**
 
@@ -35,13 +35,13 @@ If you are using a supported Linux distribution, you must configure the NICE DCV
 
    If the line appears in the configuration file, the installation is complete\. Continue to the next step\.
 
-   If the line does not appear in the configuration file, add it manually in the following format and then save and close the file\.
+   If the line doesn't appear in the configuration file, add it manually in the following format and then save and close the file\.
 
    ```
    SystemGroup printer_admin_groupname
    ```
 
-1. \(SUSE Linux Enterprise only\) Make sure that the printer administrator group has permission to read the cups local certificate, which is located in the following directory: `/var/run/cups/certs/`\. For example, if your printer administrator group is named `lpadmin`, run the following command:
+1. \(SUSE Linux Enterprise only\) Make sure that the printer administrator group has permission to read the cups local certificate\. This certificate is located in the following directory: `/var/run/cups/certs/`\. For example, if your printer administrator group is named `lpadmin`, run the following command:
 
    ```
    $ sudo chgrp -R lpadmin /var/run/cups/certs/ && chmod g+x /var/run/cups/certs
@@ -57,9 +57,9 @@ If you are using a supported Linux distribution, you must configure the NICE DCV
 
 ## Troubleshooting printer issues<a name="troubleshoot"></a>
 
-SUSE Linux Enterprise and RHEL 8 might prevent connections to the printer socket\. If you are running one of these operating systems and you are having printing issues, you can check the log file to determine whether this is the cause\.
+SUSE Linux Enterprise and RHEL 8 might prevent connections to the printer socket\. If you're running one of these operating systems and have printing issues, check the log file to determine if this is the cause\.
 
-Using a text editor, open `/var/log/audit/audit.log` and check if you log has a line that is similar to the following:
+Using a text editor, open `/var/log/audit/audit.log` and check if you log has a line that's similar to the following:
 
 ```
 type=AVC msg=audit(1617716179.487:504): avc:  denied  { connectto } for  pid=33933 comm="dcvcupsbackend" path=002F636F6D2F6E696365736F6674776172652F6463762F637570732F636F6E736F6C65 scontext=system_u:system_r:cupsd_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=unix_stream_socket permissive=0
@@ -69,7 +69,7 @@ If a similar line appears in your log file, then the operating system is prevent
 
 To resolve the issue, you must create a cups policy that allows access to the printer socket\. To do this, perform the following steps:
 
-1. Create the required policy file\. Using your preferred text editor, create a new file named `cupsd_policy` and add the following content\.
+1. Create the required policy file\. Using your preferred text editor, create a new file that's named `cupsd_policy` and add the following content\.
 
    ```
    #============= cupsd_t ==============

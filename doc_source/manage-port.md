@@ -1,16 +1,16 @@
-# Changing the NICE DCV Server TCP Port<a name="manage-port"></a>
+# Changing the NICE DCV Server TCP port<a name="manage-port"></a>
 
-By default, the NICE DCV server is configured to communicate over port `8443`\. You can specify a custom TCP port after you have installed the NICE DCV server\. The port must be higher than 1024\.
+By default, the NICE DCV server is configured to communicate over port `8443`\. You can specify a custom TCP port after you installed the NICE DCV server\. The port must be higher than 1024\.
 
 To allow NICE DCV clients to access your NICE DCV server over the standard HTTPS port \(443\), we recommend that you use a web proxy or load balancer as a frontend gateway to redirect client connections to the server\.
 
 Ensure that you communicate any port changes to your clients\. They need the port number to connect to sessions\.
 
 **Topics**
-+ [Changing the Server TCP Port on Windows](#manage-stop-port-windows)
-+ [Changing the Server TCP Port on Linux](#manage-stop-port-linux)
++ [Changing the server TCP port on Windows](#manage-stop-port-windows)
++ [Changing the server TCP port on Linux](#manage-stop-port-linux)
 
-## Changing the NICE DCV Server TCP Port on Windows<a name="manage-stop-port-windows"></a>
+## Changing the NICE DCV Server TCP port on Windows<a name="manage-stop-port-windows"></a>
 
 To change the port used by the NICE DCV server, you must configure the `web-port` parameter using the Windows Registry Editor\.
 
@@ -20,7 +20,7 @@ To change the port used by the NICE DCV server, you must configure the `web-port
 
 1. Navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/connectivity/** key and select the **web\-port** parameter\.
 
-   If there is no `web-port` parameter in the registry key, create one:
+   If there's no `web-port` parameter in the registry key, create one:
 
    1. In the left pane, open the context \(right\-click\) menu for the **connectivity** key and choose **New**, **DWORD \(32\-bit\) value**\.
 
@@ -34,7 +34,7 @@ The TCP port number must be higher than 1024\.
 
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the NICE DCV server\.
 
-## Changing the NICE DCV Server TCP Port on Linux<a name="manage-stop-port-linux"></a>
+## Changing the NICE DCV Server TCP port on Linux<a name="manage-stop-port-linux"></a>
 
 To change the port used by the NICE DCV server, you must configure the `web-port` parameter in the `dcv.conf` file\.
 
@@ -44,7 +44,7 @@ To change the port used by the NICE DCV server, you must configure the `web-port
 
 1. Locate the `web-port` parameter in the `[connectivity]` section and replace the existing TCP port number with the new TCP port number\.
 
-   If there is no `web-port` parameter in the `[connectivity]` section, add it manually using the following format:
+   If there's no `web-port` parameter in the `[connectivity]` section, add it manually using the following format:
 
    ```
    [connectivity]

@@ -3,8 +3,8 @@
 You can stop the NICE DCV server at any time\. Stopping the server terminates all active NICE DCV sessions\. You can't start new sessions until the server is restarted\.
 
 **Topics**
-+ [Stopping the Server on Windows](#manage-stop-windows)
-+ [Stopping the Server on Linux](#manage-stop-linux)
++ [Stopping the server on Windows](#manage-stop-windows)
++ [Stopping the server on Linux](#manage-stop-linux)
 
 ## Stopping the NICE DCV Server on Windows<a name="manage-stop-windows"></a>
 

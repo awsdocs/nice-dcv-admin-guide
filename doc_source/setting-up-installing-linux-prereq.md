@@ -1,20 +1,20 @@
-# Prerequisites for Linux NICE DCV Servers<a name="setting-up-installing-linux-prereq"></a>
+# Prerequisites for Linux NICE DCV servers<a name="setting-up-installing-linux-prereq"></a>
 
-NICE DCV enables clients to access a remote graphical X session on a Linux server, which provides access to the corresponding Linux desktop\. NICE DCV supports two types of Linux desktop streaming: console sessions and virtual sessions\. For more information about console and virtual sessions, see [Managing NICE DCV Sessions](managing-sessions.md)\.
+NICE DCV enables clients to access a remote graphical X session on a Linux server\. This provides access to the corresponding Linux desktop\. NICE DCV supports two types of Linux desktop streaming: console sessions and virtual sessions\. For more information about console and virtual sessions, see [Managing NICE DCV Sessions](managing-sessions.md)\.
 
-This topic explains how to install the prerequisites required to use NICE DCV on a Linux server\.
+This topic describes how to install the prerequisites required to use NICE DCV on a Linux server\.
 
 **Topics**
-+ [Install a Desktop Environment and Desktop Manager](#linux-prereq-gui)
++ [Install a desktop environment and desktop manager](#linux-prereq-gui)
 + [Disable the Wayland protocol \(GDM3 only\)](#linux-prereq-wayland)
 + [Configure the X Server](#linux-prereq-xserver)
-+ [Install the glxinfo Utility](#linux-prereq-tools)
-+ [Verify OpenGL Software Rendering](#linux-prereq-opengl)
-+ [Install GPU Drivers for Graphics Instances](#linux-prereq-gpu)
++ [Install the glxinfo utility](#linux-prereq-tools)
++ [Verify OpenGL software rendering](#linux-prereq-opengl)
++ [Install GPU drivers for graphics instances](#linux-prereq-gpu)
 
-## Install a Desktop Environment and Desktop Manager<a name="linux-prereq-gui"></a>
+## Install a desktop environment and desktop manager<a name="linux-prereq-gui"></a>
 
-To help improve your experience with NICE DCV on a Linux server, you can install a desktop environment and desktop manager\.
+Install a desktop environment and desktop manager to improve your experience with NICE DCV on a Linux server\.
 
 A desktop environment is a graphical user interface \(GUI\) that helps you to interact with the Linux operating system\. There are several desktop environments, and NICE DCV works with many of them\. A desktop manager is a program that manages the user login screen, and starts and stops the desktop environment sessions and the X server\.
 
@@ -87,7 +87,7 @@ The default desktop environment for Amazon Linux 2 is Gnome3 and the default des
 ------
 #### [ Ubuntu 18\.x ]
 
-For Ubuntu 18\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. With Ubuntu 18\.x, GDM3 is currently not supported with NICE DCV console sessions\. For this reason, we recommend that you use the LightDM desktop manager if you plan to work with NICE DCV console sessions\.
+For Ubuntu 18\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. With Ubuntu 18\.x, GDM3 isn't currently supported with NICE DCV console sessions\. For this reason, we recommend that you use the LightDM desktop manager if you plan to work with NICE DCV console sessions\.
 
 **To install and configure the desktop environment and desktop manager on Ubuntu 18\.x**
 
@@ -122,14 +122,14 @@ For Ubuntu 18\.x, the default desktop environment is Gnome3 and the default desk
 ------
 #### [ Ubuntu 20\.x ]
 
-For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. Depending on the session type you need to run, you might need to configure the system differently\. 
+For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. Depending on the session type that you run, you might need to configure the system differently\. 
 + **Console sessions**
 
-  LightDM is currently not supported with NICE DCV console sessions on Ubuntu 20\.x\. We recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\. 
+  LightDM isn't currently supported with NICE DCV console sessions on Ubuntu 20\.x\. We recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\. 
 + **Virtual Sessions**
 
-  Because of [a known GDM issue](https://gitlab.gnome.org/GNOME/gdm/-/issues/650), virtual sessions cannot work with GDM3 on Ubuntu 20\.x\. To make virtual sessions working correctly, you can adopt one of the following solutions:
-  + **On servers that do not have a GPU**, you can disable the desktop manager since it is not needed to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:
+  Because of [a known GDM issue](https://gitlab.gnome.org/GNOME/gdm/-/issues/650), virtual sessions can't work with GDM3 on Ubuntu 20\.x\. To make virtual sessions working correctly, you can adopt one of the following solutions:
+  + **On servers that do not have a GPU**, you can disable the desktop manager because it's not required to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:
 
     ```
     sudo systemctl isolate multi-user.target
@@ -162,19 +162,19 @@ For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desk
    $ sudo apt install gdm3
    ```
 
-1. In case you use GDM3, verify that GDM3 is set as the default desktop manager\.
+1. If you use GDM3, verify that GDM3 is set as the default desktop manager\.
 
    ```
    $ cat /etc/X11/default-display-manager
    ```
 
-   Expected output
+   The output is as follows\.
 
    ```
    /usr/sbin/gdm3
    ```
 
-   If GDM3 is not set as the default desktop manager, use the following command to set it as the default\.
+   If GDM3 isn't set as the default desktop manager, use the following command to set it as the default\.
 
    ```
    $ sudo dpkg-reconfigure gdm3
@@ -228,14 +228,14 @@ The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic a
 ------
 #### [ SUSE Linux Enterprise 15\.x ]
 
-The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic and the default desktop manager is GDM3\. Depending on the session type you need to run, you might need to configure the system differently\. 
+The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic and the default desktop manager is GDM3\. Depending on the session type you run, you might need to configure the system differently\. 
 + **Console sessions**
 
-  LightDM is currently not supported with NICE DCV console sessions on SUSE Linux Enterprise 15\.x\. We recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\. 
+  LightDM isn't currently supported with NICE DCV console sessions on SUSE Linux Enterprise 15\.x\. We recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\. 
 + **Virtual Sessions**
 
   Because of [a known GDM issue](https://gitlab.gnome.org/GNOME/gdm/-/issues/650), virtual sessions cannot work on SUSE Linux Enterprise 15\.x\. To make virtual sessions working correctly, you can adopt one of the following solutions:
-  + **On servers that do not have a GPU**, you can disable the desktop manager since it is not needed to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:
+  + **On servers that do not have a GPU**, you can disable the desktop manager since it's not required to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:
 
     ```
     sudo systemctl isolate multi-user.target
@@ -282,7 +282,7 @@ The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic a
 
 ## Disable the Wayland protocol \(GDM3 only\)<a name="linux-prereq-wayland"></a>
 
-NICE DCV does not support the Wayland protocol\. If you are using the GDM3 desktop manager, you must disable the Wayland protocol\. If you are not using GDM3, skip this step\.
+NICE DCV doesn't support the Wayland protocol\. If you're using the GDM3 desktop manager, you must disable the Wayland protocol\. If you aren't using GDM3, skip this step\.
 
 **To disable the Wayland protocol**
 
@@ -327,16 +327,16 @@ NICE DCV does not support the Wayland protocol\. If you are using the GDM3 deskt
 If you intend to use a console session or GPU sharing, you must ensure that your Linux server has a properly configured and running X server\.
 
 **Note**  
-If you intend to use virtual sessions without GPU sharing, you do not need an X server\.
+If you intend to use virtual sessions without GPU sharing, you don't need an X server\.
 
 The X server packages are typically installed as dependencies of the desktop environment and the desktop manager\. We recommend that you configure the X server to start automatically when your Linux server boots\.
 
-The following tabbed content shows how to configure and start the X server on the supported operating systems\.
+The following content shows how to configure and start the X server on the supported operating systems\.
 
 ------
 #### [ RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x/20\.x, and SUSE Linux Enterprise 12\.x/15\.x ]
 
-**To configure and start the X server on RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x/20\.x, and SUSE Linux Enterprise 12\.x/15\.x**
+**To configure and start the X server on RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x/20\.x, or SUSE Linux Enterprise 12\.x/15\.x**
 
 1. Configure the X server to start automatically when the Linux server boots\.
 
@@ -346,7 +346,7 @@ The following tabbed content shows how to configure and start the X server on th
 
    If the command returns `graphical.target`, the X server is already configured to start automatically\. Continue to the next step\.
 
-   If the command returns `multi-user.target`, the X server is not configured to start automatically\. Run the following command:
+   If the command returns `multi-user.target`, the X server isn't configured to start automatically\. Run the following command:
 
    ```
    $ sudo systemctl set-default graphical.target
@@ -372,9 +372,9 @@ The following tabbed content shows how to configure and start the X server on th
 
 ------
 
-## Install the glxinfo Utility<a name="linux-prereq-tools"></a>
+## Install the glxinfo utility<a name="linux-prereq-tools"></a>
 
-The glxinfo utility provides information about your Linux server's OpenGL configuration\. It can be used to determine whether your Linux server is configured to support OpenGL hardware or software rendering, and it provides information about the drivers and supported extensions\.
+The glxinfo utility provides information about your Linux server's OpenGL configuration\. The utility can be used to determine whether your Linux server is configured to support OpenGL hardware or software rendering\. It provides information about the drivers and supported extensions\.
 
 The glxinfo utility is installed as a package dependency of DCV GL\. Therefore, if you installed DCV GL, the glxinfo utility is already installed on your Linux server\.
 
@@ -396,9 +396,9 @@ Run the following command:
   $ sudo zypper in Mesa-demo-x
   ```
 
-## Verify OpenGL Software Rendering<a name="linux-prereq-opengl"></a>
+## Verify OpenGL software rendering<a name="linux-prereq-opengl"></a>
 
-On non\-GPU Linux servers, OpenGL is only supported in software rendering mode using the Mesa drivers\. If you're using a non\-GPU Linux server, and you intend to use OpenGL, ensure that the Mesa drivers are installed and properly configured on your Linux server\.
+On non\-GPU Linux servers, OpenGL is only supported in software rendering mode using the Mesa drivers\. If you're using a non\-GPU Linux server and intend to use OpenGL, ensure that the Mesa drivers are installed and properly configured on your Linux server\.
 
 **Note**  
 This applies to non\-GPU Linux servers only\.
@@ -421,21 +421,21 @@ OpenGL core profile version string: 3.3 (Core Profile) Mesa 17.0.5
           OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
 ```
 
-## Install GPU Drivers for Graphics Instances<a name="linux-prereq-gpu"></a>
+## Install GPU drivers for graphics instances<a name="linux-prereq-gpu"></a>
 
 **Topics**
-+ [Install and Configure NVIDIA Drivers](#gpu-nvidia)
++ [Install and configure NVIDIA drivers](#gpu-nvidia)
 + [Install and Configure AMD Drivers](#gpu-amd)
 
-### Install and Configure NVIDIA Drivers<a name="gpu-nvidia"></a>
+### Install and configure NVIDIA drivers<a name="gpu-nvidia"></a>
 
-With Linux servers that have a dedicated NVIDIA GPU, you must ensure that the appropriate NVIDIA drivers are installed and properly configured\. For more information about installing the NVIDIA drivers on an Amazon EC2 Linux instance, see [Installing the NVIDIA Driver on Linux Servers](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-nvidia-driver.html) in the *Amazon EC2 User Guide for Linux Instances*\.
+With Linux servers that have a dedicated NVIDIA GPU, ensure that the appropriate NVIDIA drivers are installed and properly configured\. For instructions on how to install the NVIDIA drivers on an Amazon EC2 Linux instance, see [Installing the NVIDIA Driver on Linux Servers](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-nvidia-driver.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Note**  
 This applies to Linux servers with NVIDIA GPUs only\.
-The GRID drivers support up to four 4K displays per GPU, while the gaming drivers support a single 4K display per GPU\.
+The GRID drivers support up to four 4K displays for each GPU installed\. The gaming drivers support only one 4K display for each GPU installed\.
 
-After you have installed the NVIDIA drivers on your Linux server, you must update the `xorg.conf`\.
+After you installed the NVIDIA drivers on your Linux server, update the `xorg.conf`\.
 
 **To generate an updated xorg\.conf**
 
@@ -445,13 +445,13 @@ After you have installed the NVIDIA drivers on your Linux server, you must updat
    sudo nvidia-xconfig --preserve-busid --enable-all-gpus
    ```
 
-   If you are using a G3 or G4 Amazon EC2 instance and you want to use a multi\-monitor console session, include the `--connected-monitor=DFP-0,DFP-1,DFP-2,DFP-3` parameter as follows\.
+   If you're using a G3 or G4 Amazon EC2 instance and you want to use a multi\-monitor console session, include the `--connected-monitor=DFP-0,DFP-1,DFP-2,DFP-3` parameter\. This is as follows\.
 
    ```
    sudo nvidia-xconfig --preserve-busid --enable-all-gpus --connected-monitor=DFP-0,DFP-1,DFP-2,DFP-3
    ```
 **Note**  
-Make sure that your server does not have the legacy `/etc/X11/XF86Config` file\. If it does, `nvidia-xconfig` updates that configuration file instead of generating the required `/etc/X11/xorg.conf` file\. Run the following command to remove the legacy `XF86Config` file:  
+Make sure that your server doesn't have the legacy `/etc/X11/XF86Config` file\. If it does, `nvidia-xconfig` updates that configuration file instead of generating the required `/etc/X11/xorg.conf` file\. Run the following command to remove the legacy `XF86Config` file:  
 
    ```
    sudo rm -rf /etc/X11/XF86Config*
@@ -469,11 +469,11 @@ Make sure that your server does not have the legacy `/etc/X11/XF86Config` file\.
      ```
 
 **To verify that your NVIDIA GPU supports hardware\-based video encoding**  
-You must ensure that it supports NVENC encoding and that it has compute capabilities >= 3\.0, or >= 3\.5 for Ubuntu 20\.
+Make sure that it supports NVENC encoding and that it has compute capabilities greater than or equal to 3\.0, or greater than or equal to 3\.5 for Ubuntu 20\.
 
-To verify NVENC support, see the [ NVIDIA Video Encode and Decode GPU Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new#Encoder)\. To check the compute capabilities, see the [NVIDIA Compute Capacility tables\.](https://developer.nvidia.com/cuda-gpus)\. 
+To verify NVENC support, see the [ NVIDIA Video Encode and Decode GPU Support Matrix](https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new#Encoder)\. To check the compute capabilities, see the [NVIDIA Compute Capacility tables](https://developer.nvidia.com/cuda-gpus)\. 
 
-If your NVIDIA GPU does not support NVENC encoding or if it does not have the required compute capabilities, software\-based video encoding is used\.
+If your NVIDIA GPU doesn't support NVENC encoding or if it doesn't have the required compute capabilities, software\-based video encoding is used\.
 
 **To verify that OpenGL hardware rendering is available**  
 Use the following command to ensure that the X server is running\.
@@ -495,6 +495,6 @@ OpenGL core profile version string: 4.4.0 NVIDIA 390.75
 
 ### Install and Configure AMD Drivers<a name="gpu-amd"></a>
 
-An instance with an attached AMD GPU, such as a G4ad instance, must have the appropriate AMD driver installed\. For more information about installing the AMD GPU drivers on a compatible Amazon EC2 instance, see [ Install AMD drivers on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-amd-driver.html)\.
+An instance with an attached AMD GPU, such as a G4ad instance, must have the appropriate AMD driver installed\. For instructions on how to install the AMD GPU drivers on a compatible Amazon EC2 instance, see [ Install AMD drivers on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-amd-driver.html)\.
 
 For more information about Amazon EC2 G4ad instances, see the [Deep dive on the new Amazon EC2 G4ad instances ](http://aws.amazon.com/blogs/compute/deep-dive-on-the-new-amazon-ec2-g4ad-instances/) blog post\.

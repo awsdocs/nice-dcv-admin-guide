@@ -1,6 +1,6 @@
 # Managing NICE DCV Session Authorization<a name="managing-session-perms"></a>
 
-Authorization is used to grant or deny NICE DCV clients permissions to specific NICE DCV features\. Typically, authorization is configured when a NICE DCV session is started\. However, it is possible to edit the permissions for a running session\. For more information about NICE DCV authorization, see [Configuring NICE DCV Authorization](security-authorization.md)\.
+Authorization is used to grant or deny NICE DCV clients permissions to specific NICE DCV features\. Typically, authorization is configured when a NICE DCV session is started\. However, it is possible to edit the permissions for a running session\. For more information about NICE DCV authorization, see [Configuring NICE DCV authorization](security-authorization.md)\.
 
 To modify the permissions for a running session, use the `dcv set-permissions` command\.
 
@@ -12,10 +12,10 @@ To modify the permissions for a running session, use the `dcv set-permissions` c
 ## Syntax<a name="syntax"></a>
 
 ```
-dcv set-permissions --session sessions_name --none | --reset-built-in | --file /path_to/permissions_file
+dcv set-permissions --session sessions_name --none | --reset-builtin | --file /path_to/permissions_file
 ```
 
-You must specify either `--none`, `--reset-built-in`, or `--file`\.
+You must specify either `--none`, `--reset-builtin`, or `--file`\.
 
 ## Options<a name="options"></a>
 
@@ -31,7 +31,7 @@ Resets the session's permissions to the default session permissions\. The defaul
 Revokes all permissions for the session\.
 
 **\-\-file**  
-Specifies the path to a custom permissions file\. If the specified file is empty, all permissions are revoked\. For more information about creating a custom permissions file, see [Working with Permissions Files](security-authorization-file-create.md)\.
+Specifies the path to a custom permissions file\. If the specified file is empty, all permissions are revoked\. For more information about creating a custom permissions file, see [Working with permissions files](security-authorization-file-create.md)\.
 
 ## Examples<a name="session-perms-example"></a>
 
