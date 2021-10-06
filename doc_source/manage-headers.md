@@ -16,17 +16,17 @@ To configure the HTTP headers on Windows, configure the `web-extra-http-headers`
 
 1. Navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/connectivity/** key\.
 
-1. In the left pane, open the context \(right\-click\) menu for the **connectivity** key, and choose **New**, **String**\.
+1. In the navigation pane, open the context \(right\-click\) menu for the **connectivity** key\. Then, choose **New**, **String**\.
 
 1. For **Name**, enter `web-extra-http-headers` and press **Enter**\.
 
-1. Open the **web\-extra\-http\-headers** parameter\. For **Value data**, enter the HTTP header name and value in the following format:
+1. Open the **web\-extra\-http\-headers** parameter\. For **Value data**, enter the HTTP header name and value in the following format\.
 
    ```
    [("header-name", "header-value")]
    ```
 
-   To specify multiple headers, add them in a comma\-separated list\. For example:
+   To specify multiple headers, add them in a comma\-separated list\.
 
    ```
    [("header1-name", "header1-value"), ("header2-name", "header2-value")]
@@ -44,14 +44,14 @@ To configure the HTTP headers on Linux, configure the `web-extra-http-headers` p
 
 1. Open `/etc/dcv/dcv.conf` with your preferred text editor\.
 
-1. Locate the `[connectivity]` section\. Specify the HTTP header name and value in the following format: 
+1. Locate the `[connectivity]` section\. Specify the HTTP header name and value in the following format\. 
 
    ```
    [connectivity]
    web-extra-http-headers=[("header-name", "header-value")]
    ```
 
-   To specify multiple headers, add them in a comma\-separated list\. For example:
+   To specify multiple headers, add them in a comma\-separated list\.
 
    ```
    [connectivity]

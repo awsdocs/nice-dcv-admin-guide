@@ -1,6 +1,6 @@
-# Getting NICE DCV Session Screenshots<a name="managing-sessions-lifecycle-screenshot"></a>
+# Getting NICE DCV Session screenshots<a name="managing-sessions-lifecycle-screenshot"></a>
 
-You can use the `dcv get-screenshot` command to get a screenshot of a running session's desktop\. 
+You can use the `dcv get-screenshot` command to get a screenshot of the desktop for the running session\. 
 
 ## Syntax<a name="syntax"></a>
 
@@ -42,28 +42,28 @@ Required: no
 ## Examples<a name="examples"></a>
 
 **Example 1**  
-The following example command gets a screenshot of a session named `my-session`\. The screenshot uses the resolution of the server\.
+The following example command gets a screenshot of a session that's named `my-session`\. The screenshot uses the resolution of the server\.
 
 ```
 dcv get-screenshot --output myscreenshot.png my-session
 ```
 
 **Example 2**  
-The following example command gets a screenshot that is `200` pixels wide and `100` pixels high of a session named `my-session.` It saves the file in the current directory with the file name `myscreenshot.png`\.
+The following example command takes a screenshot that's `200` pixels wide by `100` pixels high\. It takes it of a session that's named `my-session`\. It saves the screenshot in the current directory with the file name `myscreenshot.png`\.
 
 ```
 dcv get-screenshot --max-width 200 --max-height 100 --output myscreenshot.png my-session
 ```
 
 **Example 3**  
-The following example command gets a screenshot of a session named `my-session`\. It gets a screenshot of the primary display only, saves the file in the current directory, and names it `myscreenshot.png`\.
+The following example command takes a screenshot of a session that's named `my-session`\. The screenshot is only of the primary display\. It saves the file in the current directory and names the screenshot `myscreenshot.png`\.
 
 ```
 dcv get-screenshot --primary --output myscreenshot.jpeg my-session
 ```
 
 **Example 4**  
-The following example command gets a screenshot of a session named `my-session`\. The command outputs the file encoded in base64 in JSON format\.
+The following example command gets a screenshot of a session that's named `my-session`\. The command outputs the file encoded in base64 and in JSON format\.
 
 ```
 dcv get-screenshot --json --format png my-session

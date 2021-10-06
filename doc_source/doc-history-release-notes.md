@@ -1,16 +1,17 @@
-# Release Notes and Document History for NICE DCV<a name="doc-history-release-notes"></a>
+# Release notes and document history for NICE DCV<a name="doc-history-release-notes"></a>
 
 This page provides the release notes and document history for NICE DCV\.
 
 **Topics**
 + [Release Notes](#release-notes)
-+ [Document History](#doc-history)
++ [Document history](#doc-history)
 
-## NICE DCV Release Notes<a name="release-notes"></a>
+## NICE DCV release notes<a name="release-notes"></a>
 
-This section describes NICE DCV features, improvements, and bug fixes by release date\.
+This section provides an overview of the major updates, feature releases, and bug fixes for NICE DCV\. All the updates are organized by release data\. We update the documentation frequently to address the feedback that you send us\.
 
 **Topics**
++ [DCV 2021\.2\-11135— September 24, 2021](#dcv-2021-2-11135)
 + [DCV 2021\.2\-11048— September 01, 2021](#dcv-2021-2-11048)
 + [DCV 2021\.1\-10851— July 30, 2021](#dcv-2021-1-10851)
 + [DCV 2021\.1\-10598— June 10, 2021](#dcv-2021-1-10598)
@@ -35,6 +36,15 @@ This section describes NICE DCV features, improvements, and bug fixes by release
 + [DCV 2017\.0\-4334 — January 24, 2018](#dcv-2017-0-4334)
 + [DCV 2017\.0\-4100 — December 18, 2017](#dcv-2017-0-4100)
 
+### DCV 2021\.2\-11135— September 24, 2021<a name="dcv-2021-2-11135"></a>
+
+
+****  
+
+| Build numbers | Changes and bug fixes | 
+| --- | --- | 
+|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  Fixes: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
+
 ### DCV 2021\.2\-11048— September 01, 2021<a name="dcv-2021-2-11048"></a>
 
 
@@ -42,7 +52,7 @@ This section describes NICE DCV features, improvements, and bug fixes by release
 
 | Build numbers | New features | Changes and bug fixes | 
 | --- | --- | --- | 
-|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
+|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | NICE DCV added the following features: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  Changes: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html) Fixes: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
 
 ### DCV 2021\.1\-10851— July 30, 2021<a name="dcv-2021-1-10851"></a>
 
@@ -51,7 +61,7 @@ This section describes NICE DCV features, improvements, and bug fixes by release
 
 | Build numbers | Changes and bug fixes | 
 | --- | --- | 
-|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
+|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  Changes: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html) Fixes: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
 
 ### DCV 2021\.1\-10598— June 10, 2021<a name="dcv-2021-1-10598"></a>
 
@@ -242,7 +252,7 @@ This section describes NICE DCV features, improvements, and bug fixes by release
 | --- | 
 |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
 
-## Document History<a name="doc-history"></a>
+## Document history<a name="doc-history"></a>
 
 The following table describes the documentation for this release of NICE DCV\.
 
@@ -262,6 +272,6 @@ The following table describes the documentation for this release of NICE DCV\.
 | macOS client | NICE DCV now offers a macOS client\. For more information, see [ macOS Client](https://docs.aws.amazon.com/dcv/latest/userguide/client-mac.html) in the NICE DCV User Guide\. | April 18, 2019 | 
 | Smart card caching | The NICE DCV server can now cache smart card data received from the client to help improve performance\. For more information, see [Configuring Smart Card Caching](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-smart-card.html) in the NICE DCV Administrator Guide\. | October 08, 2018 | 
 | Linux client | NICE DCV offers Linux clients for RHEL 7, CentOS 7, SLES 12, and Ubuntu 16\.04/18\.04\. For more information, see [ Linux Client](https://docs.aws.amazon.com/dcv/latest/userguide/client-linux.html) in the NICE DCV User Guide\. | August 29, 2018 | 
-| Updated Parameter Reference | The Parameter Reference has been updated\. For more information, see [NICE DCV Server Parameter Reference](https://docs.aws.amazon.com/dcv/latest/adminguide/config-param-ref.html) in the NICE DCV Administrator Guide\. | August 07, 2018 | 
+| Updated Parameter Reference | The Parameter Reference was updated\. For more information, see [NICE DCV Server Parameter Reference](https://docs.aws.amazon.com/dcv/latest/adminguide/config-param-ref.html) in the NICE DCV Administrator Guide\. | August 07, 2018 | 
 | USB remotization | NICE DCV enables clients to use specialized USB devices, such as 3D pointing devices or graphic tablets\. For more information, see [Enabling USB Remotization](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-usb-remote.html) in the NICE DCV Administrator Guide\. | August 07, 2018 | 
 | Initial release of NICE DCV | First publication of this content\. | June 05, 2018 | 

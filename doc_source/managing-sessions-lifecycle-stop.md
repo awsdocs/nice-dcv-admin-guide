@@ -1,4 +1,4 @@
-# Stopping NICE DCV Sessions<a name="managing-sessions-lifecycle-stop"></a>
+# Stopping NICE DCV sessions<a name="managing-sessions-lifecycle-stop"></a>
 
 A console session can only be stopped by the administrator on Windows NICE DCV servers, and the root user on Linux NICE DCV servers\. A virtual session on a Linux NICE DCV server can only be stopped by the root user or the NICE DCV user who created it\. 
 

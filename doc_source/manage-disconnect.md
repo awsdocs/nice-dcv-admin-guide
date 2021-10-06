@@ -1,8 +1,8 @@
 # Disconnecting idle clients<a name="manage-disconnect"></a>
 
-You can configure NICE DCV to disconnect idle clients that didn't send any keyboard or pointer input to the NICE DCV server for a specific period\. By default, the NICE DCV server disconnects NICE DCV clients that were idle for 60 minutes \(one hour\)\.
+You can configure NICE DCV to disconnect idle clients\. More specifically, you can do this for clients that didn't send any keyboard or pointer input to the NICE DCV server for a specific period of time\. By default, the NICE DCV server disconnects NICE DCV clients after being idle for 60 minutes \(one hour\)\.
 
-You can also configure the NICE DCV server to send a notification to idle clients to inform them that their session is about to disconnect\. Timeout notifications are supported only with NICE DCV servers and clients version 2017\.4 and later\.
+You can also configure the NICE DCV server to send a notification to idle clients\. The notification is to inform them that their session is about to disconnect\. Timeout notifications are supported only with NICE DCV servers and clients version 2017\.4 and later\.
 
 You can use the following procedures to specify a custom idle timeout period\.
 
@@ -22,7 +22,7 @@ To change the NICE DCV server's idle timeout period, you must configure the `idl
 
    If the parameter can't be found, use the following steps to create it:
 
-   1. In the left pane, open the context \(right\-click\) menu for the **connectivity** key, and choose **New**, **DWORD \(32\-bit\) value**\.
+   1. In the navigation pane, open the context \(right\-click\) menu for the **connectivity** key\. Then, choose **New**, **DWORD \(32\-bit\) value**\.
 
    1. For **Name**, enter `idle-timeout` and press **Enter**\.
 
@@ -36,7 +36,7 @@ To change the NICE DCV server's idle timeout period, you must configure the `idl
 
    If the parameter can't be found, use the following steps to create it:
 
-   1. In the left pane, open the context \(right\-click\) menu for the **connectivity** key and choose **New**, **DWORD \(32\-bit\) value**\.
+   1. In the navigation pane, open the context \(right\-click\) menu for the **connectivity** key\. Then, choose **New**, **DWORD \(32\-bit\) value**\.
 
    1. For **Name**, enter `idle-timeout-warning` and press **Enter**\.
 
@@ -52,7 +52,7 @@ To change the NICE DCV server's idle timeout period, you must configure the `idl
 
 1. Open `/etc/dcv/dcv.conf` with your preferred text editor\.
 
-1. Locate the `idle-timeout` parameter in the `[connectivity]` section and replace the existing timeout period with the new timeout period \(in minutes\)\.
+1. Locate the `idle-timeout` parameter in the `[connectivity]` section\. Then, replace the existing timeout period with the new timeout period \(in minutes\)\.
 
    If there's no `idle-timeout` parameter in the `[connectivity]` section, add it manually using the following format:
 

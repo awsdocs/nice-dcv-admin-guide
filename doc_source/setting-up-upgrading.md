@@ -29,7 +29,7 @@ The following topic describes how to upgrade the NICE DCV server\.
 
 1. After the installation is complete, confirm that the NICE DCV server configuration is still correct\. Open the Registry Editor, navigate to **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv** and compare the parameters to the configuration that you exported in step 4\.
 
-1. Test the NICE DCV server by starting a new NICE DCV session\. For more information, see [Starting NICE DCV Sessions](managing-sessions-start.md)\.
+1. Test the NICE DCV server by starting a new NICE DCV session\. For more information, see [Starting NICE DCV sessions](managing-sessions-start.md)\.
 
 ## Upgrading the NICE DCV Server on Linux<a name="upgrading-linux"></a>
 
@@ -47,4 +47,4 @@ The following topic describes how to upgrade the NICE DCV server\.
 
 1. After the installation is complete, confirm that the NICE DCV server configuration is still correct\. Open the file that you copied in step 4 and compare it to the `/etc/dcv/dcv.conf` file\.
 
-1. Test the NICE DCV server by starting a new NICE DCV session\. For more information, see [Starting NICE DCV Sessions](managing-sessions-start.md)\.
+1. Test the NICE DCV server by starting a new NICE DCV session\. For more information, see [Starting NICE DCV sessions](managing-sessions-start.md)\.

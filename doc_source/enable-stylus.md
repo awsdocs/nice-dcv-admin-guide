@@ -1,6 +1,6 @@
 # Enabling touchscreen and stylus support<a name="enable-stylus"></a>
 
-Touchscreens are supported on all of the supported Windows operating systems\. Styluses are supported on Windows 10 and Windows Server 2019 only\. The features are enabled by default on Windows NICE DCV servers\. No additional configuration is required\.
+Touchscreens are supported on all of the supported Windows operating systems\. Styluses are supported only on Windows 10 and Windows Server 2019\. By default, the features are enabled on Windows NICE DCV servers\. No additional configuration is required\.
 
 Touchscreens and styluses are supported on all of the supported Linux operating systems\. The features are enabled by default on virtual sessions hosted on Linux NICE DCV servers\. However, some additional configuration is required to enable the features on console sessions hosted on Linux NICE DCV servers\.
 
@@ -80,3 +80,31 @@ Stylus pen pressure and tilt events are supported only on the Windows, Linux, an
    | Virtual core keyboard                         id=3    [master keyboard (2)]
        | Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
    ```
+
+## Configuring a stylus pressure range<a name="config-stylus-pressure"></a>
+
+There are some applications that require you to reduce the stylus pressure range to between 0 and 2048\. You can configure the pressure range by setting the `Pressure2k` option to true in the `/etc/X11/xorg.conf` file\.
+
+**To configure stylus pressure**
+
+1. Open `/etc/X11/xorg.conf` using your preferred text editor\.
+
+1. Add the following sections to the file\.
+
+   ```
+   Section "InputDevice"
+     Identifier "DCV Stylus Pen"
+     Driver "dcvinput"
+     Option "Pressure2K" "true"
+   EndSection
+   
+   Section "InputDevice"
+     Identifier "DCV Stylus Eraser"
+     Driver "dcvinput"
+     Option "Pressure2K" "true"
+   EndSection
+   ```
+
+1. Save the changes and close the file\.
+
+1. Restart the X server\.

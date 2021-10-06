@@ -1,6 +1,6 @@
-# Viewing NICE DCV Sessions<a name="managing-sessions-lifecycle-view"></a>
+# Viewing NICE DCV sessions<a name="managing-sessions-lifecycle-view"></a>
 
-The administrator on a Windows NICE DCV server or the root user on a Linux NICE DCV server can view all active sessions running on the server\. NICE DCV users can only view sessions that they have created\.
+The administrator on a Windows NICE DCV server or the root user on a Linux NICE DCV server can view all active sessions that are running on the server\. NICE DCV users can only view sessions that they have created\.
 
 
 
@@ -24,7 +24,7 @@ dcv list-sessions
 
 ### Output<a name="output"></a>
 
-The command returns a list of active sessions in the following format:
+The command returns a list of active sessions in the following format\.
 
 ```
 Session: session-id (owner:session-owner type:virtual|console name:'my session')
@@ -46,7 +46,7 @@ $ dcv describe-session session_id
 
 ### Output<a name="output"></a>
 
-In the following example output, the `display-layout` element indicates that the session's display layout is set to use two 800x600 screens, with the second screen offset to x=800 \(to the right\) of the first screen\.
+In the following example output, the `display-layout` element indicates that the session's display layout is set to use two 800x600 screens\. Of these, the second screen is offset to x=800 \(to the right\) of the first screen\.
 
 ```
 Session: test

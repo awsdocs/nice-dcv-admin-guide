@@ -1,6 +1,6 @@
 # Changing the TLS certificate<a name="manage-cert"></a>
 
-NICE DCV automatically generates a self\-signed certificate that's used to secure traffic between the NICE DCV client and NICE DCV server\. This certificate is used by default if no other certificate is installed on your NICE DCV server\. The default certificate includes two files, the certificate itself \(`dcv.pem)` and a key \(`dcv.key`\)\.
+NICE DCV automatically generates a self\-signed certificate that's used to secure traffic between the NICE DCV client and NICE DCV server\. By default, if no other certificate is installed, this certificate is used\. The default certificate includes two files\. They are the certificate itself \(`dcv.pem)` and a key \(`dcv.key`\)\.
 
 You can replace the default NICE DCV certificate and its key with your own certificate and key\.
 

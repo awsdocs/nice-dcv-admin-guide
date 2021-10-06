@@ -1,6 +1,6 @@
 # Prerequisites for Linux NICE DCV servers<a name="setting-up-installing-linux-prereq"></a>
 
-NICE DCV enables clients to access a remote graphical X session on a Linux server\. This provides access to the corresponding Linux desktop\. NICE DCV supports two types of Linux desktop streaming: console sessions and virtual sessions\. For more information about console and virtual sessions, see [Managing NICE DCV Sessions](managing-sessions.md)\.
+NICE DCV enables clients to access a remote graphical X session on a Linux server\. This provides access to the corresponding Linux desktop\. NICE DCV supports two types of Linux desktop streaming: console sessions and virtual sessions\. For more information about console and virtual sessions, see [Managing NICE DCV sessions](managing-sessions.md)\.
 
 This topic describes how to install the prerequisites required to use NICE DCV on a Linux server\.
 
@@ -11,6 +11,7 @@ This topic describes how to install the prerequisites required to use NICE DCV o
 + [Install the glxinfo utility](#linux-prereq-tools)
 + [Verify OpenGL software rendering](#linux-prereq-opengl)
 + [Install GPU drivers for graphics instances](#linux-prereq-gpu)
++ [Install XDummy driver for non\-GPU instances](#linux-prereq-nongpu)
 
 ## Install a desktop environment and desktop manager<a name="linux-prereq-gui"></a>
 
@@ -498,3 +499,91 @@ OpenGL core profile version string: 4.4.0 NVIDIA 390.75
 An instance with an attached AMD GPU, such as a G4ad instance, must have the appropriate AMD driver installed\. For instructions on how to install the AMD GPU drivers on a compatible Amazon EC2 instance, see [ Install AMD drivers on Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-amd-driver.html)\.
 
 For more information about Amazon EC2 G4ad instances, see the [Deep dive on the new Amazon EC2 G4ad instances ](http://aws.amazon.com/blogs/compute/deep-dive-on-the-new-amazon-ec2-g4ad-instances/) blog post\.
+
+## Install XDummy driver for non\-GPU instances<a name="linux-prereq-nongpu"></a>
+
+**Topics**
++ [Install and configure the XDummy driver](#gpu-xdummy)
+
+### Install and configure the XDummy driver<a name="gpu-xdummy"></a>
+
+To use console sessions on Linux servers that do not have a dedicated GPU, ensure that the Xdummy driver is installed and properly configured\. The XDummy driver allows the X server to run with a virtual framebuffer when no real GPU is present\.
+
+**Note**  
+This is not required if you intend to use virtual sessions\.
+The XDummy driver is able to support only resolutions defined in its configuration\.
+
+**To install the XDummy driver**  
+Run the following command:
++ RHEL 7\.x/8\.x, CentOs 7\.x/8\.x, and Amazon Linux 2
+
+  ```
+  $ sudo yum install xorg-x11-drv-dummy
+  ```
++ Ubuntu 18\.x/20\.x
+
+  ```
+  $ sudo apt install xserver-xorg-video-dummy
+  ```
++ SUSE Linux Enterprise 12\.x/15\.x
+
+  ```
+  $ sudo zypper in xf86-video-dummy
+  ```
+
+After you installed the XDummy drivers on your Linux server, update the `xorg.conf`\.
+
+**To configure XDummy in xorg\.conf**
+
+1. Open the `/etc/X11/xorg.conf` file with your preferred text editor\.
+
+1. Add the following sections to the configuration\.
+
+   ```
+   Section "Device"
+       Identifier "DummyDevice"
+       Driver "dummy"
+       Option "ConstantDPI" "true"
+       Option "IgnoreEDID" "true"
+       Option "NoDDC" "true"
+       VideoRam 2048000
+   EndSection
+   
+   Section "Monitor"
+       Identifier "DummyMonitor"
+       HorizSync   5.0 - 1000.0
+       VertRefresh 5.0 - 200.0
+       Modeline "1920x1080" 23.53 1920 1952 2040 2072 1080 1106 1108 1135
+       Modeline "1600x900" 33.92 1600 1632 1760 1792 900 921 924 946
+       Modeline "1440x900" 30.66 1440 1472 1584 1616 900 921 924 946
+       ModeLine "1366x768" 72.00 1366 1414 1446 1494  768 771 777 803
+       Modeline "1280x800" 24.15 1280 1312 1400 1432 800 819 822 841
+       Modeline "1024x768" 18.71 1024 1056 1120 1152 768 786 789 807
+   EndSection
+   
+   Section "Screen"
+       Identifier "DummyScreen"
+       Device "DummyDevice"
+       Monitor "DummyMonitor"
+       DefaultDepth 24
+       SubSection "Display"
+           Viewport 0 0
+           Depth 24
+           Modes "1920x1080" "1600x900" "1440x900" "1366x768" "1280x800" "1024x768"
+           virtual 1920 1080
+       EndSubSection
+   EndSection
+   ```
+**Note**  
+The configuration provided is an example\. You can add more modes, and set a different `virtual` resolution\. You can also configure more than one dummy monitor\.
+
+1. Restart the X server for the changes to take effect\.
+   + RHEL 7\.x, CentOs 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
+
+     ```
+     $ sudo systemctl isolate multi-user.target
+     ```
+
+     ```
+     $ sudo systemctl isolate graphical.target
+     ```

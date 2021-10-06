@@ -1,6 +1,6 @@
 # Enabling GPU sharing on a Linux NICE DCV Server<a name="manage-gpu"></a>
 
-With GPU sharing, you can share one or more physical GPUs between multiple NICE DCV virtual sessions\. For more information about sessions, see [Managing NICE DCV Sessions](managing-sessions.md)\. Using GPU sharing, you can use a single NICE DCV server and host multiple virtual sessions that share the server's physical GPU resources\. 
+With GPU sharing, you can share one or more physical GPUs between multiple NICE DCV virtual sessions\. For more information about sessions, see [Managing NICE DCV sessions](managing-sessions.md)\. Using GPU sharing, you can use a single NICE DCV server and host multiple virtual sessions that share the server's physical GPU resources\. 
 
 **Note**  
 GPU sharing is only supported on Linux NICE DCV servers\.
@@ -29,7 +29,7 @@ Specify the GPUs in the `gl-displays` parameter in the `dcv.conf` file after you
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` file with your preferred text editor\.
 
-1. Add the `[display/linux]` section and the `gl-displays` parameter, and then specify the available GPUs in the following format:
+1. Add the `[display/linux]` section and the `gl-displays` parameter\. Then, specify the available GPUs in the following format:
 
    ```
    [display/linux]

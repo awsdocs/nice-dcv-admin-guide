@@ -1,17 +1,17 @@
-# Using the Command Line Tool to Manage NICE DCV Sessions<a name="managing-sessions-cli"></a>
+# Using the command line tool to manage NICE DCV sessions<a name="managing-sessions-cli"></a>
 
 The NICE DCV server includes a command line tool that can be used to start, stop, and view NICE DCV sessions\.
 
 
 
-## Using the Command Line Tool on a Windows NICE DCV Server<a name="cli-win"></a>
+## Using the command line tool on a Windows NICE DCV Server<a name="cli-win"></a>
 
-To use the command line tool on a Windows NICE DCV server, you must run the commands from the NICE DCV installation directory or you must add the NICE DCV directory to the PATH environment variable\. If you add the NICE DCV directory to the PATH environment variable, you can use the commands from any directory\.
+To use the command line tool on a Windows NICE DCV server, run the commands from the NICE DCV installation directory or add the NICE DCV directory to the PATH environment variable\. If you add the NICE DCV directory to the PATH environment variable, you can use the commands from any directory\.
 
 **To use the command line tool from the NICE DCV installation directory**  
-Navigate to the folder in which the `dcv.exe` file is located, `C:\Program Files\NICE\DCV\Server\bin\` by default, and open a command prompt window\.
+Navigate to the folder where the `dcv.exe` file is located, `C:\Program Files\NICE\DCV\Server\bin\` by default, and open a command prompt window\.
 
-Or you can specify the full path when running a command from a different directory\. For example:
+Or you can specify the full path when running a command from a different directory\.
 
 ```
 C:\> "C:\Program Files\NICE\DCV\Server\bin\dcv.exe" list-sessions
@@ -31,6 +31,6 @@ C:\> "C:\Program Files\NICE\DCV\Server\bin\dcv.exe" list-sessions
 
 1. Choose **OK** and close the Environment Variables window\.
 
-## Using the Command Line Tool on a Linux NICE DCV Server<a name="cli-lin"></a>
+## Using the command line tool on a Linux NICE DCV Server<a name="cli-lin"></a>
 
-On Linux NICE DCV servers, the command line tool is automatically configured in the `$PATH` environment variable\. This enables you to use the command line tool from any folder\. Open a terminal window and enter the command to run\.
+On Linux NICE DCV servers, the command line tool is automatically configured in the `$PATH` environment variable\. You can use the tool from any folder\. Open a terminal window and enter the command to run\.

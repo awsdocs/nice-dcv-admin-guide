@@ -43,7 +43,7 @@ A permissions file can include multiple imports\. An imported permissions file m
     ```
 
 **Example**  
-The following statement imports a permissions file named `dcv-permissions.file` using an absolute path\. It's located in the NICE DCV installation folder on a Windows NICE DCV server:
+The following statement imports a permissions file named `dcv-permissions.file` using an absolute path\. It's located in the NICE DCV installation folder on a Windows NICE DCV server\.
 
 ```
 #import c:\Program Files\NICE\DCV\dcv-permissions.file
@@ -51,7 +51,7 @@ The following statement imports a permissions file named `dcv-permissions.file` 
 
 ## Create groups<a name="security-authorization-file-create-group"></a>
 
-The `[groups]` section of the permissions file lets you define user groups for users that have similar use cases or permissions requirements\. Groups can be assigned specific permissions\. Permissions assigned to a group apply to all of the users that are included in the group\.
+You can use `[groups]` section of the permissions file to define user groups for users that have similar use cases or permissions requirements\. Groups can be assigned specific permissions\. Permissions assigned to a group apply to all of the users that are included in the group\.
 
 To create groups in your permissions file, you must first add the groups section heading to the file\.
 
@@ -90,7 +90,7 @@ group_name=osgroup:os_group_1, osgroup:os_group2
 ```
 
 **Example**  
-The following example adds the groups section heading and creates a group named `my-group`\. This group includes individual users\. They're named `john` and `jane`, one of which is an existing group named `observers`, and other of which an operating system user group named `guests`:
+The following example adds the groups section heading and creates a group that's named `my-group`\. This group includes individual users\. They're named `john` and `jane`\. One of them is an existing group that's named `observers`\. The other is an operating system user group that's named `guests`:
 
 ```
 [groups]
@@ -114,7 +114,7 @@ alias_name=member_1, member_2, member_3
 ```
 
 **Example**  
-The following example adds the aliases section heading and creates an alias named `file-management` that includes the `file-upload` and `file-download` features and an existing alias named `clipboard-management`\.
+The following example adds the aliases section heading and creates an alias that's named `file-management`\. It includes the `file-upload` and `file-download` features and an existing alias that's named `clipboard-management`\.
 
 ```
 [aliases]
@@ -137,7 +137,7 @@ You can then add your permissions under the section heading\. To add a permissio
 actor rule features
 ```
 
-The actor can be a user, a group, or an operating system group\. Groups must be prefixed with `group:`\. Operating system groups must be prefixed with `osgroup:`\. NICE DCV includes a built\-in `%owner%` reference that can be used to refer to the session owner and a built\-in `%any%` reference that can be used to refer to any user\.
+The actor can be a user, a group, or an operating system group\. Groups must be prefixed with `group:`\. Operating system groups must be prefixed with `osgroup:`\. NICE DCV includes a built\-in `%owner%` reference that can be used to refer to the session owner\. It can also be used to refer to a built\-in `%any%` reference that can be used to refer to any user\.
 
 The following rules can be used in permissions statements:
 + `allow` — Grants access to the feature\.
@@ -161,12 +161,12 @@ The following features can be referenced in the permissions file:
 + `pointer` — View NICE DCV server mouse position events and pointer shapes\. Supported on version DCV 2017\.3 and later\.
 + `audio-out` — Play back NICE DCV server audio on the client\.
 + `audio-in` — Insert audio from the client to the NICE DCV server\.
-+ `printer` — Print PDFs or XPS files from the NICE DCV server to the client\.
++ `printer` — Create PDFs or XPS files from the NICE DCV server to the client\.
 + `smartcard` — Read the smart card from the client\.
 + `webcam` — Use the webcam connected to a client computer in a session\. Supported on version DCV 2021\.0 and later\.
-+ `screenshot` — Save a screenshot of the remote desktop\. Supported on version NICE DCV 2021\.2 and later\.
++ `screenshot` — Save a screenshot of the remote desktop\. It's supported on version NICE DCV 2021\.2 and later\.
 
-  When removing `screenshot` authorization, it is recommended that you disable the `clipboard-copy` permission as well\. This will prevent users from capturing a screenshot on the clipboard of the server and then pasting it on the client\. When the `screenshot` authorization is denied, Windows and macOS will also prevent external tools from capturing a screenshot of the client\. For example, using the Windows Snipping Tool on the NICE DCV client window will result in a black image\.
+  When removing `screenshot` authorization, we recommended that you disable the `clipboard-copy` permission\. This prevents users from capturing screenshots on the clipboard of the server and then pasting them on the client\. When the `screenshot` authorization is denied, Windows and macOS will also prevent external tools from capturing a screenshot of the client\. For example, using the Windows Snipping Tool on the NICE DCV client window will result in a black image\.
 + `builtin` — All features\.
 
 **Example**  

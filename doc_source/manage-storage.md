@@ -22,7 +22,7 @@ To enable session storage, first create the folder to use for session storage\. 
 
       If there's no `storage-root` parameter in the registry key, create one as follows:
 
-      1. In the left pane, open the context \(right\-click\) menu for the **session\-management/automatic\-console\-session** key and choose **New**, **String**\.
+      1. In the navigation pane, open the context \(right\-click\) menu for the **session\-management/automatic\-console\-session** key\. Then, choose **New**, **String**\.
 
       1. For **Name**, enter `storage-root` and press **Enter**\.
 
@@ -40,7 +40,7 @@ If the specified subdirectory doesn't exist, then session storage is disabled\.
 
    1. [Stop](manage-stop.md) and [restart](manage-start.md) the NICE DCV server\.
 
-1. Start the session and specify the `--storage-root` option\. For more information, see [Starting NICE DCV Sessions](managing-sessions-start.md)\.
+1. Start the session and specify the `--storage-root` option\. For more information, see [Starting NICE DCV sessions](managing-sessions-start.md)\.
 
 ## Enabling session storage on a Linux NICE DCV Server<a name="manage-storage-linux"></a>
 
@@ -76,4 +76,4 @@ If the specified subdirectory doesn't exist, then session storage is disabled\.
 
 1. [Stop](manage-stop.md) and [restart](manage-start.md) the NICE DCV server\.
 
-1. Start the session and specify the `--storage-root` option\. For more information, see [Starting NICE DCV Sessions](managing-sessions-start.md)\.
+1. Start the session and specify the `--storage-root` option\. For more information, see [Starting NICE DCV sessions](managing-sessions-start.md)\.

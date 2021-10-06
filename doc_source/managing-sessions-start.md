@@ -1,21 +1,21 @@
-# Starting NICE DCV Sessions<a name="managing-sessions-start"></a>
+# Starting NICE DCV sessions<a name="managing-sessions-start"></a>
 
-By default, a console session is automatically created on Windows NICE DCV servers after installation\. The default console session is owned by `Administrator` and has a default session ID of `console`\. If you chose to prevent the automatic console session when you installed the NICE DCV server, you must create one manually\. You can enable or disable the automatic console session at any time after you install the NICE DCV server\.
+By default, a console session is automatically created on Windows NICE DCV servers after the servers are installed\. The default console session is owned by `Administrator` and has a default session ID of `console`\. If you chose to prevent the automatic console session when you installed the NICE DCV server, you must create one manually\. After you install the NICE DCV server, you can enable or disable the automatic console session at any time\.
 
 **Note**  
-Linux NICE DCV servers do not get a default console after installation\.
+Linux NICE DCV servers don't get a default console after installation\.
 
-If you are using a floating license on an on\-premises or alternative cloud\-based server and you exceed the maximum number of concurrent sessions supported by your license, you might get a `no licenses` error\. If you get this error, stop an unused session to release the license and try again\.
+Assume that you use a floating license on an on\-premises or alternative cloud\-based server and exceed the maximum number of concurrent sessions that's upported by your license\. You might get a `no licenses` error\. If you get this error, stop an unused session to release the license and try again\.
 
 The NICE DCV server must be running to start a session\. For more information, see [Starting the NICE DCV Server](manage-start.md)\.
 
 **Topics**
-+ [Manually Starting Console and Virtual Sessions](#managing-sessions-start-manual)
++ [Manually starting console and virtual sessions](#managing-sessions-start-manual)
 + [Enabling Automatic Console Sessions](#managing-sessions-start-auto)
 
-## Manually Starting Console and Virtual Sessions<a name="managing-sessions-start-manual"></a>
+## Manually starting console and virtual sessions<a name="managing-sessions-start-manual"></a>
 
-You can start a NICE DCV session at any time\. You can only run one console session at a time\. If you are using a Linux NICE DCV server, you can run multiple virtual sessions simultaneously\.
+You can start a NICE DCV session at any time\. You can only run one console session at a time\. If you're using a Linux NICE DCV server, you can run multiple virtual sessions at the same time\.
 
 To create a console or virtual session on a Windows or Linux NICE DCV server, use the `dcv create-session` command\.
 
@@ -42,7 +42,7 @@ Required: No
 
 **`--name`**  
 Specifies a name for the session\. Session names can be any string of up to 256 characters\. If the string exceeds 256 characters, the command fails\. Session names don't need to be unique across running sessions\.  
-You can change a session's name at any time using the `dcv set-name` command\. For more information, see [Managing the Session Name](managing-session-name.md)\.  
+You can change a session's name at any time using the `dcv set-name` command\. For more information, see [Managing the session name](managing-session-name.md)\.  
 Type: String  
 Required: Yes
 
@@ -56,7 +56,7 @@ Specifies the session owner\. Defaults to the currently signed in user if omitte
 Type: String  
 Required: No
 
-**`-permissions-file`\-**  
+**`--permissions-file`**  
 Specifies a path to a custom permissions file\. Defaults to the server defaults if omitted\.  
 Type: String  
 Required: No
@@ -68,7 +68,7 @@ You can use `%home%` to specify the home directory of the user who is currently 
 ```
 --storage-root %home%/storage/
 ```
-If a specified subdirectory does not exist, session storage is disabled\.
+If a specified subdirectory doesn't exist, session storage is disabled\.
 Type: String  
 Required: No
 
@@ -78,12 +78,12 @@ Type: String
 Allowed values: `on` \| `off`  
 Required: No
 
-**\-\-max\-concurrent\-clients**  
+**`--max-concurrent-clients`**  
 Specifies the maximum number of NICE DCV clients that are allowed to connect to the session\. Defaults to unlimited connections if omitted\.  
 Type: Integer  
 Required: No
 
-**\-\-init**  
+**`--init`**  
 This option is supported with virtual sessions on Linux NICE DCV servers only\. It specifies the path to a custom `init` script\. The script can be used to start a specific desktop environment and launch specific applications automatically when the session starts\. The script must be executable\. Defaults to a script that starts the default desktop environment if omitted\.  
 Type: String  
 Required: No
@@ -124,7 +124,7 @@ Enabling an automatic console session ensures that a console session is automati
 Other parameters affecting automatic console sessions are `max-concurrent-clients`, `permissions-file`, and `storage-root`\. For more information about these parameters, see [`session-management/automatic-console-session` Parameters](config-param-ref.md#session_management_automatic_console_session)\.
 
 **Note**  
-NICE DCV does not support automatic virtual sessions\.
+NICE DCV doesn't support automatic virtual sessions\.
 
 ------
 #### [ Windows NICE DCV server ]
@@ -137,7 +137,7 @@ NICE DCV does not support automatic virtual sessions\.
 
 1. Create a `create-session` parameter:
 
-   1. In the left pane, open the context \(right\-click\) menu for the **session\-management** key and choose **New**, **DWORD \(32\-bit\) Value**\.
+   1. In the navigation pane, open the context \(right\-click\) menu for the **session\-management** key and choose **New**, **DWORD \(32\-bit\) Value**\.
 
    1. For **Name**, enter `create-session` and press **Enter**\.
 
@@ -147,7 +147,7 @@ NICE DCV does not support automatic virtual sessions\.
 
 1. Create an `owner` parameter:
 
-   1. In the left pane, open the context \(right\-click\) menu for the **automatic\-console\-session** key and choose **New**, **String Value**\.
+   1. In the navigation pane, open the context \(right\-click\) menu for the **automatic\-console\-session** key and choose **New**, **String Value**\.
 
    1. For **Name**, enter `owner` and press **Enter**\.
 

@@ -1,10 +1,10 @@
 # Configuring NICE DCV authentication<a name="security-authentication"></a>
 
-By default, clients are required to authenticate against the server on which NICE DCV is hosted before connecting to a NICE DCV session\. If the client fails to authenticate, it's prevented from connecting to the session\. Client authentication requirements can be disabled to allow clients to connect to a session without authenticating against the server\.
+By default, clients are required to authenticate against the server where NICE DCV is hosted before connecting to a NICE DCV session\. If the client fails to authenticate, this is probably because it was prevented from connecting to the session\. Client authentication requirements can be disabled to allow clients to connect to a session without authenticating against the server\.
 
 NICE DCV supports the following authentication methods:
 + `system` — This is the default authentication method\. Client authentication is delegated to the underlying operating system\. For Windows NICE DCV servers, authentication is delegated to WinLogon\. For Linux NICE DCV servers, authentication is delegated to PAM\. Clients provide their system credentials when connecting to a NICE DCV session\. Ensure that your clients have the credentials for the appropriate user accounts on the NICE DCV server\.
-+ `none` — No client authentication is required when connecting to a NICE DCV session\. The NICE DCV server automatically grants access to all clients attempting to connect to a session\.
++ `none` — No client authentication is required when connecting to a NICE DCV session\. The NICE DCV server grants access to all clients that attempt to connect to a session\.
 
 Make sure that your clients are aware of the authentication method used by the NICE DCV server\. They should also make sure that they have the information required to connect to the session\.
 
@@ -24,7 +24,7 @@ To change the NICE DCV server's authentication method, you must configure the `a
 
    If there's no `authentication` parameter in the registry key, create one:
 
-   1. In the left pane, open the context \(right\-click\) menu for the **authentication** key and choose **New**, **string value**\.
+   1. In the navigation pane, open the context \(right\-click\) menu for the **authentication** key\. Then, choose **New**, **string value**\.
 
    1. For **Name**, enter `authentication` and press **Enter**\.
 
@@ -34,11 +34,11 @@ To change the NICE DCV server's authentication method, you must configure the `a
 
 ### Windows Credentials Provider<a name="manage-wcp"></a>
 
-Windows Credentials Provider enables users to bypass the Windows login if they successfully authenticate against the DCV server\.
+With Windows Credentials Provider, users can bypass the Windows login if they can authenticate against the DCV server\.
 
 Windows Credentials Provider is only supported if the DCV `authentication` parameter is set to `system`\. If the DCV `authentication` parameter is set to `none`, users must manually sign in to Windows after they have been automatically authenticated against the DCV server\.
 
-Windows Credentials Provider is enabled by default when you install the NICE DCV server\.
+By default, Windows Credentials Provider is enabled when you install the NICE DCV server\.
 
 **To disable Windows Credentials Provider**
 
@@ -72,13 +72,42 @@ To change the NICE DCV server's authentication method, you must configure the `a
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
 
-1. Locate the `authentication` parameter in the `[security]` section, and replace the existing value with either `system` or `none`\.
+1. Locate the `authentication` parameter in the `[security]` section\. Then, replace the existing value with either `system` or `none`\.
 
-   If there's no `authentication` parameter in the `[security]` section, add it manually using the following format:
+   If there's no `authentication` parameter in the `[security]` section, add it using the following format\.
 
    ```
    [security] 
    authentication=method
    ```
+
+1. Save and close the file\.
+
+### PAM service<a name="pam-service"></a>
+
+On Linux, when NICE DCV `authentication` parameter is set to `system`, the authentication is performed by executing a PAM service\.
+
+By default, the Privileged Access Management \(PAM\) service executed by NICE DCV server is `/etc/pam.d/dcv`\.
+
+If you want to change the steps performed by PAM when authenticating a user through NICE DCV, you can set the `pam-service` parameter in the `authentication` section of `dcv.conf`\.
+
+**To change the PAM service**
+
+1. As root, navigate to the `/etc/pam.d` directory and create a new file, for instance `dcv-custom`\.
+
+1. Edit the `dcv-custom` file using your preferred text editor\. Refer to your system documentation for the syntax of PAM service files\.
+
+1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
+
+1. Locate the `pam-service` parameter in the `[authentication]` section\. Then, replace the existing service name with the new PAM service name\.
+
+   If there's no `pam-service` parameter in the `[authentication]` section, add it manually using the following format:
+
+   ```
+   [authentication]
+   pam-service=service_name
+   ```
+**Note**  
+The PAM service name must match the name of the file you created in `/etc/pam.d`\.
 
 1. Save and close the file\.

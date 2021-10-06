@@ -1,6 +1,6 @@
 # Enabling USB remotization<a name="manage-usb-remote"></a>
 
-NICE DCV enables clients to use some specialized USB devices, such as 3D pointing devices or authentication devices\. The devices are physically connected to their computer to interact with an application that are running on a NICE DCV server\.
+With NICE DCV, clients can use a variety of specialized USB devices, such as 3D pointing devices or authentication devices\. The devices are physically connected to their computer to interact with an application that are running on a NICE DCV server\.
 
 **Important**  
 NICE DCV provides a generic mechanism for redirecting USB devices\. Some devices that are sensitive to network latency might experience issues\. Additionally, some devices might not function as expected due to driver compatibility issues\. Ensure that your devices work as expected before deploying to production\.

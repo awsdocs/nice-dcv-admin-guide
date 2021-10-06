@@ -1,8 +1,8 @@
-# Managing NICE DCV Session Storage<a name="managing-session-storage"></a>
+# Managing NICE DCV Session storage<a name="managing-session-storage"></a>
 
 Session storage is a directory on the NICE DCV server that clients can access when they are connected to a NICE DCV session\.
 
-If session storage has been enabled on the NICE DCV server, you can use the `dcv set-storage-root` command to specify the directory on the server to be used for session storage\. For more information about enabling session storage on the NICE DCV server, see [Enabling session storage](manage-storage.md)\.
+If session storage is enabled on the NICE DCV server, you can use the `dcv set-storage-root` command to specify the directory on the server to be used for session storage\. For more information about enabling session storage on the NICE DCV server, see [Enabling session storage](manage-storage.md)\.
 
 To set the session storage path, use the `dcv set-storage-root` command and specify the session ID and the path to the directory to use\.
 
@@ -30,14 +30,14 @@ Required: Yes
 
 ## Examples<a name="session-storage-example"></a>
 
-**Windows NICE DCV server Example**  
+**Windows NICE DCV server example**  
 The following example sets to storage path to `c:\session-storage` for a session with a session ID of `my-session`\.
 
 ```
 C:\> dcv set-storage-root --session my-session c:\session-storage
 ```
 
-**Linux NICE DCV server Example**  
+**Linux NICE DCV server example**  
 The following example sets to storage path to a directory named `session-storage` in the current user's home directory, for a session with a session ID of `my-session`\.
 
 ```

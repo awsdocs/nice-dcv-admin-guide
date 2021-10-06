@@ -1,6 +1,6 @@
 # Stopping the NICE DCV Server<a name="manage-stop"></a>
 
-You can stop the NICE DCV server at any time\. Stopping the server terminates all active NICE DCV sessions\. You can't start new sessions until the server is restarted\.
+You can stop the NICE DCV server at any time\. Stopping the server terminates all active NICE DCV sessions\. You can't start new sessions until after the server is restarted\.
 
 **Topics**
 + [Stopping the server on Windows](#manage-stop-windows)
@@ -8,7 +8,7 @@ You can stop the NICE DCV server at any time\. Stopping the server terminates al
 
 ## Stopping the NICE DCV Server on Windows<a name="manage-stop-windows"></a>
 
-Use the following procedure to stop the NICE DCV server using the Services snap\-in for the Microsoft Management Console\.
+Manually stop the NICE DCV server using the Services snap\-in for the Microsoft Management Console\.
 
 **To stop the NICE DCV server on Windows**
 
@@ -21,7 +21,7 @@ Use the following procedure to stop the NICE DCV server using the Services snap\
 **Note**  
 If the server is already stopped, the **Stop** button is disabled\.
 
-Use the following procedure to disable automatic NICE DCV server startup using the Services snap\-in for the Microsoft Management Console\.
+Disable automatic startup using the Services snap\-in for the Microsoft Management Console\.
 
 **To prevent the NICE DCV server from starting automatically on Windows**
 
@@ -33,7 +33,7 @@ Use the following procedure to disable automatic NICE DCV server startup using t
 
 ## Stopping the NICE DCV Server on Linux<a name="manage-stop-linux"></a>
 
-Use the following procedure to stop the NICE DCV server using the command line\.
+Stop the NICE DCV server using the command line\.
 
 **To stop the NICE DCV server on Linux**  
 Use the following commands:
@@ -43,7 +43,7 @@ Use the following commands:
   $ sudo systemctl stop dcvserver
   ```
 
-Use the following procedure to disable automatic NICE DCV server startup using the command line\.
+Disable automatic NICE DCV server startup using the command line\.
 
 **To prevent the NICE DCV server from starting automatically on Linux**  
 Use the following commands:

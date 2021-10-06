@@ -33,7 +33,7 @@ The following table compares the features that are supported by the WIndows and 
 | [Custom TLS certificates](manage-cert.md) | ✓ | ✓ | 
 | [USB remotization](manage-usb-remote.md) | ✓ | ✓ | 
 | [Smart card support](manage-smart-card.md) | ✓ | ✓ | 
-| Webcam support | ✓ | ✓ | 
+| Webcam support | ✓ \(Windows 10 and Server 2016 and later\) | ✓ | 
 | [Session storage and file transfer](manage-storage.md) | ✓ | ✓ | 
 | [Copying and pasting](manage-clipboard.md) | ✓ | ✓ | 
 | [Custom HTTP headers](manage-headers.md) | ✓ | ✓ | 
