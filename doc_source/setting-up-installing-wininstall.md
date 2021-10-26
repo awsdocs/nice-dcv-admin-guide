@@ -14,9 +14,11 @@ Use the NICE DCV server installation wizard for a guided installation\.
 
 1. Launch and connect to the server on which to install the NICE DCV server\.
 
-1. Download the NICE DCV server installer from the [NICE](http://download.nice-dcv.com) website\.
+1. Download the NICE DCV server installer from the [NICE DCV](http://download.nice-dcv.com) website\.
 **Note**  
 The NICE DCV server is available only in a 64\-bit version and supported on 64\-bit Windows operating systems\.
+**Tip**  
+The [latest packages](http://download.nice-dcv.com/latest.html) page of the download website contains links that always point to the newest available version\. You can use these links to automatically retrieve the newest NICE DCV packages\.
 
 1. Run `nice-dcv-server-x64-Release-2021.2-version_number.msi`\. 
 

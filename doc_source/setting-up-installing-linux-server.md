@@ -25,52 +25,64 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Make sure that you download the correct archive for your operating system\.
+1. Download the packages from the [NICE DCV download website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Make sure that you download the correct archive for your operating system\.
    + 64\-bit x86
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11135-el7-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11190-el7-x86_64.tgz
      ```
    + 64\-bit ARM
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11135-el7-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11190-el7-aarch64.tgz
+     ```
+**Tip**  
+The [latest packages](http://download.nice-dcv.com/latest.html) page of the download website contains links that always point to the newest available version\. You can use these links to automatically retrieve the newest NICE DCV packages\.  
+64\-bit x86  
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-el7-x86_64.tgz
+     ```
+64\-bit ARM  
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-el7-aarch64.tgz
      ```
 
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
    + 64\-bit x86
 
      ```
-     $ tar -xvzf nice-dcv-2021.2-11135-el7-x86_64.tgz && cd nice-dcv-2021.2-11135-el7-x86_64
+     $ tar -xvzf nice-dcv-2021.2-11190-el7-x86_64.tgz && cd nice-dcv-2021.2-11190-el7-x86_64
      ```
    + 64\-bit ARM
 
      ```
-     $ tar -xvzf nice-dcv-2021.2-11135-el7-aarch64.tgz && cd nice-dcv-2021.2-11135-el7-aarch64
+     $ tar -xvzf nice-dcv-2021.2-11190-el7-aarch64.tgz && cd nice-dcv-2021.2-11190-el7-aarch64
      ```
 
 1. Install the NICE DCV server\.
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-server-2021.2.11135-1.el7.x86_64.rpm
+     $ sudo yum install nice-dcv-server-2021.2.11190-1.el7.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-server-2021.2.11135-1.el7.aarch64.rpm
+     $ sudo yum install nice-dcv-server-2021.2.11190-1.el7.aarch64.rpm
      ```
 
 1. \(Optional\) To use the web client with NICE DCV version 2021\.2 and later, install the `nice-dcv-web-viewer` package\.
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-web-viewer-2021.2.11135-1.el7.x86_64.rpm
+     $ sudo yum install nice-dcv-web-viewer-2021.2.11190-1.el7.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-web-viewer-2021.2.11135-1.el7.aarch64.rpm
+     $ sudo yum install nice-dcv-web-viewer-2021.2.11190-1.el7.aarch64.rpm
      ```
 
 1. \(Optional\) To use virtual sessions, install the `nice-xdcv` package\.
@@ -152,52 +164,64 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+1. Download the packages from the [NICE DCV download website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Make sure that you download the correct archive for your operating system\.
    + 64\-bit x86
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11135-el8-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11190-el8-x86_64.tgz
      ```
    + 64\-bit ARM
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11135-el8-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11190-el8-aarch64.tgz
+     ```
+**Tip**  
+The [latest packages](http://download.nice-dcv.com/latest.html) page of the download website contains links that always point to the newest available version\. You can use these links to automatically retrieve the newest NICE DCV packages\.  
+64\-bit x86  
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-el8-x86_64.tgz
+     ```
+64\-bit ARM  
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-el8-aarch64.tgz
      ```
 
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
    + 64\-bit x86
 
      ```
-     $ tar -xvzf nice-dcv-2021.2-11135-el8-x86_64.tgz && cd nice-dcv-2021.2-11135-el8-x86_64
+     $ tar -xvzf nice-dcv-2021.2-11190-el8-x86_64.tgz && cd nice-dcv-2021.2-11190-el8-x86_64
      ```
    + 64\-bit ARM
 
      ```
-     $ tar -xvzf nice-dcv-2021.2-11135-el8-aarch64.tgz && cd nice-dcv-2021.2-11135-el8-aarch64
+     $ tar -xvzf nice-dcv-2021.2-11190-el8-aarch64.tgz && cd nice-dcv-2021.2-11190-el8-aarch64
      ```
 
 1. Install the NICE DCV server\.
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-server-2021.2.11135-1.el8.x86_64.rpm
+     $ sudo yum install nice-dcv-server-2021.2.11190-1.el8.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-server-2021.2.11135-1.el8.aarch64.rpm
+     $ sudo yum install nice-dcv-server-2021.2.11190-1.el8.aarch64.rpm
      ```
 
 1. \(Optional\) If you plan to use the web client with NICE DCV version 2021\.2 and later, install the `nice-dcv-web-viewer` package\.
    + 64\-bit x86
 
      ```
-     $ sudo yum install nice-dcv-web-viewer-2021.2.11135-1.el8.x86_64.rpm
+     $ sudo yum install nice-dcv-web-viewer-2021.2.11190-1.el8.x86_64.rpm
      ```
    + 64\-bit ARM
 
      ```
-     $ sudo yum install nice-dcv-web-server-2021.2.11135-1.el8.aarch64.rpm
+     $ sudo yum install nice-dcv-web-server-2021.2.11190-1.el8.aarch64.rpm
      ```
 
 1. \(Optional\) To use virtual sessions, install the `nice-xdcv` package\.
@@ -276,52 +300,64 @@ The NICE DCV server is available for SUSE Linux Enterprise Server \(SLES\) 12\.x
    $ sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
 
-1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+1. Download the packages from the [NICE DCV download website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Make sure that you download the correct archive for your operating system\.
    + SLES 12\.x
 
      ```
-     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11135-sles12-x86_64.tgz
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11190-sles12-x86_64.tgz
      ```
    + SLES 15\.x
 
      ```
-     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11135-sles15-x86_64.tgz
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11190-sles15-x86_64.tgz
+     ```
+**Tip**  
+The [latest packages](http://download.nice-dcv.com/latest.html) page of the download website contains links that always point to the newest available version\. You can use these links to automatically retrieve the newest NICE DCV packages\.  
+SLES 12\.x  
+
+     ```
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-sles12-x86_64.tgz
+     ```
+SLES 15\.x  
+
+     ```
+     $ curl -O https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-sles15-x86_64.tgz
      ```
 
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
    + SLES 12\.x
 
      ```
-     $ tar -xvzf nice-dcv-2021.2-11135-sles12-x86_64.tgz && cd nice-dcv-2021.2-11135-sles12-x86_64
+     $ tar -xvzf nice-dcv-2021.2-11190-sles12-x86_64.tgz && cd nice-dcv-2021.2-11190-sles12-x86_64
      ```
    + SLES 15\.x
 
      ```
-     $ tar -xvzf nice-dcv-2021.2-11135-sles15-x86_64.tgz && cd nice-dcv-2021.2-11135-sles15-x86_64
+     $ tar -xvzf nice-dcv-2021.2-11190-sles15-x86_64.tgz && cd nice-dcv-2021.2-11190-sles15-x86_64
      ```
 
 1. Install the NICE DCV server\.
    + SLES 12\.x
 
      ```
-     $ sudo zypper install nice-dcv-server-2021.2.11135-1.sles12.x86_64.rpm
+     $ sudo zypper install nice-dcv-server-2021.2.11190-1.sles12.x86_64.rpm
      ```
    + SLES 15\.x
 
      ```
-     $ sudo zypper install nice-dcv-server-2021.2.11135-1.sles15.x86_64.rpm
+     $ sudo zypper install nice-dcv-server-2021.2.11190-1.sles15.x86_64.rpm
      ```
 
 1. \(Optional\) If you plan to use the web client with NICE DCV version 2021\.2 and later, install the `nice-dcv-web-viewer` package\.
    + SLES 12\.x
 
      ```
-     $ sudo zypper install nice-dcv-web-viewer-2021.2.11135-1.sles12.x86_64.rpm
+     $ sudo zypper install nice-dcv-web-viewer-2021.2.11190-1.sles12.x86_64.rpm
      ```
    + SLES 15\.x
 
      ```
-     $ sudo zypper install nice-dcv-web-viewer-2021.2.11135-1.sles15.x86_64.rpm
+     $ sudo zypper install nice-dcv-web-viewer-2021.2.11190-1.sles15.x86_64.rpm
      ```
 
 1. \(Optional\) To use virtual sessions, install the `nice-xdcv` package\.
@@ -438,72 +474,89 @@ The `nice-dcv-gl` and `nice-dcv-gltest` packages aren't available for servers ba
    $ gpg --import NICE-GPG-KEY
    ```
 
-1. Download the packages from the [NICE website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Ensure that you download the correct archive for your operating system\.
+1. Download the packages from the [NICE DCV download website](http://download.nice-dcv.com)\. The RPM and deb packages are packaged into a `.tgz` archive\. Make sure that you download the correct archive for your operating system\.
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11135-ubuntu1804-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11190-ubuntu1804-x86_64.tgz
      ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11135-ubuntu1804-aarch64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11190-ubuntu1804-aarch64.tgz
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11135-ubuntu2004-x86_64.tgz
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/2021.2/Servers/nice-dcv-2021.2-11190-ubuntu2004-x86_64.tgz
+     ```
+**Tip**  
+The [latest packages](http://download.nice-dcv.com/latest.html) page of the download website contains links that always point to the newest available version\. You can use these links to automatically retrieve the newest NICE DCV packages\.  
+Ubuntu 18\.04 \(64\-bit x86\)  
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-ubuntu1804-x86_64.tgz
+     ```
+Ubuntu 18\.04 \(64\-bit ARM\)  
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-ubuntu1804-aarch64.tgz
+     ```
+Ubuntu 20\.04 \(64\-bit x86\)  
+
+     ```
+     $ wget https://d1uj6qtbmh3dt5.cloudfront.net/nice-dcv-ubuntu2004-x86_64.tgz
      ```
 
 1. Extract the contents of the `.tgz` archive and navigate into the extracted directory\.
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ tar -xvzf nice-dcv-2021.2-11135-ubuntu1804-x86_64.tgz && cd nice-dcv-2021.2-11135-ubuntu1804-x86_64
+     $ tar -xvzf nice-dcv-2021.2-11190-ubuntu1804-x86_64.tgz && cd nice-dcv-2021.2-11190-ubuntu1804-x86_64
      ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
-     $ tar -xvzf nice-dcv-2021.2-11135-ubuntu1804-arm64.tgz && cd nice-dcv-2021.2-11135-ubuntu1804-arm64
+     $ tar -xvzf nice-dcv-2021.2-11190-ubuntu1804-arm64.tgz && cd nice-dcv-2021.2-11190-ubuntu1804-arm64
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ tar -xvzf nice-dcv-2021.2-11135-ubuntu2004-x86_64.tgz && cd nice-dcv-2021.2-11135-ubuntu2004-x86_64
+     $ tar -xvzf nice-dcv-2021.2-11190-ubuntu2004-x86_64.tgz && cd nice-dcv-2021.2-11190-ubuntu2004-x86_64
      ```
 
 1. Install the NICE DCV server\.
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2021.2.11135-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-server_2021.2.11190-1_amd64.ubuntu1804.deb
      ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2021.2.11135-1_arm64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-server_2021.2.11190-1_arm64.ubuntu1804.deb
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-server_2021.2.11135-1_amd64.ubuntu2004.deb
+     $ sudo apt install ./nice-dcv-server_2021.2.11190-1_amd64.ubuntu2004.deb
      ```
 
 1. \(Optional\) If you plan to use the web client with NICE DCV version 2021\.2 and later, install the `nice-dcv-web-viewer` package\.
    + Ubuntu 18\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-web-viewer_2021.2.11135-1_amd64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-web-viewer_2021.2.11190-1_amd64.ubuntu1804.deb
      ```
    + Ubuntu 18\.04 \(64\-bit ARM\)
 
      ```
-     $ sudo apt install ./nice-dcv-web-viewer_2021.2.11135-1_arm64.ubuntu1804.deb
+     $ sudo apt install ./nice-dcv-web-viewer_2021.2.11190-1_arm64.ubuntu1804.deb
      ```
    + Ubuntu 20\.04 \(64\-bit x86\)
 
      ```
-     $ sudo apt install ./nice-dcv-web-viewer_2021.2.11135-1_amd64.ubuntu2004.deb
+     $ sudo apt install ./nice-dcv-web-viewer_2021.2.11190-1_amd64.ubuntu2004.deb
      ```
 
 1. Add the `dcv` user to the `video` group\.

@@ -11,6 +11,7 @@ This page provides the release notes and document history for NICE DCV\.
 This section provides an overview of the major updates, feature releases, and bug fixes for NICE DCV\. All the updates are organized by release data\. We update the documentation frequently to address the feedback that you send us\.
 
 **Topics**
++ [DCV 2021\.2\-11190— October 11, 2021](#dcv-2021-2-11190)
 + [DCV 2021\.2\-11135— September 24, 2021](#dcv-2021-2-11135)
 + [DCV 2021\.2\-11048— September 01, 2021](#dcv-2021-2-11048)
 + [DCV 2021\.1\-10851— July 30, 2021](#dcv-2021-1-10851)
@@ -35,6 +36,15 @@ This section provides an overview of the major updates, feature releases, and bu
 + [DCV 2017\.0\-5121 — March 18, 2018](#dcv-2017-0-5121)
 + [DCV 2017\.0\-4334 — January 24, 2018](#dcv-2017-0-4334)
 + [DCV 2017\.0\-4100 — December 18, 2017](#dcv-2017-0-4100)
+
+### DCV 2021\.2\-11190— October 11, 2021<a name="dcv-2021-2-11190"></a>
+
+
+****  
+
+| Build numbers | Changes and bug fixes | 
+| --- | --- | 
+|  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  |  Fixes: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/dcv/latest/adminguide/doc-history-release-notes.html)  | 
 
 ### DCV 2021\.2\-11135— September 24, 2021<a name="dcv-2021-2-11135"></a>
 
