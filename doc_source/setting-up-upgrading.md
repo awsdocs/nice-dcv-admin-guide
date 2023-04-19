@@ -17,7 +17,7 @@ The following topic describes how to upgrade the NICE DCV server\.
 
 1. Using an RDP client, connect to the NICE DCV server as the administrator\.
 
-1. Ensure that there are no running NICE DCV sessions\. Use the `dcv list-sessions` NICE DCV command to check for any running sessions\. If there are running sessions, use the `dcv close session` NICE DCV command to stop them\.
+1. Ensure that there are no running NICE DCV sessions\. Use the `dcv list-sessions` NICE DCV command to check for any running sessions\. If there are running sessions, use the `dcv close-session` NICE DCV command to stop them\.
 
 1. After you confirm that there are no running sessions, stop the NICE DCV server\. For more information, see [Stopping the NICE DCV Server on Windows](manage-stop.md#manage-stop-windows)\.
 
