@@ -20,13 +20,13 @@ The NICE DCV server is available only in a 64\-bit version and supported on 64\-
 **Tip**  
 The [latest packages](http://download.nice-dcv.com/latest.html) page of the download website contains links that always point to the newest available version\. You can use these links to automatically retrieve the newest NICE DCV packages\.
 
-1. Run `nice-dcv-server-x64-Release-2021.2-version_number.msi`\. 
+1. Run `nice-dcv-server-x64-Release-2023.0-version_number.msi`\. 
 
 1. On the Welcome screen, choose **Next**\.
 
 1. On the End\-User License Agreement screen, read the license agreement\. If you accept the terms, select the **I accept the terms in the License Agreement** check box, and then choose **Next**\.
 
-1. \(Optional\) On the **Drivers Selection** screen, select **USB device remotization**, and choose **Will be installed on local hard drive**, **Next**\. This installs the drivers required to support some specialized USB devices\. Examples include 3D pointing devices and graphic tablets\.
+1. \(Optional\) configure which components will be installed by selecting items in the **Components Selection** screen\. To mark a component for installation, select the item and choose **Will be installed on local hard drive**\. To omit a component from the installation select the item and choose **Entire feature will be unavailable**\.
 
 1. On the DCV Service Configuration screen:
 
@@ -66,6 +66,7 @@ The component\_list is a comma\-separated list that can contain the following va
 + `printerDriver`: Printer driver
 + `usbDriver`: USB device remotization driver \(Disabled by default\)
 + `webcamDriver`: Webcam driver
++ `gamepadDriver`: Gamepad driver
 + `webClient`: Web client
 + `ALL`: All components
 
@@ -83,18 +84,18 @@ The NICE DCV server is available only in a 64\-bit version and supported on 64\-
    + Install default components:
 
      ```
-     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2021.2-version_number.msi 
+     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2023.0-version_number.msi
      /quiet /norestart /l*v dcv_install_msi.log
      ```
    + Install all components:
 
      ```
-     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2021.2-version_number.msi 
+     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2023.0-version_number.msi
      ADDLOCAL=ALL /quiet /norestart /l*v dcv_install_msi.log
      ```
    + Install a subset of components:
 
      ```
-     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2021.2-version_number.msi 
+     C:\>  msiexec.exe /i nice-dcv-server-x64-Release-2023.0-version_number.msi
      ADDLOCAL=audioMicDriver,audioSpkDriver,printerDriver,webcamDriver /quiet /norestart /l*v dcv_install_msi.log
      ```

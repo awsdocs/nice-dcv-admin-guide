@@ -39,7 +39,7 @@ Output:
 
 In the command output, the `num-of-connections` parameter indicates the number of active client connections\. A value of `0` indicates that there are no active client connections, and that the session is currently idle\. You can also use the `last-disconnection-time` parameter to determine when the session last had an active client connection\. 
 
-You can create a script or cron job that uses this information to identify idle sessions\. Then you can stop using them by using the [`dcv stop-session`](managing-sessions-lifecycle-stop.md) command\.
+You can create a script or cron job that uses this information to identify idle sessions\. Then you can stop using them by using the [`dcv close-session`](managing-sessions-lifecycle-stop.md) command\.
 
 **Note**  
 Stopping a session closes all of the applications that are running in the session\.

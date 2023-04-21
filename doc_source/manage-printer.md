@@ -4,7 +4,7 @@ If you're using a supported Linux distribution, you must configure the NICE DCV 
 
 **To enable printer redirection on your Linux NICE DCV server**
 
-1. Install `cups` service on your server\.
+1. Install `CUPS` service on your server\.
    + Amazon Linux 2, RHEL, and CentOS
 
      ```
@@ -27,7 +27,7 @@ If you're using a supported Linux distribution, you must configure the NICE DCV 
    $ usermod -a -G lpadmin dcv
    ```
 
-1. Make sure that the printer administrator group is referenced in the `SystemGroup` parameter in the cups configuration file\. For example, if your printer administrator group is named `lpadmin`, use a text editor to open `/etc/cups/cups-file.conf` and look for the following line\.
+1. Make sure that the printer administrator group is referenced in the `SystemGroup` parameter in the cups configuration file\. For example, if your printer administrator group is named `lpadmin`, use a text editor to open `/etc/cups/cups-files.conf` and look for the following line\.
 
    ```
    SystemGroup lpadmin
@@ -79,9 +79,9 @@ To resolve the issue, you must create a cups policy that allows access to the pr
 1. Install the policy\.
 
    ```
-   $ cat cupsd_policy | audit2allow -M cupsd_policy_module
+   $ ausearch -c 'dcvcupsbackend' --raw | audit2allow -M dcv-printer-policy
    ```
 
    ```
-   $ semodule -i cupsd_policy_module.pp
+   $ semodule -X 300 -i dcv-printer-policy.pp
    ```

@@ -19,12 +19,13 @@ NICE DCV offers the following features:
 + **Supports H\.264\-based encoding** — Uses H\.264\-based video compression and encoding to reduce bandwidth consumption\. 
 + **Supports lossless quality video compression** \- Supports lossless quality video compression when the network and processor conditions allow\.
 + **Matches display layouts** — Automatically adapts the server's screen resolution and display layout to match the size of the client window\.
-+ **Supports multi\-screen** — Lets you expand the session desktop across up to four monitors\.
++ **Supports multi\-screen** — Lets you expand the session desktop across up to four monitors\. High pixel density monitors are supported with native clients for Windows and macOS\.
 + **Adapts compression levels** — Automatically adapts the video compression levels based on the network's available bandwidth and latency\.
 + **Enables collaboration** — Provides dynamic sessions that support multiple collaborative clients\. Clients can connect and disconnect at any time during the session\. 
 + **Supports multiple sessions per server** \(Linux NICE DCV servers only\) — Supports multiple virtual sessions per Linux NICE DCV server to maximize cost savings\.
 + **Supports GPU sharing** \(Linux NICE DCV servers only\) — Lets you share one or more physical GPUs between multiple virtual sessions running on a Linux NICE DCV server\.
-+ **Supports USB, smart card, and stylus remotization** — Lets you use your peripherals in a NICE DCV session just like you would on your local computer\.
++ **Supports touch input, stylus input, and gamepads** — Lets you use you interact with a remote NICE DCV session using input devices attached to your local computer\.
++ **Supports USB and Smart Card, and stylus remotization** — Lets you use your peripherals in a NICE DCV session just like you would on your local computer\.
 + **Supports audio in and out, printing, and copy and paste** — Lets you perform these key actions between the session and your local computer\.
 + **Supports file transfer** — Lets you transfer files between the session and your local computer\.
 + **Provides an HTML5 client** \- Offers an HTML5 client that can be used with any modern web browser on Windows and Linux\.
@@ -34,4 +35,4 @@ NICE DCV offers the following features:
 
 There is no additional charge for using the NICE DCV server on an Amazon EC2 instance\. You pay the standard rates for the instance and other Amazon EC2 features that you use\.
 
-A license is required to install the NICE DCV server on an on\-premises or alternative cloud\-based server\. For more information, see [Licensing the NICE DCV Server](setting-up-license.md)\.
+Otherwise a license is required\. For more information, see [Licensing the NICE DCV Server](setting-up-license.md)\.

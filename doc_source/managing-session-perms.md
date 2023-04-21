@@ -5,19 +5,19 @@ Authorization is used to grant or deny NICE DCV clients permissions to specific 
 To modify the permissions for a running session, use the `dcv set-permissions` command\.
 
 **Topics**
-+ [Syntax](#syntax)
-+ [Options](#options)
++ [Syntax](#managing-session-perms-syntax)
++ [Options](#managing-session-perms-options)
 + [Examples](#session-perms-example)
 
-## Syntax<a name="syntax"></a>
+## Syntax<a name="managing-session-perms-syntax"></a>
 
 ```
-dcv set-permissions --session sessions_name --none | --reset-builtin | --file /path_to/permissions_file
+dcv set-permissions --session session-id --none | --reset-builtin | --file /path_to/permissions_file
 ```
 
 You must specify either `--none`, `--reset-builtin`, or `--file`\.
 
-## Options<a name="options"></a>
+## Options<a name="managing-session-perms-options"></a>
 
 The following options can be used with the `dcv set-permissions` command\.
 

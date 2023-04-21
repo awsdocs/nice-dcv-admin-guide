@@ -13,10 +13,10 @@ The administrator on a Windows NICE DCV server or the root user on a Linux NICE 
 To list the active console or virtual sessions on a Windows or Linux NICE DCV server, use the `dcv list-sessions` command\.
 
 **Topics**
-+ [Syntax](#syntax)
++ [Syntax](#list-all-syntax)
 + [Output](#output)
 
-### Syntax<a name="syntax"></a>
+### Syntax<a name="list-all-syntax"></a>
 
 ```
 dcv list-sessions
@@ -35,10 +35,10 @@ Session: session-id (owner:session-owner type:virtual|console name:'my session')
 To view information about a session, use the `dcv describe-session` command and specify the unique session ID\.
 
 **Topics**
-+ [Syntax](#syntax)
++ [Syntax](#view-specific-syntax)
 + [Output](#output)
 
-### Syntax<a name="syntax"></a>
+### Syntax<a name="view-specific-syntax"></a>
 
 ```
 $ dcv describe-session session_id

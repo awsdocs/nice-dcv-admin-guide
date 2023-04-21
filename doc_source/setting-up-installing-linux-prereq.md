@@ -19,22 +19,22 @@ Install a desktop environment and desktop manager to improve your experience wit
 
 A desktop environment is a graphical user interface \(GUI\) that helps you to interact with the Linux operating system\. There are several desktop environments, and NICE DCV works with many of them\. A desktop manager is a program that manages the user login screen, and starts and stops the desktop environment sessions and the X server\.
 
-The following tabbed content shows the steps for installing the default desktop environment and desktop manager on the supported operating systems\.
+The following tabbed content shows the steps for installing the default desktop environment and desktop manager on the supported operating systems and also shows how to configure and start the X server on the supported operating systems\.
 
 ------
-#### [ RHEL 7\.x/8\.x and CentOS 7\.x/8\.x ]
+#### [ RHEL, CentOS, and Rocky Linux ]
 
-The default desktop environment for RHEL 7\.x/8\.x and CentOS 7\.x/8\.x is Gnome3 and the default desktop manager is GDM\.
+The default desktop environment for RHEL, CentOS , and Rocky Linux is Gnome3 and the default desktop manager is GDM\.
 
-**To install and configure the desktop environment and desktop manager on RHEL 7\.x/8\.x and CentOS 7\.x/8\.x**
+**To install and configure the desktop environment and desktop manager on RHEL, CentOS, and Rocky Linux**
 
 1. Install the desktop environment and the desktop manager packages\.
-   + RHEL 7\.x/8\.x and CentOS 8\.x
+   + RHEL, CentOS, and Rocky Linux and above
 
      ```
      $ sudo yum groupinstall 'Server with GUI'
      ```
-   + CentOS 7\.x
+   + CentOS
 
      ```
      $ sudo yum groupinstall "GNOME Desktop"
@@ -121,31 +121,11 @@ For Ubuntu 18\.x, the default desktop environment is Gnome3 and the default desk
    ```
 
 ------
-#### [ Ubuntu 20\.x ]
+#### [ Ubuntu 20\.x and 22\.x ]
 
-For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. Depending on the session type that you run, you might need to configure the system differently\. 
-+ **Console sessions**
+For Ubuntu 20\.x/22\.x, the default desktop environment is Gnome3 and the default desktop manager is GDM3\. Starting with Ubuntu 20\.x, LightDM isn't supported anymore with NICE DCV\.
 
-  LightDM isn't currently supported with NICE DCV console sessions on Ubuntu 20\.x\. We recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\. 
-+ **Virtual Sessions**
-
-  Because of [a known GDM issue](https://gitlab.gnome.org/GNOME/gdm/-/issues/650), virtual sessions can't work with GDM3 on Ubuntu 20\.x\. To make virtual sessions working correctly, you can adopt one of the following solutions:
-  + **On servers that do not have a GPU**, you can disable the desktop manager because it's not required to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:
-
-    ```
-    sudo systemctl isolate multi-user.target
-    ```
-  + **On servers with a GPU**, in addition to disabling the desktop manager, you need to start an X server on the system before creating virtual sessions\. To do this, run the following commands:
-
-    ```
-    sudo systemctl isolate multi-user.target
-    ```
-
-    ```
-    sudo dcvstartx &
-    ```
-
-**To install and configure the desktop environment and desktop manager on Ubuntu 20\.x**
+**To install and configure the desktop environment and desktop manager on Ubuntu 20\.x/22\.x**
 
 1. Install the desktop environment and the desktop manager packages\.
 
@@ -157,13 +137,13 @@ For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desk
    $ sudo apt install ubuntu-desktop
    ```
 
-   Install GDM3 \(*only works with console sessions*\)
+   Install GDM3
 
    ```
    $ sudo apt install gdm3
    ```
 
-1. If you use GDM3, verify that GDM3 is set as the default desktop manager\.
+1. Verify that GDM3 is set as the default desktop manager\.
 
    ```
    $ cat /etc/X11/default-display-manager
@@ -193,10 +173,28 @@ For Ubuntu 20\.x, the default desktop environment is Gnome3 and the default desk
    $ sudo reboot
    ```
 
+**Note**  
+When using a version of NICE DCV older than 2022\.2 with **Virtual Sessions**, you may run into [a known GDM issue](https://gitlab.gnome.org/GNOME/gdm/-/issues/650)\. To make virtual sessions work correctly, you can adopt one of the following solutions:  
+**On servers that do not have a GPU**, you can disable the desktop manager because it's not required to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:  
+
+  ```
+  sudo systemctl isolate multi-user.target
+  ```
+**On servers with a GPU**, in addition to disabling the desktop manager, you need to start an X server on the system before creating virtual sessions\. To do this, run the following commands:  
+
+  ```
+  sudo systemctl isolate multi-user.target
+  ```
+
+  ```
+  sudo dcvstartx &
+  ```
+NICE DCV 2022\.2 and newer are not affected by this issue\.
+
 ------
 #### [ SUSE Linux Enterprise 12\.x ]
 
-The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic and the default desktop manager is GDM\. 
+The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic and the default desktop manager is GDM\.
 
 **To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 12\.x**
 
@@ -205,6 +203,8 @@ The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic a
    ```
    $ sudo zypper install -t pattern gnome_basic
    ```
+
+1. Verify that GDM is set as the default desktop manager\.
 
    ```
    $ sudo update-alternatives --set default-displaymanager /usr/lib/X11/displaymanagers/gdm
@@ -229,27 +229,7 @@ The default desktop environment for SUSE Linux Enterprise 12\.x is SLE Classic a
 ------
 #### [ SUSE Linux Enterprise 15\.x ]
 
-The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic and the default desktop manager is GDM3\. Depending on the session type you run, you might need to configure the system differently\. 
-+ **Console sessions**
-
-  LightDM isn't currently supported with NICE DCV console sessions on SUSE Linux Enterprise 15\.x\. We recommend that you use the GDM3 desktop manager if you plan to work with NICE DCV console sessions\. 
-+ **Virtual Sessions**
-
-  Because of [a known GDM issue](https://gitlab.gnome.org/GNOME/gdm/-/issues/650), virtual sessions cannot work on SUSE Linux Enterprise 15\.x\. To make virtual sessions working correctly, you can adopt one of the following solutions:
-  + **On servers that do not have a GPU**, you can disable the desktop manager since it's not required to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:
-
-    ```
-    sudo systemctl isolate multi-user.target
-    ```
-  + **On servers with a GPU**, in addition to disabling the desktop manager, you need to start an X server on the system before creating virtual sessions\. To do this, run the following commands:
-
-    ```
-    sudo systemctl isolate multi-user.target
-    ```
-
-    ```
-    sudo dcvstartx &
-    ```
+The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic and the default desktop manager is GDM3\.
 
 **To install and configure the desktop environment and desktop manager on SUSE Linux Enterprise 15\.x**
 
@@ -258,6 +238,8 @@ The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic a
    ```
    $ sudo zypper install -t pattern gnome_basic
    ```
+
+1. Verify that GDM is set as the default desktop manager\.
 
    ```
    $ sudo update-alternatives --set default-displaymanager /usr/lib/X11/displaymanagers/gdm
@@ -279,6 +261,24 @@ The default desktop environment for SUSE Linux Enterprise 15\.x is SLE Classic a
    $ sudo reboot
    ```
 
+**Note**  
+When using a version of NICE DCV older than 2022\.2 with **Virtual Sessions**, you may run into [a known GDM issue](https://gitlab.gnome.org/GNOME/gdm/-/issues/650)\. To make virtual sessions work correctly, you can adopt one of the following solutions:  
+**On servers that do not have a GPU**, you can disable the desktop manager because it's not required to run virtual sessions\. Configure the system to run in multi\-user mode by running the following command before creating virtual sessions:  
+
+  ```
+  sudo systemctl isolate multi-user.target
+  ```
+**On servers with a GPU**, in addition to disabling the desktop manager, you need to start an X server on the system before creating virtual sessions\. To do this, run the following commands:  
+
+  ```
+  sudo systemctl isolate multi-user.target
+  ```
+
+  ```
+  sudo dcvstartx &
+  ```
+NICE DCV 2022\.2 and newer are not affected by this issue\.
+
 ------
 
 ## Disable the Wayland protocol \(GDM3 only\)<a name="linux-prereq-wayland"></a>
@@ -288,12 +288,12 @@ NICE DCV doesn't support the Wayland protocol\. If you're using the GDM3 desktop
 **To disable the Wayland protocol**
 
 1. Open the following file using your preferred text editor\.
-   + RHEL 8\.x, CentOS 8\.x, and SUSE Linux Enterprise 15\.x
+   + RHEL, CentOS, and SUSE Linux Enterprise 15\.x
 
      ```
      /etc/gdm/custom.conf
      ```
-   + Ubuntu 20\.x
+   + Ubuntu 18\.x/20\.x/22\.x
 
      ```
      /etc/gdm3/custom.conf
@@ -303,16 +303,16 @@ NICE DCV doesn't support the Wayland protocol\. If you're using the GDM3 desktop
 
    ```
    [daemon]
-                 WaylandEnable=false
+   WaylandEnable=false
    ```
 
 1. Restart the GDM service\.
-   + RHEL 8\.x and CentOS 8\.x
+   + RHEL and CentOS
 
      ```
      $ sudo systemctl restart gdm
      ```
-   + Ubuntu 20\.x
+   + Ubuntu 18\.x/20\.x/22\.x
 
      ```
      $ sudo systemctl restart gdm3
@@ -332,46 +332,29 @@ If you intend to use virtual sessions without GPU sharing, you don't need an X s
 
 The X server packages are typically installed as dependencies of the desktop environment and the desktop manager\. We recommend that you configure the X server to start automatically when your Linux server boots\.
 
-The following content shows how to configure and start the X server on the supported operating systems\.
-
-------
-#### [ RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x/20\.x, and SUSE Linux Enterprise 12\.x/15\.x ]
-
-**To configure and start the X server on RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x/20\.x, or SUSE Linux Enterprise 12\.x/15\.x**
+**To configure and start the X server on RHEL, CentOS, Rocky Linux, Amazon Linux 2, Ubuntu 18\.x, 20\.x, 22\.x, and SUSE Linux Enterprise 12\.x, 15\.x:**
 
 1. Configure the X server to start automatically when the Linux server boots\.
 
-   ```
-   $ sudo systemctl get-default
-   ```
+   `$ sudo systemctl get-default`
 
-   If the command returns `graphical.target`, the X server is already configured to start automatically\. Continue to the next step\.
+   If the command returns `graphical.target`, the X server is already configured to start automatically\. Continue to the next step\. 
 
-   If the command returns `multi-user.target`, the X server isn't configured to start automatically\. Run the following command:
+   If the command returns `multi-user.target`, the X server isn't configured to start automatically\. Execute the following command: 
 
-   ```
-   $ sudo systemctl set-default graphical.target
-   ```
+   `$ sudo systemctl set-default graphical.target`
 
-1. Start the X server\.
+1. Start the X server\. 
 
-   ```
-   $ sudo systemctl isolate graphical.target
-   ```
+   `$ sudo systemctl isolate graphical.target `
 
 1. Verify that the X server is running\.
 
-   ```
-   $ ps aux | grep X | grep -v grep
-   ```
+   `$ ps aux | grep X | grep -v grep `
 
-   The following shows example output if the X server is running\.
+   The following shows example output if the X server is running\. 
 
-   ```
-   root      1891  0.0  0.7 277528 30448 tty7     Ssl+ 10:59   0:00 /usr/bin/Xorg :0 -background none -verbose -auth /run/gdm/auth-for-gdm-wltseN/database -seat seat0 vt7
-   ```
-
-------
+   `root 1891 0.0 0.7 277528 30448 tty7 Ssl+ 10:59 0:00 /usr/bin/Xorg :0 -background none -verbose -auth /run/gdm/auth-for-gdm-wltseN/database -seat seat0 vt7 `
 
 ## Install the glxinfo utility<a name="linux-prereq-tools"></a>
 
@@ -379,23 +362,37 @@ The glxinfo utility provides information about your Linux server's OpenGL config
 
 The glxinfo utility is installed as a package dependency of DCV GL\. Therefore, if you installed DCV GL, the glxinfo utility is already installed on your Linux server\.
 
+------
+#### [ RHEL, CentOS, Rocky Linux, and Amazon Linux 2 ]
+
 **To install the glxinfo utility**  
 Run the following command:
-+ RHEL 7\.x/8\.x, CentOs 7\.x/8\.x, and Amazon Linux 2
 
-  ```
-  $ sudo yum install glx-utils
-  ```
-+ Ubuntu 18\.x/20\.x
+```
+$ sudo yum install glx-utils
+```
 
-  ```
-  $ sudo apt install mesa-utils
-  ```
-+ SUSE Linux Enterprise 12\.x/15\.x
+------
+#### [ Ubuntu ]
 
-  ```
-  $ sudo zypper in Mesa-demo-x
-  ```
+**To install the glxinfo utility**  
+Run the following command:
+
+```
+$ sudo apt install mesa-utils
+```
+
+------
+#### [ SUSE Linux Enterprise ]
+
+**To install the glxinfo utility**  
+Run the following command:
+
+```
+$ sudo zypper in Mesa-demo-x
+```
+
+------
 
 ## Verify OpenGL software rendering<a name="linux-prereq-opengl"></a>
 
@@ -415,11 +412,11 @@ The following shows example output if OpenGL software rendering is available:
 
 ```
 OpenGL core profile version string: 3.3 (Core Profile) Mesa 17.0.5
-          OpenGL core profile shading language version string: 3.30
-          OpenGL version string: 3.0 Mesa 17.0.5
-          OpenGL shading language version string: 1.30
-          OpenGL ES profile version string: OpenGL ES 3.0 Mesa 17.0.5
-          OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
+OpenGL core profile shading language version string: 3.30
+OpenGL version string: 3.0 Mesa 17.0.5
+OpenGL shading language version string: 1.30
+OpenGL ES profile version string: OpenGL ES 3.0 Mesa 17.0.5
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.00
 ```
 
 ## Install GPU drivers for graphics instances<a name="linux-prereq-gpu"></a>
@@ -459,7 +456,7 @@ Make sure that your server doesn't have the legacy `/etc/X11/XF86Config` file\. 
    ```
 
 1. Restart the X server for the changes to take effect\.
-   + RHEL 7\.x, CentOs 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
+   + 
 
      ```
      $ sudo systemctl isolate multi-user.target
@@ -487,11 +484,11 @@ The following shows example output if OpenGL hardware rendering is available\.
 
 ```
 OpenGL core profile version string: 4.4.0 NVIDIA 390.75
-            OpenGL core profile shading language version string: 4.40 NVIDIA via Cg compiler
-            OpenGL version string: 4.6.0 NVIDIA 390.75
-            OpenGL shading language version string: 4.60 NVIDIA
-            OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 390.75
-            OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
+OpenGL core profile shading language version string: 4.40 NVIDIA via Cg compiler
+OpenGL version string: 4.6.0 NVIDIA 390.75
+OpenGL shading language version string: 4.60 NVIDIA
+OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 390.75
+OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
 ```
 
 ### Install and Configure AMD Drivers<a name="gpu-amd"></a>
@@ -513,23 +510,37 @@ To use console sessions on Linux servers that do not have a dedicated GPU, ensur
 This is not required if you intend to use virtual sessions\.
 The XDummy driver is able to support only resolutions defined in its configuration\.
 
+------
+#### [ RHEL, CentOS, Rocky Linux, and Amazon Linux 2 ]
+
 **To install the XDummy driver**  
 Run the following command:
-+ RHEL 7\.x/8\.x, CentOs 7\.x/8\.x, and Amazon Linux 2
 
-  ```
-  $ sudo yum install xorg-x11-drv-dummy
-  ```
-+ Ubuntu 18\.x/20\.x
+```
+$ sudo yum install xorg-x11-drv-dummy
+```
 
-  ```
-  $ sudo apt install xserver-xorg-video-dummy
-  ```
-+ SUSE Linux Enterprise 12\.x/15\.x
+------
+#### [ Ubuntu ]
 
-  ```
-  $ sudo zypper in xf86-video-dummy
-  ```
+**To install the XDummy driver**  
+Run the following command:
+
+```
+$ sudo apt install xserver-xorg-video-dummy
+```
+
+------
+#### [ SUSE Linux Enterprise ]
+
+**To install the XDummy driver**  
+Run the following command:
+
+```
+$ sudo zypper in xf86-video-dummy
+```
+
+------
 
 After you installed the XDummy drivers on your Linux server, update the `xorg.conf`\.
 
@@ -578,7 +589,7 @@ After you installed the XDummy drivers on your Linux server, update the `xorg.co
 The configuration provided is an example\. You can add more modes, and set a different `virtual` resolution\. You can also configure more than one dummy monitor\.
 
 1. Restart the X server for the changes to take effect\.
-   + RHEL 7\.x, CentOs 7\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
+   + 
 
      ```
      $ sudo systemctl isolate multi-user.target

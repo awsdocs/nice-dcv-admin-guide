@@ -1,14 +1,14 @@
 # Enable Remote X Connections to the X Server<a name="setup-xforwarding"></a>
 
-By default, NICE DCV 2017 prevents the use of X forwarding, because of inherent security risks\. NICE DCV inherits this behavior from the newer versions of the Xorg server\. The NICE DCV server implements the following default inherited mitigations to minimize the security risks:
-+ The NICE DCV server prevents X connections from the network\. The NICE DCV server is configured to start with `-nolisten tcp` command line option\. However, it is possible to change the default behavior to enable remote X connections to the X server\. For more information about this workaround, see [Enable Remote X Connections to the X Server](#enable-remotex)\.
+By default, `Xdcv` prevents the use of X forwarding, because of inherent security risks\. NICE DCV inherits this behavior from the newer versions of the Xorg server\. The NICE DCV server implements the following default mitigations to minimize the security risks:
++ The X server prevents X connections from the network\. The X server is configured to start with `-nolisten tcp` command line option\. However, it is possible to change the default behavior to enable remote X connections to the X server\. For more information about this workaround, see [Enable Remote X Connections to the X Server](#enable-remotex)\.
 + The X server disables GLX indirect contexts\. Because of conflicts with DCV\-GL, there is currently no workaround to enable GLX indirect contexts\.
 
 For more information about the security risks and the mitigations, see the [ X\.Org Security Advisory](https://www.x.org/wiki/Development/Security/Advisory-2014-12-09/)\.
 
 ## Enable Remote X Connections to the X Server<a name="enable-remotex"></a>
 
-By default, NICE DCV is configured to start with the `-nolisten tcp` command line option to reduce exposure to the security risks\. However, it is possible to change the default behavior to enable X forwarding\.
+By default, `Xdcv` is configured to start with the `-nolisten tcp` command line option to reduce exposure to the security risks\. However, it is possible to change the default behavior to enable X forwarding\.
 
 **To enable X forwarding**  
 Open `/etc/dcv/dcv.conf` using your preferred text editor\. Add the following to the end of the file:
@@ -38,6 +38,12 @@ Enabling X forwarding does not affect existing sessions, but only the new sessio
    $ netstat -punta | grep 600
    ```
 
+1. Add the remote server to the NICE DCV server host access list\.
+
+   ```
+   $ xhost +remote_server
+   ```
+
 1. Retrieve the NICE DCV session display number\.
 
    ```
@@ -47,7 +53,7 @@ Enabling X forwarding does not affect existing sessions, but only the new sessio
 1. SSH into the remote server on which the application is hosted\.
 
    ```
-   $ ssh user@remote_server_ip
+   $ ssh user@remote_server
    ```
 
 1. From the remote server, export the display environment variable to point to the X server of the NICE DCV session\.

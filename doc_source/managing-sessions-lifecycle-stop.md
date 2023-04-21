@@ -8,10 +8,10 @@ Stopping a session closes all of the applications that are running in the sessio
 To stop a console or virtual session on a Windows or Linux NICE DCV server, use the `dcv close-session` command and specify the unique session ID\.
 
 **Topics**
-+ [Syntax](#syntax)
++ [Syntax](#managing-sessions-lifecycle-stop-syntax)
 + [Example](#example)
 
-## Syntax<a name="syntax"></a>
+## Syntax<a name="managing-sessions-lifecycle-stop-syntax"></a>
 
 ```
 dcv close-session session-id

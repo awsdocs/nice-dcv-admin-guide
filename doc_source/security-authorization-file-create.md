@@ -147,27 +147,31 @@ The following rules can be used in permissions statements:
 The features can include individual NICE DCV features, aliases, or a combination of both\. The list of features must be separated by a space\. NICE DCV includes a built\-in `builtin` alias that includes all of the NICE DCV features\.
 
 The following features can be referenced in the permissions file:
-+ `display` — Receive visual data from the NICE DCV server\.
++ `audio-in` — Insert audio from the client to the NICE DCV server\.
++ `audio-out` — Play back NICE DCV server audio on the client\.
++ `builtin` — All features\.
 + `clipboard-copy` — Copy data from the NICE DCV server to the client clipboard\.
 + `clipboard-paste` — Paste data from the client clipboard to the NICE DCV server\.
++ `display` — Receive visual data from the NICE DCV server\.
++ `extensions-client` — Allows to start the installed extensions on the NICE DCV client\.
++ `extensions-server` — Allows to start the installed extensions on the NICE DCV server\.
 + `file-download` — Download files from the session storage\.
 + `file-upload` — Upload files to the session storage\.
-+ `mouse` — Input from the client pointer to the NICE DCV server\.
++ `gamepad` — Use gamepads connected to a client computer in a session\. Supported on version NICE DCV 2022\.0 and later\.
 + `keyboard` — Input from the client keyboard to the NICE DCV server\.
-+ `keyboard-sas` — Use the secure attention sequence \(**CTRL\+Alt\+Del**\)\. Requires the `keyboard` feature\. Supported on version DCV 2017\.3 and later\.
-+ `touch` — Use native touch events\. Supported on version DCV 2017\.3 and later\.
-+ `stylus` — Input from specialized USB devices, such as 3D pointing devices or graphic tablets\.
-+ `usb` — Use USB devices from the client\.
-+ `pointer` — View NICE DCV server mouse position events and pointer shapes\. Supported on version DCV 2017\.3 and later\.
-+ `audio-out` — Play back NICE DCV server audio on the client\.
-+ `audio-in` — Insert audio from the client to the NICE DCV server\.
++ `keyboard-sas` — Use the secure attention sequence \(**CTRL\+Alt\+Del**\)\. Requires the `keyboard` feature\. Supported on version NICE DCV 2017\.3 and later\.
++ `mouse` — Input from the client pointer to the NICE DCV server\.
++ `pointer` — View NICE DCV server mouse position events and pointer shapes\. Supported on version NICE DCV 2017\.3 and later\.
 + `printer` — Create PDFs or XPS files from the NICE DCV server to the client\.
-+ `smartcard` — Read the smart card from the client\.
-+ `webcam` — Use the webcam connected to a client computer in a session\. Supported on version DCV 2021\.0 and later\.
 + `screenshot` — Save a screenshot of the remote desktop\. It's supported on version NICE DCV 2021\.2 and later\.
 
   When removing `screenshot` authorization, we recommended that you disable the `clipboard-copy` permission\. This prevents users from capturing screenshots on the clipboard of the server and then pasting them on the client\. When the `screenshot` authorization is denied, Windows and macOS will also prevent external tools from capturing a screenshot of the client\. For example, using the Windows Snipping Tool on the NICE DCV client window will result in a black image\.
-+ `builtin` — All features\.
++ `smartcard` — Read the smart card from the client\.
++ `stylus` — Input from specialized USB devices, such as 3D pointing devices or graphic tablets\.
++ `touch` — Use native touch events\. Supported on version DCV 2017\.3 and later\.
++ `unsupervised-access` — Use to set owner\-less access of users in a collaborative session\.
++ `usb` — Use USB devices from the client\.
++ `webcam` — Use the webcam connected to a client computer in a session\. Supported on version NICE DCV 2021\.0 and later\.
 
 **Example**  
 The following example adds the permissions section heading and adds four permissions\. The first permission grants a user named `john` access to the `display`, `file-upload`, and `file-download` features\. The second permission denies the `observers` group access to the `audio-in` and `audio-out` features, and the `clipboard-management` feature alias\. The third permission grants the `guests` operating system group access to the `clipboard-management` and `file-management` aliases\. The fourth permission grants the session owner access to all features\.

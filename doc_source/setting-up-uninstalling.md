@@ -14,7 +14,7 @@ The following topic describes how to uninstall the NICE DCV server\.
 
 1. Ensure that there are no running NICE DCV sessions\. Use the `dcv list-sessions` NICE DCV command to check for any running sessions\. If there are running sessions, use the `dcv close session` NICE DCV command to stop them\.
 
-1. After you confirm that there are no running sessions, stop the NICE DCV server\. For more information, see [Stopping the NICE DCV Server on Windows](manage-stop.md#manage-stop-windows)\.
+1. After you confirm that there are no running sessions, stop the NICE DCV server\. For more information, see [Stopping the NICE DCV Server](manage-stop.md)\.
 
 1. Open the Windows **Settings** application and navigate to the **Apps & Features** panel\.
 
@@ -33,12 +33,12 @@ You must be signed in as the root user to uninstall the NICE DCV server\.
 
 1. Ensure that there are no running NICE DCV sessions\. Use the `dcv list-sessions` NICE DCV command to check for any running sessions\. If there are running sessions, use the `dcv close session` NICE DCV command to stop them\.
 
-1. After you confirm that there are no running sessions, stop the NICE DCV server\. For more information, see [Stopping the NICE DCV Server on Linux](manage-stop.md#manage-stop-linux)\.
+1. After you confirm that there are no running sessions, stop the NICE DCV server\. For more information, see [Stopping the NICE DCV Server](manage-stop.md)\.
 
 1. Uninstall the NICE DCV server packages\. Depending on how you performed the installation, some of the packages might not be installed on your system and can be omitted from the command\. For a list of optional packages, see [Installing the NICE DCV Server on Linux](setting-up-installing-linux.md)\.
 
 ------
-#### [ Amazon Linux 2 and RHEL/CentOS 7\.x/8\.x ]
+#### [ Amazon Linux 2 and RHEL, CentOS ]
 
    ```
    $ sudo yum remove nice-dcv-server nice-xdcv nice-dcv-gl nice-dcv-gltest nice-dcv-simple-external-authenticator

@@ -16,7 +16,7 @@ The `ProgramData` folder might be hidden by default\. If you do not see the `Pro
 
 The NICE DCV server enables you to configure the verbosity level of the log files\. The following verbosity levels are available:
 + `error` — Provides the least detail\. Includes errors only\.
-+ `warning` — Includes errors and warnings\.
++ `warn` — Includes errors and warnings\.
 + `info` — The default verbosity level\. Includes errors, warnings, and information messages\.
 + `debug` — Provides the most detail\. Provides detailed information that is useful for debugging issues\.
 
@@ -30,7 +30,7 @@ To configure the log file verbosity, you must configure the `level` parameter us
 
 1. Navigate to the **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv/log/** key\.
 
-1. Open the **level** parameter by double\-clicking\. For **Value data**, type either `error`, `warning`, `info`, or `debug`, depending on the required verbosity level\.
+1. Open the **level** parameter by double\-clicking\. For **Value data**, type either `error`, `warn`, `info`, or `debug`, depending on the required verbosity level\.
 
 1. Choose **OK** and close the Windows Registry Editor\.
 
@@ -42,7 +42,7 @@ To configure the log file verbosity, you must configure the `level` parameter in
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
 
-1. Locate the `level` parameter in the `[log]` section, and replace the existing verbosity level with either `error`, `warning`, `info`, or `debug`\.
+1. Locate the `level` parameter in the `[log]` section, and replace the existing verbosity level with either `error`, `warn`, `info`, or `debug`\.
 
    ```
    [log]

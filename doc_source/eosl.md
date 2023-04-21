@@ -23,6 +23,7 @@ The following table shows the EOSL timeline for the NICE DCV major versions\.
 | **NICE DCV 2019\.x** | August 5, 2019 | December 31, 2022 | 
 | **NICE DCV 2020\.x** | April 16, 2020 | December 31, 2023 | 
 | **NICE DCV 2021\.x** | April 12, 2021 | December 31, 2024 | 
+| **NICE DCV 2022\.x** | February 23, 2022 | December 31, 2025 | 
 
 ## EOSL paths for customers<a name="paths"></a>
 

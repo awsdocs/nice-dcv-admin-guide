@@ -10,7 +10,7 @@ This topic describes how to configure your Windows Amazon EC2 instance before yo
 
 ### Prerequisites for GPU graphics instances<a name="setting-up-installing-graphics"></a>
 
-If you're using a GPU graphics instance \(for example, a G2, G3, G4dn, or G4ad instance\), we recommend that you install and configure the appropriate NVIDIA or AMD GPU drivers\. The GPU drivers allow for the following:
+If you're using a GPU graphics instance \(for example, a G2, G3, G4dn, G4ad, or G5 instance\), we recommend that you install and configure the appropriate NVIDIA or AMD GPU drivers\. The GPU drivers allow for the following:
 + DirectX and OpenGL hardware acceleration for applications
 + Hardware acceleration for H\.264 video streaming encoding
 + Customizable server monitor resolutions
@@ -18,7 +18,7 @@ If you're using a GPU graphics instance \(for example, a G2, G3, G4dn, or G4ad i
 + Increased number of server monitors
 
 For instructions on how to install NVIDIA GPU drivers on your GPU graphics instance, see the following topics in the *Amazon EC2 User Guide*\.
-+ For instances with an NVIDIA GPU \(for example, a G2, G3, or G4dn instance\), see [ Installing the NVIDIA Driver on Windows](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver.html)\.
++ For instances with an NVIDIA GPU \(for example, a G2, G3, G4dn, or G5 instance\), see [ Installing the NVIDIA Driver on Windows](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-nvidia-driver.html)\.
 + For instances with an AMD GPU \(for example, a G4ad instance\), see [ Install AMD drivers on Windows instances](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/install-amd-driver.html)\.
 
 For more information about Amazon EC2 G4ad instances, see the [Deep dive on the new Amazon EC2 G4ad instances ](http://aws.amazon.com/blogs/compute/deep-dive-on-the-new-amazon-ec2-g4ad-instances/) blog post\.
@@ -43,7 +43,7 @@ Installing the NICE DCV Virtual Display driver enables the following:
 You can't manage server monitors attached by the NICE DCV server using Windows Control Panel\.
 
 **Note**  
-The NICE DCV Virtual Display driver is supported on Windows Server 2012 R2 and later\.
+The NICE DCV Virtual Display driver is supported on Windows Server 2016 and later\.
 
 **Important**  
 Installing the NICE DCV Virtual Display driver with any other GPU drivers, such as NVIDIA GPU drivers, might cause conflicts\. To avoid conflicts, we recommend that you don't install the NICE DCV Virtual Display driver in combination with any other GPU drivers\.
@@ -55,7 +55,7 @@ Installing the NICE DCV Virtual Display driver with any other GPU drivers, such 
 1. To install the driver by running the wizard, open or double\-click the installation file\. Or, use the following command to run an unattended installation\.
 
    ```
-   C:\> nice-dcv-virtual-display-x64-Release-34.msi /quiet /norestart
+   C:\> nice-dcv-virtual-display-x64-Release-38.msi /quiet /norestart
    ```
 
 1. Reboot the instance, and then reconnect to it\.

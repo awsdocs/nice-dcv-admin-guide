@@ -16,7 +16,7 @@ You can configure the NICE DCV server to prevent clients from requesting display
 + [`min-head-resolution`](config-param-ref.md#paramref.display.min-head-resolution) and [`max-head-resolution`](config-param-ref.md#paramref.display.max-head-resolution)—Specifies the minimum and maximum allowed resolutions respectively\.
 + [`web-client-max-head-resolution`](config-param-ref.md#paramref.display.web-client-max-head-resolution)—Specifies the maximum allowed resolution for web browser clients\. The `max-head-resolution` limitation is applied on top of `web-client-max-head-resolution` limitation\. By default, the maximum resolution for web browser clients is 1920x1080\. Specifying a higher resolution might cause performance issues, depending on the web browser and specifications of the client computer\.
 + [`max-num-heads`](config-param-ref.md#paramref.display.max-num-heads)—Specifies the maximum number of displays\.
-+ `max\-layout\-area`— Specifies the maximum number of pixels allowed for the screen area\. Requests iwith the total screen area \(expressed in pixels\) exceeds the specified value are ignored\.
++ `max\-layout\-area`— Specifies the maximum number of pixels allowed for the screen area\. Requests with the total screen area \(expressed in pixels\) exceeds the specified value are ignored\.
 
 For more information about these parameters, see [`display` Parameters](config-param-ref.md#display) in the Parameter Reference\.
 

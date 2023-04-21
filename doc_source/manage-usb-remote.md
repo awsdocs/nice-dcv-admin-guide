@@ -12,11 +12,8 @@ The NICE DCV server uses an allow list to determine which USB devices clients ar
 
 However, some specialized devices might not be added to the allow list by default\. These devices must be manually added to the allow list on the NICE DCV server before they can be used by the client\. After they have been added, they appear in the Windows client **Settings** menu\.
 
-**Topics**
-+ [Adding devices to an allow list on Windows](#manage-usb-remote-windows)
-+ [Adding devices to an allow list on Linux](#manage-usb-remote-linux)
-
-## Adding USB devices to an allow list on a Windows NICE DCV Server<a name="manage-usb-remote-windows"></a>
+------
+#### [ Windows NICE DCV server ]
 
 To add a USB device to the allow list, you must obtain the USB device's filter string from the client and add it to the `usb-devices.conf` file\.
 
@@ -34,7 +31,8 @@ To add a USB device to the allow list, you must obtain the USB device's filter s
 
 1. [Stop](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-stop.html) and [restart](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-start.html) the NICE DCV server\.
 
-## Adding USB devices to an allow list on a Linux NICE DCV Server<a name="manage-usb-remote-linux"></a>
+------
+#### [ Linux NICE DCV server ]
 
 To add a USB device to the allow list, add the filter string for the USB device to the `usb-devices.conf` file\.
 
@@ -51,3 +49,5 @@ To add a USB device to the allow list, add the filter string for the USB device 
 1. Save and close the file\.
 
 1. [Stop](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-stop.html) and [restart](https://docs.aws.amazon.com/dcv/latest/adminguide/manage-start.html) the NICE DCV server\.
+
+------

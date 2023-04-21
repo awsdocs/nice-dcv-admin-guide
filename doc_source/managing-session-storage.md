@@ -7,11 +7,11 @@ If session storage is enabled on the NICE DCV server, you can use the `dcv set-s
 To set the session storage path, use the `dcv set-storage-root` command and specify the session ID and the path to the directory to use\.
 
 **Topics**
-+ [Syntax](#syntax)
-+ [Options](#options)
++ [Syntax](#managing-session-storage-syntax)
++ [Options](#managing-session-storage-options)
 + [Examples](#session-storage-example)
 
-## Syntax<a name="syntax"></a>
+## Syntax<a name="managing-session-storage-syntax"></a>
 
 ```
 dcv set-storage-root --session session_id /path_to/directory
@@ -19,12 +19,12 @@ dcv set-storage-root --session session_id /path_to/directory
 
 For the directory path, you can use `%home%` to specify the home directory of the user who is currently signed in\. For example, the `%home%/storage/` path resolves to `c:\Users\username\storage\` on Windows servers\. It resolves to `$HOME/storage/` on Linux servers\. 
 
-## Options<a name="options"></a>
+## Options<a name="managing-session-storage-options"></a>
 
 The following options can be used with the `dcv set-storage-root` command
 
 **`--session`**  
-The name of the session for which to specify the storage directory\.  
+The session ID for which to specify the storage directory\.  
 Type: String  
 Required: Yes
 

@@ -3,7 +3,7 @@
 By default, clients are required to authenticate against the server where NICE DCV is hosted before connecting to a NICE DCV session\. If the client fails to authenticate, this is probably because it was prevented from connecting to the session\. Client authentication requirements can be disabled to allow clients to connect to a session without authenticating against the server\.
 
 NICE DCV supports the following authentication methods:
-+ `system` — This is the default authentication method\. Client authentication is delegated to the underlying operating system\. For Windows NICE DCV servers, authentication is delegated to WinLogon\. For Linux NICE DCV servers, authentication is delegated to PAM\. Clients provide their system credentials when connecting to a NICE DCV session\. Ensure that your clients have the credentials for the appropriate user accounts on the NICE DCV server\.
++ `system` — This is the default authentication method\. Client authentication is delegated to the underlying operating system\. For Windows NICE DCV servers, authentication is delegated to WinLogon\. For Linux NICE DCV servers, authentication is delegated to PAM\. Clients provide their system credentials when connecting to a NICE DCV session\. Verify that your clients have the appropriate sign\-in credentials for the NICE DCV server\.
 + `none` — No client authentication is required when connecting to a NICE DCV session\. The NICE DCV server grants access to all clients that attempt to connect to a session\.
 
 Make sure that your clients are aware of the authentication method used by the NICE DCV server\. They should also make sure that they have the information required to connect to the session\.
@@ -11,6 +11,7 @@ Make sure that your clients are aware of the authentication method used by the N
 **Topics**
 + [Configuring authentication on Windows](#set-authentication-windows)
 + [Configuring authentication on Linux](#set-authentication-linux)
++ [Configuring authentication with external authenticators](#set-authentication-external)
 
 ## Configuring authentication on Windows<a name="set-authentication-windows"></a>
 
@@ -111,3 +112,7 @@ If you want to change the steps performed by PAM when authenticating a user thro
 The PAM service name must match the name of the file you created in `/etc/pam.d`\.
 
 1. Save and close the file\.
+
+## Configuring authentication with external authenticators<a name="set-authentication-external"></a>
+
+DCV can be configured to use an external authenticator\. For more information on this process and its requirements, see [Use External Authentication](external-authentication.md)\.

@@ -62,14 +62,6 @@ After you configured the PulseAudio sound server, you must configure the NICE DC
 
 **To configure the NICE DCV server to use the PulseAudio device**
 
-1. Retrieve the name of the PulseAudio device using the following command\.
-
-   ```
-   $ C:\> pacmd list-sources
-   ```
-
-   The device name is listed in the `device.description` field\.
-
 1. Open `/etc/dcv/dcv.conf` with your preferred text editor\.
 
 1. Locate the `grab-device` parameter in the `[audio]` section\. Then, replace the existing value with the device name that you retrieved in the previous step\.
@@ -78,7 +70,7 @@ After you configured the PulseAudio sound server, you must configure the NICE DC
 
    ```
    [audio]
-   grab-device="device_name"
+   grab-device="DCV Audio Speakers"
    ```
 
 1. Save and close the file\.

@@ -2,14 +2,17 @@
 
 The following topic describes how to upgrade the NICE DCV server\.
 
-**Considerations**
-+ NICE DCV server versions 2017 and later are compatible with NICE DCV client versions 2017 and later\. 
-+ NICE DCV server license files are backward compatible with previous versions of the NICE DCV server\. For example,you can use a NICE DCV server version 2021 license with NICE DCV server version 2019\. 
-+ NICE DCV server versions require at least the same version of the NICE DCV server license\. For example, if you use a NICE DCV server version 2021, you need a license version 2021 or later\. If you upgrade to a later NICE DCV server version, you must request compatible license files\. For more information, contact your NICE DCV distributor or reseller\. 
-
 **Topics**
++ [Compatibility considerations](#compatibility-considerations)
 + [Upgrading the NICE DCV Server on Windows](#upgrading-windows-upgrade)
 + [Upgrading the NICE DCV Server on Linux](#upgrading-linux)
+
+## Compatibility considerations<a name="compatibility-considerations"></a>
+
+NICE DCV server versions 2017 and later are compatible with NICE DCV client versions 2017 and later\.
+
+**Note**  
+For information about the NICE DCV server licensing compatibility requirements for on\-premises and non EC2\-based servers, see [Licensing requirements](setting-up-license.md#licensing-requirements)\.
 
 ## Upgrading the NICE DCV Server on Windows<a name="upgrading-windows-upgrade"></a>
 
@@ -19,7 +22,7 @@ The following topic describes how to upgrade the NICE DCV server\.
 
 1. Ensure that there are no running NICE DCV sessions\. Use the `dcv list-sessions` NICE DCV command to check for any running sessions\. If there are running sessions, use the `dcv close-session` NICE DCV command to stop them\.
 
-1. After you confirm that there are no running sessions, stop the NICE DCV server\. For more information, see [Stopping the NICE DCV Server on Windows](manage-stop.md#manage-stop-windows)\.
+1. After you confirm that there are no running sessions, stop the NICE DCV server\. For more information, see [Stopping the NICE DCV Server](manage-stop.md)\.
 
 1. Back up your NICE DCV server configuration\. Open the Registry Editor, navigate to **HKEY\_USERS/S\-1\-5\-18/Software/GSettings/com/nicesoftware/dcv**, right\-click the **dcv** key, and choose **Export**\.
 
@@ -39,7 +42,7 @@ The following topic describes how to upgrade the NICE DCV server\.
 
 1. Ensure that there are no running NICE DCV sessions\. Use the `dcv list-sessions` NICE DCV command to check for any running sessions\. If there are running sessions, use the `dcv close session` NICE DCV command to stop them\.
 
-1. After you confirm that there are no running sessions, stop the NICE DCV server\. For more information, see [Stopping the NICE DCV Server on Linux](manage-stop.md#manage-stop-linux)\.
+1. After you confirm that there are no running sessions, stop the NICE DCV server\. For more information, see [Stopping the NICE DCV Server](manage-stop.md)\.
 
 1. Back up your NICE DCV server configuration\. Copy the `/etc/dcv/dcv.conf` file to a safe location\.
 

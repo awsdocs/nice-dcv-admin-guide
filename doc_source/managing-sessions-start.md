@@ -1,11 +1,13 @@
 # Starting NICE DCV sessions<a name="managing-sessions-start"></a>
 
-By default, a console session is automatically created on Windows NICE DCV servers after the servers are installed\. The default console session is owned by `Administrator` and has a default session ID of `console`\. If you chose to prevent the automatic console session when you installed the NICE DCV server, you must create one manually\. After you install the NICE DCV server, you can enable or disable the automatic console session at any time\.
+When you use the defaults to [install Windows NICE DCV server](setting-up-installing-wininstall.md), a [console session](managing-sessions.md#managing-sessions-intro-console) is automatically created and active after the server is installed\. The default console session is owned by `Administrator` and has a default session ID of `console`\. You can use this session or you can [close it](managing-sessions-lifecycle-stop.md) and create a new session\.
+
+If you chose to opt out of the automatic console session creation when you installed the NICE DCV server, you must create one manually\. After you install the NICE DCV server, you can enable or disable the [automatic console session creation](#managing-sessions-start-auto) at any time\.
 
 **Note**  
-Linux NICE DCV servers don't get a default console after installation\.
+Linux NICE DCV servers don't get a default console session after installation\.
 
-Assume that you use a floating license on an on\-premises or alternative cloud\-based server and exceed the maximum number of concurrent sessions that's upported by your license\. You might get a `no licenses` error\. If you get this error, stop an unused session to release the license and try again\.
+Assume that you use a floating license on an on\-premises or alternative cloud\-based server and exceed the maximum number of concurrent sessions that's supported by your license\. You might get a `no licenses` error\. If you get this error, stop an unused session to release the license and try again\.
 
 The NICE DCV server must be running to start a session\. For more information, see [Starting the NICE DCV Server](manage-start.md)\.
 
@@ -17,20 +19,45 @@ The NICE DCV server must be running to start a session\. For more information, s
 
 You can start a NICE DCV session at any time\. You can only run one console session at a time\. If you're using a Linux NICE DCV server, you can run multiple virtual sessions at the same time\.
 
+It's good practice to run `dcv list-sessions` before creating a session, especially if you're using Windows NICE DCV server\.
+
 To create a console or virtual session on a Windows or Linux NICE DCV server, use the `dcv create-session` command\.
 
 **Topics**
-+ [Syntax](#syntax)
-+ [Options](#options)
-+ [Examples](#managing-sessions-start-manual)
++ [Syntax](#managing-sessions-start-manual-syntax)
++ [Options](#managing-sessions-start-manual-options)
++ [Examples](#managing-sessions-start-manual-examples)
 
-### Syntax<a name="syntax"></a>
+### Syntax<a name="managing-sessions-start-manual-syntax"></a>
+
+The minimal syntax of the command to start a session is:
 
 ```
-dcv create-session --type console|virtual --name session_name --user username --owner owner_name --permissions-file /path_to/permissions_file --storage-root /path_to/storage_directory --gl on|off --max-concurrent-clients number_of_clients --init /path_to/init_script session_name
+dcv create-session session_ID
 ```
 
-### Options<a name="options"></a>
+The full syntax with all the options is:
+
+```
+dcv create-session \
+    --type console|virtual \
+    --name session_name \
+    --user username \
+    --owner owner_name \
+    --permissions-file /path_to/permissions_file \
+    --storage-root /path_to/storage_directory \
+    --gl on|off \
+    --max-concurrent-clients number_of_clients \
+    --init /path_to/init_script \
+    session_ID
+```
+
+**Note**  
+The `\` symbol represents the syntax to split a command in multiple lines\.
+
+You can also use `dcv create-session --help` to display a quick reference to the syntax\.
+
+### Options<a name="managing-sessions-start-manual-options"></a>
 
 The following options can be used with the `dcv create-session` command:
 
@@ -88,30 +115,47 @@ This option is supported with virtual sessions on Linux NICE DCV servers only\. 
 Type: String  
 Required: No
 
-### Examples<a name="managing-sessions-start-manual"></a>
+**`session ID`**  
+Provides an ID for your session at the end of the command\.  
+Type: String  
+Required: Yes
+
+### Examples<a name="managing-sessions-start-manual-examples"></a>
 
 **Example 1 \- Console session**  
-The following command creates a `console` session owned by `dcv-user` with a unique session ID of `my-session`, and a session name of `my graphics session`\. It also specifies a permissions file named `perm-file.txt`\.
+The following command creates a console session owned by `dcv-user` with a unique session ID of `my-session`, and a session name of `my graphics session`\. It also specifies a permissions file named `perm-file.txt`\.
 + Windows NICE DCV server
 
   ```
-  C:\> dcv create-session --owner dcv-user --name "my graphics session" --permissions-file perm-file.txt my-session
+  C:\> dcv create-session^
+      --owner dcv-user^
+      --name "my graphics session"^
+      --permissions-file perm-file.txt^
+      my-session
   ```
 + Linux NICE DCV server
 
   ```
-  $ sudo dcv create-session --type=console --owner dcv-user --name "my graphics session" --permissions-file perm-file.txt my-session
+  $ sudo dcv create-session \
+      --type=console \
+      --owner dcv-user \
+      --name "my graphics session" \
+      --permissions-file perm-file.txt \
+      my-session
   ```
 
 **Example 2 \- Virtual Session \(Linux NICE DCV servers only\)**  
-The following command creates a `virtual` session using the `root` user to impersonate the intended session owner, `dcv-user`\. The session is owned by `dcv-user` even though it is created by the root user\.
+The following command creates a virtual session using the root user to impersonate the intended session owner, `dcv-user`\. The session is owned by `dcv-user` even though it is created by the root user
 
 ```
-$ sudo dcv create-session --owner dcv-user --user dcv-user my-session
+$ sudo dcv create-session \
+    --owner dcv-user \
+    --user dcv-user \
+    my-session
 ```
 
 **Example 3 \- Virtual Session \(Linux NICE DCV servers only\)**  
-The following command creates a `virtual` session owned by the user who creates it:
+The following command creates a virtual session owned by the user who creates it:
 
 ```
 $ dcv create-session my-session

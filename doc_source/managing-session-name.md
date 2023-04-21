@@ -5,11 +5,11 @@ You can change the name of a running session at any time\. You can use the speci
 To change the name of a running session, use the `dcv set-name` command\. 
 
 **Topics**
-+ [Syntax](#syntax)
-+ [Options](#options)
++ [Syntax](#managing-session-name-syntax)
++ [Options](#managing-session-name-options)
 + [Examples](#example)
 
-## Syntax<a name="syntax"></a>
+## Syntax<a name="managing-session-name-syntax"></a>
 
 ```
 $ dcv set-name --session session_id --none |--name "session-name"
@@ -17,7 +17,7 @@ $ dcv set-name --session session_id --none |--name "session-name"
 
 You must specify either `--name` or `--none`\.
 
-## Options<a name="options"></a>
+## Options<a name="managing-session-name-options"></a>
 
 The following options can be used with the `dset-name` command\.
 

@@ -1,10 +1,19 @@
 # Enabling touchscreen and stylus support<a name="enable-stylus"></a>
 
-Touchscreens are supported on all of the supported Windows operating systems\. Styluses are supported only on Windows 10 and Windows Server 2019\. By default, the features are enabled on Windows NICE DCV servers\. No additional configuration is required\.
+**Note**  
+ USB redirection for touchscreen and stylus devices is not needed\. Also, no vendor drivers need to be installed on the NICE DCV server\.  
+NICE DCV supports touchscreen and stylus by using the native operating system APIs\.  
+Windows uses Windows Ink\.  
+Linux uses X11 input injection\.
++ **Windows servers support**
 
-Touchscreens and styluses are supported on all of the supported Linux operating systems\. The features are enabled by default on virtual sessions hosted on Linux NICE DCV servers\. However, some additional configuration is required to enable the features on console sessions hosted on Linux NICE DCV servers\.
+  Touchscreens are supported on all of the supported Windows operating systems\. Styluses are supported on all the supported Windows operating systems starting from Windows 10 and Windows 2019, they are not supported on Windows 2016, Windows 8\.1 and older versions\. By default, the features are enabled on Windows NICE DCV servers\. No additional configuration is required\. 
++ **Linux servers support**
 
-Stylus pen pressure and tilt events are supported only on the Windows, Linux, and macOS clients, and a web browser client that's running in a Chromium\-based web browser, such as Edge version 79 and later and Google Chrome\.
+  Touchscreens and styluses are supported on all of the supported Linux operating systems\. The features are enabled by default on virtual sessions hosted on Linux NICE DCV servers\. However, some additional configuration is required to enable the features on console sessions hosted on Linux NICE DCV servers\. 
+
+**Important**  
+ Touchscreen and stylus use with NICE DCV is enabled if the feature is supported *on both client and server*, and enabled on the server\. For information about client support, see [the client features](https://docs.aws.amazon.com/dcv/latest/userguide/client.html#client-features) in the *NICE DCV User Guide*\. 
 
 **To enable touchscreen and stylus support for console sessions hosted on a Linux NICE DCV server**
 
@@ -51,7 +60,7 @@ Stylus pen pressure and tilt events are supported only on the Windows, Linux, an
 1. Save the changes and close the file\.
 
 1. Restart the X server\.
-   + RHEL 7\.x/8\.x, CentOs 7\.x/8\.x, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
+   + RHEL, CentOS, Amazon Linux 2, Ubuntu 18\.x, and SUSE Linux Enterprise 12\.x
 
      ```
      $ sudo systemctl isolate multi-user.target

@@ -2,13 +2,13 @@
 
 You can use the `dcv get-screenshot` command to get a screenshot of the desktop for the running session\. 
 
-## Syntax<a name="syntax"></a>
+## Syntax<a name="managing-sessions-lifecycle-screenshot-syntax"></a>
 
 ```
 dcv get-screenshot --max-width pixels --max-height pixels --format JPEG|PNG --primary --json --output /path_to/destination session_name
 ```
 
-## Options<a name="syntax"></a>
+## Options<a name="managing-sessions-lifecycle-screenshot-options"></a>
 
 **`--max-width`**  
 Specifies the maximum width, in pixels, of the screenshot\. If you don't specify a width or a height, the screenshot uses the session's display resolution\. If you specify a height only, the width is automatically scaled to maintain the aspect ratio\.  

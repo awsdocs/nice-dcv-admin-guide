@@ -26,7 +26,9 @@ For more information about RLM, see the [Reprise Software](http://www.reprisesof
 
 **To install the RLM server on Windows**
 
-1. Download the RLM License Administration Bundle from the [Reprise Software website](http://www.reprisesoftware.com/admin/software-licensing-download.php)\.
+1. Download the RLM License Administration Bundle from the [Reprise Software website](http://www.reprisesoftware.com/admin/software-licensing.php)\.
+**Note**  
+The installation of the latest stable version of the RLM license Administration Bundle is recommended\.
 
 1. Install the RLM License Administration Bundle to `C:\RLM`\.
 
@@ -34,7 +36,9 @@ For more information about RLM, see the [Reprise Software](http://www.reprisesof
 
 **To install the RLM server on Linux**
 
-1. Download the RLM License Administration Bundle from the [Reprise Software website](http://www.reprisesoftware.com/admin/software-licensing-download.php)\.
+1. Download the RLM License Administration Bundle from the [Reprise Software website](http://www.reprisesoftware.com/admin/software-licensing.php)\.
+**Note**  
+The installation of the latest stable version of the RLM license Administration Bundle is recommended\.
 
 1. Create a user group and an `rlm` user\. This can be any valid user or service account\. We strongly recommend that you don't use the root account for this value\.
 
@@ -85,20 +89,63 @@ Make note of the host ID\. You need it for the next step\.
 
 ### Get the RLM server host ID on Linux<a name="hostid-rlm-linux"></a>
 
-**To get the server's host ID**  
-Navigate to `/opt/nice/rlm/`, and run the following command\.
+**To get the server's host ID, single return**
+
+1. Navigate to `/opt/nice/rlm/`\.
+
+1. Run the following command:
+
+   ```
+   $ ./rlmutil rlmhostid ether
+   ```
+
+   The command returns the RLM server's host ID for each network interface as follows\.
+
+1. Record the host ID\. You need it for the next step\.
+
+**Example**  
+This procedure was run and the following single ID was returned:  
 
 ```
-$ ./rlmutil rlmhostid ether
+Hostid of this machine: 0a1b2c3d4e5f
 ```
+This ID is then recorded and will be used to purchase the license for DCV\.
 
-The command returns the RLM server's host ID as follows\.
+**To get the server's host ID, multiple returns**
+
+1. Navigate to `/opt/nice/rlm/`\.
+
+1. Run the following command:
+
+   ```
+   $ ./rlmutil rlmhostid ether
+   ```
+
+   Multiple IDs will be returned in a list of IDs\.
+
+1. Run the following command\.
+
+   ```
+   iface=$(route -n | grep " UG " | tr -s " " | cut -d" " -f8)
+   ip link show $iface | grep link/ether | tr -s " " | cut -d" " -f3 | tr -d ":"
+   ```
+
+   The command should return the RLM server's host ID for the Gateway network interface\. 
+
+1. Record the host ID\. You need it for the next step\.
+
+**Example**  
+The procedure was run and multiple IDs were returned in a list of multiple ID’s:  
 
 ```
-Hostid of this machine: 06814example
+Hostid of this machine: 0a1b2c3d4e5f 1b2c3d4e5f6a 2c3d4e5f6a7b 3d4e5f6a7b8c
 ```
+The interface command is run and returns the following ID:  
 
-Record the host ID\. You need it for the next step\.
+```
+Hostid of this machine: 0a1b2c3d4e5f
+```
+This ID is then recorded and will be used to purchase the license for DCV\.
 
 ## Step 3: Purchase the perpetual license or subscription<a name="license-purchase"></a>
 
@@ -112,7 +159,7 @@ When you purchase a NICE DCV perpetual license or subscription, you receive a `l
 + The hostname of the RLM server\.
 + The host ID of the RLM server that you provided when you purchased the license\.
 + The TCP port number of the RLM server\. The default is `5053`\.
-+ The ISV port number\. This is an optional port where the RLM server listens for NICE DCV license requests\.
++ The ISV port number\. This is an optional port where the RLM server listens for NICE DCV license requests\. If not specified a random port is picked by RLM at startup\.
 + The NICE DCV products covered by the license, along with the following details for each product:
   + The major version that's covered by the license \(for example, `2017` for the 2017 NICE DCV products\)\.
   + The expiration date\. `Permanent` indicates that the license doesn't expire\.
@@ -146,9 +193,11 @@ LICENSE nice dcv-gl 2017 permanent 10 share=hi _ck=123454323x sig="1234567890abc
 **Warning**  
 The *RLM\_server\_host\_id* is the host ID that you provided when you purchased the license\. You cannot edit the *RLM\_server\_host\_id*\.
 
-1. \(Optional\) Add the ISV port number in the second line in the file, which starts with `ISV`, by adding `port=port_number`\.
+1. \(Optional\) Add the ISV port number in the line in file which starts with `ISV`, by adding `port=port_number`\. This port is required to enable communication with the DCV server\. 
 
-   If you don't want to specify an ISV port, omit `port=port_number`\. If you don't specify a port, a random port is used\. Using a random port might cause conflicts with your firewall configuration\.
+   If you don't want to specify an ISV port, omit `port=port_number`\. If you don't specify an ISV port, a random port is used by RLM at each startup\. 
+**Warning**  
+If you have a firewall setup preventing the use of a randomly selected port, you need to specify this port and configure the firewall to enable it, in addition to the RLM port specified in the `HOST` line\. 
 
 1. Save and close the file\.
 
@@ -352,6 +401,13 @@ The contents of the `rlm.log` file might vary slightly depending on the RLM serv
 
 Configure your NICE DCV server to use the RLM server\. To do this, you must configure the `license-file` configuration parameter on your NICE DCV server\.
 
+ The `license-file` parameter must be set with the specification of the RLM server to connect to, in the format `RLM_server_port@RLM_server`\. The RLM server can be either specified as a hostname or as an IP address\. If not configured explicitly, the RLM server port is by default `5053`\. 
+
+ In case multiple RLM servers are in use, you can specify a list of multiple RLM servers specifications, separated by `:` on Linux, by `;` on Windows\. Then the server will try to connect to each one in turn, until one connection can be established with the corrresponding RLM server\. This can be especially useful for example when using an RLM failover server to take over in case the primary RLM server is not reachable\. In this case you can specify the license in the format: `RLM_primary_server_port@RLM_primary_server:RLM_failover_server_port@RLM_failover_server` 
+
+**Note**  
+In case the NICE DCV Server is installed on Windows, you need to separate the entries in the specification with `;`\.
+
 **Topics**
 + [Windows NICE DCV Server configuration](#config-win)
 + [Linux NICE DCV Server configuration](#config-linux)
@@ -370,9 +426,7 @@ Configure your NICE DCV server to use the RLM server\. To do this, you must conf
 
    1. For **Name**, enter `license-file` and press **Enter**\.
 
-1. Open the **license\-file** parameter\. For **Value data**, enter the RLM server's port number and hostname in the `5053@RLM_server_hostname` format\.
-**Note**  
-You can use the RLM server IP address instead of its hostname\.
+1. Open the **license\-file** parameter\. For **Value data**, enter the RLM server's port number and hostname in the `RLM_server_port@RLM_server` format\. Check the note above if you need to setup connection to multiple RLM servers\. 
 
 1. Choose **OK** and close the Windows Registry Editor\.
 
@@ -382,14 +436,14 @@ You can use the RLM server IP address instead of its hostname\.
 
 1. Navigate to `/etc/dcv/` and open the `dcv.conf` with your preferred text editor\.
 
-1. Locate the `license-file` parameter in the `[license]` section\. Then, replace the existing path with theport and hostname of the RLM server in the `5053@RLM_server_hostname` format\.
+1. Locate the `license-file` parameter in the `[license]` section\. Then, replace the existing path with the port and hostname of the RLM server in the `RLM_server_port@RLM_server` format\.
 
    If there is no `license-file` parameter in the `[license]` section, add it manually using the following format:
 
    ```
-   license-file = "5053@RLM_server_hostname"
+   license-file = "RLM_server_port@RLM_server"
    ```
-**Note**  
-You can use the RLM server IP address instead of its hostname\.
+
+   Check the note above if you need to setup connection to multiple RLM servers\.
 
 1. Save and close the file\.

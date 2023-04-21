@@ -2,11 +2,8 @@
 
 You can stop the NICE DCV server at any time\. Stopping the server terminates all active NICE DCV sessions\. You can't start new sessions until after the server is restarted\.
 
-**Topics**
-+ [Stopping the server on Windows](#manage-stop-windows)
-+ [Stopping the server on Linux](#manage-stop-linux)
-
-## Stopping the NICE DCV Server on Windows<a name="manage-stop-windows"></a>
+------
+#### [ Windows NICE DCV server ]
 
 Manually stop the NICE DCV server using the Services snap\-in for the Microsoft Management Console\.
 
@@ -31,13 +28,14 @@ Disable automatic startup using the Services snap\-in for the Microsoft Manageme
 
 1. For **Startup service**, choose **Manual**\.
 
-## Stopping the NICE DCV Server on Linux<a name="manage-stop-linux"></a>
+------
+#### [ Linux NICE DCV server ]
 
 Stop the NICE DCV server using the command line\.
 
 **To stop the NICE DCV server on Linux**  
 Use the following commands:
-+ RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, and SUSE Linux Enterprise 12 
++ RHEL, CentOS, and SUSE Linux Enterprise 12 
 
   ```
   $ sudo systemctl stop dcvserver
@@ -47,8 +45,10 @@ Disable automatic NICE DCV server startup using the command line\.
 
 **To prevent the NICE DCV server from starting automatically on Linux**  
 Use the following commands:
-+ RHEL 7\.x/8\.x, CentOS 7\.x/8\.x, and SUSE Linux Enterprise 12 
++ RHEL, CentOS, and SUSE Linux Enterprise 12 
 
   ```
   $ sudo systemctl disable dcvserver
   ```
+
+------
